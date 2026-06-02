@@ -1,0 +1,83 @@
+{
+  "completed_goals": [
+    {
+      "id": "hyrox-rimini-2026",
+      "name": "HYROX Mixed Doubles",
+      "date": "2026-05-30",
+      "location": "Rimini Wellness",
+      "partner": "Vittoria",
+      "result": {
+        "time_official": "1:19:57",
+        "penalty_sec": 15,
+        "penalty_reason": "Passaggio sacca errato ai sandbag lunges con Vittoria",
+        "running_km": 8.7,
+        "running_time": "51:10",
+        "running_pace": "5:52/km",
+        "hr_avg": 162,
+        "hr_max": 183
+      },
+      "stazioni": [
+        { "name": "SkiErg",              "mattia": "500m",     "vittoria": "500m",    "note": null },
+        { "name": "Sled Push 152kg",     "mattia": "25m",      "vittoria": "25m",     "note": "troppa spinta" },
+        { "name": "Sled Pull 103kg",     "mattia": "37.5m",    "vittoria": "12.5m",   "note": null },
+        { "name": "Burpee Broad Jump",   "mattia": "50m",      "vittoria": "30m",     "note": null },
+        { "name": "Rowing",              "mattia": "600m",     "vittoria": "400m",    "note": null },
+        { "name": "Farmer Carry 2x24kg", "mattia": "100m",     "vittoria": "100m",    "note": null },
+        { "name": "Sandbag Lunges 20kg", "mattia": "50m",      "vittoria": "50m",     "note": "penalita' qui" },
+        { "name": "Wall Balls 6kg",      "mattia": "~50 reps", "vittoria": "~50 reps","note": null }
+      ],
+      "juan_note": "1:19:57 con 15\" di penalita'. Running solido nonostante 7km a piedi pre-gara e partenza pomeridiana. Errore tattico principale: troppa spinta sulle slitte nella prima meta', gambe finite poi. La penalita' ai sandbag lunges e' evitabile: piu' attenzione ai briefing pre-gara. Nei prossimi: sled push al 70-75%, conserva per burpee e wall balls."
+    }
+  ],
+  "weekly_reviews": [
+    {
+      "week": "2026-W23",
+      "monday_date": "2026-06-01",
+      "title": "Settimana 1 Spartan Prep · Recupero post-HYROX",
+      "juan_note": "Hyrox fatto. Tempo decente ma gambe bruciate sulle slitte. Si riparte con la testa sullo Spartan di settembre. Spartan e' diverso: terreno sconnesso, ostacoli, running lungo e faticoso. Le prossime 4 settimane sono di costruzione base: zona 2, forza funzionale, niente sprint. Il 5:46 di stamattina su 10km con FC a 155 dice ancora che la base aerobica va lavorata. Priorita' assoluta: abbassare la FC di 8-10 bpm a parita' di passo entro 8 settimane.",
+      "plan": [
+        { "day": "Lun", "date": "2026-06-01", "type": "rest", "label": "Riposo attivo",           "desc": "Recupero post-HYROX",                                                    "done": true  },
+        { "day": "Mar", "date": "2026-06-02", "type": "run",  "label": "Corsa Z2 · 10km",         "desc": "FC sotto 155 · passo 5:45-6:00/km",                                      "done": true  },
+        { "day": "Mer", "date": "2026-06-03", "type": "gym",  "label": "Forza funzionale · 50min","desc": "Squat 4x8 · trazioni 3xmax · hip thrust 3x12 · plank 3x45\"",            "done": false },
+        { "day": "Gio", "date": "2026-06-04", "type": "run",  "label": "Corsa + circuito · 60min","desc": "4km warm-up + 3x8' a 5:30/km rec 2' + 10min burpee/pull-up",             "done": false },
+        { "day": "Ven", "date": "2026-06-05", "type": "rest", "label": "Riposo o mobilita'",      "desc": "15min stretching hip flexors + foam roller gambe",                        "done": false },
+        { "day": "Sab", "date": "2026-06-06", "type": "long", "label": "Long run · 70-80min",     "desc": "Passo 5:45-6:05/km · FC sotto 158 · terreno vario se possibile",          "done": false },
+        { "day": "Dom", "date": "2026-06-07", "type": "rest", "label": "Riposo",                  "desc": null,                                                                      "done": false }
+      ]
+    }
+  ],
+  "session_comments": [
+    {
+      "date": "2026-06-02", "type": "Run", "rating": 4,
+      "juan_comment": "Buona uscita. 5:46 su 10km il giorno dopo Hyrox con FC a 155. Gambe rispondono. Zona 3 bassa, accettabile per oggi. Da qui in avanti voglio vedere quella FC scendere a parita' di passo. Corri lento, costruisci il motore."
+    },
+    {
+      "date": "2026-05-31", "type": "Run", "rating": 5,
+      "juan_comment": "Ottimo recupero attivo. 8:33/km con FC a 114 bpm. Questo e' esattamente quello che volevo il giorno dopo gara. Corpo che scarica senza stressare. Ben fatto."
+    },
+    {
+      "date": "2026-05-30", "type": "Run", "rating": 3,
+      "juan_comment": "1:19:57 ufficiale con 15\" di penalita'. Running solido: 8.7km in 51:10. Errore tattico sulle slitte. Nei prossimi Hyrox: sled push al 70-75%, conserva per burpee e wall balls. Con Vittoria avete gestito bene il ritmo di coppia."
+    },
+    {
+      "date": "2026-05-27", "type": "Run", "rating": 3,
+      "juan_comment": "Pre-gara. Scioltezza, niente di piu'. FC 144 su 4.6km a 6:35/km. Ok."
+    },
+    {
+      "date": "2026-05-21", "type": "Run", "rating": 3,
+      "juan_comment": "5:57/km con FC a 158 su 6.7km. Zona 3 ancora alta per una corsa moderata. Parti sempre troppo forte. Easy deve essere EASY: FC sotto 145."
+    },
+    {
+      "date": "2026-05-19", "type": "Run", "rating": 4,
+      "juan_comment": "6:00/km con FC 151 su 7.1km. Meglio. Zona 2-3 bassa. Questo e' il ritmo che voglio nei tuoi easy run. Continua."
+    },
+    {
+      "date": "2026-05-16", "type": "Workout", "rating": 5,
+      "juan_comment": "Simulazione Hyrox a corpo libero, 80 minuti, FC media 162. Intensita' giusta a 9 giorni dalla gara: ricordare al corpo cosa lo aspetta senza distruggerti. Adesso taper."
+    },
+    {
+      "date": "2026-05-15", "type": "Run", "rating": 3,
+      "juan_comment": "6:03/km, FC 154. Accettabile. Il passo easy oscilla tra 5:45 e 6:10 a seconda del giorno. Obiettivo: stabilizzarlo a 6:00-6:05 con FC costantemente sotto 150."
+    }
+  ]
+}

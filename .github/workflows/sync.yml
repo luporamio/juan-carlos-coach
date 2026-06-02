@@ -1,0 +1,37 @@
+name: Sync Strava
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # ogni giorno alle 8:00 ora italiana (UTC+2)
+  workflow_dispatch:        # trigger manuale dalla UI GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Installa dipendenze
+        run: pip install requests
+
+      - name: Sincronizza dati Strava
+        env:
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+        run: python generate_data.py
+
+      - name: Pubblica aggiornamento
+        run: |
+          git config user.email "jc-bot@github-actions"
+          git config user.name "Juan Carlos Bot"
+          git add data.json
+          git diff --staged --quiet || git commit -m "sync strava $(date +%Y-%m-%d)"
+          git push

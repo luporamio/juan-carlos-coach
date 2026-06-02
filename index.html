@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juan Carlos · Mattia Bonetti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: {
+        bg:'#080808', card:'#111111', border:'rgba(255,255,255,0.055)',
+        accent:'#FF6B35', blue:'#4F8EF7', green:'#10B981', amber:'#F59E0B', red:'#EF4444',
+        muted:'#555', dim:'#222',
+      },
+      fontFamily: { display:['Space Grotesk','sans-serif'], body:['DM Sans','sans-serif'] }
+    }}}
+  </script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:#080808;font-family:'DM Sans',sans-serif;color:#e8e8e8;min-height:100vh;overflow-x:hidden}
+
+    /* Ambient */
+    .glow-a{position:fixed;top:-20%;left:-10%;width:60%;height:60%;background:radial-gradient(ellipse,rgba(255,107,53,0.06),transparent 65%);pointer-events:none;z-index:0}
+    .glow-b{position:fixed;bottom:-15%;right:-5%;width:50%;height:50%;background:radial-gradient(ellipse,rgba(79,142,247,0.045),transparent 65%);pointer-events:none;z-index:0}
+
+    /* Cards */
+    .card{background:#111;border:1px solid rgba(255,255,255,0.055);border-radius:18px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s}
+    .card:hover{border-color:rgba(255,255,255,0.1);transform:translateY(-1px)}
+    .card-shine{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.018) 0%,transparent 55%);pointer-events:none;z-index:0}
+
+    /* Tabs */
+    .tab-nav{display:flex;gap:4px;overflow-x:auto;padding:2px 0;scrollbar-width:none}
+    .tab-nav::-webkit-scrollbar{display:none}
+    .tab-btn{padding:9px 18px;border-radius:10px;font-family:'Space Grotesk',sans-serif;font-size:.76rem;font-weight:600;color:#444;cursor:pointer;transition:all .18s;border:1px solid transparent;white-space:nowrap;background:none;letter-spacing:.02em}
+    .tab-btn.active{background:rgba(255,107,53,0.12);color:#FF6B35;border-color:rgba(255,107,53,0.22)}
+    .tab-btn:hover:not(.active){color:#bbb;background:rgba(255,255,255,0.04)}
+    .tab-panel{display:none;flex-direction:column;gap:1.1rem}
+    .tab-panel.active{display:flex}
+
+    /* Period btns */
+    .period-btn{padding:5px 14px;border-radius:99px;font-family:'Space Grotesk',sans-serif;font-size:.73rem;font-weight:600;border:1px solid rgba(255,255,255,0.07);color:#444;cursor:pointer;transition:all .18s;background:none;white-space:nowrap}
+    .period-btn.active{background:#FF6B35;color:#fff;border-color:#FF6B35;box-shadow:0 0 14px rgba(255,107,53,.28)}
+    .period-btn:hover:not(.active){border-color:rgba(255,255,255,.18);color:#ccc}
+
+    /* Labels */
+    .label{font-family:'Space Grotesk',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#444}
+    .num{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1}
+
+    /* Activity badges */
+    .badge{display:inline-flex;align-items:center;gap:3px;padding:2px 8px;border-radius:99px;font-size:.62rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;font-family:'Space Grotesk',sans-serif}
+
+    /* Icon box */
+    .icon-box{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+    /* Ring */
+    .ring-track{fill:none;stroke:rgba(255,255,255,0.055);stroke-width:5.5}
+    .ring-fill{fill:none;stroke-width:5.5;stroke-linecap:round;transition:stroke-dashoffset 1.3s cubic-bezier(.4,0,.2,1);transform:rotate(-90deg);transform-origin:center}
+
+    /* Zone bars */
+    .zone-bar{height:100%;border-radius:3px;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+
+    /* Plan sessions */
+    .sess{padding:11px 13px;border-radius:11px;background:rgba(255,255,255,0.018);border:1px solid rgba(255,255,255,0.048);display:flex;align-items:center;gap:11px}
+    .sess.done{border-color:rgba(16,185,129,.2);background:rgba(16,185,129,.035)}
+    .sess.today{border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.045)}
+
+    /* JC comment */
+    .jc-box{background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.12);border-radius:11px;padding:11px 13px;margin-top:8px}
+
+    /* Divider */
+    .div{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.055),transparent)}
+
+    /* Pulse */
+    .pulse{width:6px;height:6px;background:#10B981;border-radius:50%;animation:pu 2s infinite;box-shadow:0 0 0 0 rgba(16,185,129,.4)}
+    @keyframes pu{0%{box-shadow:0 0 0 0 rgba(16,185,129,.4)}70%{box-shadow:0 0 0 7px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+
+    /* Scrollbar */
+    ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:#0a0a0a}::-webkit-scrollbar-thumb{background:#1e1e1e;border-radius:3px}
+
+    /* Day cards */
+    .day-card{border-radius:12px;border:1px solid rgba(255,255,255,.048);padding:10px 6px;min-width:0;flex:1;text-align:center;transition:all .2s}
+    .day-card.today{border-color:rgba(255,107,53,.4);background:rgba(255,107,53,.06)}
+    .day-card.has-act{border-color:rgba(16,185,129,.18)}
+    .day-card.future{opacity:.4}
+
+    /* Filter chips */
+    .chip{padding:5px 13px;border-radius:99px;font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;border:1px solid rgba(255,255,255,.07);color:#444;cursor:pointer;transition:all .18s;background:none;white-space:nowrap}
+    .chip.active{background:rgba(255,255,255,.07);color:#ddd;border-color:rgba(255,255,255,.15)}
+    .chip:hover:not(.active){color:#999;border-color:rgba(255,255,255,.12)}
+
+    /* Hyrox station row */
+    .stn-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .stn-row:last-child{border-bottom:none}
+
+    @keyframes fade-up{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+<div class="glow-a"></div>
+<div class="glow-b"></div>
+
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-7" id="app">
+
+  <!-- ── HEADER ── -->
+  <div class="flex flex-col gap-4 mb-6">
+    <div class="flex items-center justify-between">
+      <div>
+        <p class="label mb-1">Juan Carlos Training System</p>
+        <h1 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-white">Mattia Bonetti</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="pulse"></div>
+        <span id="last-sync" class="text-xs font-body" style="color:#333">—</span>
+      </div>
+    </div>
+    <!-- Tab nav -->
+    <nav class="tab-nav">
+      <button class="tab-btn active" data-tab="obiettivi">🎯 Obiettivi</button>
+      <button class="tab-btn" data-tab="corsa">🏃 Corsa</button>
+      <button class="tab-btn" data-tab="piano">📋 Piano</button>
+      <button class="tab-btn" data-tab="log">📖 Log sessioni</button>
+      <button class="tab-btn" data-tab="nutrizione">🥗 Nutrizione</button>
+    </nav>
+  </div>
+
+  <!-- ══ TAB: OBIETTIVI ══ -->
+  <div id="tab-obiettivi" class="tab-panel active">
+
+    <!-- Lifetime quick stats -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">🏃 Km totali</p>
+        <div class="num text-3xl text-white" id="lt-km">—</div>
+        <p class="text-xs mt-1" style="color:#333">lifetime</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">📅 Attivita'</p>
+        <div class="num text-3xl text-white" id="lt-sess">—</div>
+        <p class="text-xs mt-1" style="color:#333">lifetime</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">⛰️ Dislivello</p>
+        <div class="num text-3xl text-white" id="lt-elev">—</div>
+        <p class="text-xs mt-1" style="color:#333">metri lifetime</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2" style="color:#F59E0B">🚀 Best pace</p>
+        <div class="num text-3xl" style="color:#F59E0B" id="lt-best">—</div>
+        <p class="text-xs mt-1" style="color:#333">min/km (5km+)</p>
+      </div>
+    </div>
+
+    <!-- Achievement HYROX Rimini -->
+    <div id="hyrox-achievement-card" class="card p-0" style="border-color:rgba(245,158,11,.22);background:linear-gradient(135deg,rgba(245,158,11,.065) 0%,#111 55%)">
+      <div class="card-shine"></div>
+      <div class="p-5 pb-4">
+        <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+          <div class="text-4xl leading-none flex-shrink-0">🏆</div>
+          <div class="flex-1 min-w-0">
+            <div class="flex flex-wrap items-center gap-2 mb-1">
+              <span class="label" style="color:#F59E0B">GARA COMPLETATA</span>
+              <span class="label" style="color:#333">30 Mag 2026</span>
+            </div>
+            <h2 class="font-display font-extrabold text-xl text-white mb-3">HYROX Mixed Doubles · Rimini Wellness</h2>
+            <div class="flex flex-wrap items-center gap-4">
+              <div>
+                <span class="num text-4xl" style="color:#F59E0B" id="hyrox-time">1:19:57</span>
+                <span class="text-xs ml-1.5" style="color:#666">+15" pen.</span>
+              </div>
+              <div class="h-10 w-px" style="background:rgba(255,255,255,.06)"></div>
+              <div class="grid grid-cols-3 gap-4 text-sm">
+                <div><p class="label mb-0.5">Running</p><p class="font-display font-bold text-white">8.7 km</p><p class="text-xs" style="color:#555">51:10 · 5:52/km</p></div>
+                <div><p class="label mb-0.5">FC media</p><p class="font-display font-bold text-white">162 bpm</p><p class="text-xs" style="color:#555">max 183 bpm</p></div>
+                <div><p class="label mb-0.5">Partner</p><p class="font-display font-bold text-white">Vittoria</p><p class="text-xs" style="color:#555">Mixed Doubles</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Stazioni breakdown -->
+      <div class="div mx-5"></div>
+      <div class="p-5 pt-4">
+        <p class="label mb-3">Divisione stazioni</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8" id="stazioni-table">
+          <!-- filled by JS -->
+        </div>
+        <div id="hyrox-jc-note" class="jc-box mt-4">
+          <p class="label mb-1.5" style="color:#FF6B35">💬 Juan Carlos</p>
+          <p class="text-sm font-body leading-relaxed" style="color:#999">—</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goals -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+      <!-- Spartan -->
+      <div class="card p-6">
+        <div class="card-shine"></div>
+        <div class="flex items-start gap-5">
+          <div class="relative flex-shrink-0" style="width:84px;height:84px">
+            <svg viewBox="0 0 84 84" width="84" height="84">
+              <circle class="ring-track" cx="42" cy="42" r="36"/>
+              <circle id="ring-spartan" class="ring-fill" cx="42" cy="42" r="36" stroke="#10B981" stroke-dasharray="226.19" stroke-dashoffset="226.19"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span id="ring-spartan-pct" class="font-display font-bold text-base" style="color:#10B981;line-height:1">0%</span>
+              <span style="font-size:.55rem;color:#444">prep</span>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <span class="label" style="color:#10B981">Prossimo obiettivo</span>
+            <h2 class="font-display font-extrabold text-lg text-white leading-tight mt-1 mb-1">🏔️ Spartan Race 10km</h2>
+            <p class="text-sm mb-4" style="color:#444">Misano · 18 settembre 2026</p>
+            <div class="flex items-end gap-2">
+              <span id="spartan-days" class="num text-4xl" style="color:#10B981">—</span>
+              <span class="text-sm pb-1" style="color:#444">giorni</span>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="flex justify-between mb-1.5">
+            <span class="text-xs" style="color:#333">Inizio prep · 1 Giu</span>
+            <span class="text-xs" style="color:#10B981" id="spartan-pct-lbl">0%</span>
+          </div>
+          <div class="h-1 rounded-full overflow-hidden" style="background:rgba(255,255,255,.05)">
+            <div id="bar-spartan" class="h-full rounded-full" style="width:0%;background:linear-gradient(90deg,#10B981,#34d399);transition:width 1.3s ease"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HYROX Doubles goal -->
+      <div class="card p-6">
+        <div class="card-shine"></div>
+        <div class="flex items-start gap-5">
+          <div class="relative flex-shrink-0" style="width:84px;height:84px">
+            <svg viewBox="0 0 84 84" width="84" height="84">
+              <circle class="ring-track" cx="42" cy="42" r="36"/>
+              <circle id="ring-hyrox2" class="ring-fill" cx="42" cy="42" r="36" stroke="#FF6B35" stroke-dasharray="226.19" stroke-dashoffset="226.19"/>
+            </svg>
+            <div class="absolute inset-0 flex flex-col items-center justify-center">
+              <span id="ring-hyrox2-pct" class="font-display font-bold text-base" style="color:#FF6B35;line-height:1">0%</span>
+              <span style="font-size:.55rem;color:#444">prep</span>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <span class="label" style="color:#FF6B35">Obiettivo con Vittoria</span>
+            <h2 class="font-display font-extrabold text-lg text-white leading-tight mt-1 mb-1">⚡ HYROX Mixed Doubles</h2>
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full mb-3" style="background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.2)">
+              <span class="font-display font-extrabold text-sm" style="color:#FF6B35">sub 1:10:00</span>
+              <span class="text-xs" style="color:#666">(-10 min da Rimini)</span>
+            </div>
+            <p class="text-sm mb-2" style="color:#444">TBD · 2027</p>
+            <div class="flex items-center gap-3">
+              <div>
+                <p class="label mb-0.5">PR attuale</p>
+                <p class="font-display font-bold text-sm text-white">1:19:57</p>
+              </div>
+              <div style="color:#333">→</div>
+              <div>
+                <p class="label mb-0.5" style="color:#FF6B35">Target</p>
+                <p class="font-display font-bold text-sm" style="color:#FF6B35">sub 1:10:00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4">
+          <div class="flex justify-between mb-1.5">
+            <span class="text-xs" style="color:#333">Inizio prep · 1 Giu</span>
+            <span class="text-xs" style="color:#FF6B35" id="hyrox2-pct-lbl">0%</span>
+          </div>
+          <div class="h-1 rounded-full overflow-hidden" style="background:rgba(255,255,255,.05)">
+            <div id="bar-hyrox2" class="h-full rounded-full" style="width:0%;background:linear-gradient(90deg,#FF6B35,#ff9a6c);transition:width 1.3s ease"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Attivita' per tipologia lifetime -->
+    <div>
+      <p class="label mb-3">Attivita' per tipologia · lifetime</p>
+      <div id="type-grid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3"></div>
+    </div>
+
+  </div><!-- /tab-obiettivi -->
+
+  <!-- ══ TAB: CORSA ══ -->
+  <div id="tab-corsa" class="tab-panel">
+
+    <!-- Period selector -->
+    <div class="flex items-center gap-3 flex-wrap">
+      <span class="label">Periodo</span>
+      <div class="flex gap-1.5 p-0.5 rounded-full" style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06)">
+        <button class="period-btn active" data-period="7d">7gg</button>
+        <button class="period-btn" data-period="30d">30gg</button>
+        <button class="period-btn" data-period="90d">90gg</button>
+        <button class="period-btn" data-period="365d">365gg</button>
+        <button class="period-btn" data-period="all">Tutto</button>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5">🏃 Km corsi</p>
+        <div class="num text-3xl text-white" id="s-km">—</div>
+        <p class="text-xs mt-0.5" style="color:#333" id="s-km-l">—</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5">📅 Sessioni</p>
+        <div class="num text-3xl text-white" id="s-sess">—</div>
+        <p class="text-xs mt-0.5" style="color:#333" id="s-sess-l">—</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5">⏱️ Passo medio</p>
+        <div class="num text-white" style="font-size:1.6rem" id="s-pace">—</div>
+        <p class="text-xs mt-0.5" style="color:#333" id="s-pace-l">min/km</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5">❤️ FC media</p>
+        <div class="num text-3xl text-white" id="s-hr">—</div>
+        <p class="text-xs mt-0.5" style="color:#333" id="s-hr-l">bpm</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5">⛰️ Dislivello</p>
+        <div class="num text-3xl text-white" id="s-elev">—</div>
+        <p class="text-xs mt-0.5" style="color:#333" id="s-elev-l">metri</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5" style="color:#F59E0B">🚀 Best pace</p>
+        <div class="num" style="font-size:1.6rem;color:#F59E0B" id="s-best">—</div>
+        <p class="text-xs mt-0.5" style="color:#333">min/km (5km+)</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5">📏 Max distanza</p>
+        <div class="num text-3xl text-white" id="s-longest">—</div>
+        <p class="text-xs mt-0.5" style="color:#333">km</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-1.5">🏃 Solo corse</p>
+        <div class="num text-3xl text-white" id="s-runs">—</div>
+        <p class="text-xs mt-0.5" style="color:#333" id="s-runs-l">—</p>
+      </div>
+    </div>
+
+    <!-- Volume mensile + distribuzione -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+      <div class="card p-5 lg:col-span-3"><div class="card-shine"></div>
+        <p class="label mb-4">📊 Volume mensile · 24 mesi</p>
+        <div style="height:195px"><canvas id="c-monthly"></canvas></div>
+      </div>
+      <div class="card p-5 lg:col-span-2"><div class="card-shine"></div>
+        <p class="label mb-4">📏 Distribuzione distanze</p>
+        <div style="height:195px"><canvas id="c-dist"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Passo nel tempo + Scatter -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="card p-5"><div class="card-shine"></div>
+        <div class="flex items-center justify-between mb-4">
+          <p class="label">📈 Passo nel tempo</p>
+          <span class="text-xs" style="color:#333">media mobile 5 corse</span>
+        </div>
+        <div style="height:215px"><canvas id="c-pace-time"></canvas></div>
+      </div>
+      <div class="card p-5"><div class="card-shine"></div>
+        <div class="flex items-center justify-between mb-4">
+          <p class="label">💓 Passo vs FC</p>
+          <span class="text-xs" style="color:#333">corse >2km</span>
+        </div>
+        <div style="height:215px"><canvas id="c-scatter"></canvas></div>
+      </div>
+    </div>
+
+    <!-- HR trend + Zones -->
+    <div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+      <div class="card p-5 lg:col-span-3"><div class="card-shine"></div>
+        <div class="flex items-center justify-between mb-4">
+          <p class="label">❤️ Evoluzione FC media</p>
+          <span class="text-xs" style="color:#333">corse >5km</span>
+        </div>
+        <div style="height:175px"><canvas id="c-hr-trend"></canvas></div>
+      </div>
+      <div class="card p-5 lg:col-span-2"><div class="card-shine"></div>
+        <p class="label mb-4">Zone cardiache</p>
+        <div id="zones-container" class="space-y-3"></div>
+      </div>
+    </div>
+
+  </div><!-- /tab-corsa -->
+
+  <!-- ══ TAB: PIANO ══ -->
+  <div id="tab-piano" class="tab-panel">
+
+    <!-- JC note -->
+    <div class="card p-6" style="border-color:rgba(255,107,53,.18);background:linear-gradient(135deg,rgba(255,107,53,.06),#111 60%)">
+      <div class="card-shine"></div>
+      <div class="flex items-start gap-4">
+        <div class="text-3xl flex-shrink-0">🏋️</div>
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <span class="label" style="color:#FF6B35">Juan Carlos</span>
+            <span id="piano-week-id" class="label" style="color:#333">—</span>
+          </div>
+          <h2 class="font-display font-bold text-lg text-white mb-3" id="piano-title">—</h2>
+          <p class="text-sm font-body leading-relaxed" style="color:#999;line-height:1.7" id="piano-note">—</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Piano giorni -->
+    <div class="card p-5"><div class="card-shine"></div>
+      <p class="label mb-4">🗓️ Piano settimana</p>
+      <div id="piano-days" class="space-y-2"></div>
+    </div>
+
+  </div><!-- /tab-piano -->
+
+  <!-- ══ TAB: LOG SESSIONI ══ -->
+  <div id="tab-log" class="tab-panel">
+
+    <!-- Settimana corrente strip -->
+    <div class="card p-5"><div class="card-shine"></div>
+      <div class="flex items-center justify-between mb-4">
+        <p class="label">📅 Settimana corrente</p>
+        <div id="week-summary" class="text-xs" style="color:#444"></div>
+      </div>
+      <div class="flex gap-2" id="week-strip"></div>
+    </div>
+
+    <!-- Filter chips -->
+    <div class="flex gap-2 flex-wrap">
+      <button class="chip active" data-filter="all">Tutto</button>
+      <button class="chip" data-filter="Run">🏃 Corsa</button>
+      <button class="chip" data-filter="Workout">💪 Workout</button>
+      <button class="chip" data-filter="WeightTraining">🏋️ Palestra</button>
+      <button class="chip" data-filter="Walk">🚶 Camminata</button>
+      <button class="chip" data-filter="other">Altro</button>
+    </div>
+
+    <!-- Sessions -->
+    <div id="log-container" class="space-y-3"></div>
+
+  </div><!-- /tab-log -->
+
+  <!-- ══ TAB: NUTRIZIONE ══ -->
+  <div id="tab-nutrizione" class="tab-panel">
+
+    <!-- Weight card -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div class="card p-5"><div class="card-shine"></div>
+        <p class="label mb-3">⚖️ Peso attuale</p>
+        <div class="flex items-end gap-2 mb-1">
+          <span class="num text-5xl text-white" id="n-weight">—</span>
+          <span class="text-lg mb-1" style="color:#555">kg</span>
+        </div>
+        <div class="flex items-center gap-3 mt-2">
+          <div>
+            <p class="label mb-0.5">Target</p>
+            <p class="font-display font-semibold text-sm" style="color:#10B981" id="n-target">—</p>
+          </div>
+          <div style="color:#333">·</div>
+          <div>
+            <p class="label mb-0.5">Delta</p>
+            <p class="font-display font-semibold text-sm" id="n-delta">—</p>
+          </div>
+        </div>
+      </div>
+      <div class="card p-5 lg:col-span-2"><div class="card-shine"></div>
+        <p class="label mb-4">📉 Andamento peso</p>
+        <div style="height:130px"><canvas id="c-weight"></canvas></div>
+      </div>
+    </div>
+
+    <!-- Principles -->
+    <div>
+      <p class="label mb-3">Principi alimentari</p>
+      <div id="principles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </div>
+
+    <!-- Health data placeholder -->
+    <div class="card p-6" style="border-style:dashed;border-color:rgba(255,255,255,.07)">
+      <div class="flex items-center gap-4">
+        <div class="text-3xl">📱</div>
+        <div>
+          <h3 class="font-display font-bold text-white mb-1">Dati salute · in arrivo</h3>
+          <p class="text-sm" style="color:#444">Connessione Amazfit Balance / Apple Health per FC riposo, sonno, SpO2, HRV. Sincronizzazione automatica prevista.</p>
+        </div>
+        <div class="ml-auto flex-shrink-0">
+          <span class="badge" style="background:rgba(79,142,247,.15);color:#4F8EF7">coming soon</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-nutrizione -->
+
+  <p class="text-center pt-5 pb-2 font-body" style="font-size:.65rem;color:#1e1e1e">Juan Carlos Training System · Mattia Bonetti · Strava sync</p>
+
+</div><!-- /app -->
+
+<script>
+/* ─── CONSTANTS ─── */
+const RING_CIRC = 226.19;
+const PREP_START = new Date("2026-06-01");
+const GOALS = {
+  spartan: { date: new Date("2026-09-18"), ringId:"ring-spartan", pctId:"ring-spartan-pct", barId:"bar-spartan", lblId:"spartan-pct-lbl", daysId:"spartan-days" },
+  hyrox2:  { date: new Date("2027-04-01"), ringId:"ring-hyrox2",  pctId:"ring-hyrox2-pct",  barId:"bar-hyrox2",  lblId:"hyrox2-pct-lbl",  daysId:null },
+};
+
+const TYPE_META = {
+  Run:             {label:"Corsa",    icon:"🏃",color:"rgba(255,107,53,.15)", text:"#FF6B35"},
+  VirtualRun:      {label:"Corsa",    icon:"🏃",color:"rgba(255,107,53,.15)", text:"#FF6B35"},
+  WeightTraining:  {label:"Palestra", icon:"🏋️",color:"rgba(79,142,247,.15)",text:"#4F8EF7"},
+  Workout:         {label:"Workout",  icon:"💪",color:"rgba(79,142,247,.15)", text:"#4F8EF7"},
+  Ride:            {label:"Bici",     icon:"🚴",color:"rgba(245,158,11,.15)", text:"#F59E0B"},
+  Walk:            {label:"Camminata",icon:"🚶",color:"rgba(100,116,139,.15)",text:"#94a3b8"},
+  Hike:            {label:"Hiking",   icon:"🥾",color:"rgba(16,185,129,.15)", text:"#10B981"},
+  Rowing:          {label:"Rowing",   icon:"🚣",color:"rgba(16,185,129,.15)", text:"#10B981"},
+  Swim:            {label:"Nuoto",    icon:"🏊",color:"rgba(79,142,247,.15)", text:"#4F8EF7"},
+  Surfing:         {label:"Surf",     icon:"🏄",color:"rgba(79,142,247,.15)", text:"#4F8EF7"},
+  AlpineSki:       {label:"Sci",      icon:"⛷️",color:"rgba(147,197,253,.15)",text:"#93c5fd"},
+  StandUpPaddling: {label:"SUP",      icon:"🏄",color:"rgba(16,185,129,.15)", text:"#10B981"},
+};
+const typeMeta = t => TYPE_META[t] || {label:t,icon:"🏅",color:"rgba(255,255,255,.07)",text:"#888"};
+
+const PLAN_COLORS = {
+  run:  {bg:"rgba(255,107,53,.07)",  border:"rgba(255,107,53,.22)", dot:"#FF6B35", icon:"🏃"},
+  gym:  {bg:"rgba(79,142,247,.07)",  border:"rgba(79,142,247,.22)", dot:"#4F8EF7", icon:"🏋️"},
+  long: {bg:"rgba(16,185,129,.07)",  border:"rgba(16,185,129,.22)", dot:"#10B981", icon:"🏃"},
+  rest: {bg:"rgba(255,255,255,.018)",border:"rgba(255,255,255,.05)",dot:"#333",    icon:"💤"},
+};
+
+const ZONE_META = {
+  z1:{label:"💤 Z1 Recupero",color:"#4F8EF7"},
+  z2:{label:"🟢 Z2 Aerobico",color:"#10B981"},
+  z3:{label:"🟡 Z3 Soglia",  color:"#F59E0B"},
+  z4:{label:"🟠 Z4 Lattato", color:"#F97316"},
+  z5:{label:"🔴 Z5 Massimale",color:"#EF4444"},
+};
+
+/* ─── UTILS ─── */
+const daysUntil = d => Math.max(0, Math.ceil((new Date(d) - Date.now()) / 86400000));
+const progPct = (s, e) => Math.min(100, Math.max(0, Math.round((Date.now() - new Date(s)) / (new Date(e) - new Date(s)) * 100)));
+const fmtDur = s => { const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sc=s%60; return h>0?`${h}:${String(m).padStart(2,"0")}:${String(sc).padStart(2,"0")}`:`${m}:${String(sc).padStart(2,"0")}`; };
+const fmtPace = s => s ? `${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}` : "—";
+const fmtTime = m => { if(!m)return"—"; const h=Math.floor(m/60),r=m%60; return h>0?`${h}h${r>0?" "+r+"m":""}`:r+"m"; };
+
+function countUp(el, target, dec=0) {
+  if(!el||target==null)return;
+  const dur=1100,t0=performance.now();
+  const tick=now=>{const p=Math.min((now-t0)/dur,1);const v=target*(1-Math.pow(1-p,3));el.textContent=dec?v.toFixed(dec):Math.round(v);if(p<1)requestAnimationFrame(tick);};
+  requestAnimationFrame(tick);
+}
+function setRing(id, pct, pctLblId) {
+  setTimeout(()=>{
+    const el=document.getElementById(id);
+    if(el) el.style.strokeDashoffset=RING_CIRC*(1-pct/100);
+    const lbl=document.getElementById(pctLblId);
+    if(lbl) countUp({set textContent(v){lbl.textContent=v+"%"}},pct);
+  },250);
+}
+
+/* ─── STATE ─── */
+let appData=null, coachData=null, nutriData=null;
+let currentPeriod="30d", logFilter="all";
+let charts={};
+let tabsRendered=new Set(["obiettivi"]);
+
+Chart.defaults.color="#444";
+Chart.defaults.font.family="DM Sans";
+const TOOLTIP_STYLE={backgroundColor:"#161616",borderColor:"rgba(255,255,255,.07)",borderWidth:1,titleColor:"#666",bodyColor:"#ddd",padding:10};
+
+/* ─── TAB SWITCH ─── */
+function switchTab(id){
+  document.querySelectorAll(".tab-panel").forEach(p=>p.classList.remove("active"));
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  document.getElementById("tab-"+id)?.classList.add("active");
+  document.querySelector(`[data-tab="${id}"]`)?.classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+  if(!tabsRendered.has(id)){
+    tabsRendered.add(id);
+    if(id==="corsa"&&appData){ renderCorsaCharts(); renderStats(currentPeriod); renderZones(currentPeriod); }
+    if(id==="piano"&&coachData) renderPiano();
+    if(id==="log"&&appData){ renderWeekStrip(); renderLog(); }
+    if(id==="nutrizione"&&nutriData) renderNutrizone();
+  }
+}
+
+/* ─── PERIOD SWITCH (Corsa tab) ─── */
+function switchPeriod(p){
+  currentPeriod=p;
+  document.querySelectorAll(".period-btn").forEach(b=>b.classList.toggle("active",b.dataset.period===p));
+  if(appData){ renderStats(p); renderZones(p); updateCorsaCharts(p); }
+}
+
+/* ─── OBIETTIVI TAB ─── */
+function renderObiettivi(){
+  const sa=appData.stats["all"];
+  countUp(document.getElementById("lt-km"), sa.total_km, 1);
+  countUp(document.getElementById("lt-sess"), sa.all_sessions);
+  countUp(document.getElementById("lt-elev"), sa.total_elevation);
+  document.getElementById("lt-best").textContent = fmtPace(sa.best_pace);
+
+  // Goals rings
+  for(const [key, g] of Object.entries(GOALS)){
+    const pct=progPct(PREP_START, g.date);
+    const days=daysUntil(g.date);
+    setRing(g.ringId, pct, g.pctId);
+    document.getElementById(g.barId).style.width=pct+"%";
+    document.getElementById(g.lblId).textContent=pct+"% prep";
+    if(g.daysId) countUp(document.getElementById(g.daysId), days);
+  }
+
+  // Type breakdown
+  const types=appData.stats_by_type["all"];
+  const grid=document.getElementById("type-grid");
+  grid.innerHTML="";
+  for(const [type,v] of Object.entries(types)){
+    if(v.sessions===0) continue;
+    const m=typeMeta(type);
+    grid.innerHTML+=`
+      <div class="card p-4"><div class="card-shine"></div>
+        <div class="flex items-center gap-3 mb-3">
+          <div class="icon-box" style="background:${m.color}"><span style="font-size:1.1rem">${m.icon}</span></div>
+          <div><p class="font-display font-semibold text-sm text-white">${m.label}</p><p class="text-xs" style="color:#444">${v.sessions} sessioni</p></div>
+        </div>
+        <div class="div mb-3"></div>
+        <div class="flex flex-wrap gap-3">
+          ${v.total_km>0?`<div><p class="label mb-0.5">Km</p><p class="font-display font-bold text-sm" style="color:${m.text}">${v.total_km}</p></div>`:""}
+          <div><p class="label mb-0.5">Tempo</p><p class="font-display font-bold text-sm" style="color:${m.text}">${fmtTime(v.total_time_min)}</p></div>
+          ${v.total_elevation>0?`<div><p class="label mb-0.5">D+</p><p class="font-display font-bold text-sm" style="color:#555">${v.total_elevation}m</p></div>`:""}
+        </div>
+      </div>`;
+  }
+}
+
+function renderHyroxCard(){
+  if(!coachData||!coachData.completed_goals||!coachData.completed_goals.length) return;
+  const g=coachData.completed_goals[0];
+  const tbl=document.getElementById("stazioni-table");
+  if(tbl){
+    tbl.innerHTML="";
+    g.stazioni.forEach(s=>{
+      const isNote=s.note;
+      tbl.innerHTML+=`
+        <div class="stn-row">
+          <span class="font-display font-semibold text-xs text-white" style="min-width:140px;flex-shrink:0">${s.name}</span>
+          <span class="text-xs" style="color:#FF6B35;min-width:64px">${s.mattia}</span>
+          <span class="text-xs" style="color:#888;min-width:64px">${s.vittoria}</span>
+          ${isNote?`<span class="badge" style="background:rgba(239,68,68,.12);color:#EF4444;font-size:.58rem">${s.note}</span>`:""}
+        </div>`;
+    });
+  }
+  const noteEl=document.querySelector("#hyrox-jc-note p:last-child");
+  if(noteEl) noteEl.textContent=g.juan_note;
+}
+
+/* ─── CORSA: STATS ─── */
+function renderStats(p){
+  const s=appData.stats[p];
+  const lblMap={"7d":"7 giorni","30d":"30 giorni","90d":"90 giorni","365d":"365 giorni","all":"lifetime"};
+  const lbl=lblMap[p]||p;
+  countUp(document.getElementById("s-km"), s.total_km, 1);
+  countUp(document.getElementById("s-sess"), s.all_sessions);
+  document.getElementById("s-pace").textContent=fmtPace(s.avg_pace);
+  countUp(document.getElementById("s-hr"), s.avg_hr||0);
+  countUp(document.getElementById("s-elev"), s.total_elevation||0);
+  document.getElementById("s-best").textContent=fmtPace(s.best_pace);
+  countUp(document.getElementById("s-longest"), s.longest_run||0, 1);
+  countUp(document.getElementById("s-runs"), s.run_sessions||0);
+  ["km","sess","hr","elev","runs"].forEach(k=>{
+    const el=document.getElementById(`s-${k}-l`);
+    if(el) el.textContent=lbl;
+  });
+}
+
+/* ─── CORSA: ZONES ─── */
+function renderZones(p){
+  const z=appData.hr_zones[p]||appData.hr_zones["90d"];
+  const c=document.getElementById("zones-container");
+  c.innerHTML="";
+  for(const [key,pct] of Object.entries(z)){
+    const {label,color}=ZONE_META[key]||{label:key,color:"#888"};
+    c.innerHTML+=`
+      <div>
+        <div class="flex justify-between mb-1"><span class="text-xs" style="color:#555">${label}</span><span class="font-display font-bold text-xs" style="color:${color}">${pct}%</span></div>
+        <div class="h-1.5 rounded-full overflow-hidden" style="background:rgba(255,255,255,.04)">
+          <div class="zone-bar" style="width:0%;background:${color}" data-t="${pct}"></div>
+        </div>
+      </div>`;
+  }
+  setTimeout(()=>c.querySelectorAll(".zone-bar").forEach(el=>el.style.width=el.dataset.t+"%"),80);
+}
+
+/* ─── CORSA: CHARTS ─── */
+const chartCfg=(extra={})=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,...(extra.tooltip||{})}},scales:{x:{grid:{display:false},ticks:{color:"#333",font:{size:9},...(extra.xTick||{})}},y:{grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#555",font:{size:10},...(extra.yTick||{})},...(extra.y||{})}},...(extra.scales||{}),...extra.opts});
+
+function renderCorsaCharts(){
+  const runs=appData.pace_trend["all"]||[];
+  const monthly=appData.monthly_volume||[];
+
+  // Monthly volume
+  const maxKm=Math.max(...monthly.map(m=>m.km));
+  charts.monthly=new Chart(document.getElementById("c-monthly").getContext("2d"),{
+    type:"bar",
+    data:{labels:monthly.map(m=>m.label),datasets:[{data:monthly.map(m=>m.km),backgroundColor:monthly.map(m=>m.km===maxKm?"#FF6B35":"rgba(255,107,53,.25)"),borderRadius:5,borderSkipped:false,hoverBackgroundColor:"#FF6B35"}]},
+    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>` ${ctx.raw.toFixed(1)} km`}},xTick:{maxRotation:45}})}
+  });
+
+  // Distance distribution
+  const buckets=[{l:"<3",min:0,max:3},{l:"3-5",min:3,max:5},{l:"5-8",min:5,max:8},{l:"8-10",min:8,max:10},{l:"10-15",min:10,max:15},{l:"15-21",min:15,max:21},{l:"21+",min:21,max:999}];
+  const bColors=["rgba(100,116,139,.5)","rgba(79,142,247,.5)","rgba(16,185,129,.5)","rgba(255,107,53,.55)","rgba(255,107,53,.75)","rgba(245,158,11,.65)","rgba(239,68,68,.65)"];
+  charts.dist=new Chart(document.getElementById("c-dist").getContext("2d"),{
+    type:"bar",
+    data:{labels:buckets.map(b=>b.l),datasets:[{data:buckets.map(b=>runs.filter(r=>r.km>=b.min&&r.km<b.max).length),backgroundColor:bColors,borderRadius:6,borderSkipped:false}]},
+    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>` ${ctx.raw} corse`}}})}
+  });
+
+  // Pace over time (full history)
+  const fRuns=runs.filter(r=>r.km>2);
+  const paces=fRuns.map(r=>r.pace_sec);
+  const roll=paces.map((_,i)=>{const w=paces.slice(Math.max(0,i-4),i+1);return +(w.reduce((a,b)=>a+b,0)/w.length/60).toFixed(3);});
+  charts.pace_time=new Chart(document.getElementById("c-pace-time").getContext("2d"),{
+    type:"line",
+    data:{labels:fRuns.map(r=>r.date),datasets:[
+      {data:fRuns.map(r=>+(r.pace_sec/60).toFixed(3)),borderColor:"rgba(255,107,53,.22)",backgroundColor:"transparent",tension:0,pointRadius:2,pointBackgroundColor:"rgba(255,107,53,.4)",yAxisID:"y"},
+      {data:roll,borderColor:"#FF6B35",backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,215);g.addColorStop(0,"rgba(255,107,53,.1)");g.addColorStop(1,"rgba(255,107,53,0)");return g;},fill:true,tension:0.4,pointRadius:0,borderWidth:2,yAxisID:"y"}
+    ]},
+    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>ctx.datasetIndex===0?` ${fmtPace(Math.round(ctx.raw*60))}/km`:` Media: ${fmtPace(Math.round(ctx.raw*60))}/km`}},y:{reverse:true,ticks:{color:"#FF6B35",callback:v=>{const m=Math.floor(v);const s=Math.round((v-m)*60);return `${m}:${String(s).padStart(2,"0")}`}}}})}
+  });
+
+  // Scatter
+  const pts=runs.filter(r=>r.hr&&r.km>2).map(r=>({x:r.hr,y:+(r.pace_sec/60).toFixed(3),km:r.km,date:r.date}));
+  charts.scatter=new Chart(document.getElementById("c-scatter").getContext("2d"),{
+    type:"scatter",
+    data:{datasets:[{data:pts,backgroundColor:pts.map(p=>{const n=Math.min(1,Math.max(0,(p.y-4.5)/(9.5-4.5)));return `rgba(${Math.round(n*230)},${Math.round((1-n)*155+50)},80,.65)`;}),pointRadius:5,pointHoverRadius:8}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>[` ${ctx.raw.date}  ${ctx.raw.km}km`,` Passo: ${fmtPace(Math.round(ctx.raw.y*60))}/km`,` FC: ${ctx.raw.x} bpm`]}}},scales:{x:{title:{display:true,text:"FC media (bpm)",color:"#444",font:{size:10}},grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#444"}},y:{title:{display:true,text:"Passo",color:"#444",font:{size:10}},grid:{color:"rgba(255,255,255,.03)"},reverse:true,ticks:{color:"#FF6B35",callback:v=>{const m=Math.floor(v);const s=Math.round((v-m)*60);return `${m}:${String(s).padStart(2,"0")}`}}}}}
+  });
+
+  // HR trend
+  const hRuns=runs.filter(r=>r.hr&&r.km>5);
+  charts.hr_trend=new Chart(document.getElementById("c-hr-trend").getContext("2d"),{
+    type:"line",
+    data:{labels:hRuns.map(r=>r.date),datasets:[{data:hRuns.map(r=>r.hr),borderColor:"#EF4444",backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,175);g.addColorStop(0,"rgba(239,68,68,.11)");g.addColorStop(1,"rgba(239,68,68,0)");return g;},fill:true,tension:0.3,pointRadius:2,pointBackgroundColor:"rgba(239,68,68,.45)",borderWidth:1.5}]},
+    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>[` FC: ${ctx.raw} bpm`,` ${hRuns[ctx.dataIndex]?.km} km`]}},yTick:{color:"#EF4444"},xTick:{maxTicksLimit:10},opts:{scales:{x:{grid:{display:false}},y:{suggestedMin:100,suggestedMax:185}}}})}
+  });
+
+  updateCorsaCharts(currentPeriod);
+}
+
+let chartTrend=null;
+function updateCorsaCharts(p){
+  const trend=appData.pace_trend[p]||[];
+  const ctx=document.getElementById("c-pace-time")?.getContext("2d");
+  // The main pace-over-time already shows all runs (static)
+  // Just re-render trend overlay if needed - for now period affects stats + zones
+}
+
+/* ─── PIANO TAB ─── */
+function renderPiano(){
+  if(!coachData||!coachData.weekly_reviews||!coachData.weekly_reviews.length) return;
+  const w=coachData.weekly_reviews[coachData.weekly_reviews.length-1];
+  const today=new Date().toISOString().slice(0,10);
+
+  document.getElementById("piano-week-id").textContent=w.week+" · "+w.monday_date;
+  document.getElementById("piano-title").textContent=w.title||"Piano settimana";
+  document.getElementById("piano-note").textContent=w.juan_note||"—";
+
+  const container=document.getElementById("piano-days");
+  container.innerHTML="";
+  w.plan.forEach(item=>{
+    const c=PLAN_COLORS[item.type]||PLAN_COLORS.rest;
+    const isToday=item.date===today, isDone=item.done;
+    const actual=isDone&&appData?appData.recent_activities.find(a=>a.date===item.date):null;
+    container.innerHTML+=`
+      <div class="sess ${isDone?"done":""} ${isToday?"today":""}" style="${isDone||isToday?"":`background:${c.bg};border-color:${c.border}`}">
+        <div style="width:7px;height:7px;border-radius:50%;background:${isDone?"#10B981":isToday?"#FF6B35":c.dot};flex-shrink:0"></div>
+        <div style="width:34px;flex-shrink:0"><span class="label" style="${isToday?"color:#FF6B35":""}">${item.day}</span></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-center gap-2 flex-wrap">
+            <span class="text-sm font-body ${isDone?"line-through":""}" style="${isDone?"color:#444":""}">${c.icon} ${item.label}</span>
+            ${isDone?`<span class="label" style="color:#10B981">✓</span>`:""}
+            ${isToday?`<span class="label" style="color:#FF6B35">oggi</span>`:""}
+          </div>
+          ${item.desc&&!isDone?`<p class="text-xs mt-0.5" style="color:#333">${item.desc}</p>`:""}
+          ${actual?`<p class="text-xs mt-0.5" style="color:#555">${typeMeta(actual.type).icon} ${actual.distance_km>0?actual.distance_km+"km":""} ${actual.duration_sec?fmtDur(actual.duration_sec):""} ${actual.hr_avg?"· ❤️ "+actual.hr_avg+" bpm":""}</p>`:""}
+        </div>
+        <span class="text-xs flex-shrink-0" style="color:#222">${item.date.slice(8)}</span>
+      </div>`;
+  });
+}
+
+/* ─── LOG TAB ─── */
+function renderWeekStrip(){
+  const week=appData.current_week;
+  const strip=document.getElementById("week-strip");
+  strip.innerHTML="";
+  let km=0,s=0;
+  week.forEach(d=>{
+    km+=d.total_km; s+=d.session_count;
+    const cls=d.is_today?"today":d.activities.length>0?"has-act":d.is_past?"":"future";
+    const icons=d.activities.slice(0,2).map(a=>typeMeta(a.type).icon).join("");
+    strip.innerHTML+=`
+      <div class="day-card ${cls}">
+        <p class="label mb-0.5" style="${d.is_today?"color:#FF6B35":"font-size:.6rem"}">${d.day}</p>
+        <p class="font-display font-bold text-sm ${d.is_today?"text-white":"text-muted"}">${d.day_num}</p>
+        <div class="my-1 min-h-[18px] flex items-center justify-center">
+          ${d.activities.length>0?`<span style="font-size:.9rem">${icons}</span>`:`<span style="color:#1a1a1a">·</span>`}
+        </div>
+        ${d.total_km>0?`<p class="font-display font-semibold" style="font-size:.62rem;color:${d.is_today?"#FF6B35":"#444"}">${d.total_km}km</p>`:""}
+      </div>`;
+  });
+  const sumEl=document.getElementById("week-summary");
+  if(sumEl) sumEl.textContent=`${km.toFixed(1)} km · ${s} sessioni`;
+}
+
+function renderLog(){
+  const comments=coachData?.session_comments||[];
+  const cMap={};
+  comments.forEach(c=>cMap[c.date+"_"+c.type]=c);
+
+  const activities=appData.recent_activities;
+  const container=document.getElementById("log-container");
+  container.innerHTML="";
+
+  const filterChip=["Run","Walk","VirtualRun"];
+  const OTHER_TYPES=["Ride","Hike","Surfing","AlpineSki","StandUpPaddling","Swim","Rowing"];
+
+  function visible(a){
+    if(logFilter==="all") return true;
+    if(logFilter==="other") return OTHER_TYPES.includes(a.type);
+    return a.type===logFilter;
+  }
+
+  activities.filter(visible).forEach(a=>{
+    const m=typeMeta(a.type);
+    const c=cMap[a.date+"_"+a.type];
+    const stars=c?("★".repeat(c.rating)+"☆".repeat(5-c.rating)):null;
+    container.innerHTML+=`
+      <div class="card p-4" style="${c?"border-color:rgba(255,107,53,.14)":""}">
+        <div class="card-shine"></div>
+        <div class="flex items-start gap-3">
+          <div class="icon-box flex-shrink-0" style="background:${m.color}"><span style="font-size:1rem">${m.icon}</span></div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center gap-2 flex-wrap mb-1">
+              <span class="font-display font-semibold text-sm text-white">${a.name}</span>
+              <span class="text-xs" style="color:#333">${a.date}</span>
+              ${a.distance_km>0?`<span class="badge" style="background:${m.color};color:${m.text}">${a.distance_km} km</span>`:""}
+              ${a.hr_avg?`<span class="text-xs" style="color:#555">❤️ ${a.hr_avg} bpm</span>`:""}
+              ${a.pace?`<span class="text-xs" style="color:#FF6B35">⏱️ ${a.pace}</span>`:""}
+              ${stars?`<span style="color:#F59E0B;font-size:.75rem;letter-spacing:1px">${stars}</span>`:""}
+            </div>
+            ${c?`<div class="jc-box"><p class="label mb-1" style="color:#FF6B35">💬 Juan Carlos</p><p class="text-sm font-body" style="color:#888;line-height:1.65">${c.juan_comment}</p></div>`:`<p class="text-xs mt-0.5" style="color:#1e1e1e">—</p>`}
+          </div>
+          <div class="text-right text-xs flex-shrink-0" style="color:#333">
+            <p class="font-display font-semibold text-white">${fmtDur(a.duration_sec)}</p>
+            ${a.elevation>0?`<p class="mt-0.5" style="color:#333">⛰️ ${a.elevation}m</p>`:""}
+          </div>
+        </div>
+      </div>`;
+  });
+  if(!activities.filter(visible).length){
+    container.innerHTML=`<p class="text-sm text-center py-8" style="color:#333">Nessuna attivita' nel filtro selezionato.</p>`;
+  }
+}
+
+/* ─── NUTRIZIONE TAB ─── */
+function renderNutrizone(){
+  const d=nutriData;
+  const curr=d.current_weight, targ=d.target_weight;
+  const delta=+(curr-targ).toFixed(1);
+
+  document.getElementById("n-weight").textContent=curr;
+  document.getElementById("n-target").textContent=targ+" kg";
+  const deltaEl=document.getElementById("n-delta");
+  deltaEl.textContent=(delta>0?"+":"")+delta+" kg";
+  deltaEl.style.color=delta>0?"#F59E0B":"#10B981";
+
+  // Weight chart
+  const wl=d.weight_log;
+  charts.weight=new Chart(document.getElementById("c-weight").getContext("2d"),{
+    type:"line",
+    data:{
+      labels:wl.map(w=>w.date.slice(5)),
+      datasets:[
+        {data:wl.map(w=>w.weight),borderColor:"#4F8EF7",backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,130);g.addColorStop(0,"rgba(79,142,247,.12)");g.addColorStop(1,"rgba(79,142,247,0)");return g;},fill:true,tension:0.4,pointRadius:4,pointBackgroundColor:"#4F8EF7",pointBorderColor:"#111",pointBorderWidth:2,borderWidth:2},
+        {data:wl.map(()=>targ),borderColor:"rgba(16,185,129,.3)",backgroundColor:"transparent",borderDash:[4,4],pointRadius:0,borderWidth:1.5}
+      ]
+    },
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>ctx.datasetIndex===0?` ${ctx.raw} kg`:` Target: ${targ} kg`}}},scales:{x:{grid:{display:false},ticks:{color:"#333",font:{size:9}}},y:{grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#444",font:{size:9}},suggestedMin:targ-1,suggestedMax:Math.max(...wl.map(w=>w.weight))+0.5}}}
+  });
+
+  // Principles
+  const grid=document.getElementById("principles-grid");
+  grid.innerHTML="";
+  d.principles.forEach(p=>{
+    const isHigh=p.priority==="alta";
+    grid.innerHTML+=`
+      <div class="card p-5" style="${isHigh?`border-color:rgba(255,255,255,.08)`:``}">
+        <div class="card-shine"></div>
+        <div class="flex items-start gap-3 mb-3">
+          <span class="text-2xl flex-shrink-0">${p.icon}</span>
+          <div>
+            <div class="flex items-center gap-2 mb-0.5">
+              <h3 class="font-display font-bold text-sm text-white">${p.title}</h3>
+              ${isHigh?`<span class="badge" style="background:rgba(239,68,68,.12);color:#EF4444">alta</span>`:""}
+            </div>
+            <p class="font-display font-semibold text-xs" style="color:${p.color}">${p.target}</p>
+          </div>
+        </div>
+        <p class="text-xs font-body leading-relaxed" style="color:#555">${p.desc}</p>
+      </div>`;
+  });
+}
+
+/* ─── INIT ─── */
+async function init(){
+  // Tabs
+  document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>switchTab(b.dataset.tab)));
+  // Period
+  document.querySelectorAll(".period-btn").forEach(b=>b.addEventListener("click",()=>switchPeriod(b.dataset.period)));
+  // Log filter
+  document.querySelectorAll(".chip").forEach(b=>b.addEventListener("click",()=>{
+    logFilter=b.dataset.filter;
+    document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+    b.classList.add("active");
+    if(tabsRendered.has("log")) renderLog();
+  }));
+
+  // Load data
+  try{
+    const [r1,r2,r3]=await Promise.allSettled([
+      fetch("data.json?"+Date.now()),
+      fetch("coaching.json?"+Date.now()),
+      fetch("nutrition.json?"+Date.now()),
+    ]);
+    if(r1.status==="fulfilled"&&r1.value.ok) appData=await r1.value.json();
+    if(r2.status==="fulfilled"&&r2.value.ok) coachData=await r2.value.json();
+    if(r3.status==="fulfilled"&&r3.value.ok) nutriData=await r3.value.json();
+  } catch(e){ console.error(e); }
+
+  if(appData){
+    document.getElementById("last-sync").textContent="sync "+appData.last_sync;
+    renderObiettivi();
+  }
+  if(coachData) renderHyroxCard();
+
+  // Animate cards
+  gsap.from(".card",{opacity:0,y:14,duration:0.4,stagger:0.05,ease:"power2.out"});
+}
+
+init();
+</script>
+</body>
+</html>

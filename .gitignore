@@ -1,0 +1,5 @@
+# Non committare mai segreti
+.strava_tokens.json
+*.env
+__pycache__/
+*.pyc

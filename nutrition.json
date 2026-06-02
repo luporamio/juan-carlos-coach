@@ -1,0 +1,73 @@
+{
+  "current_weight": 83.8,
+  "target_weight": 82.0,
+  "weight_unit": "kg",
+  "weight_log": [
+    { "date": "2026-04-01", "weight": 85.2, "note": null },
+    { "date": "2026-04-08", "weight": 84.8, "note": null },
+    { "date": "2026-04-15", "weight": 84.5, "note": null },
+    { "date": "2026-04-22", "weight": 84.0, "note": "avvicinamento gara" },
+    { "date": "2026-04-29", "weight": 83.8, "note": null },
+    { "date": "2026-05-06", "weight": 83.5, "note": "prep HYROX" },
+    { "date": "2026-05-13", "weight": 83.2, "note": null },
+    { "date": "2026-05-20", "weight": 83.0, "note": "taper week" },
+    { "date": "2026-05-28", "weight": 83.5, "note": "pre-gara" },
+    { "date": "2026-06-02", "weight": 83.8, "note": "post-HYROX" }
+  ],
+  "principles": [
+    {
+      "id": "protein",
+      "icon": "🥩",
+      "title": "Proteine 1.8-2g/kg",
+      "target": "150-165g / die",
+      "desc": "Con 83kg = 150-165g/die minimo. Distribuite su 4-5 pasti. Fonti prioritarie: carne magra, uova intere, pesce, ricotta, yogurt greco. Nas giorni di allenamento pesante: verso il limite superiore.",
+      "priority": "alta",
+      "color": "#FF6B35"
+    },
+    {
+      "id": "carbs",
+      "icon": "🍚",
+      "title": "Carbo attorno all'allenamento",
+      "target": "200-280g training day / 120-160g rest",
+      "desc": "Carica 1.5-2h prima dell'allenamento. Recupero entro 30min post con carbo+proteine. Nei giorni di riposo: riduzione del 40%. Fonti: riso, pasta, avena, patate dolci.",
+      "priority": "alta",
+      "color": "#4F8EF7"
+    },
+    {
+      "id": "hydration",
+      "icon": "💧",
+      "title": "Idratazione 35-40ml/kg",
+      "target": "2.9L base + 500ml/ora training",
+      "desc": "Con 83kg: minimo 2.9L/die a riposo. Aggiungi 500-750ml per ora di allenamento intenso. Se sesione >60min o caldo forte: aggiungi elettroliti (sodio, potassio, magnesio).",
+      "priority": "alta",
+      "color": "#10B981"
+    },
+    {
+      "id": "fats",
+      "icon": "🥑",
+      "title": "Grassi buoni 25-30%",
+      "target": "80-100g / die",
+      "desc": "Omega-3 anti-infiammatori fondamentali per il recupero post-allenamento. Fonti: olio EVO, pesce grasso (salmone, sgombro), avocado, noci, mandorle. Evita grassi trans e fritture.",
+      "priority": "media",
+      "color": "#F59E0B"
+    },
+    {
+      "id": "timing",
+      "icon": "⏱️",
+      "title": "Finestra anabolica post-allenamento",
+      "target": "Entro 30min",
+      "desc": "30-40g proteine + 60-80g carbo entro 30 minuti dalla fine. Anche un frullato va bene. Non saltare questo momento: e' quando il muscolo assorbe di piu'. Poi pasto completo entro 2h.",
+      "priority": "alta",
+      "color": "#EF4444"
+    },
+    {
+      "id": "calories",
+      "icon": "🔥",
+      "title": "Bilancio calorico per performance",
+      "target": "2800-3200 training / 2200-2400 rest",
+      "desc": "Obiettivo: performance atletica, non deficit calorico aggressivo. Non tagliare i carbo nei giorni di allenamento intenso. Il deficit calorico (se necessario per il peso) si fa nei giorni di riposo.",
+      "priority": "media",
+      "color": "#F97316"
+    }
+  ]
+}
