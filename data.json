@@ -21,7 +21,7 @@
       "prep_start": "2026-06-01"
     }
   ],
-  "last_sync": "2026-06-02 19:08",
+  "last_sync": "2026-06-03 11:00",
   "stats": {
     "7d": {
       "total_km": 31.8,
@@ -4187,8 +4187,8 @@
       "day": "Mar",
       "day_num": 2,
       "month": "Giu",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [
         {
           "date": "2026-06-02",
@@ -4227,7 +4227,7 @@
       "day": "Mer",
       "day_num": 3,
       "month": "Giu",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
