@@ -173,24 +173,39 @@
               </div>
               <div class="h-10 w-px" style="background:rgba(255,255,255,.06)"></div>
               <div class="grid grid-cols-3 gap-4 text-sm">
-                <div><p class="label mb-0.5">Running</p><p class="font-display font-bold text-white">8.7 km</p><p class="text-xs" style="color:#555">51:10 · 5:52/km</p></div>
-                <div><p class="label mb-0.5">FC media</p><p class="font-display font-bold text-white">162 bpm</p><p class="text-xs" style="color:#555">max 183 bpm</p></div>
-                <div><p class="label mb-0.5">Partner</p><p class="font-display font-bold text-white">Vittoria</p><p class="text-xs" style="color:#555">Mixed Doubles</p></div>
+                <div><p class="label mb-0.5">Running</p><p class="font-display font-bold text-white">8.7 km · 44:51</p><p class="text-xs" style="color:#555">avg run 5:36/km</p></div>
+                <div><p class="label mb-0.5">FC media</p><p class="font-display font-bold text-white">162 bpm</p><p class="text-xs" style="color:#555">max 183 · rank #595</p></div>
+                <div><p class="label mb-0.5">Partner</p><p class="font-display font-bold text-white">Vittoria</p><p class="text-xs" style="color:#555">rank cat. #108</p></div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- Stazioni breakdown -->
+      <!-- Splits + stazioni -->
       <div class="div mx-5"></div>
-      <div class="p-5 pt-4">
-        <p class="label mb-3">Divisione stazioni</p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8" id="stazioni-table">
-          <!-- filled by JS -->
+      <div class="p-5 pt-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- Split times -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <p class="label">Split times</p>
+            <div class="flex gap-3 text-xs" style="color:#555">
+              <span id="hyrox-run-total">—</span>
+              <span style="color:#222">·</span>
+              <span id="hyrox-func-total">—</span>
+            </div>
+          </div>
+          <div id="splits-table"></div>
         </div>
-        <div id="hyrox-jc-note" class="jc-box mt-4">
-          <p class="label mb-1.5" style="color:#FF6B35">💬 Juan Carlos</p>
-          <p class="text-sm font-body leading-relaxed" style="color:#999">—</p>
+
+        <!-- Stazioni breakdown + note JC -->
+        <div>
+          <p class="label mb-3">Divisione con Vittoria</p>
+          <div id="stazioni-table" class="space-y-0.5"></div>
+          <div id="hyrox-jc-note" class="jc-box mt-4">
+            <p class="label mb-1.5" style="color:#FF6B35">💬 Juan Carlos</p>
+            <p class="text-sm font-body leading-relaxed" style="color:#999">—</p>
+          </div>
         </div>
       </div>
     </div>
@@ -642,20 +657,47 @@ function renderObiettivi(){
 function renderHyroxCard(){
   if(!coachData||!coachData.completed_goals||!coachData.completed_goals.length) return;
   const g=coachData.completed_goals[0];
-  const tbl=document.getElementById("stazioni-table");
-  if(tbl){
-    tbl.innerHTML="";
-    g.stazioni.forEach(s=>{
-      const isNote=s.note;
-      tbl.innerHTML+=`
-        <div class="stn-row">
-          <span class="font-display font-semibold text-xs text-white" style="min-width:140px;flex-shrink:0">${s.name}</span>
-          <span class="text-xs" style="color:#FF6B35;min-width:64px">${s.mattia}</span>
-          <span class="text-xs" style="color:#888;min-width:64px">${s.vittoria}</span>
-          ${isNote?`<span class="badge" style="background:rgba(239,68,68,.12);color:#EF4444;font-size:.58rem">${s.note}</span>`:""}
+  const r=g.result;
+
+  // Totali running/funzionale
+  const runTotEl=document.getElementById("hyrox-run-total");
+  const fnTotEl=document.getElementById("hyrox-func-total");
+  if(runTotEl) runTotEl.textContent="🏃 Running: "+r.running_total;
+  if(fnTotEl)  fnTotEl.textContent="💪 Stazioni: "+r.functional_total;
+
+  // Split times
+  const splitsEl=document.getElementById("splits-table");
+  if(splitsEl && g.splits){
+    splitsEl.innerHTML="";
+    g.splits.forEach(s=>{
+      const isRun=s.type==="run";
+      splitsEl.innerHTML+=`
+        <div class="flex items-center justify-between py-1.5 border-b" style="border-color:rgba(255,255,255,.04)">
+          <div class="flex items-center gap-2">
+            <span style="font-size:.7rem;width:14px;text-align:center">${isRun?"🏃":"💪"}</span>
+            <span class="text-xs font-body" style="color:${isRun?"#bbb":"#888"}">${s.segment}</span>
+            ${s.note?`<span class="badge" style="background:rgba(239,68,68,.1);color:#EF4444;font-size:.55rem">${s.note}</span>`:""}
+          </div>
+          <span class="font-display font-bold text-xs" style="color:${isRun?"#FF6B35":"#F59E0B"}">${s.time}</span>
         </div>`;
     });
   }
+
+  // Stazioni con partner
+  const tbl=document.getElementById("stazioni-table");
+  if(tbl && g.stazioni){
+    tbl.innerHTML="";
+    g.stazioni.forEach(s=>{
+      tbl.innerHTML+=`
+        <div class="stn-row">
+          <span class="font-display font-semibold text-xs text-white" style="min-width:130px;flex-shrink:0">${s.name}</span>
+          <span class="text-xs" style="color:#FF6B35;min-width:56px">${s.mattia}</span>
+          <span class="text-xs" style="color:#666;min-width:56px">${s.vittoria}</span>
+          ${s.note?`<span class="badge" style="background:rgba(239,68,68,.1);color:#EF4444;font-size:.55rem">${s.note}</span>`:""}
+        </div>`;
+    });
+  }
+
   const noteEl=document.querySelector("#hyrox-jc-note p:last-child");
   if(noteEl) noteEl.textContent=g.juan_note;
 }
@@ -665,18 +707,20 @@ function renderStats(p){
   const s=appData.stats[p];
   const lblMap={"7d":"7 giorni","30d":"30 giorni","90d":"90 giorni","365d":"365 giorni","all":"lifetime"};
   const lbl=lblMap[p]||p;
-  countUp(document.getElementById("s-km"), s.total_km, 1);
-  countUp(document.getElementById("s-sess"), s.all_sessions);
+  countUp(document.getElementById("s-km"),      s.total_km,       1);
+  countUp(document.getElementById("s-sess"),    s.run_sessions||0);
   document.getElementById("s-pace").textContent=fmtPace(s.avg_pace);
-  countUp(document.getElementById("s-hr"), s.avg_hr||0);
-  countUp(document.getElementById("s-elev"), s.total_elevation||0);
+  countUp(document.getElementById("s-hr"),      s.avg_hr||0);
+  countUp(document.getElementById("s-elev"),    s.total_elevation||0);
   document.getElementById("s-best").textContent=fmtPace(s.best_pace);
-  countUp(document.getElementById("s-longest"), s.longest_run||0, 1);
-  countUp(document.getElementById("s-runs"), s.run_sessions||0);
-  ["km","sess","hr","elev","runs"].forEach(k=>{
+  countUp(document.getElementById("s-longest"), s.longest_run||0,  1);
+  countUp(document.getElementById("s-runs"),    s.all_sessions||0);
+  ["km","sess","hr","elev"].forEach(k=>{
     const el=document.getElementById(`s-${k}-l`);
     if(el) el.textContent=lbl;
   });
+  const rl=document.getElementById("s-runs-l");
+  if(rl) rl.textContent="totali "+lbl;
 }
 
 /* ─── CORSA: ZONES ─── */
@@ -701,64 +745,73 @@ function renderZones(p){
 const chartCfg=(extra={})=>({responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,...(extra.tooltip||{})}},scales:{x:{grid:{display:false},ticks:{color:"#333",font:{size:9},...(extra.xTick||{})}},y:{grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#555",font:{size:10},...(extra.yTick||{})},...(extra.y||{})}},...(extra.scales||{}),...extra.opts});
 
 function renderCorsaCharts(){
-  const runs=appData.pace_trend["all"]||[];
   const monthly=appData.monthly_volume||[];
 
-  // Monthly volume
+  // Volume mensile (statico, mostra sempre 24 mesi)
   const maxKm=Math.max(...monthly.map(m=>m.km));
   charts.monthly=new Chart(document.getElementById("c-monthly").getContext("2d"),{
     type:"bar",
     data:{labels:monthly.map(m=>m.label),datasets:[{data:monthly.map(m=>m.km),backgroundColor:monthly.map(m=>m.km===maxKm?"#FF6B35":"rgba(255,107,53,.25)"),borderRadius:5,borderSkipped:false,hoverBackgroundColor:"#FF6B35"}]},
-    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>` ${ctx.raw.toFixed(1)} km`}},xTick:{maxRotation:45}})}
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>` ${ctx.raw.toFixed(1)} km · ${monthly[ctx.dataIndex]?.sessions||""} corse`}}},scales:{x:{grid:{display:false},ticks:{color:"#333",font:{size:9},maxRotation:45}},y:{grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#444",font:{size:11}}}}}
   });
 
-  // Distance distribution
-  const buckets=[{l:"<3",min:0,max:3},{l:"3-5",min:3,max:5},{l:"5-8",min:5,max:8},{l:"8-10",min:8,max:10},{l:"10-15",min:10,max:15},{l:"15-21",min:15,max:21},{l:"21+",min:21,max:999}];
-  const bColors=["rgba(100,116,139,.5)","rgba(79,142,247,.5)","rgba(16,185,129,.5)","rgba(255,107,53,.55)","rgba(255,107,53,.75)","rgba(245,158,11,.65)","rgba(239,68,68,.65)"];
-  charts.dist=new Chart(document.getElementById("c-dist").getContext("2d"),{
-    type:"bar",
-    data:{labels:buckets.map(b=>b.l),datasets:[{data:buckets.map(b=>runs.filter(r=>r.km>=b.min&&r.km<b.max).length),backgroundColor:bColors,borderRadius:6,borderSkipped:false}]},
-    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>` ${ctx.raw} corse`}}})}
-  });
+  // Grafici dinamici (passo, scatter, FC, dist) - basati sul periodo corrente
+  updateCorsaCharts(currentPeriod);
+}
 
-  // Pace over time (full history)
+function updateCorsaCharts(p){
+  if(!tabsRendered.has("corsa")) return; // charts non ancora inizializzati
+  const runs=appData.pace_trend[p]||[];
+
+  // Passo nel tempo
+  if(charts.pace_time){ charts.pace_time.destroy(); charts.pace_time=null; }
   const fRuns=runs.filter(r=>r.km>2);
   const paces=fRuns.map(r=>r.pace_sec);
   const roll=paces.map((_,i)=>{const w=paces.slice(Math.max(0,i-4),i+1);return +(w.reduce((a,b)=>a+b,0)/w.length/60).toFixed(3);});
   charts.pace_time=new Chart(document.getElementById("c-pace-time").getContext("2d"),{
     type:"line",
     data:{labels:fRuns.map(r=>r.date),datasets:[
-      {data:fRuns.map(r=>+(r.pace_sec/60).toFixed(3)),borderColor:"rgba(255,107,53,.22)",backgroundColor:"transparent",tension:0,pointRadius:2,pointBackgroundColor:"rgba(255,107,53,.4)",yAxisID:"y"},
+      {data:fRuns.map(r=>+(r.pace_sec/60).toFixed(3)),borderColor:"rgba(255,107,53,.22)",backgroundColor:"transparent",tension:0,pointRadius:fRuns.length<30?3:1.5,pointBackgroundColor:"rgba(255,107,53,.4)",yAxisID:"y"},
       {data:roll,borderColor:"#FF6B35",backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,215);g.addColorStop(0,"rgba(255,107,53,.1)");g.addColorStop(1,"rgba(255,107,53,0)");return g;},fill:true,tension:0.4,pointRadius:0,borderWidth:2,yAxisID:"y"}
     ]},
-    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>ctx.datasetIndex===0?` ${fmtPace(Math.round(ctx.raw*60))}/km`:` Media: ${fmtPace(Math.round(ctx.raw*60))}/km`}},y:{reverse:true,ticks:{color:"#FF6B35",callback:v=>{const m=Math.floor(v);const s=Math.round((v-m)*60);return `${m}:${String(s).padStart(2,"0")}`}}}})}
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:"index",intersect:false},
+      plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>ctx.datasetIndex===0?` ${fmtPace(Math.round(ctx.raw*60))}/km`:` Media: ${fmtPace(Math.round(ctx.raw*60))}/km`}}},
+      scales:{x:{grid:{display:false},ticks:{color:"#333",font:{size:9},maxTicksLimit:12}},y:{grid:{color:"rgba(255,255,255,.03)"},reverse:true,ticks:{color:"#FF6B35",callback:v=>{const m=Math.floor(v);const s=Math.round((v-m)*60);return `${m}:${String(s).padStart(2,"0")}`}}}}}
   });
 
-  // Scatter
+  // Scatter passo vs FC
+  if(charts.scatter){ charts.scatter.destroy(); charts.scatter=null; }
   const pts=runs.filter(r=>r.hr&&r.km>2).map(r=>({x:r.hr,y:+(r.pace_sec/60).toFixed(3),km:r.km,date:r.date}));
   charts.scatter=new Chart(document.getElementById("c-scatter").getContext("2d"),{
     type:"scatter",
     data:{datasets:[{data:pts,backgroundColor:pts.map(p=>{const n=Math.min(1,Math.max(0,(p.y-4.5)/(9.5-4.5)));return `rgba(${Math.round(n*230)},${Math.round((1-n)*155+50)},80,.65)`;}),pointRadius:5,pointHoverRadius:8}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>[` ${ctx.raw.date}  ${ctx.raw.km}km`,` Passo: ${fmtPace(Math.round(ctx.raw.y*60))}/km`,` FC: ${ctx.raw.x} bpm`]}}},scales:{x:{title:{display:true,text:"FC media (bpm)",color:"#444",font:{size:10}},grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#444"}},y:{title:{display:true,text:"Passo",color:"#444",font:{size:10}},grid:{color:"rgba(255,255,255,.03)"},reverse:true,ticks:{color:"#FF6B35",callback:v=>{const m=Math.floor(v);const s=Math.round((v-m)*60);return `${m}:${String(s).padStart(2,"0")}`}}}}}
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>[` ${ctx.raw.date}  ${ctx.raw.km}km`,` Passo: ${fmtPace(Math.round(ctx.raw.y*60))}/km`,` FC: ${ctx.raw.x} bpm`]}}},
+      scales:{x:{title:{display:true,text:"FC media (bpm)",color:"#444",font:{size:10}},grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#444"}},y:{title:{display:true,text:"Passo",color:"#444",font:{size:10}},grid:{color:"rgba(255,255,255,.03)"},reverse:true,ticks:{color:"#FF6B35",callback:v=>{const m=Math.floor(v);const s=Math.round((v-m)*60);return `${m}:${String(s).padStart(2,"0")}`}}}}}
   });
 
-  // HR trend
+  // FC nel tempo
+  if(charts.hr_trend){ charts.hr_trend.destroy(); charts.hr_trend=null; }
   const hRuns=runs.filter(r=>r.hr&&r.km>5);
   charts.hr_trend=new Chart(document.getElementById("c-hr-trend").getContext("2d"),{
     type:"line",
-    data:{labels:hRuns.map(r=>r.date),datasets:[{data:hRuns.map(r=>r.hr),borderColor:"#EF4444",backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,175);g.addColorStop(0,"rgba(239,68,68,.11)");g.addColorStop(1,"rgba(239,68,68,0)");return g;},fill:true,tension:0.3,pointRadius:2,pointBackgroundColor:"rgba(239,68,68,.45)",borderWidth:1.5}]},
-    options:{...chartCfg({tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>[` FC: ${ctx.raw} bpm`,` ${hRuns[ctx.dataIndex]?.km} km`]}},yTick:{color:"#EF4444"},xTick:{maxTicksLimit:10},opts:{scales:{x:{grid:{display:false}},y:{suggestedMin:100,suggestedMax:185}}}})}
+    data:{labels:hRuns.map(r=>r.date),datasets:[{data:hRuns.map(r=>r.hr),borderColor:"#EF4444",backgroundColor:ctx=>{const g=ctx.chart.ctx.createLinearGradient(0,0,0,175);g.addColorStop(0,"rgba(239,68,68,.11)");g.addColorStop(1,"rgba(239,68,68,0)");return g;},fill:true,tension:0.3,pointRadius:hRuns.length<30?3:1.5,pointBackgroundColor:"rgba(239,68,68,.45)",borderWidth:1.5}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>[` FC: ${ctx.raw} bpm`,` ${hRuns[ctx.dataIndex]?.km} km`]}}},
+      scales:{x:{grid:{display:false},ticks:{color:"#333",maxTicksLimit:12,font:{size:9}}},y:{grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#EF4444"},suggestedMin:100,suggestedMax:185}}}
   });
 
-  updateCorsaCharts(currentPeriod);
-}
-
-let chartTrend=null;
-function updateCorsaCharts(p){
-  const trend=appData.pace_trend[p]||[];
-  const ctx=document.getElementById("c-pace-time")?.getContext("2d");
-  // The main pace-over-time already shows all runs (static)
-  // Just re-render trend overlay if needed - for now period affects stats + zones
+  // Distribuzione distanze
+  if(charts.dist){ charts.dist.destroy(); charts.dist=null; }
+  const buckets=[{l:"<3",min:0,max:3},{l:"3-5",min:3,max:5},{l:"5-8",min:5,max:8},{l:"8-10",min:8,max:10},{l:"10-15",min:10,max:15},{l:"15-21",min:15,max:21},{l:"21+",min:21,max:999}];
+  const bColors=["rgba(100,116,139,.5)","rgba(79,142,247,.5)","rgba(16,185,129,.5)","rgba(255,107,53,.55)","rgba(255,107,53,.75)","rgba(245,158,11,.65)","rgba(239,68,68,.65)"];
+  charts.dist=new Chart(document.getElementById("c-dist").getContext("2d"),{
+    type:"bar",
+    data:{labels:buckets.map(b=>b.l),datasets:[{data:buckets.map(b=>runs.filter(r=>r.km>=b.min&&r.km<b.max).length),backgroundColor:bColors,borderRadius:6,borderSkipped:false}]},
+    options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{...TOOLTIP_STYLE,callbacks:{label:ctx=>` ${ctx.raw} corse`}}},
+      scales:{x:{grid:{display:false},ticks:{color:"#444",font:{size:11}}},y:{grid:{color:"rgba(255,255,255,.03)"},ticks:{color:"#444",font:{size:11},stepSize:1}}}}
+  });
 }
 
 /* ─── PIANO TAB ─── */
