@@ -12,8 +12,11 @@ import requests
 from datetime import datetime, timedelta
 from collections import defaultdict
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOKENS_FILE = os.path.join(BASE_DIR, ".strava_tokens.json")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+TOKENS_FILE = os.path.join(
+    os.path.expanduser("~/MY_OS/AGENTI/COACH_ATLETICO"),
+    ".strava_tokens.json"
+)
 OUTPUT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data.json")
 
 DAYS_BACK = 3650  # ~10 anni: prende tutto lo storico
@@ -22,8 +25,8 @@ RUN_TYPES = {"Run", "VirtualRun"}
 GOALS = [
     {"name": "Spartan Race 10km", "location": "Misano", "date": "2026-09-18",
      "target": None, "icon": "mountain", "prep_start": "2026-06-01"},
-    {"name": "Hyrox Single", "location": "TBD", "date": "2026-11-14",
-     "target": "sub 1:10:00", "icon": "zap", "prep_start": "2026-06-01"},
+    {"name": "Hyrox Mixed Doubles · Milano", "location": "Milano", "date": "2026-12-06",
+     "target": "sub 1:10:00", "icon": "zap", "prep_start": "2026-06-01", "partner": "Vittoria"},
 ]
 
 DAY_NAMES_IT = ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"]
@@ -324,7 +327,7 @@ def build_data(activities):
             "365d": build_stats_by_type(filter_acts("365d")),
             "all":  build_stats_by_type(activities),
         },
-        "recent_activities": all_clean[:20],
+        "recent_activities": all_clean[:200],
         "current_week": build_current_week(activities),
     }
 

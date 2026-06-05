@@ -1,4 +1,4 @@
-name: Sync Strava
+name: Sync Strava + Juan Carlos Comments
 
 on:
   schedule:

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Juan Carlos · Mattia Bonetti</title>
+  <title>AI-ROX · Dashboard · Mattia Bonetti</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -109,7 +109,7 @@
   <div class="flex flex-col gap-4 mb-6">
     <div class="flex items-center justify-between">
       <div>
-        <p class="label mb-1">Juan Carlos Training System</p>
+        <p class="label mb-1"><span style="color:#FF6B35">AI</span>-ROX · Dashboard</p>
         <h1 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-white">Mattia Bonetti</h1>
       </div>
       <div class="flex items-center gap-2">
@@ -269,7 +269,7 @@
               <span class="font-display font-extrabold text-sm" style="color:#FF6B35">sub 1:10:00</span>
               <span class="text-xs" style="color:#666">(-10 min da Rimini)</span>
             </div>
-            <p class="text-sm mb-2" style="color:#444">TBD · 2027</p>
+            <p class="text-sm mb-2" style="color:#444">Milano · 5-6 Dic 2026</p>
             <div class="flex items-center gap-3">
               <div>
                 <p class="label mb-0.5">PR attuale</p>
@@ -412,8 +412,14 @@
   <!-- ══ TAB: PIANO ══ -->
   <div id="tab-piano" class="tab-panel">
 
+    <!-- Selector settimane -->
+    <div class="flex items-center gap-3 flex-wrap">
+      <span class="label">Settimana</span>
+      <div class="flex gap-1.5 flex-wrap" id="week-selector"></div>
+    </div>
+
     <!-- JC note -->
-    <div class="card p-6" style="border-color:rgba(255,107,53,.18);background:linear-gradient(135deg,rgba(255,107,53,.06),#111 60%)">
+    <div class="card p-5" style="border-color:rgba(255,107,53,.18);background:linear-gradient(135deg,rgba(255,107,53,.06),#111 60%)">
       <div class="card-shine"></div>
       <div class="flex items-start gap-4">
         <div class="text-3xl flex-shrink-0">🏋️</div>
@@ -422,16 +428,21 @@
             <span class="label" style="color:#FF6B35">Juan Carlos</span>
             <span id="piano-week-id" class="label" style="color:#333">—</span>
           </div>
-          <h2 class="font-display font-bold text-lg text-white mb-3" id="piano-title">—</h2>
-          <p class="text-sm font-body leading-relaxed" style="color:#999;line-height:1.7" id="piano-note">—</p>
+          <h2 class="font-display font-bold text-base text-white mb-2" id="piano-title">—</h2>
+          <p class="text-sm font-body leading-relaxed" style="color:#666;line-height:1.7" id="piano-note">—</p>
         </div>
       </div>
     </div>
 
-    <!-- Piano giorni -->
+    <!-- Tabella settimana -->
     <div class="card p-5"><div class="card-shine"></div>
-      <p class="label mb-4">🗓️ Piano settimana</p>
-      <div id="piano-days" class="space-y-2"></div>
+      <div class="hidden md:grid pb-3 mb-1" style="grid-template-columns:64px 1fr 1fr 1.4fr;gap:12px;border-bottom:1px solid rgba(255,255,255,.05)">
+        <span class="label">Giorno</span>
+        <span class="label">Piano JC</span>
+        <span class="label">Log reale</span>
+        <span class="label">Commento · Rating</span>
+      </div>
+      <div id="piano-rows"></div>
     </div>
 
   </div><!-- /tab-piano -->
@@ -514,7 +525,7 @@
 
   </div><!-- /tab-nutrizione -->
 
-  <p class="text-center pt-5 pb-2 font-body" style="font-size:.65rem;color:#1e1e1e">Juan Carlos Training System · Mattia Bonetti · Strava sync</p>
+  <p class="text-center pt-5 pb-2 font-body" style="font-size:.65rem;color:#1e1e1e">AI-ROX · Mattia Bonetti · Strava sync</p>
 
 </div><!-- /app -->
 
@@ -524,7 +535,7 @@ const RING_CIRC = 226.19;
 const PREP_START = new Date("2026-06-01");
 const GOALS = {
   spartan: { date: new Date("2026-09-18"), ringId:"ring-spartan", pctId:"ring-spartan-pct", barId:"bar-spartan", lblId:"spartan-pct-lbl", daysId:"spartan-days" },
-  hyrox2:  { date: new Date("2027-04-01"), ringId:"ring-hyrox2",  pctId:"ring-hyrox2-pct",  barId:"bar-hyrox2",  lblId:"hyrox2-pct-lbl",  daysId:null },
+  hyrox2:  { date: new Date("2026-12-06"), ringId:"ring-hyrox2",  pctId:"ring-hyrox2-pct",  barId:"bar-hyrox2",  lblId:"hyrox2-pct-lbl",  daysId:null },
 };
 
 const TYPE_META = {
@@ -582,7 +593,7 @@ function setRing(id, pct, pctLblId) {
 
 /* ─── STATE ─── */
 let appData=null, coachData=null, nutriData=null;
-let currentPeriod="30d", logFilter="all";
+let currentPeriod="30d", logFilter="all", currentWeekIdx=0;
 let charts={};
 let tabsRendered=new Set(["obiettivi"]);
 
@@ -600,7 +611,7 @@ function switchTab(id){
   if(!tabsRendered.has(id)){
     tabsRendered.add(id);
     if(id==="corsa"&&appData){ renderCorsaCharts(); renderStats(currentPeriod); renderZones(currentPeriod); }
-    if(id==="piano"&&coachData) renderPiano();
+    if(id==="piano"&&coachData){ currentWeekIdx=coachData.weekly_reviews.length-1; renderWeekSelector(); renderPiano(); }
     if(id==="log"&&appData){ renderWeekStrip(); renderLog(); }
     if(id==="nutrizione"&&nutriData) renderNutrizone();
   }
@@ -815,35 +826,111 @@ function updateCorsaCharts(p){
 }
 
 /* ─── PIANO TAB ─── */
+function renderWeekSelector(){
+  if(!coachData?.weekly_reviews?.length) return;
+  const sel=document.getElementById("week-selector");
+  if(!sel) return;
+  sel.innerHTML="";
+  [...coachData.weekly_reviews].reverse().forEach((w,i)=>{
+    const realIdx=coachData.weekly_reviews.length-1-i;
+    const btn=document.createElement("button");
+    btn.className="period-btn"+(realIdx===currentWeekIdx?" active":"");
+    const short=w.monday_date.slice(5)+" · "+w.title.split("·")[0].trim().split(" ").slice(0,3).join(" ");
+    btn.textContent=short;
+    btn.onclick=()=>{ currentWeekIdx=realIdx; renderPiano(); };
+    sel.appendChild(btn);
+  });
+}
+
 function renderPiano(){
-  if(!coachData||!coachData.weekly_reviews||!coachData.weekly_reviews.length) return;
-  const w=coachData.weekly_reviews[coachData.weekly_reviews.length-1];
+  if(!coachData?.weekly_reviews?.length) return;
+  const w=coachData.weekly_reviews[currentWeekIdx];
   const today=new Date().toISOString().slice(0,10);
+
+  // Aggiorna selector
+  document.querySelectorAll("#week-selector .period-btn").forEach((b,i)=>{
+    const realIdx=coachData.weekly_reviews.length-1-i;
+    b.classList.toggle("active", realIdx===currentWeekIdx);
+  });
 
   document.getElementById("piano-week-id").textContent=w.week+" · "+w.monday_date;
   document.getElementById("piano-title").textContent=w.title||"Piano settimana";
   document.getElementById("piano-note").textContent=w.juan_note||"—";
 
-  const container=document.getElementById("piano-days");
-  container.innerHTML="";
-  w.plan.forEach(item=>{
-    const c=PLAN_COLORS[item.type]||PLAN_COLORS.rest;
-    const isToday=item.date===today, isDone=item.done;
-    const actual=isDone&&appData?appData.recent_activities.find(a=>a.date===item.date):null;
-    container.innerHTML+=`
-      <div class="sess ${isDone?"done":""} ${isToday?"today":""}" style="${isDone||isToday?"":`background:${c.bg};border-color:${c.border}`}">
-        <div style="width:7px;height:7px;border-radius:50%;background:${isDone?"#10B981":isToday?"#FF6B35":c.dot};flex-shrink:0"></div>
-        <div style="width:34px;flex-shrink:0"><span class="label" style="${isToday?"color:#FF6B35":""}">${item.day}</span></div>
-        <div class="flex-1 min-w-0">
-          <div class="flex items-center gap-2 flex-wrap">
-            <span class="text-sm font-body ${isDone?"line-through":""}" style="${isDone?"color:#444":""}">${c.icon} ${item.label}</span>
-            ${isDone?`<span class="label" style="color:#10B981">✓</span>`:""}
-            ${isToday?`<span class="label" style="color:#FF6B35">oggi</span>`:""}
-          </div>
-          ${item.desc&&!isDone?`<p class="text-xs mt-0.5" style="color:#333">${item.desc}</p>`:""}
-          ${actual?`<p class="text-xs mt-0.5" style="color:#555">${typeMeta(actual.type).icon} ${actual.distance_km>0?actual.distance_km+"km":""} ${actual.duration_sec?fmtDur(actual.duration_sec):""} ${actual.hr_avg?"· ❤️ "+actual.hr_avg+" bpm":""}</p>`:""}
+  // Date range settimana
+  const sundayDate=new Date(w.monday_date);
+  sundayDate.setDate(sundayDate.getDate()+6);
+  const sundayStr=sundayDate.toISOString().slice(0,10);
+
+  // Mappa attività reali per data
+  const weekActs=(appData?.recent_activities||[]).filter(a=>a.date>=w.monday_date&&a.date<=sundayStr);
+  const actsByDate={};
+  weekActs.forEach(a=>{ (actsByDate[a.date]=actsByDate[a.date]||[]).push(a); });
+
+  // Mappa commenti JC
+  const cMap={};
+  (coachData?.session_comments||[]).forEach(c=>cMap[c.date+"_"+c.type]=c);
+
+  // Tabella righe
+  const rows=document.getElementById("piano-rows");
+  rows.innerHTML="";
+
+  w.plan.forEach((item,idx)=>{
+    const pc=PLAN_COLORS[item.type]||PLAN_COLORS.rest;
+    const isToday=item.date===today;
+    const dayActs=actsByDate[item.date]||[];
+    const bestComment=dayActs.map(a=>cMap[a.date+"_"+a.type]).find(Boolean)||null;
+    const stars=bestComment?("★".repeat(bestComment.rating)+"☆".repeat(5-bestComment.rating)):null;
+
+    // Colonna log: tutte le attività del giorno
+    const logHtml=dayActs.length?dayActs.map(a=>{
+      const m=typeMeta(a.type);
+      return `<div class="flex items-center gap-1.5 flex-wrap">
+        <span style="font-size:.85rem">${m.icon}</span>
+        <span class="font-display font-semibold text-xs text-white">${a.distance_km>0?a.distance_km+"km":fmtDur(a.duration_sec)}</span>
+        ${a.pace?`<span class="text-xs" style="color:#FF6B35">${a.pace}</span>`:""}
+        ${a.hr_avg?`<span class="text-xs" style="color:#666">❤️${a.hr_avg}</span>`:""}
+        ${!a.pace&&a.duration_sec&&a.distance_km>0?`<span class="text-xs" style="color:#444">${fmtDur(a.duration_sec)}</span>`:""}
+      </div>`;
+    }).join(""):`<span class="text-xs" style="color:#222">—</span>`;
+
+    rows.innerHTML+=`
+      <div style="display:grid;grid-template-columns:64px 1fr 1fr 1.4fr;gap:12px;align-items:start;padding:12px 0;border-bottom:1px solid rgba(255,255,255,${idx<w.plan.length-1?".04":"0"})"
+           class="piano-row${isToday?" today-row":""}">
+
+        <!-- Giorno -->
+        <div class="flex flex-col">
+          <span class="label" style="${isToday?"color:#FF6B35":""}">${item.day}</span>
+          <span class="font-display font-bold text-lg" style="color:${isToday?"#FF6B35":"#fff"};line-height:1">${item.date.slice(8)}</span>
         </div>
-        <span class="text-xs flex-shrink-0" style="color:#222">${item.date.slice(8)}</span>
+
+        <!-- Piano (expandable) -->
+        <div>
+          <details>
+            <summary style="list-style:none;cursor:pointer;user-select:none">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <div style="width:6px;height:6px;border-radius:50%;flex-shrink:0;background:${pc.dot}"></div>
+                <span class="text-xs font-body" style="color:${item.done?"#444":"#bbb"};${item.done?"text-decoration:line-through":""}">${pc.icon} ${item.label}</span>
+                ${item.done?`<span class="label" style="color:#10B981">✓</span>`:""}
+                ${item.desc?`<span style="font-size:.58rem;color:#333">▸</span>`:""}
+              </div>
+            </summary>
+            ${item.desc?`<p class="mt-1.5 text-xs font-body leading-relaxed" style="color:#444;padding-left:12px">${item.desc}</p>`:""}
+          </details>
+        </div>
+
+        <!-- Log reale -->
+        <div class="space-y-1">${logHtml}</div>
+
+        <!-- JC commento + rating -->
+        <div>
+          ${bestComment?`
+            <div class="flex items-center gap-1.5 mb-1">
+              <span style="color:#F59E0B;font-size:.7rem;letter-spacing:1px">${stars}</span>
+            </div>
+            <p class="text-xs font-body leading-relaxed" style="color:#666">${bestComment.juan_comment}</p>
+          `:`<span class="text-xs" style="color:#1e1e1e">—</span>`}
+        </div>
       </div>`;
   });
 }
@@ -908,7 +995,7 @@ function renderLog(){
               ${a.pace?`<span class="text-xs" style="color:#FF6B35">⏱️ ${a.pace}</span>`:""}
               ${stars?`<span style="color:#F59E0B;font-size:.75rem;letter-spacing:1px">${stars}</span>`:""}
             </div>
-            ${c?`<div class="jc-box"><p class="label mb-1" style="color:#FF6B35">💬 Juan Carlos</p><p class="text-sm font-body" style="color:#888;line-height:1.65">${c.juan_comment}</p></div>`:`<p class="text-xs mt-0.5" style="color:#1e1e1e">—</p>`}
+            <div class="jc-box"><p class="label mb-1" style="color:#FF6B35">💬 Juan Carlos</p><p class="text-sm font-body" style="color:${c?"#888":"#252525"};line-height:1.65">${c?c.juan_comment:"Nessuna nota per questa sessione."}</p></div>
           </div>
           <div class="text-right text-xs flex-shrink-0" style="color:#333">
             <p class="font-display font-semibold text-white">${fmtDur(a.duration_sec)}</p>
