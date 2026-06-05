@@ -121,8 +121,7 @@
     <nav class="tab-nav">
       <button class="tab-btn active" data-tab="obiettivi">🎯 Obiettivi</button>
       <button class="tab-btn" data-tab="corsa">🏃 Corsa</button>
-      <button class="tab-btn" data-tab="piano">📋 Piano</button>
-      <button class="tab-btn" data-tab="log">📖 Log sessioni</button>
+      <button class="tab-btn" data-tab="piano">📋 Piano & Log</button>
       <button class="tab-btn" data-tab="nutrizione">🥗 Nutrizione</button>
     </nav>
   </div>
@@ -409,8 +408,17 @@
 
   </div><!-- /tab-corsa -->
 
-  <!-- ══ TAB: PIANO ══ -->
+  <!-- ══ TAB: PIANO & LOG ══ -->
   <div id="tab-piano" class="tab-panel">
+
+    <!-- Settimana corrente strip -->
+    <div class="card p-5"><div class="card-shine"></div>
+      <div class="flex items-center justify-between mb-4">
+        <p class="label">📅 Settimana corrente</p>
+        <div id="week-summary" class="text-xs" style="color:#444"></div>
+      </div>
+      <div class="flex gap-2" id="week-strip"></div>
+    </div>
 
     <!-- Selector settimane -->
     <div class="flex items-center gap-3 flex-wrap">
@@ -445,18 +453,10 @@
       <div id="piano-rows"></div>
     </div>
 
-  </div><!-- /tab-piano -->
-
-  <!-- ══ TAB: LOG SESSIONI ══ -->
-  <div id="tab-log" class="tab-panel">
-
-    <!-- Settimana corrente strip -->
-    <div class="card p-5"><div class="card-shine"></div>
-      <div class="flex items-center justify-between mb-4">
-        <p class="label">📅 Settimana corrente</p>
-        <div id="week-summary" class="text-xs" style="color:#444"></div>
-      </div>
-      <div class="flex gap-2" id="week-strip"></div>
+    <!-- Storico attività -->
+    <div class="flex items-center gap-3 mt-2">
+      <span class="label">Storico attivita'</span>
+      <div style="flex:1;height:1px;background:rgba(255,255,255,.05)"></div>
     </div>
 
     <!-- Filter chips -->
@@ -472,7 +472,7 @@
     <!-- Sessions -->
     <div id="log-container" class="space-y-3"></div>
 
-  </div><!-- /tab-log -->
+  </div><!-- /tab-piano -->
 
   <!-- ══ TAB: NUTRIZIONE ══ -->
   <div id="tab-nutrizione" class="tab-panel">
@@ -612,7 +612,7 @@ function switchTab(id){
     tabsRendered.add(id);
     if(id==="corsa"&&appData){ renderCorsaCharts(); renderStats(currentPeriod); renderZones(currentPeriod); }
     if(id==="piano"&&coachData){ currentWeekIdx=coachData.weekly_reviews.length-1; renderWeekSelector(); renderPiano(); }
-    if(id==="log"&&appData){ renderWeekStrip(); renderLog(); }
+    if(id==="piano"&&appData){ renderWeekStrip(); renderLog(); }
     if(id==="nutrizione"&&nutriData) renderNutrizone();
   }
 }
@@ -1069,7 +1069,7 @@ async function init(){
     logFilter=b.dataset.filter;
     document.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
     b.classList.add("active");
-    if(tabsRendered.has("log")) renderLog();
+    if(tabsRendered.has("piano")) renderLog();
   }));
 
   // Load data
