@@ -20,7 +20,7 @@
     .logo em{color:#FF6B35;font-style:normal}
     .nav-soc{display:flex;gap:8px}
     .nav-soc a{font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.4);padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:99px;text-decoration:none;transition:all .18s}
-    .nav-soc a:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+    .nav-soc a:hover{color:#fff;border-color:rgba(255,255,255,.42)}
     .nav-soc a.hi{color:#FF6B35;border-color:rgba(255,107,53,.25)}
 
     /* Anchor bar */
@@ -88,17 +88,29 @@
     @keyframes pd{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}}
 
     /* ── ROTATING WORD ── */
-    .rw{display:inline-block;transition:opacity .28s ease,transform .28s ease}
+    .rw{display:inline-block;transition:opacity .08s ease,transform .08s ease}
 
     @media(max-width:768px){
-      .wrap,.nav-top,#anchor-bar{padding-left:20px;padding-right:20px}
-      .g2{grid-template-columns:1fr!important}
-      .g3{grid-template-columns:1fr!important}
-      .g4{grid-template-columns:1fr 1fr!important}
-      .pad{padding:60px 0}
-      .pad-sm{padding:40px 0}
-      .hero-dash-preview{display:none!important}
-    }
+  .wrap,.nav-top,#anchor-bar{padding-left:20px;padding-right:20px}
+  .g2{grid-template-columns:1fr!important}
+  .g3{grid-template-columns:1fr!important}
+  .g4{grid-template-columns:1fr 1fr!important}
+  .pad{padding:60px 0}
+  .pad-sm{padding:40px 0}
+  .hero-dash-preview{display:none!important}
+  #hero{min-height:100svh}
+  #hero > div[style*="z-index:2"]{padding:0 20px 72px!important}
+  .obj-grid{grid-template-columns:1fr!important;gap:20px!important}
+  .obj-arrow{display:none!important}
+  .jc-grid{grid-template-columns:1fr 1fr!important}
+  .jc-imp{grid-template-columns:1fr!important}
+  .anc{padding:0 10px!important;font-size:.58rem!important}
+}
+@media(max-width:480px){
+  .g4{grid-template-columns:1fr!important}
+  .jc-grid{grid-template-columns:1fr 1fr!important}
+  .nav-soc a:not(.hi){display:none}
+}
   </style>
 </head>
 <body>
@@ -120,6 +132,7 @@
     <a class="anc" href="#obiettivo">Obiettivo</a>
     <a class="anc" href="#percorso">Percorso</a>
     <a class="anc" href="#come">Come?</a>
+    <a class="anc" href="#juan-carlos">Juan Carlos</a>
     <a class="anc" href="#supportaci">Supportaci</a>
     <a class="anc" href="#seguici">Seguici</a>
   </div>
@@ -141,7 +154,7 @@
     <h1 class="d1" id="h1" style="font-size:clamp(3.8rem,9.5vw,9.5rem);opacity:0;margin-bottom:24px">
       Migliorare le<br>performance<br>sportive con l'<span style="color:#FF6B35">AI.</span>
     </h1>
-    <p id="h2" style="font-family:'DM Sans',sans-serif;font-size:1.05rem;color:rgba(255,255,255,.38);max-width:440px;line-height:1.65;margin-bottom:32px;opacity:0">
+    <p id="h2" style="font-family:'DM Sans',sans-serif;font-size:1.05rem;color:rgba(255,255,255,.62);max-width:440px;line-height:1.65;margin-bottom:32px;opacity:0">
       Due atleti. Un coach AI. Sei mesi di allenamenti a distanza con dati reali e un obiettivo preciso.
     </p>
     <div id="h3" style="display:flex;gap:10px;flex-wrap:wrap;opacity:0">
@@ -181,13 +194,13 @@
           <h3 class="d3" style="font-size:1.6rem">Mattia Bonetti</h3>
           <a href="https://instagram.com/luporamio" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.35);padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:99px;text-decoration:none">@luporamio</a>
         </div>
-        <p style="font-size:.9rem;color:rgba(255,255,255,.3);line-height:1.65;margin-bottom:20px">Event Director e Direttore Commerciale Wearemarketers. Ha smesso di fumare nel maggio 2026.</p>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.52);line-height:1.65;margin-bottom:20px">Event Director e Direttore Commerciale Wearemarketers. Ha smesso di fumare nel maggio 2026.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden">
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Follower</p><p class="d3" style="font-size:1.3rem">4.803</p></div>
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px;color:#FF6B35">Views 90gg</p><p class="d3" style="font-size:1.3rem;color:#FF6B35">148.687</p></div>
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Account raggiunti</p><p class="d3" style="font-size:1.1rem">11.459 <span style="font-size:.68rem;color:#10B981">+45%</span></p></div>
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Visite profilo</p><p class="d3" style="font-size:1.1rem">7.235 <span style="font-size:.68rem;color:#10B981">+72%</span></p></div>
-          <div style="background:#000;padding:14px 16px;grid-column:span 2"><p class="sm" style="margin-bottom:4px">Pubblico principale</p><p style="font-size:.82rem;color:rgba(255,255,255,.3)">Ferrara 20% · Milano 4% · Roma 3%</p></div>
+          <div style="background:#000;padding:14px 16px;grid-column:span 2"><p class="sm" style="margin-bottom:4px">Pubblico principale</p><p style="font-size:.82rem;color:rgba(255,255,255,.52)">Ferrara 20% · Milano 4% · Roma 3%</p></div>
         </div>
       </div>
 
@@ -204,13 +217,13 @@
           <h3 class="d3" style="font-size:1.6rem">Vittoria Vecchio</h3>
           <a href="https://instagram.com/vittoria.vec" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.35);padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:99px;text-decoration:none">@vittoria.vec</a>
         </div>
-        <p style="font-size:.9rem;color:rgba(255,255,255,.3);line-height:1.65;margin-bottom:20px">Squat 55kg · stacco 65kg · hip thrust 120kg. Sa cosa significa sentire le gambe bruciare al km 6.</p>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.52);line-height:1.65;margin-bottom:20px">Squat 55kg · stacco 65kg · hip thrust 120kg. Sa cosa significa sentire le gambe bruciare al km 6.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden">
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Follower</p><p class="d3" style="font-size:1.3rem">9.479</p></div>
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px;color:#4F8EF7">Views 90gg</p><p class="d3" style="font-size:1.3rem;color:#4F8EF7">341.818</p></div>
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Account raggiunti</p><p class="d3" style="font-size:1.1rem">56.640</p></div>
           <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Interazioni</p><p class="d3" style="font-size:1.1rem">4.181</p></div>
-          <div style="background:#000;padding:14px 16px;grid-column:span 2"><p class="sm" style="margin-bottom:4px">Pubblico</p><p style="font-size:.82rem;color:rgba(255,255,255,.3)">80.6% uomini · 19.4% donne · 60% non-follower</p></div>
+          <div style="background:#000;padding:14px 16px;grid-column:span 2"><p class="sm" style="margin-bottom:4px">Pubblico</p><p style="font-size:.82rem;color:rgba(255,255,255,.52)">80.6% uomini · 19.4% donne · 60% non-follower</p></div>
         </div>
       </div>
 
@@ -264,7 +277,7 @@
     </div>
 
     <!-- Three columns: result | arrow | target -->
-    <div class="rv" style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center" class="g3">
+    <div class="rv obj-grid" style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center" class="g3">
 
       <!-- Sinistra: risultato -->
       <div style="position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4">
@@ -276,15 +289,15 @@
         <div style="position:absolute;bottom:0;left:0;right:0;padding:24px">
           <p class="sm" style="margin-bottom:6px">Rimini Wellness · HYROX Mixed Doubles</p>
           <div class="d1" style="font-size:clamp(2.8rem,5.5vw,4.5rem);color:#F59E0B;line-height:.88;margin-bottom:8px">1:19:57</div>
-          <p style="font-size:.78rem;color:rgba(255,255,255,.3)">Rank #595 overall · Rank #108 categoria<br>+15" penalita'</p>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.52)">Rank #595 overall · Rank #108 categoria<br>+15" penalita'</p>
         </div>
       </div>
 
       <!-- Centro: freccia -->
-      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 12px">
+      <div class="obj-arrow" style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 12px">
         <div style="font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(255,255,255,.35);line-height:1">→</div>
         <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:99px;padding:5px 12px">
-          <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);white-space:nowrap">-9 min 57 sec</p>
+          <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.52);white-space:nowrap">-9 min 57 sec</p>
         </div>
       </div>
 
@@ -295,8 +308,11 @@
             <span style="width:6px;height:6px;background:#10B981;border-radius:50%;display:block;animation:pd 2s infinite"></span>
             <span class="sm" style="color:#10B981">Obiettivo</span>
           </div>
-          <div class="d1" style="font-size:clamp(2.8rem,5.5vw,4.5rem);color:#10B981;line-height:.88;margin-bottom:14px">sub<br>1:10:00</div>
-          <p style="font-size:.88rem;color:rgba(255,255,255,.3);line-height:1.6">HYROX Mixed Doubles<br>Milano · 5-6 Dic 2026<br>con Vittoria</p>
+          <div style="margin-bottom:14px">
+  <p style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#10B981;opacity:.65;margin-bottom:6px">Scendere sotto le</p>
+  <div class="d1" style="font-size:clamp(2.8rem,5.5vw,4.5rem);color:#10B981;line-height:.88">1:10:00</div>
+</div>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.52);line-height:1.6">HYROX Mixed Doubles<br>Milano · 5-6 Dic 2026<br>con Vittoria</p>
         </div>
         <div>
           <div style="display:flex;justify-content:space-between;margin-bottom:7px">
@@ -334,7 +350,7 @@
             <p class="sm" style="margin-bottom:6px;color:#F59E0B">30 Mag 2026</p>
             <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#F59E0B;margin-bottom:4px">HYROX Rimini</p>
             <p class="d2" style="font-size:1.4rem;color:#F59E0B;margin-bottom:4px">1:19:57</p>
-            <p style="font-size:.72rem;color:rgba(255,255,255,.25);line-height:1.4">Mixed Doubles<br>con Vittoria</p>
+            <p style="font-size:.72rem;color:rgba(255,255,255,.42);line-height:1.4">Mixed Doubles<br>con Vittoria</p>
           </div>
         </div>
 
@@ -345,14 +361,14 @@
             <p class="sm" style="margin-bottom:6px">Giu 2026</p>
             <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#fff;margin-bottom:6px">Recovery + Prep</p>
             <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:left">
-              <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:4px">02 Giu · Prima corsa</p>
+              <p style="font-size:.7rem;color:rgba(255,255,255,.52);margin-bottom:4px">02 Giu · Prima corsa</p>
               <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;color:#fff">10 km · 5:45/km</p>
-              <p style="font-size:.68rem;color:rgba(255,255,255,.25)">FC 155 bpm</p>
+              <p style="font-size:.68rem;color:rgba(255,255,255,.42)">FC 155 bpm</p>
             </div>
             <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:left;margin-top:6px">
-              <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:4px">04 Giu · Lago di Garda</p>
+              <p style="font-size:.7rem;color:rgba(255,255,255,.52);margin-bottom:4px">04 Giu · Lago di Garda</p>
               <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;color:#fff">Run + Training</p>
-              <p style="font-size:.68rem;color:rgba(255,255,255,.25)">Focus: recupero</p>
+              <p style="font-size:.68rem;color:rgba(255,255,255,.42)">Focus: recupero</p>
             </div>
           </div>
         </div>
@@ -364,9 +380,9 @@
             <p class="sm" style="margin-bottom:6px">Lug 2026</p>
             <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#fff;margin-bottom:6px">Base Building</p>
             <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:left">
-              <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:4px">Target Juan Carlos</p>
+              <p style="font-size:.7rem;color:rgba(255,255,255,.52);margin-bottom:4px">Target Juan Carlos</p>
               <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;color:#fff">FC Z2 sotto 150 bpm</p>
-              <p style="font-size:.68rem;color:rgba(255,255,255,.25)">3-4 sessioni / settimana</p>
+              <p style="font-size:.68rem;color:rgba(255,255,255,.42)">3-4 sessioni / settimana</p>
             </div>
           </div>
         </div>
@@ -438,22 +454,22 @@
       <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
         <div style="font-size:1.8rem;margin-bottom:14px">🤖</div>
         <h3 class="d3" style="font-size:1.1rem;margin-bottom:10px">Juan Carlos e Hugo</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.3);line-height:1.65;margin-bottom:14px">Ogni settimana i due agenti AI leggono i dati reali dei dispositivi e generano il piano di allenamento successivo. Non un piano fisso: un piano che cambia in base a quello che e' successo davvero.</p>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.52);line-height:1.65;margin-bottom:14px">Ogni settimana i due agenti AI leggono i dati reali dei dispositivi e generano il piano di allenamento successivo. Non un piano fisso: un piano che cambia in base a quello che e' successo davvero.</p>
         <div style="display:flex;flex-direction:column;gap:9px">
           <div style="display:flex;align-items:flex-start;gap:9px">
             <span style="color:#4F8EF7;flex-shrink:0;font-weight:700;margin-top:1px">→</span>
-            <p style="font-size:.8rem;color:rgba(255,255,255,.25);line-height:1.5">Juan Carlos calibra gli allenamenti di Mattia sugli spostamenti lavorativi frequenti: se e' in trasferta, il piano si adatta.</p>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.5">Juan Carlos calibra gli allenamenti di Mattia sugli spostamenti lavorativi frequenti: se e' in trasferta, il piano si adatta.</p>
           </div>
           <div style="display:flex;align-items:flex-start;gap:9px">
             <span style="color:#FF6B35;flex-shrink:0;font-weight:700;margin-top:1px">→</span>
-            <p style="font-size:.8rem;color:rgba(255,255,255,.25);line-height:1.5">Hugo integra il ciclo mestruale di Vittoria nella programmazione: carichi, recupero e intensita' cambiano di settimana in settimana.</p>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.5">Hugo integra il ciclo mestruale di Vittoria nella programmazione: carichi, recupero e intensita' cambiano di settimana in settimana.</p>
           </div>
         </div>
       </div>
       <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
         <div style="font-size:1.8rem;margin-bottom:14px">📊</div>
         <h3 class="d3" style="font-size:1.1rem;margin-bottom:10px">Dashboard pubblica</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.3);line-height:1.65">Tutti i dati sono visibili in tempo reale. Km, passo, FC, zone cardiache, piano vs reale. Niente e' nascosto. Aggiornata automaticamente ogni mattina.</p>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.52);line-height:1.65">Tutti i dati sono visibili in tempo reale. Km, passo, FC, zone cardiache, piano vs reale. Niente e' nascosto. Aggiornata automaticamente ogni mattina.</p>
         <a href="../progress/" style="display:inline-block;margin-top:14px;font-family:'Space Grotesk',sans-serif;font-size:.75rem;font-weight:700;color:#FF6B35;text-decoration:none">Segui i progressi →</a>
       </div>
     </div>
@@ -473,6 +489,107 @@
         <div class="fn" style="flex:1.2"><div class="fi" style="border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF6B35" stroke-width=".9" stroke-dasharray="2 2"/><path d="M12 6v12M7.5 8.5l9 7M16.5 8.5l-9 7" stroke="#FF6B35" stroke-width="1.3" stroke-linecap="round"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#FF6B35;text-align:center">Claude AI</p><p style="font-size:.58rem;color:rgba(255,255,255,.2);text-align:center;line-height:1.4">JC→Mattia<br>Hugo→Vittoria</p></div>
         <div class="fa">→</div>
         <div class="fn"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">GitHub Pages</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Dashboard</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ JC CASE STUDY ══ -->
+<section id="juan-carlos" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap">
+
+    <div class="rv" style="margin-bottom:52px">
+      <p class="ey" style="margin-bottom:10px">Case study · 6 mesi di allenamento AI</p>
+      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">Juan Carlos.<br><span style="color:rgba(255,255,255,.15)">Il coach che impara dai dati.</span></h2>
+    </div>
+
+    <div class="rv" style="max-width:640px;margin-bottom:44px">
+      <p style="font-size:1rem;color:rgba(255,255,255,.62);line-height:1.72">Quando Mattia ha iniziato non aveva un coach umano. Ha costruito un agente AI, prima su GPT poi migrato su Claude, che ogni settimana legge i dati reali da Strava e genera il piano della settimana successiva. Non un programma fisso: un sistema che si adatta a quello che e' successo davvero.</p>
+    </div>
+
+    <!-- Numeri chiave -->
+    <div class="rv jc-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);border-radius:18px;overflow:hidden;margin-bottom:14px">
+      <div style="background:#0a0a0a;padding:24px 18px">
+        <p class="d1" style="font-size:clamp(1.6rem,2.5vw,2.4rem);color:#FF6B35;margin-bottom:4px">1.947</p>
+        <p class="sm" style="margin-bottom:6px">km percorsi</p>
+        <p style="font-size:.68rem;color:rgba(255,255,255,.42);line-height:1.4">totali dall'inizio del programma</p>
+      </div>
+      <div style="background:#0a0a0a;padding:24px 18px">
+        <p class="d1" style="font-size:clamp(1.6rem,2.5vw,2.4rem);margin-bottom:4px">442</p>
+        <p class="sm" style="margin-bottom:6px">sessioni tracciate</p>
+        <p style="font-size:.68rem;color:rgba(255,255,255,.42);line-height:1.4">running, palestra, HIIT, gare</p>
+      </div>
+      <div style="background:#0a0a0a;padding:24px 18px">
+        <p class="d1" style="font-size:clamp(1.6rem,2.5vw,2.4rem);margin-bottom:4px">4:51</p>
+        <p class="sm" style="margin-bottom:6px">miglior passo</p>
+        <p style="font-size:.68rem;color:rgba(255,255,255,.42);line-height:1.4">min/km · best ever su Strava</p>
+      </div>
+      <div style="background:#0a0a0a;padding:24px 18px">
+        <p class="d1" style="font-size:clamp(1.6rem,2.5vw,2.4rem);color:#10B981;margin-bottom:4px">1:19:57</p>
+        <p class="sm" style="color:#10B981;margin-bottom:6px">prima gara HYROX</p>
+        <p style="font-size:.68rem;color:rgba(255,255,255,.42);line-height:1.4">Rimini Wellness · maggio 2026</p>
+      </div>
+    </div>
+
+    <!-- Miglioramenti -->
+    <div class="rv jc-imp" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px">
+
+      <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
+        <p class="sm" style="margin-bottom:20px">Frequenza cardiaca media in corsa</p>
+        <div style="display:flex;gap:20px;align-items:flex-end;margin-bottom:16px">
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:5px">Inizio</p>
+            <p class="d2" style="font-size:2rem;color:rgba(255,255,255,.62)">~158</p>
+            <p style="font-size:.62rem;color:rgba(255,255,255,.62);margin-top:3px">bpm · passo 6:30/km</p>
+          </div>
+          <div style="color:rgba(255,255,255,.18);font-size:1.4rem;padding-bottom:10px">→</div>
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,107,53,.65);margin-bottom:5px">Ora</p>
+            <p class="d2" style="font-size:2rem;color:#FF6B35">140</p>
+            <p style="font-size:.62rem;color:rgba(255,255,255,.42);margin-top:3px">bpm · passo 6:08/km</p>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.52);line-height:1.6">-18 bpm a velocita' maggiore: il motore aerobico e' cresciuto. Lo stesso sforzo cardiaco produce adesso una velocita' superiore.</p>
+      </div>
+
+      <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
+        <p class="sm" style="margin-bottom:20px">Volume mensile in corsa</p>
+        <div style="display:flex;gap:20px;align-items:flex-end;margin-bottom:16px">
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:5px">Inizio</p>
+            <p class="d2" style="font-size:2rem;color:rgba(255,255,255,.62)">~40</p>
+            <p style="font-size:.62rem;color:rgba(255,255,255,.62);margin-top:3px">km / mese</p>
+          </div>
+          <div style="color:rgba(255,255,255,.18);font-size:1.4rem;padding-bottom:10px">→</div>
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,107,53,.65);margin-bottom:5px">Ora</p>
+            <p class="d2" style="font-size:2rem;color:#FF6B35">101</p>
+            <p style="font-size:.62rem;color:rgba(255,255,255,.42);margin-top:3px">km in 30 giorni</p>
+          </div>
+        </div>
+        <p style="font-size:.82rem;color:rgba(255,255,255,.52);line-height:1.6">Volume piu' che raddoppiato senza infortuni. Juan Carlos ha applicato la progressione graduale del 10% settimanale monitorando i segnali di recupero dalle sessioni precedenti.</p>
+      </div>
+    </div>
+
+    <!-- Commento JC -->
+    <div class="rv" style="background:#0a0a0a;border:1px solid rgba(255,107,53,.14);border-radius:18px;padding:32px">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+        <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.22);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0">🤖</div>
+        <div>
+          <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.88rem">Juan Carlos</p>
+          <p style="font-size:.65rem;color:rgba(255,255,255,.42);margin-top:2px">Agente AI (Claude) · 2 Giugno 2026</p>
+        </div>
+        <div style="margin-left:auto;display:flex;gap:1px">
+          <span style="color:#F59E0B">★★★★</span><span style="color:rgba(255,255,255,.12)">★</span>
+        </div>
+      </div>
+      <p style="font-size:1rem;color:rgba(255,255,255,.72);line-height:1.72;font-style:italic;margin-bottom:18px">"Buona uscita. 5:46 su 10km il giorno dopo Hyrox con FC a 155. Gambe rispondono. Zona 3 bassa, accettabile per oggi. Da qui in avanti voglio vedere quella FC scendere a parita' di passo. Corri lento, costruisci il motore."</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:5px;background:rgba(255,107,53,.1);color:#FF6B35;border:1px solid rgba(255,107,53,.2)">5:46/km</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:5px;background:rgba(239,68,68,.08);color:#F87171;border:1px solid rgba(239,68,68,.18)">FC 155 bpm</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:5px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.52);border:1px solid rgba(255,255,255,.08)">10.01 km</span>
+        <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:4px 10px;border-radius:5px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.52);border:1px solid rgba(255,255,255,.08)">Giorno dopo HYROX Rimini</span>
       </div>
     </div>
 
@@ -589,8 +706,8 @@
           el.style.opacity='1';
           el.style.transform='translateY(0)';
         }));
-      },280);
-    },2400);
+      },80);
+    },500);
   })();
 
   /* Hero entrance */
@@ -616,7 +733,7 @@
   }});
 
   /* Active anchor on scroll */
-  const sections = ['hero','chi-siamo','rilevanza','obiettivo','percorso','come','supportaci','seguici'];
+  const sections = ['hero','chi-siamo','rilevanza','obiettivo','percorso','come','juan-carlos','supportaci','seguici'];
   const ancs = document.querySelectorAll('.anc');
   window.addEventListener('scroll',()=>{
     let cur='hero';
