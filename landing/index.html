@@ -582,50 +582,85 @@
 <!-- ══ 6. COME? ══ -->
 <section id="come" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
   <div class="wrap">
-    <div class="rv" style="margin-bottom:48px">
+    <div class="rv" style="margin-bottom:44px">
       <p class="ey" style="margin-bottom:10px">Come?</p>
-      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">Un metodo analitico<br><span style="color:rgba(255,255,255,.15)">basato sui dati.</span></h2>
+      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">Un coach AI<br><span style="color:rgba(255,255,255,.15)">che legge i dati veri.</span></h2>
     </div>
 
-    <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px" class="g2">
-      <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
-        <div style="font-size:1.8rem;margin-bottom:14px">🤖</div>
-        <h3 class="d3" style="font-size:1.1rem;margin-bottom:10px">Juan Carlos e Hugo</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.52);line-height:1.65;margin-bottom:14px">Ogni settimana i due agenti AI leggono i dati reali dei dispositivi e generano il piano di allenamento successivo. Non un piano fisso: un piano che cambia in base a quello che e' successo davvero.</p>
-        <div style="display:flex;flex-direction:column;gap:9px">
-          <div style="display:flex;align-items:flex-start;gap:9px">
-            <span style="color:#4F8EF7;flex-shrink:0;font-weight:700;margin-top:1px">→</span>
-            <p style="font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.5">Juan Carlos calibra gli allenamenti di Mattia sugli spostamenti lavorativi frequenti: se e' in trasferta, il piano si adatta.</p>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:9px">
-            <span style="color:#FF6B35;flex-shrink:0;font-weight:700;margin-top:1px">→</span>
-            <p style="font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.5">Hugo integra il ciclo mestruale di Vittoria nella programmazione: carichi, recupero e intensita' cambiano di settimana in settimana.</p>
+    <!-- Concept card: spiega Juan Carlos a chi non conosce la tech -->
+    <div class="rv" style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:32px;margin-bottom:20px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start" class="g2">
+        <div>
+          <p class="ey" style="color:#FF6B35;margin-bottom:14px">Juan Carlos · coach di Mattia</p>
+          <p style="font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.72;margin-bottom:16px">Non un'app con programmi preimpostati. Un agente AI costruito su Claude (Anthropic) che ogni settimana legge i dati reali di Mattia: quanto ha corso, a che ritmo, quanto ha recuperato. Poi genera il piano della settimana dopo, calibrato su quello che e' successo davvero.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.65">Se Mattia e' stato in trasferta e ha saltato due sessioni, Juan Carlos lo sa. Il piano cambia. Non e' rigidita': e' adattamento continuo.</p>
+        </div>
+        <div>
+          <p class="ey" style="color:#C4A0B4;margin-bottom:14px">Hugo · coach di Vittoria</p>
+          <p style="font-size:.95rem;color:rgba(255,255,255,.75);line-height:1.72;margin-bottom:16px">Stesso sistema, angolazione diversa. Hugo conosce la fisiologia di Vittoria e costruisce piani che tengono conto dei suoi dati specifici: forza, resistenza, ritmo di recupero.</p>
+          <p style="font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.65">Ogni settimana il piano si ricalibra. Non esistono due settimane uguali.</p>
+          <!-- Strumenti -->
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:20px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:5px 11px;border-radius:6px;background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.18);color:#FF6B35">Claude · Anthropic</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:5px 11px;border-radius:6px;background:rgba(252,76,2,.08);border:1px solid rgba(252,76,2,.2);color:#FC4C02">Strava</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:5px 11px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.45)">Amazfit</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;padding:5px 11px;border-radius:6px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.15);color:#10B981">Sync automatico</span>
           </div>
         </div>
       </div>
-      <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
-        <div style="font-size:1.8rem;margin-bottom:14px">📊</div>
-        <h3 class="d3" style="font-size:1.1rem;margin-bottom:10px">Dashboard pubblica</h3>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.52);line-height:1.65">Tutti i dati sono visibili in tempo reale. Km, passo, FC, zone cardiache, piano vs reale. Niente e' nascosto. Aggiornata automaticamente ogni mattina.</p>
-        <a href="../progress/" style="display:inline-block;margin-top:14px;font-family:'Space Grotesk',sans-serif;font-size:.75rem;font-weight:700;color:#FF6B35;text-decoration:none">Segui i progressi →</a>
+    </div>
+
+    <!-- 4 step: come funziona il ciclo settimanale -->
+    <p class="sm" style="margin-bottom:16px">Come funziona ogni settimana</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden" class="g4">
+      <!-- Step 01 -->
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;color:rgba(255,107,53,.15);line-height:1;margin-bottom:14px">01</div>
+        <div style="width:36px;height:36px;background:rgba(252,76,2,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FC4C02" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#fff;margin-bottom:8px">Ti alleni</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6">Lo smartwatch registra tutto in automatico: distanza, passo, frequenza cardiaca, ogni sessione.</p>
+      </div>
+      <!-- Step 02 -->
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;color:rgba(255,107,53,.15);line-height:1;margin-bottom:14px">02</div>
+        <div style="width:36px;height:36px;background:rgba(252,76,2,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#FC4C02"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg>
+        </div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#fff;margin-bottom:8px">I dati si spostano</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6">Ogni mattina un sistema automatico raccoglie le sessioni da Strava e le mette a disposizione dell'AI.</p>
+      </div>
+      <!-- Step 03 -->
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;color:rgba(255,107,53,.15);line-height:1;margin-bottom:14px">03</div>
+        <div style="width:36px;height:36px;background:rgba(255,107,53,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" stroke-dasharray="2 2" stroke-width="1"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#FF6B35;margin-bottom:8px">Juan Carlos analizza</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6">L'AI legge i 7 giorni precedenti, valuta recupero, passo, FC. Poi costruisce il piano della settimana successiva.</p>
+      </div>
+      <!-- Step 04 -->
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;color:rgba(16,185,129,.12);line-height:1;margin-bottom:14px">04</div>
+        <div style="width:36px;height:36px;background:rgba(16,185,129,.08);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="15" rx="3"/><path d="M8 2v4M16 2v4M3 9h18"/></svg>
+        </div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#10B981;margin-bottom:8px">Il piano e' live</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.4);line-height:1.6">I progressi sono pubblici e aggiornati ogni giorno. Dati reali, visibili a tutti.</p>
+        <a href="../progress/" style="display:inline-block;margin-top:10px;font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:700;color:#10B981;text-decoration:none">Segui i progressi →</a>
       </div>
     </div>
 
-    <!-- Pipeline -->
-    <div class="rv" style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:18px;padding:28px">
-      <p class="sm" style="margin-bottom:20px">Il flusso dati · automatico</p>
-      <div class="flow">
-        <div class="fn"><div class="fi"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2L24 21H2L13 2Z" stroke="#FF6B35" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 17h9M11 13h4" stroke="#FF6B35" stroke-width="1.3" stroke-linecap="round"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Amazfit</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Registra</p></div>
-        <div class="fa">→</div>
-        <div class="fn"><div class="fi"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="5" y="5" width="16" height="16" rx="5" fill="rgba(0,200,83,.08)" stroke="#00C853" stroke-width="1"/><text x="13" y="18" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="800" font-size="12" fill="#00C853">Z</text></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Zepp</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Carica</p></div>
-        <div class="fa">→</div>
-        <div class="fn"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FC4C02"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Strava</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Pubblica</p></div>
-        <div class="fa">→</div>
-        <div class="fn"><div class="fi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="3" stroke="#4F8EF7" stroke-width="1.2"/><path d="M6 10l2.5 2L6 14M11 12h7" stroke="#4F8EF7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Cron script</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Scarica</p></div>
-        <div class="fa">→</div>
-        <div class="fn" style="flex:1.2"><div class="fi" style="border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF6B35" stroke-width=".9" stroke-dasharray="2 2"/><path d="M12 6v12M7.5 8.5l9 7M16.5 8.5l-9 7" stroke="#FF6B35" stroke-width="1.3" stroke-linecap="round"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#FF6B35;text-align:center">Claude AI</p><p style="font-size:.58rem;color:rgba(255,255,255,.2);text-align:center;line-height:1.4">JC→Mattia<br>Hugo→Vittoria</p></div>
-        <div class="fa">→</div>
-        <div class="fn"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">GitHub Pages</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Dashboard</p></div>
+    <!-- Nota finale: AI a piu' livelli -->
+    <div class="rv" style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px" class="g2">
+      <div style="padding:18px 20px;background:#060606;border:1px solid rgba(255,107,53,.1);border-radius:12px">
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF6B35;margin-bottom:8px">AI al livello 1: pianificazione</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6">Juan Carlos genera il piano settimanale leggendo i dati reali. Non un template: un ragionamento su quello che e' successo davvero.</p>
+      </div>
+      <div style="padding:18px 20px;background:#060606;border:1px solid rgba(16,185,129,.1);border-radius:12px">
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#10B981;margin-bottom:8px">AI al livello 2: narrativa</p>
+        <p style="font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.6">Ogni sessione riceve un commento del coach. Il pubblico non segue solo i numeri: segue una storia che l'AI racconta ogni settimana.</p>
       </div>
     </div>
 
