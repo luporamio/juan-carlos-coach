@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AI-ROX · Progress Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --m:#FF6B35; --v:#C4A0B4; --g:#10B981;
+      --bg:#060606; --card:#0e0e0e; --card2:#131313;
+      --border:rgba(255,255,255,.07); --border2:rgba(255,255,255,.04);
+      --txt:rgba(255,255,255,.88); --mut:rgba(255,255,255,.32); --mut2:rgba(255,255,255,.1);
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
+    ::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:#1a1a1a}
+
+    /* ─ TYPE ─ */
+    .sg{font-family:'Space Grotesk',sans-serif}
+    .d1{font-family:'Space Grotesk',sans-serif;font-weight:800;letter-spacing:-.04em;line-height:.92}
+    .d2{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.03em}
+    .ey{font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .lbl{font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--mut)}
+
+    /* ─ LAYOUT ─ */
+    .wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+    @media(max-width:768px){.wrap{padding:0 20px}}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:740px){.grid2{grid-template-columns:1fr}}
+    .section{padding:60px 0;border-top:1px solid var(--border)}
+
+    /* ─ DOT GRID ─ */
+    .dg{background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);background-size:28px 28px}
+
+    /* ─ NAV ─ */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:200;height:50px;background:rgba(6,6,6,.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center}
+    .nav-in{width:100%;max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    @media(max-width:768px){.nav-in{padding:0 20px}}
+    .logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.9rem;color:#fff;text-decoration:none}
+    .logo em{color:var(--m);font-style:normal}
+    .nav-mid{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+    .nav-r{display:flex;gap:6px;align-items:center}
+    .nchip{font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:700;padding:4px 11px;border-radius:99px;text-decoration:none;white-space:nowrap;transition:all .15s}
+    .nchip.live{background:rgba(255,107,53,.12);color:var(--m);border:1px solid rgba(255,107,53,.25)}
+    .nchip.out{color:var(--mut);border:1px solid var(--border)}
+    .nchip.out:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+
+    /* ─ HERO ─ */
+    #hero{padding-top:50px;min-height:68vh;display:flex;align-items:center;background-color:var(--bg)}
+    .hero-content{width:100%;padding:56px 0 48px;text-align:center}
+    .hero-ey{color:var(--mut);margin-bottom:20px;display:block}
+    .hero-result{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 20px;line-height:1}
+    .hero-from{font-size:clamp(3.2rem,7.5vw,7.5rem);color:rgba(255,255,255,.25)}
+    .hero-arrow-big{font-size:clamp(2rem,4vw,4rem);color:var(--mut2);margin:0 10px}
+    .hero-to{font-size:clamp(3.2rem,7.5vw,7.5rem);color:var(--g)}
+    .hero-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+    .pill{font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;padding:8px 18px;border-radius:99px;letter-spacing:.04em}
+    .pill-days{background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.22);color:var(--m)}
+    .pill-gap{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);color:var(--g)}
+    .pill-prog{background:var(--mut2);border:1px solid var(--border);color:var(--mut)}
+    /* Timeline */
+    .tl-strip{margin:36px 40px 0;max-width:1120px;margin-left:auto;margin-right:auto}
+    @media(max-width:768px){.tl-strip{margin:28px 20px 0}}
+    .tl-bar{position:relative;height:3px;background:rgba(255,255,255,.05);border-radius:2px}
+    .tl-done{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--m) 0%,rgba(255,107,53,.4) 100%);transition:width 1.2s ease}
+    .tl-today{position:absolute;top:-7px;width:2px;height:17px;background:#fff;border-radius:1px;transform:translateX(-50%)}
+    .tl-today-lbl{position:absolute;top:-22px;font-family:'Space Grotesk',sans-serif;font-size:.52rem;font-weight:700;color:#fff;transform:translateX(-50%);white-space:nowrap}
+    .tl-marks{display:flex;justify-content:space-between;margin-top:8px}
+    .tl-mk{font-family:'Space Grotesk',sans-serif;font-size:.56rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+    .tl-mk.hl{color:var(--g)}
+
+    /* ─ ATHLETE CARDS ─ */
+    .ath{background:var(--card);border:1px solid var(--border);border-radius:22px;padding:26px;position:relative;overflow:hidden}
+    .ath::after{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+    .ath.m::after{background:var(--m)}
+    .ath.v::after{background:var(--v)}
+    .ath-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:22px}
+    .ath-identity h2{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:1.25rem;margin-bottom:5px}
+    .ath-handle{font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:600;padding:3px 10px;border-radius:99px;border:1px solid var(--border);color:var(--mut);display:inline-block}
+    .ath-loc{font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:600;color:var(--mut);margin-top:5px}
+    /* Ring */
+    .ring{position:relative;width:82px;height:82px;flex-shrink:0}
+    .ring svg{transform:rotate(-90deg)}
+    .ring-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+    .ring-num{font-family:'Space Grotesk',sans-serif;font-size:1.05rem;font-weight:800;line-height:1}
+    .ring-sub{font-family:'Space Grotesk',sans-serif;font-size:.46rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin-top:2px}
+    /* Stat grid */
+    .sg4{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px}
+    .sc{background:var(--card);padding:13px 12px}
+    .sv{font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:2px}
+    .sl{font-family:'Space Grotesk',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+    /* Pace bar */
+    .pb-wrap{margin-bottom:14px}
+    .pb-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+    .pb-track{position:relative;height:4px;background:rgba(255,255,255,.06);border-radius:2px;margin-bottom:6px}
+    .pb-fill{height:100%;border-radius:2px;transition:width 1.4s cubic-bezier(.4,0,.2,1)}
+    .pb-target{position:absolute;top:-5px;width:2px;height:14px;border-radius:1px}
+    .pb-foot{display:flex;justify-content:space-between}
+    /* Last session */
+    .last-sess{background:rgba(255,255,255,.025);border:1px solid var(--border2);border-radius:10px;padding:11px 13px;margin-bottom:12px;display:flex;align-items:center;gap:12px}
+    .ls-icon{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+    .ls-info{flex:1;min-width:0}
+    .ls-n{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .ls-m{font-size:.7rem;color:var(--mut);margin-top:2px}
+    .ls-chips{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0}
+    /* Note */
+    .note{background:rgba(255,255,255,.02);border-left:2px solid var(--border);border-radius:0 8px 8px 0;padding:10px 13px}
+    .note-ey{margin-bottom:5px}
+    .note-txt{font-size:.78rem;color:var(--mut);line-height:1.55;font-style:italic}
+    .note-stars{display:flex;gap:2px}
+
+    /* ─ SESSION LOG ─ */
+    .log-row{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--border2)}
+    .log-row:last-child{border-bottom:none}
+    .log-date{font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);width:62px;flex-shrink:0}
+    .log-ic{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+    .log-info{flex:1;min-width:0}
+    .log-n{font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .log-comment{font-size:.72rem;color:var(--mut);line-height:1.45;margin-top:2px;font-style:italic}
+    .log-chips{display:flex;gap:5px;flex-wrap:wrap;flex-shrink:0}
+    .ch{font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;padding:3px 7px;border-radius:4px;white-space:nowrap}
+    .ch-pace{background:rgba(255,107,53,.1);color:var(--m);border:1px solid rgba(255,107,53,.2)}
+    .ch-hr{background:rgba(239,68,68,.08);color:#F87171;border:1px solid rgba(239,68,68,.18)}
+    .ch-km{background:rgba(255,255,255,.06);color:rgba(255,255,255,.45);border:1px solid var(--border)}
+    .ch-elev{background:rgba(79,142,247,.08);color:#6FA8DC;border:1px solid rgba(79,142,247,.18)}
+    .ch-star{background:rgba(245,158,11,.1);color:#F59E0B;border:1px solid rgba(245,158,11,.2)}
+
+    /* ─ WEEK PLAN (Vittoria) ─ */
+    .week-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+    .w-row{display:flex;align-items:stretch;border-bottom:1px solid var(--border)}
+    .w-row:last-child{border-bottom:none}
+    .w-row.today-row{background:rgba(196,160,180,.04)}
+    .w-day{width:72px;flex-shrink:0;padding:13px 12px;font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;gap:2px}
+    .w-main{flex:1;padding:13px 14px;display:flex;align-items:center;gap:12px}
+    .w-badge{font-family:'Space Grotesk',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+    .w-detail{flex:1;min-width:0}
+    .w-title{font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;margin-bottom:2px}
+    .w-sub{font-size:.68rem;color:var(--mut);line-height:1.4}
+    /* type colors */
+    .t-pesi{background:rgba(196,160,180,.15);color:var(--v)}
+    .t-z2{background:rgba(79,142,247,.12);color:#6FA8DC}
+    .t-hyrox{background:rgba(255,107,53,.12);color:var(--m)}
+    .t-veloce{background:rgba(245,158,11,.12);color:#F59E0B}
+    .t-lunga{background:rgba(16,185,129,.12);color:var(--g)}
+    .t-riposo{background:rgba(255,255,255,.06);color:var(--mut)}
+
+    /* ─ PACE COMPARISON ─ */
+    .pace-compare{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px}
+    .pc-scale{position:relative;height:4px;background:rgba(255,255,255,.05);border-radius:2px;margin:28px 0 12px}
+    .pc-athlete{position:absolute;top:-16px;display:flex;flex-direction:column;align-items:center;gap:4px;transform:translateX(-50%)}
+    .pc-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--bg)}
+    .pc-target-line{position:absolute;top:-8px;width:2px;height:20px;border-radius:1px;transform:translateX(-50%)}
+    .pc-lbl{font-family:'Space Grotesk',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.06em;white-space:nowrap;color:var(--mut)}
+    .pc-scale-labels{display:flex;justify-content:space-between}
+
+    /* ─ SOCIAL ─ */
+    .social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:18px;overflow:hidden}
+    @media(max-width:600px){.social-grid{grid-template-columns:1fr 1fr}}
+    .social-cell{background:var(--card);padding:24px 20px;text-align:center}
+    .soc-n{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.5rem);margin-bottom:5px}
+    .soc-l{font-family:'Space Grotesk',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+    .soc-s{font-size:.68rem;color:var(--mut2);margin-top:3px}
+
+    /* ─ SYNC STATUS ─ */
+    .sync-dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse 2s infinite;flex-shrink:0}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+    /* ─ UTILS ─ */
+    .c-m{color:var(--m)} .c-v{color:var(--v)} .c-g{color:var(--g)} .c-mu{color:var(--mut)}
+    .fw8{font-weight:800} .mb4{margin-bottom:4px} .mb8{margin-bottom:8px} .mb16{margin-bottom:16px}
+    .flex{display:flex} .ai-c{align-items:center} .gap8{gap:8px} .gap12{gap:12px}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo" href="../"><em>AI</em>-ROX</a>
+    <span class="nav-mid">Progress Tracker</span>
+    <div class="nav-r">
+      <span class="nchip live" id="nav-days">--- gg</span>
+      <a class="nchip out" href="../" target="_blank">Dashboard →</a>
+      
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" class="dg">
+  <div class="hero-content">
+    <div class="wrap">
+      <p class="ey hero-ey">HYROX Mixed Doubles · Milano · 5-6 Dicembre 2026</p>
+      <div class="hero-result d1">
+        <span class="hero-from">1:19:57</span>
+        <span class="hero-arrow-big">→</span>
+        <span class="hero-to">sub 1:10:00</span>
+      </div>
+      <div class="hero-pills">
+        <span class="pill pill-days" id="pill-days">— giorni al via</span>
+        <span class="pill pill-gap">-9 min 57 sec da recuperare</span>
+        <span class="pill pill-prog" id="pill-prog">— % preparazione</span>
+      </div>
+    </div>
+    <!-- Timeline strip -->
+    <div class="tl-strip">
+      <div class="tl-bar">
+        <div class="tl-done" id="tl-done" style="width:0%"></div>
+        <div class="tl-today" id="tl-today-marker"></div>
+        <div class="tl-today-lbl" id="tl-today-lbl">Oggi</div>
+      </div>
+      <div class="tl-marks">
+        <span class="tl-mk">1 Giu</span>
+        <span class="tl-mk">Lug</span>
+        <span class="tl-mk">Ago</span>
+        <span class="tl-mk">Set</span>
+        <span class="tl-mk">Ott</span>
+        <span class="tl-mk">Nov</span>
+        <span class="tl-mk hl">5-6 Dic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ATLETI ═══ -->
+<section class="section">
+  <div class="wrap">
+    <p class="ey c-mu mb4">Atleti</p>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Due atleti.<br><span style="color:var(--mut2)">Un obiettivo.</span></p>
+    <div class="grid2">
+
+      <!-- MATTIA -->
+      <div class="ath m">
+        <div class="ath-top">
+          <div class="ath-identity">
+            <h2>Mattia Bonetti</h2>
+            <span class="ath-handle c-m">@luporamio</span>
+            <p class="ath-loc">Ferrara · 36 anni · ex rugbista</p>
+          </div>
+          <!-- Ring: prep progress -->
+          <div class="ring">
+            <svg width="82" height="82" viewBox="0 0 82 82">
+              <circle cx="41" cy="41" r="34" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="6"/>
+              <circle id="ring-m" cx="41" cy="41" r="34" fill="none" stroke="#FF6B35" stroke-width="6"
+                stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"/>
+            </svg>
+            <div class="ring-center">
+              <span class="ring-num c-m" id="ring-m-num">0%</span>
+              <span class="ring-sub">prep</span>
+            </div>
+          </div>
+        </div>
+        <!-- Stats 2x2 -->
+        <div class="sg4 mb16" id="m-stats">
+          <div class="sc"><p class="sv c-m" id="m-km30">101.9</p><p class="sl">Km · 30 giorni</p></div>
+          <div class="sc"><p class="sv" id="m-km7">35.3</p><p class="sl">Km · 7 giorni</p></div>
+          <div class="sc"><p class="sv" id="m-pace">6:08/km</p><p class="sl">Passo medio 30gg</p></div>
+          <div class="sc"><p class="sv" id="m-hr">140</p><p class="sl">FC media 30gg</p></div>
+        </div>
+        <!-- Pace progress bar -->
+        <div class="pb-wrap">
+          <div class="pb-hdr">
+            <span class="lbl">Passo attuale</span>
+            <span class="lbl">Target</span>
+          </div>
+          <div class="pb-track">
+            <!-- fill = progress toward target, coloured from current toward target -->
+            <div class="pb-fill" id="m-pb" style="width:0%;background:linear-gradient(90deg,var(--m),rgba(255,107,53,.4))"></div>
+            <div class="pb-target" style="right:0;background:var(--g);top:-3px;width:2px;height:10px"></div>
+          </div>
+          <div class="pb-foot">
+            <span class="lbl" id="m-pace-cur">6:08/km</span>
+            <span class="lbl c-g">5:15/km</span>
+          </div>
+        </div>
+        <!-- Last session -->
+        <div class="last-sess" id="m-last-sess">
+          <div class="ls-icon" style="background:rgba(255,107,53,.1)">🏃</div>
+          <div class="ls-info">
+            <p class="ls-n" id="m-last-name">Corsa serale · 4 Giu</p>
+            <p class="ls-m" id="m-last-meta">8.05 km · 5:46/km · FC 153</p>
+          </div>
+          <div class="ls-chips" id="m-last-chips">
+            <span class="ch ch-pace">5:46/km</span>
+            <span class="ch ch-hr">153 bpm</span>
+          </div>
+        </div>
+        <!-- JC note -->
+        <div class="note">
+          <p class="ey note-ey c-m mb4">Juan Carlos · 2 Giu</p>
+          <div class="note-stars mb4" id="m-stars"></div>
+          <p class="note-txt" id="m-comment">Buona uscita. 5:46 su 10km il giorno dopo Hyrox con FC a 155. L'obiettivo e' portare questo passo a 5:15 con FC simile. Strada lunga, base solida.</p>
+        </div>
+        <!-- Sync status -->
+        <div class="flex ai-c gap8 mt" style="margin-top:12px">
+          <div class="sync-dot"></div>
+          <span class="lbl" id="m-sync">Dati live da Strava</span>
+        </div>
+      </div>
+
+      <!-- VITTORIA -->
+      <div class="ath v">
+        <div class="ath-top">
+          <div class="ath-identity">
+            <h2>Vittoria Vecchio</h2>
+            <span class="ath-handle c-v">@vittoria.vec</span>
+            <p class="ath-loc">Catania · Wearemarketers</p>
+          </div>
+          <!-- Ring: peso goal progress -->
+          <div class="ring">
+            <svg width="82" height="82" viewBox="0 0 82 82">
+              <circle cx="41" cy="41" r="34" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="6"/>
+              <circle id="ring-v" cx="41" cy="41" r="34" fill="none" stroke="#C4A0B4" stroke-width="6"
+                stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"/>
+            </svg>
+            <div class="ring-center">
+              <span class="ring-num c-v">22%</span>
+              <span class="ring-sub">peso</span>
+            </div>
+          </div>
+        </div>
+        <!-- Stats 2x2 -->
+        <div class="sg4 mb16">
+          <div class="sc"><p class="sv c-v">43.6</p><p class="sl">VO2Max attuale</p></div>
+          <div class="sc"><p class="sv">47-48</p><p class="sl">VO2Max target</p></div>
+          <div class="sc"><p class="sv">64.1 kg</p><p class="sl">Peso attuale</p></div>
+          <div class="sc"><p class="sv">60 bpm</p><p class="sl">FC a riposo</p></div>
+        </div>
+        <!-- Peso progress bar -->
+        <div class="pb-wrap">
+          <div class="pb-hdr">
+            <span class="lbl">Peso attuale</span>
+            <span class="lbl">Target</span>
+          </div>
+          <div class="pb-track">
+            <div class="pb-fill" id="v-pb" style="width:0%;background:linear-gradient(90deg,var(--v),rgba(196,160,180,.4))"></div>
+            <div class="pb-target" style="right:0;background:var(--g);top:-3px;width:2px;height:10px"></div>
+          </div>
+          <div class="pb-foot">
+            <span class="lbl">64.1 kg</span>
+            <span class="lbl c-g">60 kg</span>
+          </div>
+        </div>
+        <!-- Last session / upcoming -->
+        <div class="last-sess">
+          <div class="ls-icon" style="background:rgba(196,160,180,.1)">📋</div>
+          <div class="ls-info">
+            <p class="ls-n">Piano Hugo · settimana 8-14 Giu</p>
+            <p class="ls-m">4 sessioni running · 2 pesi · 1 Hyrox · ~23 km totali</p>
+          </div>
+        </div>
+        <!-- Cycle phase badge -->
+        <div class="last-sess" style="margin-top:0">
+          <div class="ls-icon" style="background:rgba(196,160,180,.08)">📈</div>
+          <div class="ls-info">
+            <p class="ls-n" style="color:var(--v)">Follicolare · gg 3-9</p>
+            <p class="ls-m">Energia alta, forza al picco. Settimana ideale per i carichi massimali.</p>
+          </div>
+        </div>
+        <!-- Hugo note -->
+        <div class="note">
+          <p class="ey note-ey c-v mb4">Hugo · settimana 1</p>
+          <p class="note-txt">Settimana 1 del blocco Hyrox Milano. Follicolare gg 3-9: energia alta, forza al picco. Priorita': non saltare le sessioni running. I pesi si recuperano, il running no.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMPARAZIONE PASSO ═══ -->
+<section class="section">
+  <div class="wrap">
+    <p class="ey c-mu mb4">Passo</p>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Dove siamo.<br><span style="color:var(--mut2)">Dove dobbiamo arrivare.</span></p>
+    <div class="pace-compare">
+      <p class="lbl mb16" style="text-align:center">Scala ritmo · da 8:00/km a 4:00/km</p>
+      <!-- Scale -->
+      <div class="pc-scale">
+        <!-- Mattia dot: 6:08/km = 368sec → scale 8:00(480) to 4:00(240) = range 240 → pos=(480-368)/240=46.7% -->
+        <div class="pc-athlete" style="left:46.7%">
+          <span class="pc-lbl c-m">Mattia</span>
+          <div class="pc-dot" style="background:var(--m)"></div>
+        </div>
+        <!-- Vittoria dot: 6:10/km = 370sec → pos=(480-370)/240=45.8% -->
+        <div class="pc-athlete" style="left:45.8%">
+          <span class="pc-lbl c-v" style="margin-top:16px">Vittoria</span>
+          <div class="pc-dot" style="background:var(--v);margin-top:8px"></div>
+        </div>
+        <!-- Target: 5:15/km = 315sec → pos=(480-315)/240=68.75% -->
+        <div class="pc-target-line" style="left:68.75%;background:var(--g)"></div>
+        <div style="position:absolute;top:-22px;left:68.75%;transform:translateX(-50%)">
+          <span class="pc-lbl c-g">Target 5:15</span>
+        </div>
+        <!-- HYROX result: 5:53/km = 353sec → pos=(480-353)/240=52.9% -->
+        <div style="position:absolute;top:8px;left:52.9%;transform:translateX(-50%);width:1px;height:12px;background:rgba(245,158,11,.4)"></div>
+        <div style="position:absolute;top:20px;left:52.9%;transform:translateX(-50%)">
+          <span class="pc-lbl" style="color:rgba(245,158,11,.5);white-space:nowrap">Rimini 5:53</span>
+        </div>
+      </div>
+      <div class="pc-scale-labels" style="margin-top:36px">
+        <span class="lbl">8:00/km (lento)</span>
+        <span class="lbl">4:00/km (veloce)</span>
+      </div>
+      <!-- gap cards -->
+      <div class="grid2" style="margin-top:20px">
+        <div style="background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.12);border-radius:12px;padding:16px">
+          <p class="ey c-m mb8">Mattia · gap passo</p>
+          <p class="sg fw8" style="font-size:1.4rem">53 sec/km</p>
+          <p style="font-size:.78rem;color:var(--mut);margin-top:4px">Da 6:08/km a 5:15/km · -14.4% sul passo attuale</p>
+        </div>
+        <div style="background:rgba(196,160,180,.04);border:1px solid rgba(196,160,180,.12);border-radius:12px;padding:16px">
+          <p class="ey c-v mb8">Vittoria · gap passo</p>
+          <p class="sg fw8" style="font-size:1.4rem">55 sec/km</p>
+          <p style="font-size:.78rem;color:var(--mut);margin-top:4px">Da ~6:10/km a 5:15/km · -14.9% sul passo attuale</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SESSIONI RECENTI (Mattia) + PIANO HUGO (Vittoria) ═══ -->
+<section class="section">
+  <div class="wrap">
+    <p class="ey c-mu mb4">Questa settimana</p>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Chi fa cosa.</p>
+    <div class="grid2">
+
+      <!-- MATTIA: log sessioni -->
+      <div>
+        <div class="flex ai-c gap8 mb16">
+          <div class="sync-dot"></div>
+          <p class="ey c-m">Mattia · Sessioni recenti</p>
+        </div>
+        <div id="m-log"><!-- populated by JS --></div>
+      </div>
+
+      <!-- VITTORIA: piano Hugo 8-14 Giu -->
+      <div>
+        <p class="ey c-v mb16">Vittoria · Piano Hugo · 8-14 Giu</p>
+        <div class="week-list">
+          <!-- rows populated by JS -->
+          <div class="w-row">
+            <div class="w-day">Lun<br>8 Giu</div>
+            <div class="w-main">
+              <span class="w-badge t-pesi">Pesi</span>
+              <div class="w-detail">
+                <p class="w-title">Lower body</p>
+                <p class="w-sub">Squat 4×6 · 55-57.5 kg · RDL 65 kg · Hip Thrust 120 kg + 15' tapis</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-day">Mar<br>9 Giu</div>
+            <div class="w-main">
+              <span class="w-badge t-hyrox">Hyrox</span>
+              <div class="w-detail">
+                <p class="w-title">Hyrox training</p>
+                <p class="w-sub">Classe 40' + 2 km Z2 · oppure race simulation ~4 km</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-day">Mer<br>10 Giu</div>
+            <div class="w-main">
+              <span class="w-badge t-z2">Z2</span>
+              <div class="w-detail">
+                <p class="w-title">Corsa Z2 · 5-6 km</p>
+                <p class="w-sub">Ritmo conversazionale · ~6:00-6:20/km · non andare piu' veloce</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-day">Gio<br>11 Giu</div>
+            <div class="w-main">
+              <span class="w-badge t-veloce">Veloce</span>
+              <div class="w-detail">
+                <p class="w-title">Ripetute 5×1 km</p>
+                <p class="w-sub">Target 5:00-5:15/km · rec 2' camminata · oppure 3 km progressivi</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-day">Ven<br>12 Giu</div>
+            <div class="w-main">
+              <span class="w-badge t-pesi">Pesi</span>
+              <div class="w-detail">
+                <p class="w-title">Upper + Hip Thrust</p>
+                <p class="w-sub">Hip Thrust 4×10 · 120 kg · Panca · Rematore · Military press</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-day">Sab<br>13 Giu</div>
+            <div class="w-main">
+              <span class="w-badge t-lunga">Lunga</span>
+              <div class="w-detail">
+                <p class="w-title">Corsa lunga 8 km</p>
+                <p class="w-sub">3 km Z2 + 3 km medio + 2 km a ritmo gara 5:10-5:20/km</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-row">
+            <div class="w-day">Dom<br>14 Giu</div>
+            <div class="w-main">
+              <span class="w-badge t-riposo">Riposo</span>
+              <div class="w-detail">
+                <p class="w-title">Riposo</p>
+                <p class="w-sub">Mobilita' 20-30' opzionale · stretch polpacci e flessori anca</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ LOG COMPLETO MATTIA ═══ -->
+<section class="section">
+  <div class="wrap">
+    <div class="flex ai-c gap8 mb4">
+      <div class="sync-dot"></div>
+      <p class="ey c-m">Juan Carlos · Log sessioni Mattia</p>
+    </div>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Dati reali.<br><span style="color:var(--mut2)">Niente di nascosto.</span></p>
+    <div id="m-full-log" style="border-top:1px solid var(--border)"><!-- JS --></div>
+    <p class="lbl" style="margin-top:16px;text-align:center" id="sync-label">Sync automatico ogni mattina da Strava</p>
+  </div>
+</section>
+
+<!-- ═══ STORICO ═══ -->
+<section class="section">
+  <div class="wrap">
+    <p class="ey c-mu mb4">Storico Mattia</p>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">442 attivita'.<br><span style="color:var(--mut2)">Dal primo giorno.</span></p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:18px;overflow:hidden" id="m-lifetime">
+      <div style="background:var(--card);padding:24px 20px;text-align:center">
+        <p class="sg fw8 c-m" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-km">1.947</p>
+        <p class="lbl" style="margin-top:6px">Km totali</p>
+      </div>
+      <div style="background:var(--card);padding:24px 20px;text-align:center">
+        <p class="sg fw8" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-acts">442</p>
+        <p class="lbl" style="margin-top:6px">Attivita'</p>
+      </div>
+      <div style="background:var(--card);padding:24px 20px;text-align:center">
+        <p class="sg fw8" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-best">4:51</p>
+        <p class="lbl" style="margin-top:6px">Passo migliore</p>
+      </div>
+      <div style="background:var(--card);padding:24px 20px;text-align:center">
+        <p class="sg fw8" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-long">21.1 km</p>
+        <p class="lbl" style="margin-top:6px">Uscita piu' lunga</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SOCIAL ═══ -->
+<section class="section">
+  <div class="wrap">
+    <p class="ey c-mu mb4">La nostra rilevanza</p>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">490k views.<br><span style="color:var(--mut2)">Organici. In 90 giorni.</span></p>
+    <div class="social-grid">
+      <div class="social-cell">
+        <p class="soc-n c-m">14.282</p>
+        <p class="soc-l">Follower</p>
+        <p class="soc-s">@luporamio + @vittoria.vec</p>
+      </div>
+      <div class="social-cell">
+        <p class="soc-n" style="color:var(--m)">490k</p>
+        <p class="soc-l">Views · 90 giorni</p>
+        <p class="soc-s">35× i follower in reach organico</p>
+      </div>
+      <div class="social-cell">
+        <p class="soc-n">68k</p>
+        <p class="soc-l">Account raggiunti</p>
+        <p class="soc-s">Unici · 90 giorni</p>
+      </div>
+      <div class="social-cell">
+        <p class="soc-n">6.734</p>
+        <p class="soc-l">Interazioni</p>
+        <p class="soc-s">Likes, commenti, share</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<div style="padding:28px 40px;border-top:1px solid var(--border);max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+  <div class="flex ai-c gap8">
+    <div class="sync-dot"></div>
+    <span class="lbl" id="footer-sync">Aggiornamento automatico ogni mattina</span>
+  </div>
+  <a class="logo" href="../"><em>AI</em>-ROX</a>
+  <div class="flex gap8">
+    <a href="https://instagram.com/luporamio" target="_blank" class="nchip out">@luporamio</a>
+    <a href="https://instagram.com/vittoria.vec" target="_blank" class="nchip out">@vittoria.vec</a>
+  </div>
+</div>
+
+<script>
+/* ═══════════ CONFIG ═══════════ */
+const GOAL_DATE   = new Date('2026-12-06T00:00:00');
+const PREP_START  = new Date('2026-06-01T00:00:00');
+const DATA_URL    = 'https://luporamio.github.io/juan-carlos-coach/data.json';
+const COACH_URL   = 'https://luporamio.github.io/juan-carlos-coach/coaching.json';
+
+/* ═══════════ FALLBACK DATA (struttura identica al live) ═══════════ */
+const FB_STATS = {
+  '7d':  { total_km:35.3,  run_sessions:4,  avg_pace:390, avg_hr:134, total_elevation:401 },
+  '30d': { total_km:101.9, run_sessions:15, avg_pace:368, avg_hr:140, total_elevation:1242 },
+  '90d': { total_km:407.8, run_sessions:54, avg_pace:367, avg_hr:146, total_elevation:4447 },
+  'all': { total_km:1947.5, all_sessions:442, best_pace:291, longest_run:21.1, total_elevation:26833 }
+};
+const FB_ACTS = [
+  {date:'2026-06-04',type:'Run',    name:'Corsa serale',          distance_km:8.05,  duration_sec:2783, pace:'5:46/km', pace_sec:346, hr_avg:153, elevation:133},
+  {date:'2026-06-04',type:'Walk',   name:'Camminata serale',       distance_km:0.83,  duration_sec:571,  pace:null,       pace_sec:null,hr_avg:115, elevation:19},
+  {date:'2026-06-03',type:'Workout',name:'Allenamento serale',      distance_km:null,  duration_sec:2748, pace:null,       pace_sec:null,hr_avg:90,  elevation:null},
+  {date:'2026-06-02',type:'Run',    name:'Corsa mattutina',         distance_km:10.01, duration_sec:3460, pace:'5:45/km', pace_sec:345, hr_avg:155, elevation:128},
+  {date:'2026-06-02',type:'Workout',name:'Allenamento mattutino',   distance_km:null,  duration_sec:427,  pace:null,       pace_sec:null,hr_avg:147, elevation:null},
+  {date:'2026-05-31',type:'Run',    name:'Recupero attivo',         distance_km:8.52,  duration_sec:4367, pace:'8:33/km', pace_sec:513, hr_avg:114, elevation:121},
+  {date:'2026-05-30',type:'Run',    name:'HYROX Rimini · 1:19:57', distance_km:8.7,   duration_sec:3070, pace:'5:53/km', pace_sec:353, hr_avg:162, elevation:0},
+  {date:'2026-05-27',type:'Run',    name:'Afternoon Run',           distance_km:4.56,  duration_sec:1800, pace:'6:35/km', pace_sec:395, hr_avg:144, elevation:20},
+  {date:'2026-05-21',type:'Run',    name:'Afternoon Run',           distance_km:6.74,  duration_sec:2406, pace:'5:57/km', pace_sec:357, hr_avg:158, elevation:85},
+  {date:'2026-05-20',type:'Workout',name:'Afternoon HIIT',          distance_km:null,  duration_sec:2400, pace:null,       pace_sec:null,hr_avg:139, elevation:null},
+];
+const FB_COMMENTS = [
+  {date:'2026-06-02',type:'Run',    rating:4, juan_comment:'Buona uscita. 5:46 su 10km il giorno dopo Hyrox con FC a 155. L\'obiettivo e\' portare questo passo a 5:15 con FC simile.'},
+  {date:'2026-05-31',type:'Run',    rating:5, juan_comment:'Ottimo recupero attivo. 8:33/km con FC a 114 bpm. Esattamente quello che serviva.'},
+  {date:'2026-05-30',type:'Run',    rating:3, juan_comment:'1:19:57 ufficiale con 15\'\' di penalita\'. Errore tattico al sled push. Lavoriamo.'},
+  {date:'2026-05-27',type:'Run',    rating:3, juan_comment:'Pre-gara. Scioltezza, niente di piu\'. Bene cosi\'.'},
+  {date:'2026-05-21',type:'Run',    rating:3, juan_comment:'Easy deve essere EASY: FC sotto 145. Sei partito troppo forte.'},
+  {date:'2026-05-19',type:'Run',    rating:4, juan_comment:'6:00/km con FC 151 su 7.1km. Meglio. Questo e\' il ritmo Z2 corretto.'},
+  {date:'2026-05-16',type:'Workout',rating:5, juan_comment:'Simulazione Hyrox a corpo libero, 80 minuti, FC media 162. Perfetta taper.'},
+  {date:'2026-05-15',type:'Run',    rating:3, juan_comment:'6:03/km, FC 154. Accettabile. Target: 6:00-6:05 con FC sotto 150.'},
+];
+
+/* ═══════════ HELPERS ═══════════ */
+function secToPace(sec){
+  if(!sec||sec<=0) return null;
+  const m=Math.floor(sec/60), s=sec%60;
+  return m+':'+s.toString().padStart(2,'0')+'/km';
+}
+function fmtDur(secs){
+  const h=Math.floor(secs/3600),m=Math.floor((secs%3600)/60),s=secs%60;
+  if(h>0) return h+':'+m.toString().padStart(2,'0')+':'+s.toString().padStart(2,'0');
+  return m+':'+s.toString().padStart(2,'0');
+}
+function fmtDate(iso){
+  const d=new Date(iso);
+  const months=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+  return d.getUTCDate()+' '+months[d.getUTCMonth()];
+}
+function typeIcon(type){
+  if(type==='Run') return '🏃';
+  if(type==='Walk') return '🚶';
+  if(type==='Ride'||type==='VirtualRide') return '🚴';
+  return '💪';
+}
+function typeBg(type){
+  if(type==='Run') return 'rgba(255,107,53,.12)';
+  if(type==='Walk') return 'rgba(255,255,255,.06)';
+  return 'rgba(79,142,247,.1)';
+}
+function stars(n){
+  return Array.from({length:5},(_,i)=>`<span style="color:${i<n?'#F59E0B':'rgba(255,255,255,.1)'};font-size:.75rem">★</span>`).join('');
+}
+
+/* ═══════════ COUNTDOWN ═══════════ */
+function initCountdown(){
+  const now=new Date();
+  const msLeft=GOAL_DATE-now;
+  const daysLeft=Math.max(0,Math.ceil(msLeft/86400000));
+  const totalDays=Math.ceil((GOAL_DATE-PREP_START)/86400000);
+  const elapsed=Math.max(0,Math.ceil((now-PREP_START)/86400000));
+  const progPct=Math.min(100,Math.max(0,(elapsed/totalDays*100)));
+  const todayPct=Math.min(99.5,(elapsed/totalDays*100));
+
+  document.getElementById('nav-days').textContent=daysLeft+' gg';
+  document.getElementById('pill-days').textContent=daysLeft+' giorni al via';
+  document.getElementById('pill-prog').textContent=progPct.toFixed(1)+'% preparazione';
+
+  setTimeout(()=>{
+    document.getElementById('tl-done').style.width=todayPct+'%';
+    document.getElementById('tl-today-marker').style.left=todayPct+'%';
+    document.getElementById('tl-today-lbl').style.left=todayPct+'%';
+  },300);
+
+  const circ=213.6;
+  setTimeout(()=>{
+    const offset=circ*(1-progPct/100);
+    document.getElementById('ring-m').style.strokeDashoffset=offset;
+    document.getElementById('ring-m').style.transition='stroke-dashoffset 1.4s ease';
+    document.getElementById('ring-m-num').textContent=progPct.toFixed(0)+'%';
+    // Vittoria weight ring: 22% done
+    const vOffset=circ*(1-0.22);
+    document.getElementById('ring-v').style.strokeDashoffset=vOffset;
+    document.getElementById('ring-v').style.transition='stroke-dashoffset 1.4s ease';
+  },500);
+}
+
+/* ═══════════ RENDER MATTIA ═══════════ */
+function renderMattia(data, coaching){
+  const stats = data?.stats || FB_STATS;
+  const acts  = (data?.recent_activities || FB_ACTS).slice(0,10);
+  const cmnts = coaching?.session_comments || FB_COMMENTS;
+  const sync  = data?.last_sync || null;
+
+  // ─ Stats cells ─
+  const s30=stats['30d']||{};
+  const s7=stats['7d']||{};
+  const km30=(s30.total_km||101.9).toFixed(1);
+  const km7=(s7.total_km||35.3).toFixed(1);
+  const pace30=secToPace(s30.avg_pace||368)||'6:08/km';
+  const hr30=Math.round(s30.avg_hr||140);
+  document.getElementById('m-km30').textContent=km30;
+  document.getElementById('m-km7').textContent=km7;
+  document.getElementById('m-pace').textContent=pace30;
+  document.getElementById('m-pace-cur').textContent=pace30;
+  document.getElementById('m-hr').textContent=hr30+' bpm';
+
+  // ─ Pace bar: avg_pace in sec, target 5:15=315sec, slow anchor 8:00=480sec ─
+  const curSec=s30.avg_pace||368;
+  const pbPct=Math.max(0,Math.min(100,((480-curSec)/(480-315))*100));
+  setTimeout(()=>{ document.getElementById('m-pb').style.width=pbPct+'%'; },700);
+
+  // ─ Last session ─
+  const last=acts[0]||FB_ACTS[0];
+  const lDate=fmtDate(last.date||'');
+  const lPace=last.pace||secToPace(last.pace_sec);
+  const lKm=last.distance_km?last.distance_km.toFixed(2)+'km':null;
+  document.getElementById('m-last-name').textContent=(last.name||'Sessione')+' · '+lDate;
+  document.getElementById('m-last-meta').textContent=[lKm,lPace,last.hr_avg?'FC '+Math.round(last.hr_avg):null].filter(Boolean).join(' · ');
+  const chipsEl=document.getElementById('m-last-chips');
+  chipsEl.innerHTML='';
+  if(lPace) chipsEl.innerHTML+=`<span class="ch ch-pace">${lPace}</span>`;
+  if(last.hr_avg) chipsEl.innerHTML+=`<span class="ch ch-hr">${Math.round(last.hr_avg)} bpm</span>`;
+  if(lKm) chipsEl.innerHTML+=`<span class="ch ch-km">${lKm}</span>`;
+
+  // ─ JC comment (most recent) ─
+  const latestC=cmnts&&cmnts.length?cmnts[0]:null;
+  if(latestC){
+    document.getElementById('m-stars').innerHTML=stars(latestC.rating||4);
+    document.getElementById('m-comment').textContent=latestC.juan_comment||latestC.comment||'';
+  }
+
+  // ─ Sync label ─
+  if(sync){
+    const sd=new Date(sync);
+    document.getElementById('m-sync').textContent='Sync '+sd.getDate()+'/'+String(sd.getMonth()+1).padStart(2,'0')+' '+sd.getHours()+':'+String(sd.getMinutes()).padStart(2,'0');
+    document.getElementById('footer-sync').textContent='Ultimo sync: '+sd.toLocaleDateString('it-IT',{day:'2-digit',month:'short',year:'numeric'})+' · '+sd.getHours()+':'+String(sd.getMinutes()).padStart(2,'0');
+  }
+
+  // ─ All time ─
+  const at=stats['all']||{};
+  if(at.total_km) document.getElementById('lt-km').textContent=(at.total_km||1947.5).toFixed(0);
+  if(at.all_sessions) document.getElementById('lt-acts').textContent=at.all_sessions||442;
+  if(at.best_pace) document.getElementById('lt-best').textContent=secToPace(at.best_pace)||'4:51';
+  if(at.longest_run) document.getElementById('lt-long').textContent=(at.longest_run||21.1).toFixed(1)+' km';
+
+  // ─ Recent log (small panel) ─
+  const logEl=document.getElementById('m-log');
+  const recent5=acts.filter(a=>a.type==='Run'||a.type==='Workout').slice(0,5);
+  logEl.innerHTML=recent5.map(act=>{
+    const pace=act.pace||secToPace(act.pace_sec);
+    const km=act.distance_km?act.distance_km.toFixed(1)+' km':'';
+    const dur=act.duration_sec?fmtDur(act.duration_sec):'';
+    const hr=act.hr_avg?Math.round(act.hr_avg):'';
+    return `
+    <div class="log-row">
+      <span class="log-date">${fmtDate(act.date)}</span>
+      <div class="log-ic" style="background:${typeBg(act.type)}">${typeIcon(act.type)}</div>
+      <div class="log-info">
+        <p class="log-n">${act.name||'Sessione'}</p>
+      </div>
+      <div class="log-chips">
+        ${km?`<span class="ch ch-km">${km}</span>`:''}
+        ${pace?`<span class="ch ch-pace">${pace}</span>`:''}
+        ${hr?`<span class="ch ch-hr">${hr} bpm</span>`:''}
+        ${dur&&!km?`<span class="ch ch-km">${dur}</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+
+  // ─ Full log with JC comments ─
+  const fullEl=document.getElementById('m-full-log');
+  const commentMap={};
+  (cmnts||[]).forEach(c=>{ commentMap[c.date]={rating:c.rating,comment:c.juan_comment||c.comment,type:c.type}; });
+  const full10=acts.slice(0,10);
+  fullEl.innerHTML=full10.map(act=>{
+    const pace=act.pace||secToPace(act.pace_sec);
+    const km=act.distance_km?act.distance_km.toFixed(2)+' km':'';
+    const hr=act.hr_avg?Math.round(act.hr_avg):'';
+    const elev=act.elevation?Math.round(act.elevation)+' m elev':'';
+    const dur=act.duration_sec?fmtDur(act.duration_sec):'';
+    const dateKey=(act.date||'').substring(0,10);
+    const c=commentMap[dateKey]&&commentMap[dateKey].type===act.type?commentMap[dateKey]:null;
+    return `
+    <div class="log-row">
+      <span class="log-date">${fmtDate(act.date)}</span>
+      <div class="log-ic" style="background:${typeBg(act.type)}">${typeIcon(act.type)}</div>
+      <div class="log-info">
+        <p class="log-n">${act.name||'Sessione'}</p>
+        ${c?`<p class="log-comment">${c.rating?stars(c.rating)+' ':''}"${c.comment}"</p>`:''}
+      </div>
+      <div class="log-chips">
+        ${km?`<span class="ch ch-km">${km}</span>`:''}
+        ${pace?`<span class="ch ch-pace">${pace}</span>`:''}
+        ${hr?`<span class="ch ch-hr">${hr} bpm</span>`:''}
+        ${elev?`<span class="ch ch-elev">${elev}</span>`:''}
+        ${dur&&!km?`<span class="ch ch-km">${dur}</span>`:''}
+        ${c?`<span class="ch ch-star">★${c.rating}</span>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════ FETCH + INIT ═══════════ */
+async function init(){
+  initCountdown();
+  // initial render with fallback
+  renderMattia(null, {session_comments: FB_COMMENTS});
+
+  try{
+    const [dRes, cRes] = await Promise.all([
+      fetch(DATA_URL).then(r=>{ if(!r.ok) throw new Error(); return r.json(); }),
+      fetch(COACH_URL).then(r=>{ if(!r.ok) throw new Error(); return r.json(); })
+    ]);
+    renderMattia(dRes, cRes);
+  } catch(e){
+    // fallback already rendered, no-op
+    document.getElementById('m-sync').textContent='Offline · dati snapshot';
+  }
+}
+
+/* ─ Progress bars animate on scroll ─ */
+const pbObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      document.getElementById('v-pb').style.width='22%';
+      document.getElementById('v-pb').style.transition='width 1.4s cubic-bezier(.4,0,.2,1)';
+    }
+  });
+},{threshold:.2});
+document.addEventListener('DOMContentLoaded',()=>{
+  const vPbEl=document.getElementById('v-pb');
+  if(vPbEl) pbObserver.observe(vPbEl);
+});
+
+init();
+</script>
+</body>
+</html>
