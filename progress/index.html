@@ -30,8 +30,14 @@
     .g3{display:grid;grid-template-columns:repeat(3,1fr)}
     .section{padding:60px 0;border-top:1px solid var(--border)}
     @media(max-width:768px){
-      .wrap{padding:0 18px}
-      .section{padding:40px 0}
+      .wrap{padding:0 16px}
+      .section{padding:28px 0}
+      .kpi-sec{padding:20px 0!important}
+      .grid2{gap:10px}
+      .ath{padding:18px}
+      #kpi-strip > div{padding:14px 12px!important}
+      .g3 > div{padding:12px!important}
+      .wp-start,.wp-now,.wp-end{padding:18px 16px!important}
     }
     @media(max-width:640px){
       .grid2{grid-template-columns:1fr}
@@ -57,7 +63,10 @@
     /* ─ HERO ─ */
     #hero{padding-top:50px;min-height:60vh;display:flex;align-items:center;background-color:var(--bg)}
     .hero-content{width:100%;padding:48px 0 40px;text-align:center}
-    @media(max-width:768px){.hero-content{padding:32px 0 28px}}
+    @media(max-width:768px){
+      #hero{min-height:auto}
+      .hero-content{padding:24px 0 20px}
+    }
     .hero-ey{color:var(--mut);margin-bottom:20px;display:block}
     .hero-result{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 16px;line-height:1}
     .hero-from{font-size:clamp(2.8rem,7vw,7rem);color:rgba(255,255,255,.25)}
@@ -202,7 +211,7 @@
 </section>
 
 <!-- ═══ PROGRESSI CHIAVE ═══ -->
-<section style="padding:32px 0;border-top:1px solid var(--border)">
+<section class="kpi-sec" style="padding:32px 0;border-top:1px solid var(--border)">
   <div class="wrap">
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:18px;overflow:hidden" id="kpi-strip">
       <div style="background:var(--card);padding:22px 20px;border-right:1px solid var(--border);text-align:center">

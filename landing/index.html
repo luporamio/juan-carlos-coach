@@ -91,25 +91,32 @@
     .rw{display:inline-block;transition:opacity .08s ease,transform .08s ease}
 
     @media(max-width:768px){
-  .wrap,.nav-top,#anchor-bar{padding-left:20px;padding-right:20px}
+  .wrap,.nav-top,#anchor-bar{padding-left:18px;padding-right:18px}
   .g2{grid-template-columns:1fr!important}
   .g3{grid-template-columns:1fr!important}
   .g4{grid-template-columns:1fr 1fr!important}
-  .pad{padding:60px 0}
-  .pad-sm{padding:40px 0}
+  .pad{padding:40px 0}
+  .pad-sm{padding:24px 0}
   .hero-dash-preview{display:none!important}
   #hero{min-height:100svh}
-  #hero > div[style*="z-index:2"]{padding:0 20px 72px!important}
-  .obj-grid{grid-template-columns:1fr!important;gap:20px!important}
+  #hero > div[style*="z-index:2"]{padding:0 18px 40px!important}
+  .obj-grid{grid-template-columns:1fr!important;gap:16px!important}
   .obj-arrow{display:none!important}
   .jc-grid{grid-template-columns:1fr 1fr!important}
   .jc-imp{grid-template-columns:1fr!important}
   .anc{padding:0 10px!important;font-size:.58rem!important}
+  /* sezioni: riduco margine sotto intestazione */
+  .wrap > .rv:first-child{margin-bottom:24px!important}
+  /* card con padding generoso */
+  [style*="padding:32px"]{padding:20px!important}
+  [style*="padding:28px 24px"]{padding:16px 18px!important}
 }
 @media(max-width:480px){
   .g4{grid-template-columns:1fr!important}
   .jc-grid{grid-template-columns:1fr 1fr!important}
   .nav-soc a:not(.hi){display:none}
+  /* bio più compatta */
+  [style*="aspect-ratio:3/4"]{aspect-ratio:unset!important;height:280px}
 }
   </style>
 </head>
