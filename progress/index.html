@@ -155,14 +155,6 @@
     .pc-lbl{font-family:'Space Grotesk',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.06em;white-space:nowrap;color:var(--mut)}
     .pc-scale-labels{display:flex;justify-content:space-between}
 
-    /* ─ SOCIAL ─ */
-    .social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:18px;overflow:hidden}
-    @media(max-width:600px){.social-grid{grid-template-columns:1fr 1fr}}
-    .social-cell{background:var(--card);padding:24px 20px;text-align:center}
-    .soc-n{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:clamp(1.6rem,3vw,2.5rem);margin-bottom:5px}
-    .soc-l{font-family:'Space Grotesk',sans-serif;font-size:.56rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
-    .soc-s{font-size:.68rem;color:var(--mut2);margin-top:3px}
-
     /* ─ SYNC STATUS ─ */
     .sync-dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse 2s infinite;flex-shrink:0}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -219,6 +211,49 @@
         <span class="tl-mk">Ott</span>
         <span class="tl-mk">Nov</span>
         <span class="tl-mk hl">5-6 Dic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROGRESSI CHIAVE ═══ -->
+<section style="padding:32px 0;border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:18px;overflow:hidden" id="kpi-strip">
+      <div style="background:var(--card);padding:22px 20px;border-right:1px solid var(--border);text-align:center">
+        <p class="ey c-mu" style="margin-bottom:8px">Passo · Rimini</p>
+        <p class="d2" style="font-size:clamp(1.3rem,2.5vw,2rem);color:rgba(255,255,255,.35)">5:53/km</p>
+      </div>
+      <div style="background:var(--card);padding:22px 20px;border-right:1px solid var(--border);text-align:center">
+        <p class="ey c-mu" style="margin-bottom:8px">Passo · Oggi</p>
+        <p class="d2" style="font-size:clamp(1.3rem,2.5vw,2rem);color:var(--m)" id="kpi-pace-now">6:08/km</p>
+      </div>
+      <div style="background:var(--card);padding:22px 20px;border-right:1px solid var(--border);text-align:center">
+        <p class="ey c-mu" style="margin-bottom:8px">Km · mese</p>
+        <p class="d2" style="font-size:clamp(1.3rem,2.5vw,2rem);color:#fff" id="kpi-km30">101.9</p>
+      </div>
+      <div style="background:var(--card);padding:22px 20px;text-align:center">
+        <p class="ey" style="margin-bottom:8px;color:var(--g)">Target</p>
+        <p class="d2" style="font-size:clamp(1.3rem,2.5vw,2rem);color:var(--g)">5:15/km</p>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-top:none;border-radius:0 0 18px 18px;overflow:hidden">
+      <div style="background:var(--card2);padding:16px 20px;border-right:1px solid var(--border);text-align:center">
+        <p class="ey c-mu" style="margin-bottom:6px">FC Rimini vs Oggi</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700">
+          <span style="color:rgba(239,68,68,.6)">162</span>
+          <span style="color:var(--mut);font-size:.8rem"> bpm → </span>
+          <span style="color:var(--g)" id="kpi-hr">140</span>
+          <span style="color:var(--mut);font-size:.8rem"> bpm</span>
+        </p>
+      </div>
+      <div style="background:var(--card2);padding:16px 20px;border-right:1px solid var(--border);text-align:center">
+        <p class="ey c-mu" style="margin-bottom:6px">Sessioni · 7 giorni</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700" id="kpi-sess7">4 sessioni</p>
+      </div>
+      <div style="background:var(--card2);padding:16px 20px;text-align:center">
+        <p class="ey c-mu" style="margin-bottom:6px">Gap tempo da recuperare</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;color:var(--m)">-9 min 57 sec</p>
       </div>
     </div>
   </div>
@@ -307,9 +342,9 @@
           <div class="ath-identity">
             <h2>Vittoria Vecchio</h2>
             <span class="ath-handle c-v">@vittoria.vec</span>
-            <p class="ath-loc">Catania · Wearemarketers</p>
+            <p class="ath-loc">Catania · Running + Hyrox</p>
           </div>
-          <!-- Ring: peso goal progress -->
+          <!-- Ring: prep progress (same as Mattia, shared goal) -->
           <div class="ring">
             <svg width="82" height="82" viewBox="0 0 82 82">
               <circle cx="41" cy="41" r="34" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="6"/>
@@ -317,22 +352,22 @@
                 stroke-dasharray="213.6" stroke-dashoffset="213.6" stroke-linecap="round"/>
             </svg>
             <div class="ring-center">
-              <span class="ring-num c-v">22%</span>
-              <span class="ring-sub">peso</span>
+              <span class="ring-num c-v" id="ring-v-num">0%</span>
+              <span class="ring-sub">prep</span>
             </div>
           </div>
         </div>
-        <!-- Stats 2x2 -->
+        <!-- Stats 2x2 atletici -->
         <div class="sg4 mb16">
-          <div class="sc"><p class="sv c-v">43.6</p><p class="sl">VO2Max attuale</p></div>
-          <div class="sc"><p class="sv">47-48</p><p class="sl">VO2Max target</p></div>
-          <div class="sc"><p class="sv">64.1 kg</p><p class="sl">Peso attuale</p></div>
-          <div class="sc"><p class="sv">60 bpm</p><p class="sl">FC a riposo</p></div>
+          <div class="sc"><p class="sv c-v">~6:10/km</p><p class="sl">Passo attuale</p></div>
+          <div class="sc"><p class="sv">5:15/km</p><p class="sl">Target HYROX</p></div>
+          <div class="sc"><p class="sv">~23 km</p><p class="sl">Volume sett.</p></div>
+          <div class="sc"><p class="sv">4+2+1</p><p class="sl">Run / Pesi / Hyrox</p></div>
         </div>
-        <!-- Peso progress bar -->
+        <!-- Pace progress bar -->
         <div class="pb-wrap">
           <div class="pb-hdr">
-            <span class="lbl">Peso attuale</span>
+            <span class="lbl">Passo attuale</span>
             <span class="lbl">Target</span>
           </div>
           <div class="pb-track">
@@ -340,30 +375,30 @@
             <div class="pb-target" style="right:0;background:var(--g);top:-3px;width:2px;height:10px"></div>
           </div>
           <div class="pb-foot">
-            <span class="lbl">64.1 kg</span>
-            <span class="lbl c-g">60 kg</span>
+            <span class="lbl">~6:10/km</span>
+            <span class="lbl c-g">5:15/km</span>
           </div>
         </div>
-        <!-- Last session / upcoming -->
+        <!-- Piano settimana corrente -->
         <div class="last-sess">
-          <div class="ls-icon" style="background:rgba(196,160,180,.1)">📋</div>
+          <div class="ls-icon" style="background:rgba(196,160,180,.1)">🏃</div>
           <div class="ls-info">
-            <p class="ls-n">Piano Hugo · settimana 8-14 Giu</p>
-            <p class="ls-m">4 sessioni running · 2 pesi · 1 Hyrox · ~23 km totali</p>
+            <p class="ls-n" style="color:var(--v)">Settimana in corso</p>
+            <p class="ls-m">4 sessioni running + 2 pesi + 1 sessione Hyrox · ~23 km totali</p>
           </div>
         </div>
-        <!-- Cycle phase badge -->
+        <!-- Forza di riferimento (dato pubblico) -->
         <div class="last-sess" style="margin-top:0">
-          <div class="ls-icon" style="background:rgba(196,160,180,.08)">📈</div>
+          <div class="ls-icon" style="background:rgba(196,160,180,.08)">💪</div>
           <div class="ls-info">
-            <p class="ls-n" style="color:var(--v)">Follicolare · gg 3-9</p>
-            <p class="ls-m">Energia alta, forza al picco. Settimana ideale per i carichi massimali.</p>
+            <p class="ls-n">Benchmark forza</p>
+            <p class="ls-m">Squat 55 kg · Stacco 65 kg · Hip Thrust 120 kg</p>
           </div>
         </div>
-        <!-- Hugo note -->
+        <!-- Prossimo step -->
         <div class="note">
-          <p class="ey note-ey c-v mb4">Hugo · settimana 1</p>
-          <p class="note-txt">Settimana 1 del blocco Hyrox Milano. Follicolare gg 3-9: energia alta, forza al picco. Priorita': non saltare le sessioni running. I pesi si recuperano, il running no.</p>
+          <p class="ey note-ey c-v mb4">Focus blocco attuale</p>
+          <p class="note-txt">Costruire la base aerobica senza perdere la forza. Obiettivo: portare il passo da ~6:10 a 5:15/km mantenendo la capacita' di spingere nelle stazioni Hyrox.</p>
         </div>
       </div>
     </div>
@@ -557,105 +592,6 @@
   </div>
 </section>
 
-<!-- ═══ SOCIAL ═══ -->
-<section class="section">
-  <div class="wrap">
-    <p class="ey c-mu mb4">La nostra rilevanza</p>
-    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">490k views.<br><span style="color:var(--mut2)">Organici. In 90 giorni.</span></p>
-
-    <!-- Metriche principali -->
-    <div class="social-grid" style="margin-bottom:14px">
-      <div class="social-cell">
-        <p class="soc-n c-m">14.282</p>
-        <p class="soc-l">Follower</p>
-        <p class="soc-s">@luporamio + @vittoria.vec</p>
-      </div>
-      <div class="social-cell">
-        <p class="soc-n" style="color:var(--m)">2.000+</p>
-        <p class="soc-l">Story views medie</p>
-        <p class="soc-s">Per contenuto pubblicato</p>
-      </div>
-      <div class="social-cell">
-        <p class="soc-n" style="color:var(--m)">490k</p>
-        <p class="soc-l">Views · 90 giorni</p>
-        <p class="soc-s">35x i follower in reach organico</p>
-      </div>
-      <div class="social-cell">
-        <p class="soc-n">6.734</p>
-        <p class="soc-l">Interazioni</p>
-        <p class="soc-s">Likes, commenti, share</p>
-      </div>
-    </div>
-
-    <!-- Audience breakdown -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      @media(max-width:600px){grid-template-columns:1fr}
-
-      <!-- Geo -->
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px">
-        <p class="ey c-mu" style="margin-bottom:18px">Pubblico · Top citta'</p>
-        <div style="display:flex;flex-direction:column;gap:13px">
-
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:var(--txt);width:58px">Ferrara</span>
-            <div style="flex:1;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
-              <div style="width:100%;height:100%;background:var(--m);border-radius:2px"></div>
-            </div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:800;color:var(--m);width:38px;text-align:right">23%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:var(--txt);width:58px">Milano</span>
-            <div style="flex:1;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
-              <div style="width:22%;height:100%;background:rgba(255,107,53,.45);border-radius:2px"></div>
-            </div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:800;color:var(--mut);width:38px;text-align:right">5,1%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:var(--txt);width:58px">Roma</span>
-            <div style="flex:1;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
-              <div style="width:12%;height:100%;background:rgba(255,107,53,.35);border-radius:2px"></div>
-            </div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:800;color:var(--mut);width:38px;text-align:right">2,7%</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:10px">
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:var(--txt);width:58px">Bologna</span>
-            <div style="flex:1;height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
-              <div style="width:9%;height:100%;background:rgba(255,107,53,.3);border-radius:2px"></div>
-            </div>
-            <span style="font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:800;color:var(--mut);width:38px;text-align:right">2,1%</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Profilo demografico -->
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px">
-        <p class="ey c-mu" style="margin-bottom:18px">Pubblico · Profilo</p>
-        <div style="display:flex;flex-direction:column;gap:16px">
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px">
-              <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:var(--v)">Donne</span>
-              <span style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;color:var(--v)">66,4%</span>
-            </div>
-            <div style="height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
-              <div style="width:66.4%;height:100%;background:var(--v);border-radius:2px"></div>
-            </div>
-          </div>
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px">
-              <span style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:700;color:var(--g)">Eta' 24-44</span>
-              <span style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g)">87%</span>
-            </div>
-            <div style="height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
-              <div style="width:87%;height:100%;background:var(--g);border-radius:2px"></div>
-            </div>
-          </div>
-          <p style="font-size:.68rem;color:var(--mut);line-height:1.5;margin-top:2px">Target qualificato per brand sport, wellness, tech e lifestyle outdoor.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ FOOTER ═══ -->
 <div style="padding:28px 40px;border-top:1px solid var(--border);max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
   <div class="flex ai-c gap8">
@@ -763,10 +699,10 @@ function initCountdown(){
     document.getElementById('ring-m').style.strokeDashoffset=offset;
     document.getElementById('ring-m').style.transition='stroke-dashoffset 1.4s ease';
     document.getElementById('ring-m-num').textContent=progPct.toFixed(0)+'%';
-    // Vittoria weight ring: 22% done
-    const vOffset=circ*(1-0.22);
-    document.getElementById('ring-v').style.strokeDashoffset=vOffset;
+    // Vittoria: same prep % (shared goal date)
+    document.getElementById('ring-v').style.strokeDashoffset=offset;
     document.getElementById('ring-v').style.transition='stroke-dashoffset 1.4s ease';
+    document.getElementById('ring-v-num').textContent=progPct.toFixed(0)+'%';
   },500);
 }
 
@@ -789,6 +725,13 @@ function renderMattia(data, coaching){
   document.getElementById('m-pace').textContent=pace30;
   document.getElementById('m-pace-cur').textContent=pace30;
   document.getElementById('m-hr').textContent=hr30+' bpm';
+
+  // ─ KPI strip ─
+  document.getElementById('kpi-pace-now').textContent=pace30;
+  document.getElementById('kpi-km30').textContent=km30;
+  document.getElementById('kpi-hr').textContent=hr30;
+  const sess7=s7.run_sessions||4;
+  document.getElementById('kpi-sess7').textContent=sess7+' session'+(sess7===1?'e':'i');
 
   // ─ Pace bar: avg_pace in sec, target 5:15=315sec, slow anchor 8:00=480sec ─
   const curSec=s30.avg_pace||368;
