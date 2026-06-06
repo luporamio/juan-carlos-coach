@@ -98,8 +98,8 @@
   .pad{padding:40px 0}
   .pad-sm{padding:24px 0}
   .hero-dash-preview{display:none!important}
-  #hero{min-height:100svh}
-  #hero > div[style*="z-index:2"]{padding:0 18px 40px!important}
+  #hero{height:auto!important;min-height:0}
+  #hero > div[style*="z-index:2"]{padding:96px 18px 52px!important}
   .obj-grid{grid-template-columns:1fr!important;gap:16px!important}
   .obj-arrow{display:none!important}
   .jc-grid{grid-template-columns:1fr 1fr!important}
@@ -201,7 +201,7 @@
         <!-- Foto -->
         <div style="aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;margin-bottom:18px">
           <img src="img/Mattia Bonetti.jpg" alt="Mattia Bonetti" style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,transparent 52%)"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.97) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.2) 70%,transparent 100%)"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;padding:22px">
             <h3 class="d3" style="font-size:1.5rem;margin-bottom:4px">Mattia Bonetti</h3>
             <p class="sm">Ferrara · 36 anni</p>
@@ -293,7 +293,7 @@
         <!-- Foto -->
         <div style="aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;margin-bottom:18px">
           <img src="img/Vittoria Vecchio.JPG" alt="Vittoria Vecchio" style="width:100%;height:100%;object-fit:cover;object-position:center 10%"/>
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88) 0%,transparent 52%)"></div>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.97) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.2) 70%,transparent 100%)"></div>
           <div style="position:absolute;bottom:0;left:0;right:0;padding:22px">
             <h3 class="d3" style="font-size:1.5rem;margin-bottom:4px">Vittoria Vecchio</h3>
             <p class="sm">Catania · 33 anni</p>
@@ -426,7 +426,7 @@
       <!-- Sinistra: risultato -->
       <div style="position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4">
         <img src="img/result-hyrox.jpg" alt="HYROX 1:19:57" style="width:100%;height:100%;object-fit:cover;object-position:center 20%"/>
-        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.93) 0%,rgba(0,0,0,.2) 55%,transparent 100%)"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.97) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.1) 75%,transparent 100%)"></div>
         <div style="position:absolute;top:16px;left:16px">
           <span style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#F59E0B;padding:4px 10px;border-radius:99px">COMPLETATO · 30 MAG 2026</span>
         </div>
@@ -569,19 +569,6 @@
       </div>
     </div>
 
-    <!-- Dati Mattia sintetici -->
-    <div class="rv" style="margin-top:24px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:20px 24px">
-      <p class="sm" style="margin-bottom:12px">Dati Mattia · storico Strava (dalla gara)</p>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px" class="g4">
-        <div><p class="sm" style="margin-bottom:3px">Km totali</p><p class="d3" style="font-size:1.3rem">1.947</p></div>
-        <div><p class="sm" style="margin-bottom:3px">Attivita'</p><p class="d3" style="font-size:1.3rem">442</p></div>
-        <div><p class="sm" style="margin-bottom:3px">Passo medio</p><p class="d3" style="font-size:1.3rem">5:45</p></div>
-        <div><p class="sm" style="margin-bottom:3px">FC media</p><p class="d3" style="font-size:1.3rem">155 bpm</p></div>
-      </div>
-      <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.04)">
-        <p style="font-size:.78rem;color:rgba(255,255,255,.2)">I dati di Vittoria verranno aggiunti non appena inizia il sync automatico del suo profilo Strava.</p>
-      </div>
-    </div>
 
   </div>
 </section>
