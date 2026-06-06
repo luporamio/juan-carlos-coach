@@ -100,6 +100,49 @@
   </style>
 </head>
 <body>
+
+<!-- ═══ AUTH GATE ═══ -->
+<style>
+#ag{position:fixed;inset:0;background:#080808;z-index:9999;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif}
+#ag.gone{display:none}
+.ab{width:320px;padding:38px 36px;border:1px solid rgba(255,255,255,.07);border-radius:20px;background:#0f0f0f}
+.al{font-size:1.1rem;font-weight:800;letter-spacing:-.03em;margin-bottom:30px;text-align:center;color:#fff}
+.al em{color:#FF6B35;font-style:normal}
+.af{margin-bottom:12px}
+.af label{display:block;font-size:.55rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:5px}
+.af input{width:100%;background:#191919;border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:10px 13px;color:#fff;font-family:'Space Grotesk',sans-serif;font-size:.85rem;outline:none;transition:border-color .15s}
+.af input:focus{border-color:rgba(255,107,53,.35)}
+.abtn{width:100%;background:#FF6B35;color:#fff;border:none;border-radius:8px;padding:11px;font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:700;cursor:pointer;margin-top:8px;transition:opacity .15s}
+.abtn:hover{opacity:.86}
+.aerr{font-size:.68rem;color:#EF4444;text-align:center;margin-top:9px;min-height:16px}
+</style>
+<div id="ag">
+  <div class="ab">
+    <p class="al"><em>AI</em>-ROX · Dashboard privata</p>
+    <div class="af"><label>Utente</label><input type="text" id="au" autocomplete="username" placeholder="username"/></div>
+    <div class="af"><label>Password</label><input type="password" id="ap" autocomplete="current-password" placeholder="••••••••"/></div>
+    <button class="abtn" onclick="chk()">Accedi →</button>
+    <p class="aerr" id="ae"></p>
+  </div>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('_ar')===btoa('ok')) document.getElementById('ag').classList.add('gone');
+  document.getElementById('ap').addEventListener('keydown',e=>{ if(e.key==='Enter') chk(); });
+})();
+function chk(){
+  const u=document.getElementById('au').value.trim().toLowerCase();
+  const p=document.getElementById('ap').value;
+  if(u===atob('bWF0dGlh') && p===atob('aHlyb3gyNg==')){
+    sessionStorage.setItem('_ar',btoa('ok'));
+    document.getElementById('ag').classList.add('gone');
+  } else {
+    document.getElementById('ae').textContent='Credenziali non valide.';
+    document.getElementById('ap').value='';
+    document.getElementById('ap').focus();
+  }
+}
+</script>
 <div class="glow-a"></div>
 <div class="glow-b"></div>
 
