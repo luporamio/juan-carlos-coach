@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>AI-ROX · Performance sportive con l'AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{background:#000;color:#fff;font-family:'DM Sans',sans-serif;overflow-x:hidden}
+    ::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:#222}
+
+    /* ── NAV (sempre visibile) ── */
+    #nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-top{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:52px}
+    .logo{font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.95rem;letter-spacing:-.02em;color:#fff;text-decoration:none}
+    .logo em{color:#FF6B35;font-style:normal}
+    .nav-soc{display:flex;gap:8px}
+    .nav-soc a{font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.4);padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:99px;text-decoration:none;transition:all .18s}
+    .nav-soc a:hover{color:#fff;border-color:rgba(255,255,255,.25)}
+    .nav-soc a.hi{color:#FF6B35;border-color:rgba(255,107,53,.25)}
+
+    /* Anchor bar */
+    #anchor-bar{border-top:1px solid rgba(255,255,255,.05);display:flex;align-items:center;padding:0 48px;height:38px;gap:0;overflow-x:auto;scrollbar-width:none}
+    #anchor-bar::-webkit-scrollbar{display:none}
+    .anc{font-family:'Space Grotesk',sans-serif;font-size:.66rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.22);padding:0 16px;height:100%;display:flex;align-items:center;text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:all .18s}
+    .anc:hover{color:rgba(255,255,255,.6)}
+    .anc.active{color:#FF6B35;border-bottom-color:#FF6B35}
+
+    /* ── LAYOUT ── */
+    .section{position:relative;z-index:1}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 48px}
+    .pad{padding:100px 0}
+    .pad-sm{padding:64px 0}
+
+    /* ── TYPE ── */
+    .d1{font-family:'Space Grotesk',sans-serif;font-weight:800;letter-spacing:-.04em;line-height:.9}
+    .d2{font-family:'Space Grotesk',sans-serif;font-weight:800;letter-spacing:-.03em;line-height:1.0}
+    .d3{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-.02em;line-height:1.1}
+    .ey{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FF6B35}
+    .sm{font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+
+    /* ── PHOTO ── */
+    .ph{position:absolute;inset:0}
+    .ph img{width:100%;height:100%;object-fit:cover}
+    .gr-b{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.0) 20%,rgba(0,0,0,.7) 70%,#000 100%)}
+    .gr-l{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.92) 0%,rgba(0,0,0,.5) 50%,rgba(0,0,0,.05) 100%)}
+
+    /* ── CARDS ── */
+    .card{background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;position:relative;overflow:hidden}
+
+    /* ── REVEAL ── */
+    .rv{opacity:0;transform:translateY(24px)}
+
+    /* ── TICKER ── */
+    .tkw{overflow:hidden;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04);padding:9px 0}
+    .tk{display:flex;width:max-content;animation:tick 30s linear infinite}
+    .ti{font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#181818;padding:0 24px;white-space:nowrap}
+    .ti.o{color:#FF6B35}
+    @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* ── TIMELINE ── */
+    .tl-wrap{overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
+    .tl-wrap::-webkit-scrollbar{display:none}
+    .tl{display:flex;align-items:flex-start;gap:0;min-width:900px;position:relative}
+    .tl::before{content:'';position:absolute;top:22px;left:0;right:0;height:1px;background:rgba(255,255,255,.08)}
+    .tl-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:0;position:relative}
+    .tl-dot{width:12px;height:12px;border-radius:50%;border:2px solid rgba(255,255,255,.15);background:#000;z-index:1;margin-bottom:14px;flex-shrink:0;margin-top:16px}
+    .tl-dot.done{background:#FF6B35;border-color:#FF6B35}
+    .tl-dot.event{background:#F59E0B;border-color:#F59E0B;width:16px;height:16px;margin-top:14px}
+    .tl-dot.target{background:#10B981;border-color:#10B981;width:16px;height:16px;margin-top:14px}
+    .tl-content{text-align:center;padding:0 6px}
+
+    /* ── FLOW ── */
+    .flow{display:flex;overflow-x:auto;scrollbar-width:none;gap:0;min-width:760px}
+    .flow::-webkit-scrollbar{display:none}
+    .fn{flex:1;min-width:95px;display:flex;flex-direction:column;align-items:center;gap:10px}
+    .fa{flex-shrink:0;width:22px;display:flex;align-items:flex-start;padding-top:17px;justify-content:center;color:#1a1a1a;font-size:.85rem}
+    .fi{width:52px;height:52px;border-radius:14px;background:#0a0a0a;border:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center}
+
+    /* ── PROG ── */
+    .pt{height:2px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
+    .pf{height:100%;border-radius:2px;transition:width 1.8s cubic-bezier(.4,0,.2,1)}
+
+    @keyframes pd{0%,100%{box-shadow:0 0 0 0 rgba(16,185,129,.5)}70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}}
+
+    /* ── ROTATING WORD ── */
+    .rw{display:inline-block;transition:opacity .28s ease,transform .28s ease}
+
+    @media(max-width:768px){
+      .wrap,.nav-top,#anchor-bar{padding-left:20px;padding-right:20px}
+      .g2{grid-template-columns:1fr!important}
+      .g3{grid-template-columns:1fr!important}
+      .g4{grid-template-columns:1fr 1fr!important}
+      .pad{padding:60px 0}
+      .pad-sm{padding:40px 0}
+      .hero-dash-preview{display:none!important}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<div id="nav">
+  <div class="nav-top">
+    <a class="logo" href="#hero"><em>AI</em>-ROX</a>
+    <div class="nav-soc">
+      <a href="https://instagram.com/luporamio" target="_blank">@luporamio</a>
+      <a href="https://instagram.com/vittoria.vec" target="_blank">@vittoria.vec</a>
+      <a href="../progress/" class="hi">Progressi →</a><a href="../" style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.4);padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:99px;text-decoration:none">Dashboard →</a>
+    </div>
+  </div>
+  <div id="anchor-bar">
+    <a class="anc active" href="#hero">Progetto</a>
+    <a class="anc" href="#chi-siamo">Chi siamo</a>
+    <a class="anc" href="#rilevanza">Rilevanza</a>
+    <a class="anc" href="#obiettivo">Obiettivo</a>
+    <a class="anc" href="#percorso">Percorso</a>
+    <a class="anc" href="#come">Come?</a>
+    <a class="anc" href="#supportaci">Supportaci</a>
+    <a class="anc" href="#seguici">Seguici</a>
+  </div>
+</div>
+
+<!-- ══ 1. HERO ══ -->
+<section id="hero" style="height:100vh;min-height:640px;position:relative;overflow:hidden;display:flex;align-items:flex-end;background:#000">
+
+  <!-- Dashboard screenshot: nero a sinistra, visibile a destra attraverso sfumatura -->
+  <div class="hero-dash-preview" id="hero-dash" style="position:absolute;right:0;top:0;bottom:0;width:65%;z-index:1;pointer-events:none">
+    <img src="img/dash 3.png" alt="AI-ROX Dashboard live"
+         onerror="document.getElementById('hero-dash').style.display='none'"
+         style="width:100%;height:100%;object-fit:cover;object-position:left top;opacity:.9"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,1) 0%,rgba(0,0,0,1) 20%,rgba(0,0,0,.7) 42%,rgba(0,0,0,.15) 72%,rgba(0,0,0,0) 100%)"></div>
+  </div>
+
+  <div style="position:relative;z-index:2;width:100%;padding:0 48px 88px">
+    <p class="ey" id="h0" style="margin-bottom:18px;opacity:0">Ferrara · Catania · HYROX Milano · Dicembre 2026</p>
+    <h1 class="d1" id="h1" style="font-size:clamp(3.8rem,9.5vw,9.5rem);opacity:0;margin-bottom:24px">
+      Migliorare le<br>performance<br>sportive con l'<span style="color:#FF6B35">AI.</span>
+    </h1>
+    <p id="h2" style="font-family:'DM Sans',sans-serif;font-size:1.05rem;color:rgba(255,255,255,.38);max-width:440px;line-height:1.65;margin-bottom:32px;opacity:0">
+      Due atleti. Un coach AI. Sei mesi di allenamenti a distanza con dati reali e un obiettivo preciso.
+    </p>
+    <div id="h3" style="display:flex;gap:10px;flex-wrap:wrap;opacity:0">
+      <a href="#chi-siamo" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;background:#FF6B35;color:#fff;padding:13px 26px;border-radius:11px;text-decoration:none">Scopri il progetto</a>
+      <a href="../" style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.8rem;color:rgba(255,255,255,.45);padding:13px 26px;border:1px solid rgba(255,255,255,.12);border-radius:11px;text-decoration:none">Dashboard live →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="tkw">
+  <div class="tk">
+    <span class="ti o">AI-ROX</span><span class="ti">HYROX Mixed Doubles</span><span class="ti">Ferrara</span><span class="ti o">1:19:57 → sub 1:10:00</span><span class="ti">Catania</span><span class="ti">Juan Carlos AI</span><span class="ti o">Milano · Dic 2026</span><span class="ti">Strava · Amazfit · Zepp</span><span class="ti">Hugo AI</span><span class="ti">@luporamio</span><span class="ti">@vittoria.vec</span>
+    <span class="ti o">AI-ROX</span><span class="ti">HYROX Mixed Doubles</span><span class="ti">Ferrara</span><span class="ti o">1:19:57 → sub 1:10:00</span><span class="ti">Catania</span><span class="ti">Juan Carlos AI</span><span class="ti o">Milano · Dic 2026</span><span class="ti">Strava · Amazfit · Zepp</span><span class="ti">Hugo AI</span><span class="ti">@luporamio</span><span class="ti">@vittoria.vec</span>
+  </div>
+</div>
+
+<!-- ══ 2. CHI SIAMO ══ -->
+<section id="chi-siamo" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:52px">
+      <p class="ey" style="margin-bottom:10px">Chi siamo</p>
+      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">Due <span id="rotating-word" class="rw" style="color:#FF6B35">atleti</span>.<br><span style="color:rgba(255,255,255,.15)">Un obiettivo.</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="g2">
+
+      <!-- MATTIA -->
+      <div class="rv">
+        <div style="aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;margin-bottom:20px">
+          <img src="img/Mattia Bonetti.jpg" alt="Mattia Bonetti" style="width:100%;height:100%;object-fit:cover;object-position:center center"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 55%)"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:20px">
+            <p class="sm" style="margin-bottom:4px">Ferrara · 36 anni · ex rugbista</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <h3 class="d3" style="font-size:1.6rem">Mattia Bonetti</h3>
+          <a href="https://instagram.com/luporamio" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.35);padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:99px;text-decoration:none">@luporamio</a>
+        </div>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.3);line-height:1.65;margin-bottom:20px">Event Director e Direttore Commerciale Wearemarketers. Ha smesso di fumare nel maggio 2026.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden">
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Follower</p><p class="d3" style="font-size:1.3rem">4.803</p></div>
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px;color:#FF6B35">Views 90gg</p><p class="d3" style="font-size:1.3rem;color:#FF6B35">148.687</p></div>
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Account raggiunti</p><p class="d3" style="font-size:1.1rem">11.459 <span style="font-size:.68rem;color:#10B981">+45%</span></p></div>
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Visite profilo</p><p class="d3" style="font-size:1.1rem">7.235 <span style="font-size:.68rem;color:#10B981">+72%</span></p></div>
+          <div style="background:#000;padding:14px 16px;grid-column:span 2"><p class="sm" style="margin-bottom:4px">Pubblico principale</p><p style="font-size:.82rem;color:rgba(255,255,255,.3)">Ferrara 20% · Milano 4% · Roma 3%</p></div>
+        </div>
+      </div>
+
+      <!-- VITTORIA -->
+      <div class="rv">
+        <div style="aspect-ratio:3/4;border-radius:20px;overflow:hidden;position:relative;margin-bottom:20px">
+          <img src="img/Vittoria Vecchio.JPG" alt="Vittoria Vecchio" style="width:100%;height:100%;object-fit:cover;object-position:center 10%"/>
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,transparent 55%)"></div>
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:20px">
+            <p class="sm" style="margin-bottom:4px">Catania · Wearemarketers</p>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <h3 class="d3" style="font-size:1.6rem">Vittoria Vecchio</h3>
+          <a href="https://instagram.com/vittoria.vec" target="_blank" style="font-family:'Space Grotesk',sans-serif;font-size:.7rem;font-weight:600;color:rgba(255,255,255,.35);padding:5px 12px;border:1px solid rgba(255,255,255,.08);border-radius:99px;text-decoration:none">@vittoria.vec</a>
+        </div>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.3);line-height:1.65;margin-bottom:20px">Squat 55kg · stacco 65kg · hip thrust 120kg. Sa cosa significa sentire le gambe bruciare al km 6.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden">
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Follower</p><p class="d3" style="font-size:1.3rem">9.479</p></div>
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px;color:#4F8EF7">Views 90gg</p><p class="d3" style="font-size:1.3rem;color:#4F8EF7">341.818</p></div>
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Account raggiunti</p><p class="d3" style="font-size:1.1rem">56.640</p></div>
+          <div style="background:#000;padding:14px 16px"><p class="sm" style="margin-bottom:4px">Interazioni</p><p class="d3" style="font-size:1.1rem">4.181</p></div>
+          <div style="background:#000;padding:14px 16px;grid-column:span 2"><p class="sm" style="margin-bottom:4px">Pubblico</p><p style="font-size:.82rem;color:rgba(255,255,255,.3)">80.6% uomini · 19.4% donne · 60% non-follower</p></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 3. LA NOSTRA RILEVANZA ══ -->
+<section id="rilevanza" class="section pad-sm" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:44px">
+      <p class="ey" style="margin-bottom:10px">La nostra rilevanza</p>
+      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">490.000 views.<br><span style="color:rgba(255,255,255,.15)">In 90 giorni. Organici.</span></h2>
+    </div>
+    <div class="rv" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(255,255,255,.06);border-radius:18px;overflow:hidden" class="g4">
+      <div style="padding:28px;border-right:1px solid rgba(255,255,255,.06)">
+        <div class="d1" style="font-size:clamp(1.8rem,3.5vw,3.2rem);color:#fff;margin-bottom:6px">14.282</div>
+        <p class="sm">Follower combinati</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.15);margin-top:4px">@luporamio + @vittoria.vec</p>
+      </div>
+      <div style="padding:28px;border-right:1px solid rgba(255,255,255,.06)">
+        <div class="d1" style="font-size:clamp(1.8rem,3.5vw,3.2rem);color:#FF6B35;margin-bottom:6px">490k</div>
+        <p class="sm" style="color:#FF6B35">Views 90 giorni</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.15);margin-top:4px">Reach organico puro · 35× i follower</p>
+      </div>
+      <div style="padding:28px;border-right:1px solid rgba(255,255,255,.06)">
+        <div class="d1" style="font-size:clamp(1.8rem,3.5vw,3.2rem);color:#fff;margin-bottom:6px">68k</div>
+        <p class="sm">Account raggiunti</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.15);margin-top:4px">Account unici 90 giorni</p>
+      </div>
+      <div style="padding:28px">
+        <div class="d1" style="font-size:clamp(1.8rem,3.5vw,3.2rem);color:#fff;margin-bottom:6px">6.734</div>
+        <p class="sm">Interazioni</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.15);margin-top:4px">Likes, commenti, share reali</p>
+      </div>
+    </div>
+    <div class="rv" style="margin-top:14px;padding:20px 28px;border:1px solid rgba(255,255,255,.04);border-radius:14px">
+      <p style="font-size:.88rem;color:rgba(255,255,255,.22);line-height:1.7">
+        <strong style="color:rgba(255,255,255,.5)">35× i follower in reach organico:</strong> 490k views con 14k follower significa che ogni contenuto raggiunge in media 35 persone per ogni follower. Senza ads, senza boost. Un pubblico piccolo che funziona davvero.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 4. OBIETTIVO ══ -->
+<section id="obiettivo" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:44px">
+      <p class="ey" style="margin-bottom:10px">L'obiettivo</p>
+      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">Da 1:19:57<br><span style="color:rgba(255,255,255,.15)">a sub 1:10:00.</span></h2>
+    </div>
+
+    <!-- Three columns: result | arrow | target -->
+    <div class="rv" style="display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center" class="g3">
+
+      <!-- Sinistra: risultato -->
+      <div style="position:relative;border-radius:20px;overflow:hidden;aspect-ratio:3/4">
+        <img src="img/result-hyrox.jpg" alt="HYROX 1:19:57" style="width:100%;height:100%;object-fit:cover;object-position:center 20%"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.93) 0%,rgba(0,0,0,.2) 55%,transparent 100%)"></div>
+        <div style="position:absolute;top:16px;left:16px">
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;background:rgba(245,158,11,.15);border:1px solid rgba(245,158,11,.3);color:#F59E0B;padding:4px 10px;border-radius:99px">COMPLETATO · 30 MAG 2026</span>
+        </div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:24px">
+          <p class="sm" style="margin-bottom:6px">Rimini Wellness · HYROX Mixed Doubles</p>
+          <div class="d1" style="font-size:clamp(2.8rem,5.5vw,4.5rem);color:#F59E0B;line-height:.88;margin-bottom:8px">1:19:57</div>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.3)">Rank #595 overall · Rank #108 categoria<br>+15" penalita'</p>
+        </div>
+      </div>
+
+      <!-- Centro: freccia -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:0 12px">
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:3.5rem;color:rgba(255,255,255,.35);line-height:1">→</div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:99px;padding:5px 12px">
+          <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.3);white-space:nowrap">-9 min 57 sec</p>
+        </div>
+      </div>
+
+      <!-- Destra: target -->
+      <div style="background:rgba(16,185,129,.04);border:1px solid rgba(16,185,129,.18);border-radius:20px;aspect-ratio:3/4;display:flex;flex-direction:column;justify-content:space-between;padding:28px">
+        <div>
+          <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.2);border-radius:99px;padding:4px 12px;margin-bottom:20px">
+            <span style="width:6px;height:6px;background:#10B981;border-radius:50%;display:block;animation:pd 2s infinite"></span>
+            <span class="sm" style="color:#10B981">Obiettivo</span>
+          </div>
+          <div class="d1" style="font-size:clamp(2.8rem,5.5vw,4.5rem);color:#10B981;line-height:.88;margin-bottom:14px">sub<br>1:10:00</div>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.3);line-height:1.6">HYROX Mixed Doubles<br>Milano · 5-6 Dic 2026<br>con Vittoria</p>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:7px">
+            <span class="sm">Prep · 1 Giu</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.62rem;font-weight:700;color:#10B981" id="prog-pct"></span>
+          </div>
+          <div class="pt"><div id="prog-bar" class="pf" style="width:0%;background:linear-gradient(90deg,#10B981,#34d399)"></div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:5px">
+            <span style="font-size:.6rem;color:rgba(255,255,255,.12)">Giu 2026</span>
+            <span style="font-size:.6rem;color:rgba(255,255,255,.12)">Dic 2026</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ 5. IL NOSTRO PERCORSO ══ -->
+<section id="percorso" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:52px">
+      <p class="ey" style="margin-bottom:10px">Il nostro percorso</p>
+      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">Giu → Dic 2026.<br><span style="color:rgba(255,255,255,.15)">Sei mesi di dati.</span></h2>
+    </div>
+
+    <!-- Timeline -->
+    <div class="rv tl-wrap">
+      <div class="tl">
+
+        <!-- MAG: Hyrox Rimini -->
+        <div class="tl-item">
+          <div class="tl-dot event"></div>
+          <div class="tl-content">
+            <p class="sm" style="margin-bottom:6px;color:#F59E0B">30 Mag 2026</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#F59E0B;margin-bottom:4px">HYROX Rimini</p>
+            <p class="d2" style="font-size:1.4rem;color:#F59E0B;margin-bottom:4px">1:19:57</p>
+            <p style="font-size:.72rem;color:rgba(255,255,255,.25);line-height:1.4">Mixed Doubles<br>con Vittoria</p>
+          </div>
+        </div>
+
+        <!-- GIU: Recovery + primo training -->
+        <div class="tl-item">
+          <div class="tl-dot done"></div>
+          <div class="tl-content">
+            <p class="sm" style="margin-bottom:6px">Giu 2026</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#fff;margin-bottom:6px">Recovery + Prep</p>
+            <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:left">
+              <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:4px">02 Giu · Prima corsa</p>
+              <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;color:#fff">10 km · 5:45/km</p>
+              <p style="font-size:.68rem;color:rgba(255,255,255,.25)">FC 155 bpm</p>
+            </div>
+            <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:left;margin-top:6px">
+              <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:4px">04 Giu · Lago di Garda</p>
+              <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;color:#fff">Run + Training</p>
+              <p style="font-size:.68rem;color:rgba(255,255,255,.25)">Focus: recupero</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- LUG: Building -->
+        <div class="tl-item">
+          <div class="tl-dot done"></div>
+          <div class="tl-content">
+            <p class="sm" style="margin-bottom:6px">Lug 2026</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#fff;margin-bottom:6px">Base Building</p>
+            <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:left">
+              <p style="font-size:.7rem;color:rgba(255,255,255,.3);margin-bottom:4px">Target Juan Carlos</p>
+              <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700;color:#fff">FC Z2 sotto 150 bpm</p>
+              <p style="font-size:.68rem;color:rgba(255,255,255,.25)">3-4 sessioni / settimana</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- AGO: Building -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <p class="sm" style="margin-bottom:6px">Ago 2026</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:6px">Intensita'</p>
+            <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:10px;text-align:left">
+              <p style="font-size:.68rem;color:rgba(255,255,255,.2)">Sessioni funzionali<br>Simulazione Hyrox<br>Long run progressivi</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- OTT-NOV: Peak -->
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-content">
+            <p class="sm" style="margin-bottom:6px">Ott · Nov 2026</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:rgba(255,255,255,.4);margin-bottom:6px">Peak Training</p>
+            <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.04);border-radius:10px;padding:10px;text-align:left">
+              <p style="font-size:.68rem;color:rgba(255,255,255,.2)">Simulazioni gara<br>Taper progressivo<br>Mattia + Vittoria</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIC: HYROX Milano -->
+        <div class="tl-item">
+          <div class="tl-dot target"></div>
+          <div class="tl-content">
+            <p class="sm" style="margin-bottom:6px;color:#10B981">5-6 Dic 2026</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;color:#10B981;margin-bottom:4px">HYROX Milano</p>
+            <p class="d2" style="font-size:1.4rem;color:#10B981;margin-bottom:4px">sub 1:10</p>
+            <p style="font-size:.68rem;color:rgba(255,255,255,.2)">Mixed Doubles<br>con Vittoria</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Dati Mattia sintetici -->
+    <div class="rv" style="margin-top:24px;background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:14px;padding:20px 24px">
+      <p class="sm" style="margin-bottom:12px">Dati Mattia · storico Strava (dalla gara)</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px" class="g4">
+        <div><p class="sm" style="margin-bottom:3px">Km totali</p><p class="d3" style="font-size:1.3rem">1.947</p></div>
+        <div><p class="sm" style="margin-bottom:3px">Attivita'</p><p class="d3" style="font-size:1.3rem">442</p></div>
+        <div><p class="sm" style="margin-bottom:3px">Passo medio</p><p class="d3" style="font-size:1.3rem">5:45</p></div>
+        <div><p class="sm" style="margin-bottom:3px">FC media</p><p class="d3" style="font-size:1.3rem">155 bpm</p></div>
+      </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.04)">
+        <p style="font-size:.78rem;color:rgba(255,255,255,.2)">I dati di Vittoria verranno aggiunti non appena inizia il sync automatico del suo profilo Strava.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 6. COME? ══ -->
+<section id="come" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap">
+    <div class="rv" style="margin-bottom:48px">
+      <p class="ey" style="margin-bottom:10px">Come?</p>
+      <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem)">Un metodo analitico<br><span style="color:rgba(255,255,255,.15)">basato sui dati.</span></h2>
+    </div>
+
+    <div class="rv" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px" class="g2">
+      <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
+        <div style="font-size:1.8rem;margin-bottom:14px">🤖</div>
+        <h3 class="d3" style="font-size:1.1rem;margin-bottom:10px">Juan Carlos e Hugo</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.3);line-height:1.65;margin-bottom:14px">Ogni settimana i due agenti AI leggono i dati reali dei dispositivi e generano il piano di allenamento successivo. Non un piano fisso: un piano che cambia in base a quello che e' successo davvero.</p>
+        <div style="display:flex;flex-direction:column;gap:9px">
+          <div style="display:flex;align-items:flex-start;gap:9px">
+            <span style="color:#4F8EF7;flex-shrink:0;font-weight:700;margin-top:1px">→</span>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.25);line-height:1.5">Juan Carlos calibra gli allenamenti di Mattia sugli spostamenti lavorativi frequenti: se e' in trasferta, il piano si adatta.</p>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:9px">
+            <span style="color:#FF6B35;flex-shrink:0;font-weight:700;margin-top:1px">→</span>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.25);line-height:1.5">Hugo integra il ciclo mestruale di Vittoria nella programmazione: carichi, recupero e intensita' cambiano di settimana in settimana.</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:#0a0a0a;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:28px">
+        <div style="font-size:1.8rem;margin-bottom:14px">📊</div>
+        <h3 class="d3" style="font-size:1.1rem;margin-bottom:10px">Dashboard pubblica</h3>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.3);line-height:1.65">Tutti i dati sono visibili in tempo reale. Km, passo, FC, zone cardiache, piano vs reale. Niente e' nascosto. Aggiornata automaticamente ogni mattina.</p>
+        <a href="../" style="display:inline-block;margin-top:14px;font-family:'Space Grotesk',sans-serif;font-size:.75rem;font-weight:700;color:#FF6B35;text-decoration:none">Apri la dashboard →</a>
+      </div>
+    </div>
+
+    <!-- Pipeline -->
+    <div class="rv" style="background:#0a0a0a;border:1px solid rgba(255,255,255,.05);border-radius:18px;padding:28px">
+      <p class="sm" style="margin-bottom:20px">Il flusso dati · automatico</p>
+      <div class="flow">
+        <div class="fn"><div class="fi"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13 2L24 21H2L13 2Z" stroke="#FF6B35" stroke-width="1.5" stroke-linejoin="round"/><path d="M8.5 17h9M11 13h4" stroke="#FF6B35" stroke-width="1.3" stroke-linecap="round"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Amazfit</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Registra</p></div>
+        <div class="fa">→</div>
+        <div class="fn"><div class="fi"><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><rect x="5" y="5" width="16" height="16" rx="5" fill="rgba(0,200,83,.08)" stroke="#00C853" stroke-width="1"/><text x="13" y="18" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="800" font-size="12" fill="#00C853">Z</text></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Zepp</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Carica</p></div>
+        <div class="fa">→</div>
+        <div class="fn"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="#FC4C02"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Strava</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Pubblica</p></div>
+        <div class="fa">→</div>
+        <div class="fn"><div class="fi"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="6" width="20" height="12" rx="3" stroke="#4F8EF7" stroke-width="1.2"/><path d="M6 10l2.5 2L6 14M11 12h7" stroke="#4F8EF7" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">Cron script</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Scarica</p></div>
+        <div class="fa">→</div>
+        <div class="fn" style="flex:1.2"><div class="fi" style="border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.06)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#FF6B35" stroke-width=".9" stroke-dasharray="2 2"/><path d="M12 6v12M7.5 8.5l9 7M16.5 8.5l-9 7" stroke="#FF6B35" stroke-width="1.3" stroke-linecap="round"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#FF6B35;text-align:center">Claude AI</p><p style="font-size:.58rem;color:rgba(255,255,255,.2);text-align:center;line-height:1.4">JC→Mattia<br>Hugo→Vittoria</p></div>
+        <div class="fa">→</div>
+        <div class="fn"><div class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255,255,255,.65)"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></div><p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.72rem;color:#fff;text-align:center">GitHub Pages</p><p style="font-size:.6rem;color:rgba(255,255,255,.2);text-align:center">Dashboard</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ 7. SUPPORTACI ══ -->
+<section id="supportaci" style="position:relative;overflow:hidden;min-height:80vh">
+  <div class="ph"><img src="img/Allenamento 4 giugno a lago di garda.JPG" alt="Allenamento" style="object-position:center 40%"/></div>
+  <div class="gr-l"></div>
+  <div class="section pad" style="position:relative;z-index:2">
+    <div class="wrap">
+      <div class="rv" style="max-width:580px">
+        <p class="ey" style="margin-bottom:16px">Supportaci</p>
+        <h2 class="d1" style="font-size:clamp(2.5rem,5vw,5rem);margin-bottom:28px">
+          Cerchiamo brand<br>che crescano<br><span style="color:rgba(255,255,255,.2)">con noi.</span>
+        </h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:32px">
+          Non uno spot. Un percorso di sei mesi con dati pubblici, una gara e una narrativa settimanale che il pubblico segue dall'inizio alla fine.
+        </p>
+
+        <!-- Cosa cerchiamo -->
+        <div style="margin-bottom:28px">
+          <p class="sm" style="margin-bottom:14px">Siamo aperti a partner in</p>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,.15);border-radius:99px;color:rgba(255,255,255,.5)">⌚ Wearable e device</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,.15);border-radius:99px;color:rgba(255,255,255,.5)">👕 Abbigliamento tecnico</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,.15);border-radius:99px;color:rgba(255,255,255,.5)">💊 Integratori</span>
+            <span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;padding:6px 14px;border:1px solid rgba(255,255,255,.15);border-radius:99px;color:rgba(255,255,255,.5)">🔬 Recovery e performance</span>
+          </div>
+        </div>
+
+        <!-- Cosa offriamo -->
+        <div style="background:rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:22px;margin-bottom:28px">
+          <p class="sm" style="margin-bottom:14px">Cosa offriamo</p>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <span style="color:#FF6B35;flex-shrink:0;font-size:.9rem;margin-top:1px">→</span>
+              <p style="font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5">Copertura media continuativa su entrambi i profili Instagram per tutta la durata del percorso</p>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <span style="color:#FF6B35;flex-shrink:0;font-size:.9rem;margin-top:1px">→</span>
+              <p style="font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5">Narrativa settimanale autentica: allenamenti reali, dati reali, commento del coach AI</p>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <span style="color:#FF6B35;flex-shrink:0;font-size:.9rem;margin-top:1px">→</span>
+              <p style="font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5">Presenza a HYROX Milano (dic 2026): la gara obiettivo, il momento di picco della narrativa</p>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <span style="color:#FF6B35;flex-shrink:0;font-size:.9rem;margin-top:1px">→</span>
+              <p style="font-size:.85rem;color:rgba(255,255,255,.5);line-height:1.5">Dashboard pubblica: il prodotto appare nel percorso reale, non in uno shooting</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="mailto:mattia.bonetti@gmail.com" style="display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.82rem;background:#FF6B35;color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none">
+          Parliamoci →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. SEGUICI ══ -->
+<section id="seguici" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap" style="text-align:center">
+    <div class="rv">
+      <p class="ey" style="margin-bottom:16px;display:block">Seguici</p>
+      <h2 class="d1" style="font-size:clamp(3rem,7vw,7rem);margin-bottom:14px">
+        Il percorso<br><span style="color:rgba(255,255,255,.12)">è pubblico.</span>
+      </h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,.2);margin-bottom:40px">HYROX Milano · Dicembre 2026. Tutti i dati in tempo reale.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:20px">
+        <a href="https://instagram.com/luporamio" target="_blank"
+           style="display:inline-flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.85rem;background:#FF6B35;color:#fff;padding:16px 32px;border-radius:12px;text-decoration:none">
+          <span>📷</span> @luporamio
+        </a>
+        <a href="https://instagram.com/vittoria.vec" target="_blank"
+           style="display:inline-flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.85rem;background:#4F8EF7;color:#fff;padding:16px 32px;border-radius:12px;text-decoration:none">
+          <span>📷</span> @vittoria.vec
+        </a>
+        <a href="../"
+           style="display:inline-flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.85rem;color:rgba(255,255,255,.35);padding:16px 32px;border:1px solid rgba(255,255,255,.1);border-radius:12px;text-decoration:none">
+          Dashboard 📊
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:20px 48px;border-top:1px solid rgba(255,255,255,.03)">
+  <p style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#111;text-align:center">
+    AI-ROX · Mattia Bonetti & Vittoria Vecchio · Ferrara ↔ Catania · 2026
+  </p>
+</footer>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* Rotating word */
+  (function(){
+    const words=['atleti','amici','colleghi','sportivi','ambassador','entusiasti','pionieri','runner','visionari'];
+    let idx=0;
+    const el=document.getElementById('rotating-word');
+    if(!el) return;
+    setInterval(()=>{
+      el.style.opacity='0';
+      el.style.transform='translateY(-10px)';
+      setTimeout(()=>{
+        idx=(idx+1)%words.length;
+        el.textContent=words[idx];
+        el.style.transform='translateY(10px)';
+        requestAnimationFrame(()=>requestAnimationFrame(()=>{
+          el.style.opacity='1';
+          el.style.transform='translateY(0)';
+        }));
+      },280);
+    },2400);
+  })();
+
+  /* Hero entrance */
+  gsap.set(['#h0','#h1','#h2','#h3'],{opacity:0,y:20});
+  gsap.timeline({delay:.3})
+    .to('#h0',{opacity:1,y:0,duration:.5,ease:'power2.out'})
+    .to('#h1',{opacity:1,y:0,duration:.8,ease:'power2.out'},.12)
+    .to('#h2',{opacity:1,y:0,duration:.55,ease:'power2.out'},.35)
+    .to('#h3',{opacity:1,y:0,duration:.45,ease:'power2.out'},.52);
+
+  /* Scroll reveal */
+  gsap.utils.toArray('.rv').forEach(el=>
+    gsap.fromTo(el,{opacity:0,y:24},
+      {opacity:1,y:0,duration:.7,ease:'power2.out',
+       scrollTrigger:{trigger:el,start:'top 88%',once:true}}));
+
+  /* Progress bar */
+  ScrollTrigger.create({trigger:'#prog-bar',start:'top 85%',once:true,onEnter:()=>{
+    const s=new Date('2026-06-01'),e=new Date('2026-12-06');
+    const p=Math.min(100,Math.max(0,Math.round((Date.now()-s)/(e-s)*100)));
+    document.getElementById('prog-bar').style.width=p+'%';
+    document.getElementById('prog-pct').textContent=p+'%';
+  }});
+
+  /* Active anchor on scroll */
+  const sections = ['hero','chi-siamo','rilevanza','obiettivo','percorso','come','supportaci','seguici'];
+  const ancs = document.querySelectorAll('.anc');
+  window.addEventListener('scroll',()=>{
+    let cur='hero';
+    sections.forEach(id=>{
+      const el=document.getElementById(id);
+      if(el && scrollY >= el.offsetTop - 120) cur=id;
+    });
+    ancs.forEach(a=>{
+      a.classList.toggle('active', a.getAttribute('href')==='#'+cur);
+    });
+  },{passive:true});
+</script>
+</body>
+</html>
