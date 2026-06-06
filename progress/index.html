@@ -155,6 +155,13 @@
     .pc-lbl{font-family:'Space Grotesk',sans-serif;font-size:.52rem;font-weight:700;letter-spacing:.06em;white-space:nowrap;color:var(--mut)}
     .pc-scale-labels{display:flex;justify-content:space-between}
 
+    /* ─ WAYPOINT ROW ─ */
+    .wp-row{grid-template-columns:1fr auto 1fr auto 1fr!important}
+    @media(max-width:640px){
+      .wp-row{grid-template-columns:1fr!important}
+      .wp-arr{transform:rotate(90deg);justify-content:center;padding:4px 0}
+    }
+
     /* ─ SYNC STATUS ─ */
     .sync-dot{width:6px;height:6px;border-radius:50%;background:var(--g);animation:pulse 2s infinite;flex-shrink:0}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -405,147 +412,101 @@
   </div>
 </section>
 
-<!-- ═══ COMPARAZIONE PASSO ═══ -->
+<!-- ═══ DOVE SIAMO ═══ -->
 <section class="section">
   <div class="wrap">
-    <p class="ey c-mu mb4">Passo</p>
-    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Dove siamo.<br><span style="color:var(--mut2)">Dove dobbiamo arrivare.</span></p>
-    <div class="pace-compare">
-      <p class="lbl mb16" style="text-align:center">Scala ritmo · da 8:00/km a 4:00/km</p>
-      <!-- Scale -->
-      <div class="pc-scale">
-        <!-- Mattia dot: 6:08/km = 368sec → scale 8:00(480) to 4:00(240) = range 240 → pos=(480-368)/240=46.7% -->
-        <div class="pc-athlete" style="left:46.7%">
-          <span class="pc-lbl c-m">Mattia</span>
-          <div class="pc-dot" style="background:var(--m)"></div>
-        </div>
-        <!-- Vittoria dot: 6:10/km = 370sec → pos=(480-370)/240=45.8% -->
-        <div class="pc-athlete" style="left:45.8%">
-          <span class="pc-lbl c-v" style="margin-top:16px">Vittoria</span>
-          <div class="pc-dot" style="background:var(--v);margin-top:8px"></div>
-        </div>
-        <!-- Target: 5:15/km = 315sec → pos=(480-315)/240=68.75% -->
-        <div class="pc-target-line" style="left:68.75%;background:var(--g)"></div>
-        <div style="position:absolute;top:-22px;left:68.75%;transform:translateX(-50%)">
-          <span class="pc-lbl c-g">Target 5:15</span>
-        </div>
-        <!-- HYROX result: 5:53/km = 353sec → pos=(480-353)/240=52.9% -->
-        <div style="position:absolute;top:8px;left:52.9%;transform:translateX(-50%);width:1px;height:12px;background:rgba(245,158,11,.4)"></div>
-        <div style="position:absolute;top:20px;left:52.9%;transform:translateX(-50%)">
-          <span class="pc-lbl" style="color:rgba(245,158,11,.5);white-space:nowrap">Rimini 5:53</span>
-        </div>
-      </div>
-      <div class="pc-scale-labels" style="margin-top:36px">
-        <span class="lbl">8:00/km (lento)</span>
-        <span class="lbl">4:00/km (veloce)</span>
-      </div>
-      <!-- gap cards -->
-      <div class="grid2" style="margin-top:20px">
-        <div style="background:rgba(255,107,53,.05);border:1px solid rgba(255,107,53,.12);border-radius:12px;padding:16px">
-          <p class="ey c-m mb8">Mattia · gap passo</p>
-          <p class="sg fw8" style="font-size:1.4rem">53 sec/km</p>
-          <p style="font-size:.78rem;color:var(--mut);margin-top:4px">Da 6:08/km a 5:15/km · -14.4% sul passo attuale</p>
-        </div>
-        <div style="background:rgba(196,160,180,.04);border:1px solid rgba(196,160,180,.12);border-radius:12px;padding:16px">
-          <p class="ey c-v mb8">Vittoria · gap passo</p>
-          <p class="sg fw8" style="font-size:1.4rem">55 sec/km</p>
-          <p style="font-size:.78rem;color:var(--mut);margin-top:4px">Da ~6:10/km a 5:15/km · -14.9% sul passo attuale</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <p class="ey c-mu mb4">Il percorso</p>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Da dove siamo partiti.<br><span style="color:var(--mut2)">Dove dobbiamo arrivare.</span></p>
 
-<!-- ═══ SESSIONI RECENTI (Mattia) + PIANO HUGO (Vittoria) ═══ -->
-<section class="section">
-  <div class="wrap">
-    <p class="ey c-mu mb4">Questa settimana</p>
-    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Chi fa cosa.</p>
-    <div class="grid2">
-
-      <!-- MATTIA: log sessioni -->
-      <div>
-        <div class="flex ai-c gap8 mb16">
+    <!-- 3 waypoint cards -->
+    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:stretch;margin-bottom:16px" class="wp-row">
+      <!-- Start -->
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px 0 0 16px;padding:24px 22px">
+        <p class="ey c-mu mb8">Punto di partenza</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:600;color:rgba(245,158,11,.7);margin-bottom:12px;letter-spacing:.06em">HYROX RIMINI · 30 MAG 2026</p>
+        <p class="d1" style="font-size:clamp(2rem,4vw,3.2rem);color:rgba(255,255,255,.35);margin-bottom:10px">1:19:57</p>
+        <div style="height:1px;background:var(--border);margin-bottom:10px"></div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.28)">Passo gara</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;color:rgba(255,255,255,.35)">5:53/km</p>
+      </div>
+      <!-- Arrow 1 -->
+      <div style="display:flex;align-items:center;padding:0 10px;color:rgba(255,255,255,.1);font-size:1.4rem;flex-shrink:0" class="wp-arr">→</div>
+      <!-- Now -->
+      <div style="background:var(--card);border:1px solid rgba(255,107,53,.2);border-radius:0;padding:24px 22px;position:relative">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--m);border-radius:0"></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
           <div class="sync-dot"></div>
-          <p class="ey c-m">Mattia · Sessioni recenti</p>
+          <p class="ey" style="color:var(--m)">Adesso · training</p>
         </div>
-        <div id="m-log"><!-- populated by JS --></div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:600;color:rgba(255,107,53,.6);margin-bottom:12px;letter-spacing:.06em">ALLENAMENTI IN CORSO</p>
+        <p class="d1" style="font-size:clamp(2rem,4vw,3.2rem);color:var(--m);margin-bottom:10px" id="wp-pace-now">6:08/km</p>
+        <div style="height:1px;background:rgba(255,107,53,.15);margin-bottom:10px"></div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;color:rgba(255,107,53,.5)">Volume · 30 giorni</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;color:var(--m)" id="wp-km30">101.9 km</p>
       </div>
+      <!-- Arrow 2 -->
+      <div style="display:flex;align-items:center;padding:0 10px;color:rgba(255,255,255,.1);font-size:1.4rem;flex-shrink:0" class="wp-arr">→</div>
+      <!-- Goal -->
+      <div style="background:var(--card);border:1px solid rgba(16,185,129,.2);border-radius:0 16px 16px 0;padding:24px 22px;position:relative">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--g);border-radius:0"></div>
+        <p class="ey" style="color:var(--g);margin-bottom:8px">Obiettivo</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:600;color:rgba(16,185,129,.6);margin-bottom:12px;letter-spacing:.06em">HYROX MILANO · 5-6 DIC 2026</p>
+        <p class="d1" style="font-size:clamp(2rem,4vw,3.2rem);color:var(--g);margin-bottom:10px">sub 1:10:00</p>
+        <div style="height:1px;background:rgba(16,185,129,.15);margin-bottom:10px"></div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;color:rgba(16,185,129,.5)">Passo target</p>
+        <p style="font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g)">~5:15/km</p>
+      </div>
+    </div>
 
-      <!-- VITTORIA: piano Hugo 8-14 Giu -->
-      <div>
-        <p class="ey c-v mb16">Vittoria · Piano Hugo · 8-14 Giu</p>
-        <div class="week-list">
-          <!-- rows populated by JS -->
-          <div class="w-row">
-            <div class="w-day">Lun<br>8 Giu</div>
-            <div class="w-main">
-              <span class="w-badge t-pesi">Pesi</span>
-              <div class="w-detail">
-                <p class="w-title">Lower body</p>
-                <p class="w-sub">Squat 4×6 · 55-57.5 kg · RDL 65 kg · Hip Thrust 120 kg + 15' tapis</p>
-              </div>
+    <!-- Gap summary + per-atleta barre -->
+    <div class="grid2" style="gap:12px">
+      <!-- Gap globale -->
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px">
+        <p class="ey c-mu mb16">Gap da colmare</p>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;color:var(--mut)">Tempo da recuperare</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:800;color:var(--m)">-9 min 57 sec</span>
+            </div>
+            <div style="height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden">
+              <div style="width:0%;height:100%;background:linear-gradient(90deg,var(--m),var(--g));border-radius:2px;transition:width 1.4s ease" id="gap-bar"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:5px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.56rem;color:rgba(245,158,11,.5)">1:19:57 · Rimini</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.56rem;color:rgba(16,185,129,.6)">sub 1:10:00 · Milano</span>
             </div>
           </div>
-          <div class="w-row">
-            <div class="w-day">Mar<br>9 Giu</div>
-            <div class="w-main">
-              <span class="w-badge t-hyrox">Hyrox</span>
-              <div class="w-detail">
-                <p class="w-title">Hyrox training</p>
-                <p class="w-sub">Classe 40' + 2 km Z2 · oppure race simulation ~4 km</p>
-              </div>
-            </div>
+          <div style="padding:14px;background:rgba(255,255,255,.025);border-radius:10px">
+            <p style="font-size:.78rem;color:var(--mut);line-height:1.6">Rimini includeva 15'' di penalita' al sled push. Il tempo netto era 1:19:42. Milano: zero errori tattici.</p>
           </div>
-          <div class="w-row">
-            <div class="w-day">Mer<br>10 Giu</div>
-            <div class="w-main">
-              <span class="w-badge t-z2">Z2</span>
-              <div class="w-detail">
-                <p class="w-title">Corsa Z2 · 5-6 km</p>
-                <p class="w-sub">Ritmo conversazionale · ~6:00-6:20/km · non andare piu' veloce</p>
-              </div>
+        </div>
+      </div>
+      <!-- Gap per atleta -->
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px">
+        <p class="ey c-mu mb16">Gap passo · per atleta</p>
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;color:var(--m)">Mattia</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:700;color:var(--mut)"><span id="m-pace-gap-val">6:08</span> → 5:15/km</span>
             </div>
+            <div style="height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden;position:relative">
+              <div style="position:absolute;left:0;height:100%;background:var(--m);border-radius:2px;transition:width 1.4s ease" id="m-pace-bar2" style="width:0%"></div>
+              <div style="position:absolute;right:0;top:-3px;width:2px;height:9px;background:var(--g);border-radius:1px"></div>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;color:var(--mut);margin-top:4px" id="m-pace-gap-sub">-53 sec/km · -14.4% sul passo attuale</p>
           </div>
-          <div class="w-row">
-            <div class="w-day">Gio<br>11 Giu</div>
-            <div class="w-main">
-              <span class="w-badge t-veloce">Veloce</span>
-              <div class="w-detail">
-                <p class="w-title">Ripetute 5×1 km</p>
-                <p class="w-sub">Target 5:00-5:15/km · rec 2' camminata · oppure 3 km progressivi</p>
-              </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:700;color:var(--v)">Vittoria</span>
+              <span style="font-family:'Space Grotesk',sans-serif;font-size:.65rem;font-weight:700;color:var(--mut)">~6:10 → 5:15/km</span>
             </div>
-          </div>
-          <div class="w-row">
-            <div class="w-day">Ven<br>12 Giu</div>
-            <div class="w-main">
-              <span class="w-badge t-pesi">Pesi</span>
-              <div class="w-detail">
-                <p class="w-title">Upper + Hip Thrust</p>
-                <p class="w-sub">Hip Thrust 4×10 · 120 kg · Panca · Rematore · Military press</p>
-              </div>
+            <div style="height:3px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden;position:relative">
+              <div style="position:absolute;left:0;height:100%;background:var(--v);border-radius:2px;width:45.8%;transition:width 1.4s ease" id="v-pace-bar2"></div>
+              <div style="position:absolute;right:0;top:-3px;width:2px;height:9px;background:var(--g);border-radius:1px"></div>
             </div>
-          </div>
-          <div class="w-row">
-            <div class="w-day">Sab<br>13 Giu</div>
-            <div class="w-main">
-              <span class="w-badge t-lunga">Lunga</span>
-              <div class="w-detail">
-                <p class="w-title">Corsa lunga 8 km</p>
-                <p class="w-sub">3 km Z2 + 3 km medio + 2 km a ritmo gara 5:10-5:20/km</p>
-              </div>
-            </div>
-          </div>
-          <div class="w-row">
-            <div class="w-day">Dom<br>14 Giu</div>
-            <div class="w-main">
-              <span class="w-badge t-riposo">Riposo</span>
-              <div class="w-detail">
-                <p class="w-title">Riposo</p>
-                <p class="w-sub">Mobilita' 20-30' opzionale · stretch polpacci e flessori anca</p>
-              </div>
-            </div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;color:var(--mut);margin-top:4px">-55 sec/km · -14.9% sul passo attuale</p>
           </div>
         </div>
       </div>
@@ -553,41 +514,102 @@
   </div>
 </section>
 
-<!-- ═══ LOG COMPLETO MATTIA ═══ -->
+<!-- ═══ ULTIME ATTIVITÀ ═══ -->
 <section class="section">
   <div class="wrap">
     <div class="flex ai-c gap8 mb4">
       <div class="sync-dot"></div>
-      <p class="ey c-m">Juan Carlos · Log sessioni Mattia</p>
+      <p class="ey c-m">Ultime attività</p>
     </div>
     <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Dati reali.<br><span style="color:var(--mut2)">Niente di nascosto.</span></p>
-    <div id="m-full-log" style="border-top:1px solid var(--border)"><!-- JS --></div>
-    <p class="lbl" style="margin-top:16px;text-align:center" id="sync-label">Sync automatico ogni mattina da Strava</p>
+    <div id="unified-log" style="border-top:1px solid var(--border)"><!-- JS --></div>
+    <p class="lbl" style="margin-top:16px;text-align:center" id="sync-label">Sync automatico ogni mattina da Strava · <span id="sync-ts">aggiornamento in corso</span></p>
   </div>
 </section>
 
-<!-- ═══ STORICO ═══ -->
+<!-- ═══ LOVE WALL ═══ -->
 <section class="section">
   <div class="wrap">
-    <p class="ey c-mu mb4">Storico Mattia</p>
-    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">442 attivita'.<br><span style="color:var(--mut2)">Dal primo giorno.</span></p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:18px;overflow:hidden" id="m-lifetime">
-      <div style="background:var(--card);padding:24px 20px;text-align:center">
-        <p class="sg fw8 c-m" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-km">1.947</p>
-        <p class="lbl" style="margin-top:6px">Km totali</p>
+    <p class="ey c-mu mb4">Love wall</p>
+    <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Chi ci segue.<br><span style="color:var(--mut2)">Cosa ci dice.</span></p>
+
+    <!-- Messaggi esistenti -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px" class="grid2">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,107,53,.15);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:var(--m)">MT</div>
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Marco T.</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@marco.running.tn</p>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Seguo il percorso da settimana 1. Juan Carlos funziona davvero, i dati non mentono. Forza Milano."</p>
       </div>
-      <div style="background:var(--card);padding:24px 20px;text-align:center">
-        <p class="sg fw8" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-acts">442</p>
-        <p class="lbl" style="margin-top:6px">Attivita'</p>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:34px;height:34px;border-radius:50%;background:rgba(196,160,180,.15);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:var(--v)">GS</div>
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Giulia S.</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@giulia_sport</p>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Allenare con l'AI e pubblicare tutto: questo e' il futuro dello sport. Ci vediamo a dicembre."</p>
       </div>
-      <div style="background:var(--card);padding:24px 20px;text-align:center">
-        <p class="sg fw8" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-best">4:51</p>
-        <p class="lbl" style="margin-top:6px">Passo migliore</p>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:34px;height:34px;border-radius:50%;background:rgba(245,158,11,.12);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:#F59E0B">LM</div>
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Lorenzo M.</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@lorenzomix</p>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Ero a Rimini. Che gara. Il sled push vi ha fregati ma il tempo era comunque roba seria. Milano aspetta."</p>
       </div>
-      <div style="background:var(--card);padding:24px 20px;text-align:center">
-        <p class="sg fw8" style="font-size:clamp(1.5rem,2.5vw,2.2rem)" id="lt-long">21.1 km</p>
-        <p class="lbl" style="margin-top:6px">Uscita piu' lunga</p>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+          <div style="width:34px;height:34px;border-radius:50%;background:rgba(16,185,129,.1);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:var(--g)">AP</div>
+          <div>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Andrea P.</p>
+            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@andrearun</p>
+          </div>
+        </div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Quello che mi convince e' che i dati sono veri. Non e' marketing, e' un percorso reale."</p>
       </div>
+    </div>
+
+    <!-- Form lascia un messaggio -->
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px">
+      <p class="ey c-mu mb4">Lascia un messaggio</p>
+      <p style="font-size:.85rem;color:var(--mut);line-height:1.6;margin-bottom:22px">Stai seguendo il percorso? Scrivici. I messaggi piu' belli finiscono sul wall.</p>
+      <form id="love-form" style="display:flex;flex-direction:column;gap:12px"
+        onsubmit="submitLove(event)">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px" class="grid2">
+          <div>
+            <label style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:6px">Nome *</label>
+            <input id="lw-name" required placeholder="Il tuo nome" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none"/>
+          </div>
+          <div>
+            <label style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:6px">Instagram (opzionale)</label>
+            <input id="lw-handle" placeholder="@tuohandle" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none"/>
+          </div>
+        </div>
+        <div>
+          <label style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:6px">Messaggio *</label>
+          <textarea id="lw-msg" required placeholder="Cosa vuoi dirci..." rows="3"
+            style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;resize:vertical;min-height:90px"></textarea>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <button type="submit"
+            style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;background:var(--m);color:#fff;padding:12px 24px;border-radius:10px;border:none;cursor:pointer">
+            Invia messaggio
+          </button>
+          <a href="https://instagram.com/luporamio" target="_blank"
+            style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;color:var(--mut);text-decoration:none">
+            Oppure scrivi su @luporamio →
+          </a>
+        </div>
+        <p id="lw-feedback" style="font-size:.78rem;color:var(--g);display:none;margin-top:4px">Messaggio inviato. Grazie per il supporto.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -713,7 +735,7 @@ function renderMattia(data, coaching){
   const cmnts = coaching?.session_comments || FB_COMMENTS;
   const sync  = data?.last_sync || null;
 
-  // ─ Stats cells ─
+  // ─ Stats ─
   const s30=stats['30d']||{};
   const s7=stats['7d']||{};
   const km30=(s30.total_km||101.9).toFixed(1);
@@ -733,25 +755,23 @@ function renderMattia(data, coaching){
   const sess7=s7.run_sessions||4;
   document.getElementById('kpi-sess7').textContent=sess7+' session'+(sess7===1?'e':'i');
 
-  // ─ Pace bar: avg_pace in sec, target 5:15=315sec, slow anchor 8:00=480sec ─
+  // ─ Waypoint "adesso" ─
+  document.getElementById('wp-pace-now').textContent=pace30;
+  document.getElementById('wp-km30').textContent=km30+' km';
+
+  // ─ Barre pace ─
   const curSec=s30.avg_pace||368;
   const pbPct=Math.max(0,Math.min(100,((480-curSec)/(480-315))*100));
-  setTimeout(()=>{ document.getElementById('m-pb').style.width=pbPct+'%'; },700);
+  setTimeout(()=>{
+    document.getElementById('m-pb').style.width=pbPct+'%';
+    document.getElementById('m-pace-bar2').style.width=pbPct+'%';
+    document.getElementById('gap-bar').style.width=pbPct+'%';
+    const gapSec=curSec-315;
+    document.getElementById('m-pace-gap-val').textContent=pace30.replace('/km','');
+    document.getElementById('m-pace-gap-sub').textContent='-'+gapSec+' sec/km · -'+((gapSec/curSec)*100).toFixed(1)+'% sul passo attuale';
+  },700);
 
-  // ─ Last session ─
-  const last=acts[0]||FB_ACTS[0];
-  const lDate=fmtDate(last.date||'');
-  const lPace=last.pace||secToPace(last.pace_sec);
-  const lKm=last.distance_km?last.distance_km.toFixed(2)+'km':null;
-  document.getElementById('m-last-name').textContent=(last.name||'Sessione')+' · '+lDate;
-  document.getElementById('m-last-meta').textContent=[lKm,lPace,last.hr_avg?'FC '+Math.round(last.hr_avg):null].filter(Boolean).join(' · ');
-  const chipsEl=document.getElementById('m-last-chips');
-  chipsEl.innerHTML='';
-  if(lPace) chipsEl.innerHTML+=`<span class="ch ch-pace">${lPace}</span>`;
-  if(last.hr_avg) chipsEl.innerHTML+=`<span class="ch ch-hr">${Math.round(last.hr_avg)} bpm</span>`;
-  if(lKm) chipsEl.innerHTML+=`<span class="ch ch-km">${lKm}</span>`;
-
-  // ─ JC comment (most recent) ─
+  // ─ JC comment ─
   const latestC=cmnts&&cmnts.length?cmnts[0]:null;
   if(latestC){
     document.getElementById('m-stars').innerHTML=stars(latestC.rating||4);
@@ -761,60 +781,35 @@ function renderMattia(data, coaching){
   // ─ Sync label ─
   if(sync){
     const sd=new Date(sync);
-    document.getElementById('m-sync').textContent='Sync '+sd.getDate()+'/'+String(sd.getMonth()+1).padStart(2,'0')+' '+sd.getHours()+':'+String(sd.getMinutes()).padStart(2,'0');
+    const syncStr='Sync '+sd.getDate()+'/'+String(sd.getMonth()+1).padStart(2,'0')+' '+sd.getHours()+':'+String(sd.getMinutes()).padStart(2,'0');
+    document.getElementById('m-sync').textContent=syncStr;
+    document.getElementById('sync-ts').textContent=syncStr;
     document.getElementById('footer-sync').textContent='Ultimo sync: '+sd.toLocaleDateString('it-IT',{day:'2-digit',month:'short',year:'numeric'})+' · '+sd.getHours()+':'+String(sd.getMinutes()).padStart(2,'0');
+  } else {
+    document.getElementById('sync-ts').textContent='snapshot offline';
   }
 
-  // ─ All time ─
-  const at=stats['all']||{};
-  if(at.total_km) document.getElementById('lt-km').textContent=(at.total_km||1947.5).toFixed(0);
-  if(at.all_sessions) document.getElementById('lt-acts').textContent=at.all_sessions||442;
-  if(at.best_pace) document.getElementById('lt-best').textContent=secToPace(at.best_pace)||'4:51';
-  if(at.longest_run) document.getElementById('lt-long').textContent=(at.longest_run||21.1).toFixed(1)+' km';
-
-  // ─ Recent log (small panel) ─
-  const logEl=document.getElementById('m-log');
-  const recent5=acts.filter(a=>a.type==='Run'||a.type==='Workout').slice(0,5);
-  logEl.innerHTML=recent5.map(act=>{
-    const pace=act.pace||secToPace(act.pace_sec);
-    const km=act.distance_km?act.distance_km.toFixed(1)+' km':'';
-    const dur=act.duration_sec?fmtDur(act.duration_sec):'';
-    const hr=act.hr_avg?Math.round(act.hr_avg):'';
-    return `
-    <div class="log-row">
-      <span class="log-date">${fmtDate(act.date)}</span>
-      <div class="log-ic" style="background:${typeBg(act.type)}">${typeIcon(act.type)}</div>
-      <div class="log-info">
-        <p class="log-n">${act.name||'Sessione'}</p>
-      </div>
-      <div class="log-chips">
-        ${km?`<span class="ch ch-km">${km}</span>`:''}
-        ${pace?`<span class="ch ch-pace">${pace}</span>`:''}
-        ${hr?`<span class="ch ch-hr">${hr} bpm</span>`:''}
-        ${dur&&!km?`<span class="ch ch-km">${dur}</span>`:''}
-      </div>
-    </div>`;
-  }).join('');
-
-  // ─ Full log with JC comments ─
-  const fullEl=document.getElementById('m-full-log');
+  // ─ Unified log: ultime 10 attivita' ─
   const commentMap={};
   (cmnts||[]).forEach(c=>{ commentMap[c.date]={rating:c.rating,comment:c.juan_comment||c.comment,type:c.type}; });
-  const full10=acts.slice(0,10);
-  fullEl.innerHTML=full10.map(act=>{
+  const top10=acts.slice(0,10);
+  const uLog=document.getElementById('unified-log');
+  uLog.innerHTML=top10.map(act=>{
     const pace=act.pace||secToPace(act.pace_sec);
     const km=act.distance_km?act.distance_km.toFixed(2)+' km':'';
     const hr=act.hr_avg?Math.round(act.hr_avg):'';
-    const elev=act.elevation?Math.round(act.elevation)+' m elev':'';
+    const elev=act.elevation?Math.round(act.elevation)+' m':'';
     const dur=act.duration_sec?fmtDur(act.duration_sec):'';
     const dateKey=(act.date||'').substring(0,10);
     const c=commentMap[dateKey]&&commentMap[dateKey].type===act.type?commentMap[dateKey]:null;
-    return `
-    <div class="log-row">
+    return `<div class="log-row">
       <span class="log-date">${fmtDate(act.date)}</span>
       <div class="log-ic" style="background:${typeBg(act.type)}">${typeIcon(act.type)}</div>
-      <div class="log-info">
-        <p class="log-n">${act.name||'Sessione'}</p>
+      <div class="log-info" style="flex:1;min-width:0">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">
+          <p class="log-n">${act.name||'Sessione'}</p>
+          <span style="font-family:'Space Grotesk',sans-serif;font-size:.5rem;font-weight:700;padding:1px 6px;border-radius:4px;background:rgba(255,107,53,.1);color:var(--m);flex-shrink:0">Mattia</span>
+        </div>
         ${c?`<p class="log-comment">${c.rating?stars(c.rating)+' ':''}"${c.comment}"</p>`:''}
       </div>
       <div class="log-chips">
@@ -826,33 +821,50 @@ function renderMattia(data, coaching){
         ${c?`<span class="ch ch-star">★${c.rating}</span>`:''}
       </div>
     </div>`;
-  }).join('');
+  }).join('')+`<div class="log-row" style="justify-content:center;padding:16px 0;border-bottom:none">
+    <p style="font-size:.72rem;color:var(--mut);text-align:center">Vittoria · dati in arrivo · <a href="https://instagram.com/vittoria.vec" target="_blank" style="color:var(--v);text-decoration:none">@vittoria.vec</a></p>
+  </div>`;
+}
+
+/* ═══════════ LOVE WALL FORM ═══════════ */
+function submitLove(e){
+  e.preventDefault();
+  const name=document.getElementById('lw-name').value.trim();
+  const handle=document.getElementById('lw-handle').value.trim();
+  const msg=document.getElementById('lw-msg').value.trim();
+  const subject=encodeURIComponent('AI-ROX Love Wall · '+name);
+  const body=encodeURIComponent((handle?'Instagram: '+handle+'\n\n':'')+msg);
+  window.location.href='mailto:m.bonetti@wearemarketers.net?subject='+subject+'&body='+body;
+  setTimeout(()=>{
+    document.getElementById('lw-feedback').style.display='block';
+    document.getElementById('love-form').reset();
+  },500);
 }
 
 /* ═══════════ FETCH + INIT ═══════════ */
 async function init(){
   initCountdown();
-  // initial render with fallback
   renderMattia(null, {session_comments: FB_COMMENTS});
-
   try{
-    const [dRes, cRes] = await Promise.all([
+    const [dRes,cRes]=await Promise.all([
       fetch(DATA_URL).then(r=>{ if(!r.ok) throw new Error(); return r.json(); }),
       fetch(COACH_URL).then(r=>{ if(!r.ok) throw new Error(); return r.json(); })
     ]);
-    renderMattia(dRes, cRes);
+    renderMattia(dRes,cRes);
   } catch(e){
-    // fallback already rendered, no-op
     document.getElementById('m-sync').textContent='Offline · dati snapshot';
+    document.getElementById('sync-ts').textContent='snapshot offline';
   }
 }
 
-/* ─ Progress bars animate on scroll ─ */
+/* ─ Vittoria pace bar on scroll ─ */
 const pbObserver=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      document.getElementById('v-pb').style.width='22%';
-      document.getElementById('v-pb').style.transition='width 1.4s cubic-bezier(.4,0,.2,1)';
+      const vb=document.getElementById('v-pb');
+      if(vb){ vb.style.width='45.8%'; vb.style.transition='width 1.4s cubic-bezier(.4,0,.2,1)'; }
+      const vb2=document.getElementById('v-pace-bar2');
+      if(vb2){ vb2.style.width='45.8%'; vb2.style.transition='width 1.4s cubic-bezier(.4,0,.2,1)'; }
     }
   });
 },{threshold:.2});
