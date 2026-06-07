@@ -520,64 +520,22 @@
     <p class="ey c-mu mb4">Love wall</p>
     <p class="d1 mb16" style="font-size:clamp(1.8rem,3.5vw,3rem)">Chi ci segue.<br><span style="color:var(--mut2)">Cosa ci dice.</span></p>
 
-    <!-- Messaggi esistenti -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px" class="grid2">
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <div style="width:34px;height:34px;border-radius:50%;background:rgba(255,107,53,.15);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:var(--m)">MT</div>
-          <div>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Marco T.</p>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@marco.running.tn</p>
-          </div>
-        </div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Seguo il percorso da settimana 1. Juan Carlos funziona davvero, i dati non mentono. Forza Milano."</p>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <div style="width:34px;height:34px;border-radius:50%;background:rgba(196,160,180,.15);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:var(--v)">GS</div>
-          <div>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Giulia S.</p>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@giulia_sport</p>
-          </div>
-        </div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Allenare con l'AI e pubblicare tutto: questo e' il futuro dello sport. Ci vediamo a dicembre."</p>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <div style="width:34px;height:34px;border-radius:50%;background:rgba(245,158,11,.12);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:#F59E0B">LM</div>
-          <div>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Lorenzo M.</p>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@lorenzomix</p>
-          </div>
-        </div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Ero a Rimini. Che gara. Il sled push vi ha fregati ma il tempo era comunque roba seria. Milano aspetta."</p>
-      </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
-          <div style="width:34px;height:34px;border-radius:50%;background:rgba(16,185,129,.1);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:var(--g)">AP</div>
-          <div>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">Andrea P.</p>
-            <p style="font-family:'Space Grotesk',sans-serif;font-size:.6rem;color:var(--mut)">@andrearun</p>
-          </div>
-        </div>
-        <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"Quello che mi convince e' che i dati sono veri. Non e' marketing, e' un percorso reale."</p>
-      </div>
-    </div>
+    <!-- Messaggi: popolato da JS (localStorage + seed) -->
+    <div id="lw-wall" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px" class="grid2"></div>
 
-    <!-- Form lascia un messaggio -->
+    <!-- Form -->
     <div style="background:var(--card);border:1px solid var(--border);border-radius:18px;padding:28px">
       <p class="ey c-mu mb4">Lascia un messaggio</p>
-      <p style="font-size:.85rem;color:var(--mut);line-height:1.6;margin-bottom:22px">Stai seguendo il percorso? Scrivici. I messaggi piu' belli finiscono sul wall.</p>
-      <form id="love-form" style="display:flex;flex-direction:column;gap:12px"
-        onsubmit="submitLove(event)">
+      <p style="font-size:.85rem;color:var(--mut);line-height:1.6;margin-bottom:22px">Il tuo messaggio compare subito sul wall.</p>
+      <form id="love-form" style="display:flex;flex-direction:column;gap:12px" onsubmit="submitLove(event)">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px" class="grid2">
           <div>
             <label style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:6px">Nome *</label>
-            <input id="lw-name" required placeholder="Il tuo nome" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none"/>
+            <input id="lw-nome" required placeholder="Mario" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none"/>
           </div>
           <div>
-            <label style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:6px">Instagram (opzionale)</label>
-            <input id="lw-handle" placeholder="@tuohandle" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none"/>
+            <label style="font-family:'Space Grotesk',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:6px">Cognome *</label>
+            <input id="lw-cognome" required placeholder="Rossi" style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none"/>
           </div>
         </div>
         <div>
@@ -585,17 +543,11 @@
           <textarea id="lw-msg" required placeholder="Cosa vuoi dirci..." rows="3"
             style="width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:10px;padding:11px 14px;color:#fff;font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;resize:vertical;min-height:90px"></textarea>
         </div>
-        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-          <button type="submit"
-            style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;background:var(--m);color:#fff;padding:12px 24px;border-radius:10px;border:none;cursor:pointer">
-            Invia messaggio
-          </button>
-          <a href="https://instagram.com/luporamio" target="_blank"
-            style="font-family:'Space Grotesk',sans-serif;font-size:.72rem;font-weight:600;color:var(--mut);text-decoration:none">
-            Oppure scrivi su @luporamio →
-          </a>
-        </div>
-        <p id="lw-feedback" style="font-size:.78rem;color:var(--g);display:none;margin-top:4px">Messaggio inviato. Grazie per il supporto.</p>
+        <button type="submit"
+          style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.8rem;background:var(--m);color:#fff;padding:12px 24px;border-radius:10px;border:none;cursor:pointer;align-self:flex-start">
+          Pubblica
+        </button>
+        <p id="lw-feedback" style="font-size:.78rem;color:var(--g);display:none;margin-top:4px">Pubblicato. Grazie!</p>
       </form>
     </div>
   </div>
@@ -813,19 +765,55 @@ function renderMattia(data, coaching){
   </div>`;
 }
 
-/* ═══════════ LOVE WALL FORM ═══════════ */
+/* ═══════════ LOVE WALL ═══════════ */
+const LW_KEY='ai-rox-wall-v1';
+const LW_PALETTE=[
+  ['rgba(255,107,53,.15)','var(--m)'],
+  ['rgba(196,160,180,.15)','var(--v)'],
+  ['rgba(245,158,11,.12)','#F59E0B'],
+  ['rgba(16,185,129,.1)','var(--g)'],
+  ['rgba(79,142,247,.12)','#6FA8DC'],
+  ['rgba(167,139,250,.12)','#A78BFA'],
+];
+const LW_SEEDS=[
+  {nome:'Marco',cognome:'T.',msg:'Seguo il percorso da settimana 1. Juan Carlos funziona davvero, i dati non mentono. Forza Milano.'},
+  {nome:'Giulia',cognome:'S.',msg:"Allenare con l'AI e pubblicare tutto: questo è il futuro dello sport. Ci vediamo a dicembre."},
+  {nome:'Lorenzo',cognome:'M.',msg:'Ero a Rimini. Che gara. Il sled push vi ha fregati ma il tempo era comunque roba seria. Milano aspetta.'},
+  {nome:'Andrea',cognome:'P.',msg:"Quello che mi convince è che i dati sono veri. Non è marketing, è un percorso reale."},
+];
+function lwCard(nome,cognome,msg,idx){
+  const[bg,fg]=LW_PALETTE[idx%LW_PALETTE.length];
+  const ini=(nome[0]||'').toUpperCase()+(cognome[0]||'').toUpperCase();
+  return`<div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
+      <div style="width:34px;height:34px;border-radius:50%;background:${bg};display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:800;font-size:.75rem;color:${fg}">${ini}</div>
+      <p style="font-family:'Space Grotesk',sans-serif;font-size:.78rem;font-weight:700">${nome} ${cognome}</p>
+    </div>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.62);line-height:1.65">"${msg}"</p>
+  </div>`;
+}
+function renderWall(){
+  const el=document.getElementById('lw-wall');
+  if(!el)return;
+  const stored=JSON.parse(localStorage.getItem(LW_KEY)||'[]');
+  el.innerHTML=[...stored,...LW_SEEDS].map((m,i)=>lwCard(m.nome,m.cognome,m.msg,i)).join('');
+}
 function submitLove(e){
   e.preventDefault();
-  const name=document.getElementById('lw-name').value.trim();
-  const handle=document.getElementById('lw-handle').value.trim();
+  const nome=document.getElementById('lw-nome').value.trim();
+  const cognome=document.getElementById('lw-cognome').value.trim();
   const msg=document.getElementById('lw-msg').value.trim();
-  const subject=encodeURIComponent('AI-ROX Love Wall · '+name);
-  const body=encodeURIComponent((handle?'Instagram: '+handle+'\n\n':'')+msg);
-  window.location.href='mailto:m.bonetti@wearemarketers.net?subject='+subject+'&body='+body;
-  setTimeout(()=>{
-    document.getElementById('lw-feedback').style.display='block';
-    document.getElementById('love-form').reset();
-  },500);
+  if(!nome||!cognome||!msg)return;
+  const stored=JSON.parse(localStorage.getItem(LW_KEY)||'[]');
+  stored.unshift({nome,cognome,msg,ts:Date.now()});
+  if(stored.length>48)stored.splice(48);
+  localStorage.setItem(LW_KEY,JSON.stringify(stored));
+  renderWall();
+  document.getElementById('love-form').reset();
+  const fb=document.getElementById('lw-feedback');
+  fb.style.display='block';
+  setTimeout(()=>{fb.style.display='none'},3000);
+  document.getElementById('lw-wall').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 /* ═══════════ FETCH + INIT ═══════════ */
@@ -861,6 +849,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 init();
+renderWall();
 </script>
 </body>
 </html>
