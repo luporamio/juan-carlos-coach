@@ -376,6 +376,54 @@ function chk(){
       </div>
     </div>
 
+    <!-- Predittore Hyrox Single -->
+    <div id="predictor-card" class="card p-0" style="border-color:rgba(255,107,53,.2);background:linear-gradient(135deg,rgba(255,107,53,.055) 0%,#111 50%)">
+      <div class="card-shine"></div>
+      <div class="p-5 pb-0">
+        <div class="flex flex-wrap items-start justify-between gap-4">
+          <!-- Left: time display -->
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="label" style="color:#FF6B35">⚡ Proiezione Hyrox Single</span>
+              <span id="pred-updated" class="label" style="color:#222">—</span>
+            </div>
+            <div class="flex items-end gap-3">
+              <div>
+                <p class="label mb-0.5" style="color:#555">Stima attuale</p>
+                <p class="font-display font-extrabold" id="pred-current" style="font-size:2.6rem;line-height:1;color:#FF6B35">—</p>
+              </div>
+              <div class="text-2xl pb-1" style="color:#333">→</div>
+              <div>
+                <p class="label mb-0.5" style="color:#555">Novembre (proiezione)</p>
+                <p class="font-display font-extrabold" id="pred-nov" style="font-size:2.6rem;line-height:1;color:#F59E0B">—</p>
+              </div>
+              <div class="text-2xl pb-1" style="color:#333">→</div>
+              <div>
+                <p class="label mb-0.5" style="color:#10B981">Target</p>
+                <p class="font-display font-extrabold" style="font-size:2.6rem;line-height:1;color:#10B981">1:10:00</p>
+              </div>
+            </div>
+            <p class="text-xs mt-2" style="color:#555">Gap attuale: <span id="pred-gap" style="color:#FF6B35;font-family:'Space Grotesk',sans-serif;font-weight:700">—</span> · Gap novembre: <span id="pred-gap-nov" style="color:#F59E0B;font-family:'Space Grotesk',sans-serif;font-weight:700">—</span></p>
+          </div>
+          <!-- Right: componenti -->
+          <div class="text-right">
+            <p class="label mb-2">Breakdown stima</p>
+            <div class="space-y-1 text-xs" style="color:#555">
+              <div>🏃 Running 8km: <span class="font-display font-bold text-white" id="pred-run">—</span></div>
+              <div>💪 Stazioni: <span class="font-display font-bold text-white" id="pred-sta">—</span></div>
+              <div>🔀 Transizioni: <span class="font-display font-bold text-white">5:00</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Leve di miglioramento -->
+      <div class="p-5 pt-4">
+        <p class="label mb-3">Leve di miglioramento</p>
+        <div id="pred-levers" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+        <p class="text-xs mt-3 font-body" style="color:#333" id="pred-nov-note">—</p>
+      </div>
+    </div>
+
     <!-- Attivita' per tipologia lifetime -->
     <div>
       <p class="label mb-3">Attivita' per tipologia · lifetime</p>
@@ -1252,6 +1300,42 @@ function renderNutrizone(){
   });
 }
 
+/* ─── HYROX PREDICTOR ─── */
+function renderPredictor() {
+  const p = appData?.hyrox_predictor;
+  if (!p) return;
+  const inp = p.inputs;
+  const nov = p.november_projection;
+
+  document.getElementById("pred-current").textContent = p.estimated_time;
+  document.getElementById("pred-nov").textContent = nov?.estimated_time || "—";
+  document.getElementById("pred-gap").textContent = p.gap_sign + p.gap_formatted;
+  document.getElementById("pred-gap-nov").textContent = nov ? "+" + nov.gap_to_target : "—";
+  document.getElementById("pred-run").textContent = inp.run_component;
+  document.getElementById("pred-sta").textContent = inp.station_component;
+  document.getElementById("pred-updated").textContent = "agg. " + p.last_updated;
+  const noteEl = document.getElementById("pred-nov-note");
+  if (noteEl && nov) noteEl.textContent = "📌 " + nov.note;
+
+  const leversEl = document.getElementById("pred-levers");
+  if (leversEl && p.levers) {
+    const colors = ["#FF6B35", "#4F8EF7", "#10B981"];
+    leversEl.innerHTML = p.levers.map((l, i) => `
+      <div class="card p-4" style="background:rgba(255,255,255,.02)">
+        <div class="card-shine"></div>
+        <p class="label mb-1" style="color:${colors[i]}">${l.name}</p>
+        <div class="flex items-end gap-1.5 mb-1">
+          <span class="font-display font-bold text-xl text-white">${l.current}</span>
+          <span class="text-xs mb-0.5" style="color:#555">→ ${l.target} ${l.unit}</span>
+        </div>
+        <div class="h-1.5 rounded-full overflow-hidden mb-1" style="background:rgba(255,255,255,.05)">
+          <div class="h-full rounded-full" style="width:${l.pct}%;background:${colors[i]};transition:width 1.3s ease"></div>
+        </div>
+        <p class="text-xs" style="color:#444">${l.impact}</p>
+      </div>`).join("");
+  }
+}
+
 /* ─── SALUTE / HEALTH ─── */
 function renderHealthHero(h) {
   if (!h || !h.today) return;
@@ -1433,6 +1517,7 @@ async function init(){
     document.getElementById("last-sync").textContent="sync "+appData.last_sync;
     renderObiettivi();
     if(appData.health) renderHealthHero(appData.health);
+    if(appData.hyrox_predictor) renderPredictor();
   }
   if(coachData) renderHyroxCard();
 

@@ -222,6 +222,70 @@
           "done": false
         }
       ]
+    },
+    {
+      "week": "2026-W24",
+      "monday_date": "2026-06-08",
+      "title": "Settimana 2 Base · Ripresa strutturata",
+      "juan_note": "Settimana di costruzione. Obiettivo principale: alzare il volume di Z2 e mantenere la forza funzionale. Recovery score a 79 oggi: sessione moderata di upper body ok. Da mercoledi' in poi puoi spingere di piu'. Il 10km di Riva del Garda era buono (5:29, FC 155), ma entri ancora spesso in Z3. Corri piu' lento: il motore aerobico si costruisce sotto 145 bpm.",
+      "plan": [
+        {
+          "day": "Lun",
+          "date": "2026-06-08",
+          "type": "gym",
+          "label": "Upper body · 60-70min",
+          "desc": "Pull-up 4xmax · Push-up 4x20 · Rows 3x12 · Shoulder press 3x10 · Core 15min",
+          "done": true
+        },
+        {
+          "day": "Mar",
+          "date": "2026-06-09",
+          "type": "run",
+          "label": "Corsa Z2 · 8-10km",
+          "desc": "FC SOTTO 145 bpm tutto il tempo. Passo indicativo 6:00-6:20/km. Se FC sale, cammina.",
+          "done": false
+        },
+        {
+          "day": "Mer",
+          "date": "2026-06-10",
+          "type": "gym",
+          "label": "Forza lower body · carcere",
+          "desc": "Squat 4x10 · Affondi 3x12 per gamba · Hip thrust 3x15 · Burpee 3x10 · Box jump 3x8",
+          "done": false
+        },
+        {
+          "day": "Gio",
+          "date": "2026-06-11",
+          "type": "run",
+          "label": "Corsa intervalli · 50min",
+          "desc": "3km warm-up Z2 + 4x6' a 5:20-5:30/km (rec 2' cammino) + 2km cool-down",
+          "done": false
+        },
+        {
+          "day": "Ven",
+          "date": "2026-06-12",
+          "type": "rest",
+          "label": "Riposo o mobilita'",
+          "desc": "15min stretching hip flexors + foam roller gambe + 10min respirazione",
+          "done": false
+        },
+        {
+          "day": "Sab",
+          "date": "2026-06-13",
+          "type": "long",
+          "label": "Long run · 75-85min",
+          "desc": "Passo 5:50-6:10/km · FC SOTTO 155 · terreno vario · porta acqua",
+          "done": false
+        },
+        {
+          "day": "Dom",
+          "date": "2026-06-14",
+          "type": "rest",
+          "label": "Riposo",
+          "desc": null,
+          "done": false
+        }
+      ]
     }
   ],
   "session_comments": [
