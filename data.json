@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 443
+    "total_activities": 444
   },
   "goals": [
     {
@@ -22,37 +22,37 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-06-08 10:57",
+  "last_sync": "2026-06-09 09:44",
   "stats": {
     "7d": {
       "total_km": 28.2,
       "run_sessions": 3,
-      "all_sessions": 6,
+      "all_sessions": 7,
       "avg_pace": 340,
-      "avg_hr": 136,
+      "avg_hr": 138,
       "total_elevation": 445,
       "best_pace": 329,
       "longest_run": 10.2,
       "days": 7
     },
     "30d": {
-      "total_km": 101.9,
-      "run_sessions": 15,
-      "all_sessions": 28,
-      "avg_pace": 364,
+      "total_km": 91.6,
+      "run_sessions": 13,
+      "all_sessions": 26,
+      "avg_pace": 362,
       "avg_hr": 142,
-      "total_elevation": 1345,
+      "total_elevation": 1267,
       "best_pace": 326,
       "longest_run": 10.2,
       "days": 30
     },
     "90d": {
-      "total_km": 388.4,
-      "run_sessions": 52,
+      "total_km": 380.4,
+      "run_sessions": 51,
       "all_sessions": 84,
-      "avg_pace": 368,
+      "avg_pace": 369,
       "avg_hr": 146,
-      "total_elevation": 4533,
+      "total_elevation": 4518,
       "best_pace": 318,
       "longest_run": 21.1,
       "days": 90
@@ -60,7 +60,7 @@
     "365d": {
       "total_km": 1245.9,
       "run_sessions": 164,
-      "all_sessions": 268,
+      "all_sessions": 269,
       "avg_pace": 348,
       "avg_hr": 143,
       "total_elevation": 22765,
@@ -71,13 +71,13 @@
     "all": {
       "total_km": 1957.6,
       "run_sessions": 280,
-      "all_sessions": 443,
+      "all_sessions": 444,
       "avg_pace": 356,
       "avg_hr": 143,
       "total_elevation": 26998,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 443
+      "days": 444
     }
   },
   "weekly_volume": [
@@ -563,18 +563,6 @@
     ],
     "30d": [
       {
-        "date": "2026-05-09",
-        "pace_sec": 376,
-        "hr": 152,
-        "km": 5.3
-      },
-      {
-        "date": "2026-05-09",
-        "pace_sec": 383,
-        "hr": 148,
-        "km": 5.0
-      },
-      {
         "date": "2026-05-12",
         "pace_sec": 285,
         "hr": 177,
@@ -654,12 +642,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-03-10",
-        "pace_sec": 326,
-        "hr": 165,
-        "km": 8.0
-      },
       {
         "date": "2026-03-11",
         "pace_sec": 374,
@@ -3645,17 +3627,17 @@
       "z5": 0
     },
     "30d": {
-      "z1": 7,
-      "z2": 14,
-      "z3": 71,
+      "z1": 8,
+      "z2": 17,
+      "z3": 67,
       "z4": 0,
-      "z5": 7
+      "z5": 8
     },
     "90d": {
       "z1": 2,
       "z2": 10,
-      "z3": 59,
-      "z4": 27,
+      "z3": 60,
+      "z4": 26,
       "z5": 2
     },
     "365d": {
@@ -3682,9 +3664,9 @@
         "total_elevation": 426
       },
       "Workout": {
-        "sessions": 2,
+        "sessions": 3,
         "total_km": 0.0,
-        "total_time_min": 53,
+        "total_time_min": 132,
         "total_elevation": 0
       },
       "Walk": {
@@ -3696,15 +3678,15 @@
     },
     "30d": {
       "Run": {
-        "sessions": 15,
-        "total_km": 101.9,
-        "total_time_min": 626,
-        "total_elevation": 1244
+        "sessions": 13,
+        "total_km": 91.6,
+        "total_time_min": 560,
+        "total_elevation": 1166
       },
       "Workout": {
-        "sessions": 9,
+        "sessions": 10,
         "total_km": 0.0,
-        "total_time_min": 300,
+        "total_time_min": 379,
         "total_elevation": 0
       },
       "Walk": {
@@ -3712,25 +3694,19 @@
         "total_km": 7.1,
         "total_time_min": 85,
         "total_elevation": 101
-      },
-      "WeightTraining": {
-        "sessions": 1,
-        "total_km": 0.0,
-        "total_time_min": 20,
-        "total_elevation": 0
       }
     },
     "90d": {
       "Run": {
-        "sessions": 52,
-        "total_km": 388.4,
-        "total_time_min": 2399,
-        "total_elevation": 3510
+        "sessions": 51,
+        "total_km": 380.4,
+        "total_time_min": 2356,
+        "total_elevation": 3495
       },
       "Workout": {
-        "sessions": 23,
+        "sessions": 24,
         "total_km": 0.0,
-        "total_time_min": 570,
+        "total_time_min": 649,
         "total_elevation": 0
       },
       "Walk": {
@@ -3766,9 +3742,9 @@
         "total_elevation": 6205
       },
       "Workout": {
-        "sessions": 60,
+        "sessions": 61,
         "total_km": 0.0,
-        "total_time_min": 2040,
+        "total_time_min": 2119,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3828,9 +3804,9 @@
         "total_elevation": 8421
       },
       "Workout": {
-        "sessions": 69,
+        "sessions": 70,
         "total_km": 0.0,
-        "total_time_min": 2247,
+        "total_time_min": 2326,
         "total_elevation": 0
       },
       "Walk": {
@@ -3884,6 +3860,20 @@
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-06-08",
+      "datetime": "2026-06-08T20:12",
+      "type": "Workout",
+      "name": "Allenamento serale",
+      "distance_km": 0.0,
+      "duration_sec": 4738,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": 148,
+      "hr_max": 177,
+      "elevation": 0,
+      "suffer_score": null
+    },
     {
       "date": "2026-06-07",
       "datetime": "2026-06-07T07:06",
@@ -6669,20 +6659,6 @@
       "hr_max": 128,
       "elevation": 0,
       "suffer_score": null
-    },
-    {
-      "date": "2025-09-22",
-      "datetime": "2025-09-22T19:38",
-      "type": "Run",
-      "name": "Evening Run",
-      "distance_km": 7.04,
-      "duration_sec": 2351,
-      "pace": "5:34/km",
-      "pace_sec": 334,
-      "hr_avg": 152,
-      "hr_max": 164,
-      "elevation": 15,
-      "suffer_score": null
     }
   ],
   "current_week": [
@@ -6691,18 +6667,33 @@
       "day": "Lun",
       "day_num": 8,
       "month": "Giu",
-      "is_today": true,
-      "is_past": false,
-      "activities": [],
+      "is_today": false,
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-06-08",
+          "datetime": "2026-06-08T20:12",
+          "type": "Workout",
+          "name": "Allenamento serale",
+          "distance_km": 0.0,
+          "duration_sec": 4738,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": 148,
+          "hr_max": 177,
+          "elevation": 0,
+          "suffer_score": null
+        }
+      ],
       "total_km": 0,
-      "session_count": 0
+      "session_count": 1
     },
     {
       "date": "2026-06-09",
       "day": "Mar",
       "day_num": 9,
       "month": "Giu",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
