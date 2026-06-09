@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-generate_data.py — genera dashboard/data.json con gli ultimi 90 giorni di attività Strava.
+generate_data.py — genera dashboard/data.json con gli ultimi 90 giorni di attività Strava
+e i dati Apple Health (health_reader.py).
 Chiamato da strava_sync.py dopo ogni sync.
 """
 
@@ -13,6 +14,11 @@ from datetime import datetime, timedelta
 from collections import defaultdict
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Importa health_reader da COACH_ATLETICO
+COACH_DIR = os.path.expanduser("~/MY_OS/AGENTI/COACH_ATLETICO")
+if COACH_DIR not in sys.path:
+    sys.path.insert(0, COACH_DIR)
 TOKENS_FILE = os.path.join(
     os.path.expanduser("~/MY_OS/AGENTI/COACH_ATLETICO"),
     ".strava_tokens.json"
@@ -332,12 +338,31 @@ def build_data(activities):
     }
 
 
+def build_health_data():
+    try:
+        from health_reader import read_health, recovery_score
+        health = read_health(days=30)
+        today = health.get("today", {})
+        avg_rhr = health["summary_7d"].get("resting_hr_avg")
+        score = recovery_score(today, avg_rhr)
+        return {
+            "today": today,
+            "daily": health["daily"],
+            "summary_7d": health["summary_7d"],
+            "recovery_score": score,
+        }
+    except Exception as e:
+        print(f"[health] Dati salute non disponibili: {e}")
+        return {}
+
+
 def main():
     tokens = load_tokens()
     tokens = refresh_if_needed(tokens)
     after_ts = int((datetime.now() - timedelta(days=DAYS_BACK)).timestamp())
     activities = fetch_all(tokens["access_token"], after_ts)
     data = build_data(activities)
+    data["health"] = build_health_data()
     with open(OUTPUT_FILE, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f"Dashboard data generato: {OUTPUT_FILE} ({len(activities)} attività totali)")

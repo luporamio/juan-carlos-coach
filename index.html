@@ -148,25 +148,64 @@ function chk(){
 
 <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-7" id="app">
 
-  <!-- ── HEADER ── -->
-  <div class="flex flex-col gap-4 mb-6">
-    <div class="flex items-center justify-between">
-      <div>
-        <p class="label mb-1"><span style="color:#FF6B35">AI</span>-ROX · Dashboard</p>
-        <h1 class="font-display font-extrabold text-3xl md:text-4xl tracking-tight text-white">Mattia Bonetti</h1>
+  <!-- ── HERO ABOVE FOLD ── -->
+  <div class="relative overflow-hidden rounded-2xl mb-6" style="background:#080808;border:1px solid rgba(255,255,255,.06)">
+    <!-- Sync badge top-right -->
+    <div class="absolute top-4 right-4 flex items-center gap-2 z-10">
+      <div class="pulse"></div>
+      <span id="last-sync" class="text-xs font-body" style="color:#2a2a2a">—</span>
+    </div>
+    <div class="flex">
+      <!-- LEFT: solid black, identity + today biometrics -->
+      <div class="flex-1 p-6 sm:p-8 flex flex-col justify-between gap-5">
+        <div>
+          <p class="label mb-2" style="letter-spacing:.15em"><span style="color:#FF6B35">AI</span>-ROX · Dashboard privata</p>
+          <h1 class="font-display font-extrabold tracking-tight text-white" style="font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.1">Mattia Bonetti</h1>
+        </div>
+        <!-- Recovery row -->
+        <div class="flex flex-wrap items-center gap-3 pb-1">
+          <div id="h-score-badge" class="flex items-center gap-2 px-3 py-1.5 rounded-full" style="background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.2)">
+            <span class="font-display font-extrabold text-sm" style="color:#10B981" id="h-score-label">—</span>
+            <span class="label" style="color:#555">recovery · <span id="h-score">—</span>/100</span>
+          </div>
+          <div class="flex items-center gap-3 text-xs" style="color:#444">
+            <span>❤️ <span id="h-rhr" style="color:#bbb">—</span> bpm</span>
+            <span>😴 <span id="h-sleep" style="color:#bbb">—</span>h</span>
+            <span>🫁 <span id="h-spo2" style="color:#bbb">—</span>%</span>
+          </div>
+        </div>
       </div>
-      <div class="flex items-center gap-2">
-        <div class="pulse"></div>
-        <span id="last-sync" class="text-xs font-body" style="color:#333">—</span>
+      <!-- RIGHT: gradient from black to transparent, ambient glow, big metrics -->
+      <div class="relative hidden sm:flex items-center justify-end pr-10 flex-shrink-0" style="width:42%">
+        <!-- gradient overlay: solid black on left edge, fades to transparent -->
+        <div class="absolute inset-0" style="background:linear-gradient(to right,#080808 0%,rgba(8,8,8,.55) 45%,transparent 100%);z-index:2;pointer-events:none"></div>
+        <!-- ambient glow visible on right -->
+        <div class="absolute right-0 top-0 bottom-0 w-full" style="background:radial-gradient(ellipse at 80% 50%,rgba(255,107,53,.11) 0%,transparent 65%);z-index:1"></div>
+        <!-- big numbers visible through gradient -->
+        <div class="relative flex gap-8" style="z-index:3">
+          <div class="text-right">
+            <p class="label mb-0.5">FC Riposo</p>
+            <p class="font-display font-extrabold text-white" style="font-size:2.8rem;line-height:1" id="h-rhr-hero">—</p>
+            <p class="text-xs mt-1" style="color:#444">bpm · media 7gg: <span id="h-rhr-avg">—</span></p>
+          </div>
+          <div class="text-right">
+            <p class="label mb-0.5">Sonno</p>
+            <p class="font-display font-extrabold text-white" style="font-size:2.8rem;line-height:1" id="h-sleep-hero">—</p>
+            <p class="text-xs mt-1" style="color:#444">ore · deep: <span id="h-deep">—</span>h</p>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- Tab nav -->
-    <nav class="tab-nav">
-      <button class="tab-btn active" data-tab="obiettivi">🎯 Obiettivi</button>
-      <button class="tab-btn" data-tab="corsa">🏃 Corsa</button>
-      <button class="tab-btn" data-tab="piano">📋 Piano & Log</button>
-      <button class="tab-btn" data-tab="nutrizione">🥗 Nutrizione</button>
-    </nav>
+    <!-- Tab nav at bottom of hero -->
+    <div style="border-top:1px solid rgba(255,255,255,.04)">
+      <nav class="tab-nav px-6 sm:px-8 py-3">
+        <button class="tab-btn active" data-tab="obiettivi">🎯 Obiettivi</button>
+        <button class="tab-btn" data-tab="corsa">🏃 Corsa</button>
+        <button class="tab-btn" data-tab="piano">📋 Piano & Log</button>
+        <button class="tab-btn" data-tab="salute">💓 Salute</button>
+        <button class="tab-btn" data-tab="nutrizione">🥗 Nutrizione</button>
+      </nav>
+    </div>
   </div>
 
   <!-- ══ TAB: OBIETTIVI ══ -->
@@ -517,6 +556,130 @@ function chk(){
 
   </div><!-- /tab-piano -->
 
+  <!-- ══ TAB: SALUTE ══ -->
+  <div id="tab-salute" class="tab-panel">
+
+    <!-- Recovery score card -->
+    <div class="card p-6" id="salute-recovery-card">
+      <div class="card-shine"></div>
+      <div class="flex flex-col sm:flex-row sm:items-center gap-6">
+        <!-- Score circle -->
+        <div class="relative flex-shrink-0" style="width:100px;height:100px">
+          <svg viewBox="0 0 100 100" width="100" height="100">
+            <circle class="ring-track" cx="50" cy="50" r="42" style="stroke-width:7"/>
+            <circle id="ring-recovery" class="ring-fill" cx="50" cy="50" r="42" stroke="#10B981" stroke-dasharray="263.89" stroke-dashoffset="263.89" style="stroke-width:7"/>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center">
+            <span id="salute-score-num" class="font-display font-extrabold text-2xl" style="color:#10B981;line-height:1">—</span>
+            <span style="font-size:.55rem;color:#444">/100</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-3 mb-2">
+            <span class="label">Recovery Score</span>
+            <span id="salute-score-badge" class="badge" style="background:rgba(16,185,129,.12);color:#10B981">—</span>
+          </div>
+          <p id="salute-score-note" class="text-sm font-body leading-relaxed" style="color:#666">—</p>
+          <div class="flex flex-wrap gap-4 mt-3 text-xs" style="color:#555">
+            <span>Ultimo aggiornamento: <span id="salute-date" style="color:#888">—</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Biometrics grid today -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">❤️ FC Riposo</p>
+        <div class="flex items-end gap-1.5">
+          <span class="num text-4xl text-white" id="s-rhr">—</span>
+          <span class="text-sm mb-0.5" style="color:#555">bpm</span>
+        </div>
+        <p class="text-xs mt-1" style="color:#333">media 7gg: <span id="s-rhr-avg">—</span></p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">😴 Sonno totale</p>
+        <div class="flex items-end gap-1.5">
+          <span class="num text-4xl text-white" id="s-sleep">—</span>
+          <span class="text-sm mb-0.5" style="color:#555">h</span>
+        </div>
+        <p class="text-xs mt-1" style="color:#333">media 7gg: <span id="s-sleep-avg">—</span>h</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">🌊 Deep Sleep</p>
+        <div class="flex items-end gap-1.5">
+          <span class="num text-4xl" style="color:#4F8EF7" id="s-deep">—</span>
+          <span class="text-sm mb-0.5" style="color:#555">h</span>
+        </div>
+        <p class="text-xs mt-1" style="color:#333">REM: <span id="s-rem">—</span>h</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">🫁 SpO2</p>
+        <div class="flex items-end gap-1.5">
+          <span class="num text-4xl" style="color:#10B981" id="s-spo2">—</span>
+          <span class="text-sm mb-0.5" style="color:#555">%</span>
+        </div>
+        <p class="text-xs mt-1" style="color:#333">min: <span id="s-spo2-min">—</span>%</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">⚖️ Peso</p>
+        <div class="flex items-end gap-1.5">
+          <span class="num text-4xl text-white" id="s-weight">—</span>
+          <span class="text-sm mb-0.5" style="color:#555">kg</span>
+        </div>
+        <p class="text-xs mt-1" style="color:#333">target: 80kg</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">🌬️ Resp. Rate</p>
+        <div class="flex items-end gap-1.5">
+          <span class="num text-4xl text-white" id="s-resp">—</span>
+          <span class="text-sm mb-0.5" style="color:#555">rpm</span>
+        </div>
+        <p class="text-xs mt-1" style="color:#333">respiri/min (sonno)</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">👟 Passi</p>
+        <div class="flex items-end gap-1.5">
+          <span class="num text-4xl text-white" id="s-steps">—</span>
+        </div>
+        <p class="text-xs mt-1" style="color:#333">oggi</p>
+      </div>
+      <div class="card p-4"><div class="card-shine"></div>
+        <p class="label mb-2">🛌 Orario sonno</p>
+        <p class="font-display font-bold text-sm text-white mt-2" id="s-sleep-start">—</p>
+        <p class="text-xs mt-0.5" style="color:#555" id="s-sleep-end">—</p>
+      </div>
+    </div>
+
+    <!-- Trends charts: FC riposo + sonno -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      <div class="card p-5"><div class="card-shine"></div>
+        <p class="label mb-4">❤️ FC Riposo · 30 giorni</p>
+        <div style="height:180px"><canvas id="c-rhr-trend"></canvas></div>
+      </div>
+      <div class="card p-5"><div class="card-shine"></div>
+        <p class="label mb-4">😴 Qualita' sonno · 14 giorni</p>
+        <div style="height:180px"><canvas id="c-sleep-trend"></canvas></div>
+      </div>
+    </div>
+
+    <!-- 7-day daily table -->
+    <div class="card p-5"><div class="card-shine"></div>
+      <p class="label mb-4">📋 Ultimi 7 giorni</p>
+      <div class="hidden md:grid pb-3 mb-1" style="grid-template-columns:90px 80px 70px 60px 60px 60px 70px;gap:8px;border-bottom:1px solid rgba(255,255,255,.05)">
+        <span class="label">Data</span>
+        <span class="label">FC Riposo</span>
+        <span class="label">Sonno</span>
+        <span class="label">Deep</span>
+        <span class="label">REM</span>
+        <span class="label">SpO2</span>
+        <span class="label">Peso</span>
+      </div>
+      <div id="salute-daily-rows" class="space-y-1"></div>
+    </div>
+
+  </div><!-- /tab-salute -->
+
   <!-- ══ TAB: NUTRIZIONE ══ -->
   <div id="tab-nutrizione" class="tab-panel">
 
@@ -552,19 +715,6 @@ function chk(){
       <div id="principles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
     </div>
 
-    <!-- Health data placeholder -->
-    <div class="card p-6" style="border-style:dashed;border-color:rgba(255,255,255,.07)">
-      <div class="flex items-center gap-4">
-        <div class="text-3xl">📱</div>
-        <div>
-          <h3 class="font-display font-bold text-white mb-1">Dati salute · in arrivo</h3>
-          <p class="text-sm" style="color:#444">Connessione Amazfit Balance / Apple Health per FC riposo, sonno, SpO2, HRV. Sincronizzazione automatica prevista.</p>
-        </div>
-        <div class="ml-auto flex-shrink-0">
-          <span class="badge" style="background:rgba(79,142,247,.15);color:#4F8EF7">coming soon</span>
-        </div>
-      </div>
-    </div>
 
   </div><!-- /tab-nutrizione -->
 
@@ -657,6 +807,7 @@ function switchTab(id){
     if(id==="piano"&&coachData){ currentWeekIdx=coachData.weekly_reviews.length-1; renderWeekSelector(); renderPiano(); }
     if(id==="piano"&&appData){ renderWeekStrip(); renderLog(); }
     if(id==="nutrizione"&&nutriData) renderNutrizone();
+    if(id==="salute"&&appData) renderSalute();
   }
 }
 
@@ -1101,6 +1252,157 @@ function renderNutrizone(){
   });
 }
 
+/* ─── SALUTE / HEALTH ─── */
+function renderHealthHero(h) {
+  if (!h || !h.today) return;
+  const t = h.today;
+  const s7 = h.summary_7d || {};
+  const score = h.recovery_score || 0;
+
+  // Hero left panel
+  const scoreLabel = score >= 85 ? "VERDE" : score >= 65 ? "GIALLO" : "ROSSO";
+  const scoreColor = score >= 85 ? "#10B981" : score >= 65 ? "#F59E0B" : "#EF4444";
+  const badge = document.getElementById("h-score-badge");
+  if (badge) badge.style.background = `rgba(${score>=85?"16,185,129":score>=65?"245,158,11":"239,68,68"},.1)`;
+  if (badge) badge.style.borderColor = `rgba(${score>=85?"16,185,129":score>=65?"245,158,11":"239,68,68"},.2)`;
+  const sl = document.getElementById("h-score-label");
+  if (sl) { sl.textContent = scoreLabel; sl.style.color = scoreColor; }
+  const sv = document.getElementById("h-score");
+  if (sv) sv.textContent = score;
+  const rhr = document.getElementById("h-rhr");
+  if (rhr && t.resting_hr) rhr.textContent = t.resting_hr;
+  const slp = document.getElementById("h-sleep");
+  if (slp && t.sleep_total_h) slp.textContent = t.sleep_total_h;
+  const sp = document.getElementById("h-spo2");
+  if (sp && t.spo2_avg) sp.textContent = t.spo2_avg;
+
+  // Hero right panel (big numbers)
+  const rhrH = document.getElementById("h-rhr-hero");
+  if (rhrH && t.resting_hr) rhrH.textContent = t.resting_hr;
+  const slpH = document.getElementById("h-sleep-hero");
+  if (slpH && t.sleep_total_h) slpH.textContent = t.sleep_total_h;
+  const rhrAvg = document.getElementById("h-rhr-avg");
+  if (rhrAvg && s7.resting_hr_avg) rhrAvg.textContent = s7.resting_hr_avg;
+  const deepH = document.getElementById("h-deep");
+  if (deepH && t.sleep_deep_h) deepH.textContent = t.sleep_deep_h;
+}
+
+function renderSalute() {
+  const h = appData?.health;
+  if (!h) return;
+  const t = h.today || {};
+  const s7 = h.summary_7d || {};
+  const score = h.recovery_score || 0;
+  const daily = h.daily || [];
+
+  // Recovery ring
+  const scoreColor = score >= 85 ? "#10B981" : score >= 65 ? "#F59E0B" : "#EF4444";
+  const CIRC = 263.89;
+  setTimeout(() => {
+    const ring = document.getElementById("ring-recovery");
+    if (ring) { ring.style.stroke = scoreColor; ring.style.strokeDashoffset = CIRC * (1 - score / 100); }
+  }, 150);
+  const sn = document.getElementById("salute-score-num");
+  if (sn) { sn.textContent = score; sn.style.color = scoreColor; }
+  const sbadge = document.getElementById("salute-score-badge");
+  const notes = { verde: "Ottimo recupero. Sessione intensa ok.", giallo: "Recupero parziale. Sessione moderata.", rosso: "Recupero insufficiente. Riposo o volume basso." };
+  if (sbadge) {
+    const key = score >= 85 ? "verde" : score >= 65 ? "giallo" : "rosso";
+    sbadge.textContent = key.toUpperCase();
+    sbadge.style.background = `rgba(${score>=85?"16,185,129":score>=65?"245,158,11":"239,68,68"},.12)`;
+    sbadge.style.color = scoreColor;
+    const note = document.getElementById("salute-score-note");
+    if (note) note.textContent = notes[key];
+  }
+  const sd = document.getElementById("salute-date");
+  if (sd) sd.textContent = t.date || "—";
+
+  // Biometrics
+  const set = (id, val, dec=0) => { const el = document.getElementById(id); if (el && val != null) el.textContent = dec ? Number(val).toFixed(dec) : val; };
+  set("s-rhr", t.resting_hr);
+  set("s-rhr-avg", s7.resting_hr_avg);
+  set("s-sleep", t.sleep_total_h, 1);
+  set("s-sleep-avg", s7.sleep_avg_h, 1);
+  set("s-deep", t.sleep_deep_h, 2);
+  set("s-rem", t.sleep_rem_h, 2);
+  set("s-spo2", t.spo2_avg, 1);
+  set("s-spo2-min", t.spo2_min);
+  set("s-weight", t.weight_kg, 1);
+  set("s-resp", t.resp_rate_avg, 1);
+  set("s-steps", t.steps ? t.steps.toLocaleString("it-IT") : "—");
+  const sst = document.getElementById("s-sleep-start");
+  const sen = document.getElementById("s-sleep-end");
+  if (sst && t.sleep_start) sst.textContent = t.sleep_start.substring(11, 16) + " → addormentato";
+  if (sen && t.sleep_end) sen.textContent = "sveglia: " + t.sleep_end.substring(11, 16);
+
+  // Charts
+  const last30 = daily.slice(-30);
+  const last14 = daily.slice(-14);
+
+  // FC Riposo trend
+  if (!charts["c-rhr-trend"]) {
+    const rhrCtx = document.getElementById("c-rhr-trend")?.getContext("2d");
+    if (rhrCtx) {
+      charts["c-rhr-trend"] = new Chart(rhrCtx, {
+        type: "line",
+        data: {
+          labels: last30.map(d => d.date.slice(5)),
+          datasets: [{
+            data: last30.map(d => d.resting_hr || null),
+            borderColor: "#EF4444",
+            backgroundColor: "rgba(239,68,68,.07)",
+            tension: 0.35,
+            pointRadius: 3,
+            pointBackgroundColor: "#EF4444",
+            fill: true,
+          }]
+        },
+        options: { ...chartCfg({ y: { min: 35, suggestedMax: 65 }, yTick: { callback: v => v + " bpm" } }) }
+      });
+    }
+  }
+
+  // Sleep trend (stacked: deep, REM, core)
+  if (!charts["c-sleep-trend"]) {
+    const slCtx = document.getElementById("c-sleep-trend")?.getContext("2d");
+    if (slCtx) {
+      charts["c-sleep-trend"] = new Chart(slCtx, {
+        type: "bar",
+        data: {
+          labels: last14.map(d => d.date.slice(5)),
+          datasets: [
+            { label: "Deep", data: last14.map(d => d.sleep_deep_h || null), backgroundColor: "#4F8EF7", stack: "sleep" },
+            { label: "REM",  data: last14.map(d => d.sleep_rem_h  || null), backgroundColor: "#8B5CF6", stack: "sleep" },
+            { label: "Core", data: last14.map(d => d.sleep_core_h || null), backgroundColor: "rgba(255,255,255,.08)", stack: "sleep" },
+          ]
+        },
+        options: { ...chartCfg({ opts: { scales: { x: { stacked: true, grid: { display: false }, ticks: { color: "#333", font: { size: 9 } } }, y: { stacked: true, grid: { color: "rgba(255,255,255,.03)" }, ticks: { color: "#555", font: { size: 10 }, callback: v => v + "h" } } } } }), plugins: { legend: { display: true, labels: { color: "#555", boxWidth: 10, font: { size: 10 } } }, tooltip: TOOLTIP_STYLE } }
+      });
+    }
+  }
+
+  // 7-day daily rows
+  const tbody = document.getElementById("salute-daily-rows");
+  if (tbody) {
+    const rows = daily.slice(-7).reverse();
+    tbody.innerHTML = rows.map(d => {
+      const rhr = d.resting_hr;
+      const rhrColor = rhr ? (rhr <= 42 ? "#10B981" : rhr <= 46 ? "#F59E0B" : "#EF4444") : "#555";
+      const slp = d.sleep_total_h;
+      const slpColor = slp ? (slp >= 7.5 ? "#10B981" : slp >= 6.5 ? "#F59E0B" : "#EF4444") : "#555";
+      return `<div class="grid py-2 border-b" style="grid-template-columns:90px 80px 70px 60px 60px 60px 70px;gap:8px;border-color:rgba(255,255,255,.04)">
+        <span class="font-display font-semibold text-xs text-white">${d.date.slice(5)}</span>
+        <span class="font-display font-bold text-xs" style="color:${rhrColor}">${rhr ? rhr + " bpm" : "—"}</span>
+        <span class="font-display font-bold text-xs" style="color:${slpColor}">${slp ? slp + "h" : "—"}</span>
+        <span class="text-xs" style="color:#4F8EF7">${d.sleep_deep_h ? d.sleep_deep_h + "h" : "—"}</span>
+        <span class="text-xs" style="color:#8B5CF6">${d.sleep_rem_h ? d.sleep_rem_h + "h" : "—"}</span>
+        <span class="text-xs" style="color:#10B981">${d.spo2_avg ? d.spo2_avg + "%" : "—"}</span>
+        <span class="text-xs" style="color:#888">${d.weight_kg ? d.weight_kg + " kg" : "—"}</span>
+      </div>`;
+    }).join("");
+  }
+}
+
 /* ─── INIT ─── */
 async function init(){
   // Tabs
@@ -1130,6 +1432,7 @@ async function init(){
   if(appData){
     document.getElementById("last-sync").textContent="sync "+appData.last_sync;
     renderObiettivi();
+    if(appData.health) renderHealthHero(appData.health);
   }
   if(coachData) renderHyroxCard();
 
