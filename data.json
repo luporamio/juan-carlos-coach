@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 445
+    "total_activities": 447
   },
   "goals": [
     {
@@ -22,14 +22,14 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-06-10 10:01",
+  "last_sync": "2026-06-11 10:25",
   "stats": {
     "7d": {
       "total_km": 26.7,
       "run_sessions": 3,
-      "all_sessions": 6,
+      "all_sessions": 7,
       "avg_pace": 360,
-      "avg_hr": 136,
+      "avg_hr": 148,
       "total_elevation": 405,
       "best_pace": 329,
       "longest_run": 10.2,
@@ -38,21 +38,21 @@
     "30d": {
       "total_km": 100.0,
       "run_sessions": 14,
-      "all_sessions": 27,
+      "all_sessions": 29,
       "avg_pace": 365,
-      "avg_hr": 142,
+      "avg_hr": 143,
       "total_elevation": 1355,
       "best_pace": 326,
       "longest_run": 10.2,
       "days": 30
     },
     "90d": {
-      "total_km": 382.8,
-      "run_sessions": 51,
-      "all_sessions": 83,
-      "avg_pace": 369,
+      "total_km": 375.8,
+      "run_sessions": 50,
+      "all_sessions": 84,
+      "avg_pace": 370,
       "avg_hr": 146,
-      "total_elevation": 4603,
+      "total_elevation": 4582,
       "best_pace": 318,
       "longest_run": 21.1,
       "days": 90
@@ -60,9 +60,9 @@
     "365d": {
       "total_km": 1254.4,
       "run_sessions": 165,
-      "all_sessions": 270,
+      "all_sessions": 272,
       "avg_pace": 348,
-      "avg_hr": 143,
+      "avg_hr": 144,
       "total_elevation": 22853,
       "best_pace": 308,
       "longest_run": 21.1,
@@ -71,13 +71,13 @@
     "all": {
       "total_km": 1966.1,
       "run_sessions": 281,
-      "all_sessions": 445,
+      "all_sessions": 447,
       "avg_pace": 356,
       "avg_hr": 143,
       "total_elevation": 27086,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 445
+      "days": 447
     }
   },
   "weekly_volume": [
@@ -648,12 +648,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-03-12",
-        "pace_sec": 330,
-        "hr": 163,
-        "km": 7.1
-      },
       {
         "date": "2026-03-14",
         "pace_sec": 354,
@@ -3654,8 +3648,8 @@
     "90d": {
       "z1": 2,
       "z2": 10,
-      "z3": 60,
-      "z4": 26,
+      "z3": 61,
+      "z4": 24,
       "z5": 2
     },
     "365d": {
@@ -3682,9 +3676,9 @@
         "total_elevation": 386
       },
       "Workout": {
-        "sessions": 2,
+        "sessions": 3,
         "total_km": 0.0,
-        "total_time_min": 125,
+        "total_time_min": 141,
         "total_elevation": 0
       },
       "Walk": {
@@ -3702,9 +3696,9 @@
         "total_elevation": 1254
       },
       "Workout": {
-        "sessions": 10,
+        "sessions": 12,
         "total_km": 0.0,
-        "total_time_min": 379,
+        "total_time_min": 441,
         "total_elevation": 0
       },
       "Walk": {
@@ -3716,15 +3710,15 @@
     },
     "90d": {
       "Run": {
-        "sessions": 51,
-        "total_km": 382.8,
-        "total_time_min": 2375,
-        "total_elevation": 3581
+        "sessions": 50,
+        "total_km": 375.8,
+        "total_time_min": 2336,
+        "total_elevation": 3560
       },
       "Workout": {
-        "sessions": 23,
+        "sessions": 25,
         "total_km": 0.0,
-        "total_time_min": 629,
+        "total_time_min": 690,
         "total_elevation": 0
       },
       "Walk": {
@@ -3760,9 +3754,9 @@
         "total_elevation": 6293
       },
       "Workout": {
-        "sessions": 61,
+        "sessions": 63,
         "total_km": 0.0,
-        "total_time_min": 2119,
+        "total_time_min": 2181,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3822,9 +3816,9 @@
         "total_elevation": 8509
       },
       "Workout": {
-        "sessions": 70,
+        "sessions": 72,
         "total_km": 0.0,
-        "total_time_min": 2326,
+        "total_time_min": 2388,
         "total_elevation": 0
       },
       "Walk": {
@@ -3878,6 +3872,34 @@
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-06-10",
+      "datetime": "2026-06-10T14:24",
+      "type": "Workout",
+      "name": "HIIT pomeridiano",
+      "distance_km": 0.0,
+      "duration_sec": 1375,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": 154,
+      "hr_max": 179,
+      "elevation": 0,
+      "suffer_score": null
+    },
+    {
+      "date": "2026-06-10",
+      "datetime": "2026-06-10T13:44",
+      "type": "Workout",
+      "name": "Allenamento pomeridiano",
+      "distance_km": 0.0,
+      "duration_sec": 2339,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": 156,
+      "hr_max": 189,
+      "elevation": 0,
+      "suffer_score": null
+    },
     {
       "date": "2026-06-09",
       "datetime": "2026-06-09T13:19",
@@ -6649,34 +6671,6 @@
       "hr_max": 164,
       "elevation": 19,
       "suffer_score": null
-    },
-    {
-      "date": "2025-09-25",
-      "datetime": "2025-09-25T22:13",
-      "type": "Workout",
-      "name": "Night Workout",
-      "distance_km": 0.0,
-      "duration_sec": 1900,
-      "pace": null,
-      "pace_sec": null,
-      "hr_avg": 120,
-      "hr_max": 156,
-      "elevation": 0,
-      "suffer_score": null
-    },
-    {
-      "date": "2025-09-23",
-      "datetime": "2025-09-23T19:40",
-      "type": "Workout",
-      "name": "Evening Workout",
-      "distance_km": 0.0,
-      "duration_sec": 13298,
-      "pace": null,
-      "pace_sec": null,
-      "hr_avg": 94,
-      "hr_max": 161,
-      "elevation": 0,
-      "suffer_score": null
     }
   ],
   "current_week": [
@@ -6737,18 +6731,47 @@
       "day": "Mer",
       "day_num": 10,
       "month": "Giu",
-      "is_today": true,
-      "is_past": false,
-      "activities": [],
+      "is_today": false,
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-06-10",
+          "datetime": "2026-06-10T13:44",
+          "type": "Workout",
+          "name": "Allenamento pomeridiano",
+          "distance_km": 0.0,
+          "duration_sec": 2339,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": 156,
+          "hr_max": 189,
+          "elevation": 0,
+          "suffer_score": null
+        },
+        {
+          "date": "2026-06-10",
+          "datetime": "2026-06-10T14:24",
+          "type": "Workout",
+          "name": "HIIT pomeridiano",
+          "distance_km": 0.0,
+          "duration_sec": 1375,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": 154,
+          "hr_max": 179,
+          "elevation": 0,
+          "suffer_score": null
+        }
+      ],
       "total_km": 0,
-      "session_count": 0
+      "session_count": 2
     },
     {
       "date": "2026-06-11",
       "day": "Gio",
       "day_num": 11,
       "month": "Giu",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
