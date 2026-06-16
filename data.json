@@ -22,12 +22,12 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-06-15 12:15",
+  "last_sync": "2026-06-16 11:11",
   "stats": {
     "7d": {
       "total_km": 35.0,
       "run_sessions": 4,
-      "all_sessions": 9,
+      "all_sessions": 8,
       "avg_pace": 379,
       "avg_hr": 151,
       "total_elevation": 251,
@@ -47,12 +47,12 @@
       "days": 30
     },
     "90d": {
-      "total_km": 379.7,
-      "run_sessions": 51,
-      "all_sessions": 87,
-      "avg_pace": 370,
+      "total_km": 372.1,
+      "run_sessions": 49,
+      "all_sessions": 84,
+      "avg_pace": 372,
       "avg_hr": 146,
-      "total_elevation": 4721,
+      "total_elevation": 4697,
       "best_pace": 318,
       "longest_run": 21.1,
       "days": 90
@@ -642,18 +642,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-03-17",
-        "pace_sec": 345,
-        "hr": 158,
-        "km": 6.7
-      },
-      {
-        "date": "2026-03-17",
-        "pace_sec": 339,
-        "hr": 166,
-        "km": 0.9
-      },
       {
         "date": "2026-03-19",
         "pace_sec": 333,
@@ -3685,7 +3673,7 @@
       "z1": 2,
       "z2": 12,
       "z3": 62,
-      "z4": 22,
+      "z4": 21,
       "z5": 2
     },
     "365d": {
@@ -3705,17 +3693,17 @@
   },
   "stats_by_type": {
     "7d": {
-      "Workout": {
-        "sessions": 4,
-        "total_km": 0.0,
-        "total_time_min": 157,
-        "total_elevation": 0
-      },
       "Run": {
         "sessions": 4,
         "total_km": 35.0,
         "total_time_min": 220,
         "total_elevation": 243
+      },
+      "Workout": {
+        "sessions": 3,
+        "total_km": 0.0,
+        "total_time_min": 78,
+        "total_elevation": 0
       },
       "Ride": {
         "sessions": 1,
@@ -3752,15 +3740,15 @@
     },
     "90d": {
       "Run": {
-        "sessions": 51,
-        "total_km": 379.7,
-        "total_time_min": 2361,
-        "total_elevation": 3691
+        "sessions": 49,
+        "total_km": 372.1,
+        "total_time_min": 2318,
+        "total_elevation": 3668
       },
       "Workout": {
-        "sessions": 26,
+        "sessions": 25,
         "total_km": 0.0,
-        "total_time_min": 707,
+        "total_time_min": 696,
         "total_elevation": 0
       },
       "Walk": {
@@ -6721,8 +6709,8 @@
       "day": "Lun",
       "day_num": 15,
       "month": "Giu",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [
         {
           "date": "2026-06-15",
@@ -6775,7 +6763,7 @@
       "day": "Mar",
       "day_num": 16,
       "month": "Giu",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
