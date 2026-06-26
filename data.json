@@ -22,15 +22,15 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-06-25 09:22",
+  "last_sync": "2026-06-26 09:28",
   "stats": {
     "7d": {
-      "total_km": 41.3,
-      "run_sessions": 5,
-      "all_sessions": 9,
-      "avg_pace": 390,
-      "avg_hr": 142,
-      "total_elevation": 359,
+      "total_km": 30.3,
+      "run_sessions": 4,
+      "all_sessions": 8,
+      "avg_pace": 391,
+      "avg_hr": 140,
+      "total_elevation": 228,
       "best_pace": 342,
       "longest_run": 16.1,
       "days": 7
@@ -47,23 +47,23 @@
       "days": 30
     },
     "90d": {
-      "total_km": 384.6,
-      "run_sessions": 50,
-      "all_sessions": 84,
-      "avg_pace": 375,
+      "total_km": 376.6,
+      "run_sessions": 49,
+      "all_sessions": 82,
+      "avg_pace": 376,
       "avg_hr": 147,
-      "total_elevation": 4798,
+      "total_elevation": 4721,
       "best_pace": 318,
       "longest_run": 21.1,
       "days": 90
     },
     "365d": {
-      "total_km": 1327.1,
-      "run_sessions": 173,
-      "all_sessions": 285,
+      "total_km": 1321.4,
+      "run_sessions": 172,
+      "all_sessions": 284,
       "avg_pace": 350,
-      "avg_hr": 144,
-      "total_elevation": 23409,
+      "avg_hr": 143,
+      "total_elevation": 23401,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -543,12 +543,6 @@
   "pace_trend": {
     "7d": [
       {
-        "date": "2026-06-18",
-        "pace_sec": 388,
-        "hr": 163,
-        "km": 11.0
-      },
-      {
         "date": "2026-06-20",
         "pace_sec": 364,
         "hr": 159,
@@ -672,12 +666,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-03-27",
-        "pace_sec": 326,
-        "hr": 175,
-        "km": 8.0
-      },
       {
         "date": "2026-03-30",
         "pace_sec": 318,
@@ -974,12 +962,6 @@
       }
     ],
     "365d": [
-      {
-        "date": "2025-06-25",
-        "pace_sec": 322,
-        "hr": 159,
-        "km": 5.7
-      },
       {
         "date": "2025-06-26",
         "pace_sec": 340,
@@ -3759,9 +3741,9 @@
   "hr_zones": {
     "7d": {
       "z1": 0,
-      "z2": 20,
-      "z3": 60,
-      "z4": 20,
+      "z2": 25,
+      "z3": 75,
+      "z4": 0,
       "z5": 0
     },
     "30d": {
@@ -3774,14 +3756,14 @@
     "90d": {
       "z1": 2,
       "z2": 12,
-      "z3": 63,
-      "z4": 20,
+      "z3": 65,
+      "z4": 19,
       "z5": 2
     },
     "365d": {
       "z1": 1,
       "z2": 11,
-      "z3": 70,
+      "z3": 69,
       "z4": 18,
       "z5": 1
     },
@@ -3796,10 +3778,10 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 5,
-        "total_km": 41.3,
-        "total_time_min": 257,
-        "total_elevation": 359
+        "sessions": 4,
+        "total_km": 30.3,
+        "total_time_min": 186,
+        "total_elevation": 228
       },
       "WeightTraining": {
         "sessions": 2,
@@ -3848,15 +3830,15 @@
     },
     "90d": {
       "Run": {
-        "sessions": 50,
-        "total_km": 384.6,
-        "total_time_min": 2405,
-        "total_elevation": 3798
+        "sessions": 49,
+        "total_km": 376.6,
+        "total_time_min": 2361,
+        "total_elevation": 3721
       },
       "Workout": {
-        "sessions": 24,
+        "sessions": 23,
         "total_km": 0.0,
-        "total_time_min": 606,
+        "total_time_min": 589,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3886,10 +3868,10 @@
     },
     "365d": {
       "Run": {
-        "sessions": 173,
-        "total_km": 1327.1,
-        "total_time_min": 7734,
-        "total_elevation": 6841
+        "sessions": 172,
+        "total_km": 1321.4,
+        "total_time_min": 7704,
+        "total_elevation": 6834
       },
       "Workout": {
         "sessions": 65,
@@ -6937,8 +6919,8 @@
       "day": "Gio",
       "day_num": 25,
       "month": "Giu",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -6948,7 +6930,7 @@
       "day": "Ven",
       "day_num": 26,
       "month": "Giu",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
