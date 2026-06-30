@@ -22,37 +22,37 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-06-29 11:00",
+  "last_sync": "2026-06-30 09:36",
   "stats": {
     "7d": {
-      "total_km": 43.2,
-      "run_sessions": 5,
-      "all_sessions": 9,
-      "avg_pace": 388,
-      "avg_hr": 142,
-      "total_elevation": 347,
+      "total_km": 40.8,
+      "run_sessions": 4,
+      "all_sessions": 6,
+      "avg_pace": 358,
+      "avg_hr": 152,
+      "total_elevation": 324,
       "best_pace": 342,
       "longest_run": 17.0,
       "days": 7
     },
     "30d": {
-      "total_km": 161.8,
-      "run_sessions": 17,
-      "all_sessions": 31,
-      "avg_pace": 381,
-      "avg_hr": 145,
+      "total_km": 153.1,
+      "run_sessions": 16,
+      "all_sessions": 29,
+      "avg_pace": 382,
+      "avg_hr": 144,
       "total_elevation": 1498,
       "best_pace": 329,
       "longest_run": 17.0,
       "days": 30
     },
     "90d": {
-      "total_km": 397.2,
-      "run_sessions": 50,
-      "all_sessions": 83,
-      "avg_pace": 377,
+      "total_km": 389.4,
+      "run_sessions": 48,
+      "all_sessions": 80,
+      "avg_pace": 378,
       "avg_hr": 147,
-      "total_elevation": 4018,
+      "total_elevation": 3940,
       "best_pace": 326,
       "longest_run": 21.1,
       "days": 90
@@ -543,12 +543,6 @@
   "pace_trend": {
     "7d": [
       {
-        "date": "2026-06-22",
-        "pace_sec": 508,
-        "hr": 128,
-        "km": 2.4
-      },
-      {
         "date": "2026-06-23",
         "pace_sec": 342,
         "hr": 150,
@@ -574,12 +568,6 @@
       }
     ],
     "30d": [
-      {
-        "date": "2026-05-30",
-        "pace_sec": 353,
-        "hr": null,
-        "km": 8.7
-      },
       {
         "date": "2026-05-31",
         "pace_sec": 513,
@@ -678,18 +666,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-03-31",
-        "pace_sec": 340,
-        "hr": 157,
-        "km": 7.0
-      },
-      {
-        "date": "2026-03-31",
-        "pace_sec": 356,
-        "hr": 170,
-        "km": 0.8
-      },
       {
         "date": "2026-04-02",
         "pace_sec": 348,
@@ -3771,8 +3747,8 @@
   "hr_zones": {
     "7d": {
       "z1": 0,
-      "z2": 20,
-      "z3": 80,
+      "z2": 0,
+      "z3": 100,
       "z4": 0,
       "z5": 0
     },
@@ -3785,9 +3761,9 @@
     },
     "90d": {
       "z1": 2,
-      "z2": 12,
-      "z3": 67,
-      "z4": 16,
+      "z2": 13,
+      "z3": 68,
+      "z4": 15,
       "z5": 2
     },
     "365d": {
@@ -3808,16 +3784,10 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 5,
-        "total_km": 43.2,
-        "total_time_min": 268,
-        "total_elevation": 347
-      },
-      "Workout": {
-        "sessions": 2,
-        "total_km": 0.0,
-        "total_time_min": 20,
-        "total_elevation": 0
+        "sessions": 4,
+        "total_km": 40.8,
+        "total_time_min": 247,
+        "total_elevation": 324
       },
       "WeightTraining": {
         "sessions": 1,
@@ -3827,22 +3797,22 @@
       },
       "Swim": {
         "sessions": 1,
-        "total_km": 0.0,
-        "total_time_min": 15,
+        "total_km": 0.8,
+        "total_time_min": 39,
         "total_elevation": 0
       }
     },
     "30d": {
       "Run": {
-        "sessions": 17,
-        "total_km": 161.8,
-        "total_time_min": 1009,
+        "sessions": 16,
+        "total_km": 153.1,
+        "total_time_min": 958,
         "total_elevation": 1471
       },
       "Workout": {
-        "sessions": 9,
+        "sessions": 8,
         "total_km": 0.0,
-        "total_time_min": 311,
+        "total_time_min": 230,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3865,22 +3835,22 @@
       },
       "Swim": {
         "sessions": 1,
-        "total_km": 0.0,
-        "total_time_min": 15,
+        "total_km": 0.8,
+        "total_time_min": 39,
         "total_elevation": 0
       }
     },
     "90d": {
       "Run": {
-        "sessions": 50,
-        "total_km": 397.2,
-        "total_time_min": 2497,
-        "total_elevation": 3909
+        "sessions": 48,
+        "total_km": 389.4,
+        "total_time_min": 2452,
+        "total_elevation": 3831
       },
       "Workout": {
-        "sessions": 23,
+        "sessions": 22,
         "total_km": 0.0,
-        "total_time_min": 589,
+        "total_time_min": 574,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3909,8 +3879,8 @@
       },
       "Swim": {
         "sessions": 1,
-        "total_km": 0.0,
-        "total_time_min": 15,
+        "total_km": 0.8,
+        "total_time_min": 39,
         "total_elevation": 0
       }
     },
@@ -3953,8 +3923,8 @@
       },
       "Swim": {
         "sessions": 3,
-        "total_km": 0.0,
-        "total_time_min": 42,
+        "total_km": 0.8,
+        "total_time_min": 66,
         "total_elevation": 0
       },
       "Ride": {
@@ -4027,8 +3997,8 @@
       },
       "Swim": {
         "sessions": 3,
-        "total_km": 0.0,
-        "total_time_min": 42,
+        "total_km": 0.8,
+        "total_time_min": 66,
         "total_elevation": 0
       },
       "StandUpPaddling": {
@@ -4042,15 +4012,15 @@
   "recent_activities": [
     {
       "date": "2026-06-29",
-      "datetime": "2026-06-29T10:16",
+      "datetime": "2026-06-29T16:20",
       "type": "Swim",
-      "name": "Nuotata mattutina",
-      "distance_km": 0.04,
-      "duration_sec": 921,
+      "name": "Nuotata al pome",
+      "distance_km": 0.8,
+      "duration_sec": 2340,
       "pace": null,
       "pace_sec": null,
-      "hr_avg": 149,
-      "hr_max": 159,
+      "hr_avg": null,
+      "hr_max": null,
       "elevation": 0,
       "suffer_score": null
     },
@@ -6847,25 +6817,25 @@
       "day": "Lun",
       "day_num": 29,
       "month": "Giu",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [
         {
           "date": "2026-06-29",
-          "datetime": "2026-06-29T10:16",
+          "datetime": "2026-06-29T16:20",
           "type": "Swim",
-          "name": "Nuotata mattutina",
-          "distance_km": 0.04,
-          "duration_sec": 921,
+          "name": "Nuotata al pome",
+          "distance_km": 0.8,
+          "duration_sec": 2340,
           "pace": null,
           "pace_sec": null,
-          "hr_avg": 149,
-          "hr_max": 159,
+          "hr_avg": null,
+          "hr_max": null,
           "elevation": 0,
           "suffer_score": null
         }
       ],
-      "total_km": 0.0,
+      "total_km": 0.8,
       "session_count": 1
     },
     {
@@ -6873,7 +6843,7 @@
       "day": "Mar",
       "day_num": 30,
       "month": "Giu",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
