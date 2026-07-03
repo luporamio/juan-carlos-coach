@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 465
+    "total_activities": 468
   },
   "goals": [
     {
@@ -22,71 +22,65 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-06-30 09:36",
+  "last_sync": "2026-07-03 15:22",
   "stats": {
     "7d": {
-      "total_km": 40.8,
+      "total_km": 52.7,
       "run_sessions": 4,
       "all_sessions": 6,
-      "avg_pace": 358,
-      "avg_hr": 152,
-      "total_elevation": 324,
-      "best_pace": 342,
+      "avg_pace": 378,
+      "avg_hr": 150,
+      "total_elevation": 629,
+      "best_pace": 359,
       "longest_run": 17.0,
       "days": 7
     },
     "30d": {
-      "total_km": 153.1,
+      "total_km": 158.3,
       "run_sessions": 16,
       "all_sessions": 29,
-      "avg_pace": 382,
-      "avg_hr": 144,
-      "total_elevation": 1498,
+      "avg_pace": 377,
+      "avg_hr": 145,
+      "total_elevation": 1611,
       "best_pace": 329,
       "longest_run": 17.0,
       "days": 30
     },
     "90d": {
-      "total_km": 389.4,
-      "run_sessions": 48,
-      "all_sessions": 80,
-      "avg_pace": 378,
-      "avg_hr": 147,
-      "total_elevation": 3940,
+      "total_km": 389.6,
+      "run_sessions": 47,
+      "all_sessions": 79,
+      "avg_pace": 381,
+      "avg_hr": 146,
+      "total_elevation": 4072,
       "best_pace": 326,
       "longest_run": 21.1,
       "days": 90
     },
     "365d": {
-      "total_km": 1335.3,
-      "run_sessions": 172,
-      "all_sessions": 284,
-      "avg_pace": 351,
+      "total_km": 1338.0,
+      "run_sessions": 171,
+      "all_sessions": 282,
+      "avg_pace": 352,
       "avg_hr": 143,
-      "total_elevation": 23626,
+      "total_elevation": 23943,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
     },
     "all": {
-      "total_km": 2074.0,
-      "run_sessions": 292,
-      "all_sessions": 465,
-      "avg_pace": 357,
+      "total_km": 2097.7,
+      "run_sessions": 294,
+      "all_sessions": 468,
+      "avg_pace": 358,
       "avg_hr": 143,
-      "total_elevation": 27930,
+      "total_elevation": 28292,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 465
+      "days": 468
     }
   },
   "weekly_volume": [
-    {
-      "week": "2025-W26",
-      "label": "23 Giu",
-      "km": 27.0,
-      "sessions": 4
-    },
     {
       "week": "2025-W27",
       "label": "30 Giu",
@@ -392,15 +386,15 @@
       "label": "22 Giu",
       "km": 43.2,
       "sessions": 5
+    },
+    {
+      "week": "2026-W27",
+      "label": "29 Giu",
+      "km": 23.7,
+      "sessions": 2
     }
   ],
   "monthly_volume": [
-    {
-      "month": "2022-05",
-      "label": "Mag '22",
-      "km": 14.7,
-      "sessions": 2
-    },
     {
       "month": "2022-06",
       "label": "Giu '22",
@@ -538,22 +532,16 @@
       "label": "Giu '26",
       "km": 144.6,
       "sessions": 15
+    },
+    {
+      "month": "2026-07",
+      "label": "Lug '26",
+      "km": 23.7,
+      "sessions": 2
     }
   ],
   "pace_trend": {
     "7d": [
-      {
-        "date": "2026-06-23",
-        "pace_sec": 342,
-        "hr": 150,
-        "km": 9.5
-      },
-      {
-        "date": "2026-06-24",
-        "pace_sec": 350,
-        "hr": 152,
-        "km": 2.2
-      },
       {
         "date": "2026-06-26",
         "pace_sec": 365,
@@ -565,21 +553,21 @@
         "pace_sec": 377,
         "hr": 149,
         "km": 17.0
+      },
+      {
+        "date": "2026-07-01",
+        "pace_sec": 409,
+        "hr": 144,
+        "km": 14.7
+      },
+      {
+        "date": "2026-07-03",
+        "pace_sec": 359,
+        "hr": null,
+        "km": 9.0
       }
     ],
     "30d": [
-      {
-        "date": "2026-05-31",
-        "pace_sec": 513,
-        "hr": 114,
-        "km": 8.5
-      },
-      {
-        "date": "2026-06-02",
-        "pace_sec": 346,
-        "hr": 155,
-        "km": 10.0
-      },
       {
         "date": "2026-06-04",
         "pace_sec": 346,
@@ -663,27 +651,21 @@
         "pace_sec": 377,
         "hr": 149,
         "km": 17.0
+      },
+      {
+        "date": "2026-07-01",
+        "pace_sec": 409,
+        "hr": 144,
+        "km": 14.7
+      },
+      {
+        "date": "2026-07-03",
+        "pace_sec": 359,
+        "hr": null,
+        "km": 9.0
       }
     ],
     "90d": [
-      {
-        "date": "2026-04-02",
-        "pace_sec": 348,
-        "hr": 160,
-        "km": 7.0
-      },
-      {
-        "date": "2026-04-02",
-        "pace_sec": 331,
-        "hr": 169,
-        "km": 1.0
-      },
-      {
-        "date": "2026-04-04",
-        "pace_sec": 347,
-        "hr": 167,
-        "km": 15.4
-      },
       {
         "date": "2026-04-05",
         "pace_sec": 410,
@@ -953,27 +935,21 @@
         "pace_sec": 377,
         "hr": 149,
         "km": 17.0
+      },
+      {
+        "date": "2026-07-01",
+        "pace_sec": 409,
+        "hr": 144,
+        "km": 14.7
+      },
+      {
+        "date": "2026-07-03",
+        "pace_sec": 359,
+        "hr": null,
+        "km": 9.0
       }
     ],
     "365d": [
-      {
-        "date": "2025-06-30",
-        "pace_sec": 327,
-        "hr": 155,
-        "km": 6.8
-      },
-      {
-        "date": "2025-07-01",
-        "pace_sec": 321,
-        "hr": 157,
-        "km": 7.0
-      },
-      {
-        "date": "2025-07-02",
-        "pace_sec": 342,
-        "hr": 154,
-        "km": 7.1
-      },
       {
         "date": "2025-07-03",
         "pace_sec": 332,
@@ -1987,6 +1963,18 @@
         "pace_sec": 377,
         "hr": 149,
         "km": 17.0
+      },
+      {
+        "date": "2026-07-01",
+        "pace_sec": 409,
+        "hr": 144,
+        "km": 14.7
+      },
+      {
+        "date": "2026-07-03",
+        "pace_sec": 359,
+        "hr": null,
+        "km": 9.0
       }
     ],
     "all": [
@@ -3741,41 +3729,53 @@
         "pace_sec": 377,
         "hr": 149,
         "km": 17.0
+      },
+      {
+        "date": "2026-07-01",
+        "pace_sec": 409,
+        "hr": 144,
+        "km": 14.7
+      },
+      {
+        "date": "2026-07-03",
+        "pace_sec": 359,
+        "hr": null,
+        "km": 9.0
       }
     ]
   },
   "hr_zones": {
     "7d": {
       "z1": 0,
-      "z2": 0,
-      "z3": 100,
+      "z2": 33,
+      "z3": 67,
       "z4": 0,
       "z5": 0
     },
     "30d": {
-      "z1": 6,
-      "z2": 12,
-      "z3": 75,
-      "z4": 6,
+      "z1": 0,
+      "z2": 20,
+      "z3": 73,
+      "z4": 7,
       "z5": 0
     },
     "90d": {
       "z1": 2,
-      "z2": 13,
-      "z3": 68,
-      "z4": 15,
+      "z2": 16,
+      "z3": 69,
+      "z4": 11,
       "z5": 2
     },
     "365d": {
       "z1": 1,
       "z2": 11,
-      "z3": 70,
+      "z3": 69,
       "z4": 17,
       "z5": 1
     },
     "all": {
       "z1": 1,
-      "z2": 10,
+      "z2": 11,
       "z3": 72,
       "z4": 16,
       "z5": 1
@@ -3785,40 +3785,40 @@
     "7d": {
       "Run": {
         "sessions": 4,
-        "total_km": 40.8,
-        "total_time_min": 247,
-        "total_elevation": 324
-      },
-      "WeightTraining": {
-        "sessions": 1,
-        "total_km": 0.0,
-        "total_time_min": 16,
-        "total_elevation": 0
+        "total_km": 52.7,
+        "total_time_min": 334,
+        "total_elevation": 629
       },
       "Swim": {
-        "sessions": 1,
-        "total_km": 0.8,
-        "total_time_min": 39,
+        "sessions": 2,
+        "total_km": 1.1,
+        "total_time_min": 74,
         "total_elevation": 0
       }
     },
     "30d": {
       "Run": {
         "sessions": 16,
-        "total_km": 153.1,
-        "total_time_min": 958,
-        "total_elevation": 1471
+        "total_km": 158.3,
+        "total_time_min": 982,
+        "total_elevation": 1584
       },
       "Workout": {
-        "sessions": 8,
+        "sessions": 7,
         "total_km": 0.0,
-        "total_time_min": 230,
+        "total_time_min": 223,
         "total_elevation": 0
       },
       "WeightTraining": {
         "sessions": 2,
         "total_km": 0.0,
         "total_time_min": 38,
+        "total_elevation": 0
+      },
+      "Swim": {
+        "sessions": 2,
+        "total_km": 1.1,
+        "total_time_min": 74,
         "total_elevation": 0
       },
       "Walk": {
@@ -3832,25 +3832,19 @@
         "total_km": 0.9,
         "total_time_min": 7,
         "total_elevation": 8
-      },
-      "Swim": {
-        "sessions": 1,
-        "total_km": 0.8,
-        "total_time_min": 39,
-        "total_elevation": 0
       }
     },
     "90d": {
       "Run": {
-        "sessions": 48,
-        "total_km": 389.4,
-        "total_time_min": 2452,
-        "total_elevation": 3831
+        "sessions": 47,
+        "total_km": 389.6,
+        "total_time_min": 2470,
+        "total_elevation": 3963
       },
       "Workout": {
-        "sessions": 22,
+        "sessions": 21,
         "total_km": 0.0,
-        "total_time_min": 574,
+        "total_time_min": 558,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3865,6 +3859,12 @@
         "total_time_min": 85,
         "total_elevation": 101
       },
+      "Swim": {
+        "sessions": 2,
+        "total_km": 1.1,
+        "total_time_min": 74,
+        "total_elevation": 0
+      },
       "Surfing": {
         "sessions": 1,
         "total_km": 0.0,
@@ -3876,25 +3876,19 @@
         "total_km": 0.9,
         "total_time_min": 7,
         "total_elevation": 8
-      },
-      "Swim": {
-        "sessions": 1,
-        "total_km": 0.8,
-        "total_time_min": 39,
-        "total_elevation": 0
       }
     },
     "365d": {
       "Run": {
-        "sessions": 172,
-        "total_km": 1335.3,
-        "total_time_min": 7799,
-        "total_elevation": 7059
+        "sessions": 171,
+        "total_km": 1338.0,
+        "total_time_min": 7838,
+        "total_elevation": 7377
       },
       "Workout": {
-        "sessions": 64,
+        "sessions": 62,
         "total_km": 0.0,
-        "total_time_min": 2175,
+        "total_time_min": 2143,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3915,17 +3909,17 @@
         "total_time_min": 253,
         "total_elevation": 301
       },
+      "Swim": {
+        "sessions": 4,
+        "total_km": 1.1,
+        "total_time_min": 101,
+        "total_elevation": 0
+      },
       "AlpineSki": {
         "sessions": 4,
         "total_km": 169.3,
         "total_time_min": 620,
         "total_elevation": 14765
-      },
-      "Swim": {
-        "sessions": 3,
-        "total_km": 0.8,
-        "total_time_min": 66,
-        "total_elevation": 0
       },
       "Ride": {
         "sessions": 3,
@@ -3948,10 +3942,10 @@
     },
     "all": {
       "Run": {
-        "sessions": 292,
-        "total_km": 2074.0,
-        "total_time_min": 12342,
-        "total_elevation": 9345
+        "sessions": 294,
+        "total_km": 2097.7,
+        "total_time_min": 12496,
+        "total_elevation": 9707
       },
       "Workout": {
         "sessions": 75,
@@ -3989,17 +3983,17 @@
         "total_time_min": 160,
         "total_elevation": 419
       },
+      "Swim": {
+        "sessions": 4,
+        "total_km": 1.1,
+        "total_time_min": 101,
+        "total_elevation": 0
+      },
       "AlpineSki": {
         "sessions": 4,
         "total_km": 169.3,
         "total_time_min": 620,
         "total_elevation": 14765
-      },
-      "Swim": {
-        "sessions": 3,
-        "total_km": 0.8,
-        "total_time_min": 66,
-        "total_elevation": 0
       },
       "StandUpPaddling": {
         "sessions": 2,
@@ -4010,6 +4004,48 @@
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-07-03",
+      "datetime": "2026-07-03T10:37",
+      "type": "Run",
+      "name": "Corsa mattutina",
+      "distance_km": 9.02,
+      "duration_sec": 3235,
+      "pace": "5:59/km",
+      "pace_sec": 359,
+      "hr_avg": null,
+      "hr_max": null,
+      "elevation": 116,
+      "suffer_score": null
+    },
+    {
+      "date": "2026-07-01",
+      "datetime": "2026-07-01T08:45",
+      "type": "Run",
+      "name": "Corsa mattutina",
+      "distance_km": 14.67,
+      "duration_sec": 5998,
+      "pace": "6:49/km",
+      "pace_sec": 409,
+      "hr_avg": 144,
+      "hr_max": 218,
+      "elevation": 246,
+      "suffer_score": 119.0
+    },
+    {
+      "date": "2026-06-30",
+      "datetime": "2026-06-30T10:05",
+      "type": "Swim",
+      "name": "Nuotata mattutina",
+      "distance_km": 0.35,
+      "duration_sec": 2100,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": null,
+      "hr_max": null,
+      "elevation": 0,
+      "suffer_score": null
+    },
     {
       "date": "2026-06-29",
       "datetime": "2026-06-29T16:20",
@@ -4036,7 +4072,7 @@
       "hr_avg": 149,
       "hr_max": 171,
       "elevation": 139,
-      "suffer_score": null
+      "suffer_score": 175.0
     },
     {
       "date": "2026-06-26",
@@ -4050,7 +4086,7 @@
       "hr_avg": 158,
       "hr_max": 186,
       "elevation": 128,
-      "suffer_score": null
+      "suffer_score": 168.0
     },
     {
       "date": "2026-06-24",
@@ -4064,7 +4100,7 @@
       "hr_avg": 151,
       "hr_max": 170,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 28.0
     },
     {
       "date": "2026-06-24",
@@ -4078,7 +4114,7 @@
       "hr_avg": 152,
       "hr_max": 167,
       "elevation": 17,
-      "suffer_score": null
+      "suffer_score": 24.0
     },
     {
       "date": "2026-06-23",
@@ -4092,7 +4128,7 @@
       "hr_avg": 150,
       "hr_max": 169,
       "elevation": 40,
-      "suffer_score": null
+      "suffer_score": 94.0
     },
     {
       "date": "2026-06-22",
@@ -4106,7 +4142,7 @@
       "hr_avg": 125,
       "hr_max": 148,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 2.0
     },
     {
       "date": "2026-06-22",
@@ -4120,7 +4156,7 @@
       "hr_avg": 117,
       "hr_max": 139,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 3.0
     },
     {
       "date": "2026-06-22",
@@ -4134,7 +4170,7 @@
       "hr_avg": 128,
       "hr_max": 155,
       "elevation": 23,
-      "suffer_score": null
+      "suffer_score": 10.0
     },
     {
       "date": "2026-06-20",
@@ -4148,7 +4184,7 @@
       "hr_avg": 159,
       "hr_max": 188,
       "elevation": 148,
-      "suffer_score": null
+      "suffer_score": 235.0
     },
     {
       "date": "2026-06-19",
@@ -4162,7 +4198,7 @@
       "hr_avg": 138,
       "hr_max": 169,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 20.0
     },
     {
       "date": "2026-06-18",
@@ -4176,7 +4212,7 @@
       "hr_avg": 163,
       "hr_max": 192,
       "elevation": 131,
-      "suffer_score": null
+      "suffer_score": 197.0
     },
     {
       "date": "2026-06-16",
@@ -4190,7 +4226,7 @@
       "hr_avg": 156,
       "hr_max": 173,
       "elevation": 55,
-      "suffer_score": null
+      "suffer_score": 146.0
     },
     {
       "date": "2026-06-15",
@@ -4204,7 +4240,7 @@
       "hr_avg": 149,
       "hr_max": 171,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 26.0
     },
     {
       "date": "2026-06-15",
@@ -4218,7 +4254,7 @@
       "hr_avg": 156,
       "hr_max": 164,
       "elevation": 8,
-      "suffer_score": null
+      "suffer_score": 13.0
     },
     {
       "date": "2026-06-15",
@@ -4232,7 +4268,7 @@
       "hr_avg": 148,
       "hr_max": 159,
       "elevation": 51,
-      "suffer_score": null
+      "suffer_score": 47.0
     },
     {
       "date": "2026-06-13",
@@ -4246,7 +4282,7 @@
       "hr_avg": 147,
       "hr_max": 170,
       "elevation": 67,
-      "suffer_score": null
+      "suffer_score": 138.0
     },
     {
       "date": "2026-06-12",
@@ -4260,7 +4296,7 @@
       "hr_avg": 143,
       "hr_max": 166,
       "elevation": 37,
-      "suffer_score": null
+      "suffer_score": 57.0
     },
     {
       "date": "2026-06-10",
@@ -4274,7 +4310,7 @@
       "hr_avg": 154,
       "hr_max": 179,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 49.0
     },
     {
       "date": "2026-06-10",
@@ -4288,7 +4324,7 @@
       "hr_avg": 156,
       "hr_max": 189,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 89.0
     },
     {
       "date": "2026-06-09",
@@ -4302,7 +4338,7 @@
       "hr_avg": 154,
       "hr_max": 171,
       "elevation": 88,
-      "suffer_score": null
+      "suffer_score": 113.0
     },
     {
       "date": "2026-06-08",
@@ -4316,7 +4352,7 @@
       "hr_avg": 148,
       "hr_max": 177,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 123.0
     },
     {
       "date": "2026-06-07",
@@ -4330,7 +4366,7 @@
       "hr_avg": 155,
       "hr_max": 220,
       "elevation": 165,
-      "suffer_score": null
+      "suffer_score": 119.0
     },
     {
       "date": "2026-06-04",
@@ -4344,7 +4380,7 @@
       "hr_avg": 115,
       "hr_max": 155,
       "elevation": 19,
-      "suffer_score": null
+      "suffer_score": 2.0
     },
     {
       "date": "2026-06-04",
@@ -4358,7 +4394,7 @@
       "hr_avg": 153,
       "hr_max": 175,
       "elevation": 133,
-      "suffer_score": null
+      "suffer_score": 89.0
     },
     {
       "date": "2026-06-03",
@@ -4372,7 +4408,7 @@
       "hr_avg": 90,
       "hr_max": 131,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 6.0
     },
     {
       "date": "2026-06-02",
@@ -4386,7 +4422,7 @@
       "hr_avg": 147,
       "hr_max": 172,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 10.0
     },
     {
       "date": "2026-06-02",
@@ -4400,7 +4436,7 @@
       "hr_avg": 155,
       "hr_max": 176,
       "elevation": 128,
-      "suffer_score": null
+      "suffer_score": 118.0
     },
     {
       "date": "2026-05-31",
@@ -4414,7 +4450,7 @@
       "hr_avg": 114,
       "hr_max": 150,
       "elevation": 121,
-      "suffer_score": null
+      "suffer_score": 20.0
     },
     {
       "date": "2026-05-30",
@@ -4428,7 +4464,7 @@
       "hr_avg": 162,
       "hr_max": 183,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 228.0
     },
     {
       "date": "2026-05-30",
@@ -4456,7 +4492,7 @@
       "hr_avg": 106,
       "hr_max": 123,
       "elevation": 59,
-      "suffer_score": null
+      "suffer_score": 5.0
     },
     {
       "date": "2026-05-28",
@@ -4470,7 +4506,7 @@
       "hr_avg": 123,
       "hr_max": 157,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 4.0
     },
     {
       "date": "2026-05-28",
@@ -4484,7 +4520,7 @@
       "hr_avg": 109,
       "hr_max": 118,
       "elevation": 23,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2026-05-27",
@@ -4498,7 +4534,7 @@
       "hr_avg": 144,
       "hr_max": 154,
       "elevation": 20,
-      "suffer_score": null
+      "suffer_score": 42.0
     },
     {
       "date": "2026-05-21",
@@ -4512,7 +4548,7 @@
       "hr_avg": 139,
       "hr_max": 165,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2026-05-21",
@@ -4526,7 +4562,7 @@
       "hr_avg": 158,
       "hr_max": 216,
       "elevation": 85,
-      "suffer_score": null
+      "suffer_score": 90.0
     },
     {
       "date": "2026-05-20",
@@ -4540,7 +4576,7 @@
       "hr_avg": 139,
       "hr_max": 176,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 43.0
     },
     {
       "date": "2026-05-19",
@@ -4554,7 +4590,7 @@
       "hr_avg": 149,
       "hr_max": 178,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 27.0
     },
     {
       "date": "2026-05-19",
@@ -4568,7 +4604,7 @@
       "hr_avg": 151,
       "hr_max": 162,
       "elevation": 35,
-      "suffer_score": null
+      "suffer_score": 75.0
     },
     {
       "date": "2026-05-16",
@@ -4582,7 +4618,7 @@
       "hr_avg": 162,
       "hr_max": 220,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 189.0
     },
     {
       "date": "2026-05-16",
@@ -4596,7 +4632,7 @@
       "hr_avg": 132,
       "hr_max": 151,
       "elevation": 1,
-      "suffer_score": null
+      "suffer_score": 3.0
     },
     {
       "date": "2026-05-15",
@@ -4610,7 +4646,7 @@
       "hr_avg": 154,
       "hr_max": 187,
       "elevation": 201,
-      "suffer_score": null
+      "suffer_score": 100.0
     },
     {
       "date": "2026-05-14",
@@ -4624,7 +4660,7 @@
       "hr_avg": 146,
       "hr_max": 157,
       "elevation": 228,
-      "suffer_score": null
+      "suffer_score": 83.0
     },
     {
       "date": "2026-05-13",
@@ -4638,7 +4674,7 @@
       "hr_avg": 155,
       "hr_max": 163,
       "elevation": 47,
-      "suffer_score": null
+      "suffer_score": 98.0
     },
     {
       "date": "2026-05-12",
@@ -4652,7 +4688,7 @@
       "hr_avg": 162,
       "hr_max": 176,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 32.0
     },
     {
       "date": "2026-05-12",
@@ -4666,7 +4702,7 @@
       "hr_avg": 177,
       "hr_max": 220,
       "elevation": 2,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2026-05-09",
@@ -4680,7 +4716,7 @@
       "hr_avg": 130,
       "hr_max": 157,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 11.0
     },
     {
       "date": "2026-05-09",
@@ -4694,7 +4730,7 @@
       "hr_avg": 148,
       "hr_max": 163,
       "elevation": 28,
-      "suffer_score": null
+      "suffer_score": 45.0
     },
     {
       "date": "2026-05-09",
@@ -4708,7 +4744,7 @@
       "hr_avg": 152,
       "hr_max": 160,
       "elevation": 50,
-      "suffer_score": null
+      "suffer_score": 59.0
     },
     {
       "date": "2026-05-08",
@@ -4722,7 +4758,7 @@
       "hr_avg": 100,
       "hr_max": 116,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 0.0
     },
     {
       "date": "2026-05-08",
@@ -4736,7 +4772,7 @@
       "hr_avg": 137,
       "hr_max": 160,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 7.0
     },
     {
       "date": "2026-05-08",
@@ -4750,7 +4786,7 @@
       "hr_avg": 153,
       "hr_max": 162,
       "elevation": 62,
-      "suffer_score": null
+      "suffer_score": 114.0
     },
     {
       "date": "2026-05-05",
@@ -4764,7 +4800,7 @@
       "hr_avg": 162,
       "hr_max": 184,
       "elevation": 87,
-      "suffer_score": null
+      "suffer_score": 147.0
     },
     {
       "date": "2026-05-03",
@@ -4778,7 +4814,7 @@
       "hr_avg": 152,
       "hr_max": 177,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 27.0
     },
     {
       "date": "2026-05-03",
@@ -4792,7 +4828,7 @@
       "hr_avg": 146,
       "hr_max": 167,
       "elevation": 33,
-      "suffer_score": null
+      "suffer_score": 60.0
     },
     {
       "date": "2026-05-01",
@@ -4806,7 +4842,7 @@
       "hr_avg": 157,
       "hr_max": 191,
       "elevation": 99,
-      "suffer_score": null
+      "suffer_score": 142.0
     },
     {
       "date": "2026-04-28",
@@ -4820,7 +4856,7 @@
       "hr_avg": 151,
       "hr_max": 188,
       "elevation": 50,
-      "suffer_score": null
+      "suffer_score": 55.0
     },
     {
       "date": "2026-04-27",
@@ -4834,7 +4870,7 @@
       "hr_avg": 131,
       "hr_max": 165,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2026-04-27",
@@ -4848,7 +4884,7 @@
       "hr_avg": 150,
       "hr_max": 177,
       "elevation": 70,
-      "suffer_score": null
+      "suffer_score": 66.0
     },
     {
       "date": "2026-04-24",
@@ -4862,7 +4898,7 @@
       "hr_avg": 144,
       "hr_max": 164,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2026-04-24",
@@ -4876,7 +4912,7 @@
       "hr_avg": 147,
       "hr_max": 176,
       "elevation": 78,
-      "suffer_score": null
+      "suffer_score": 65.0
     },
     {
       "date": "2026-04-23",
@@ -4890,7 +4926,7 @@
       "hr_avg": 146,
       "hr_max": 184,
       "elevation": 77,
-      "suffer_score": null
+      "suffer_score": 54.0
     },
     {
       "date": "2026-04-22",
@@ -4904,7 +4940,7 @@
       "hr_avg": 149,
       "hr_max": 171,
       "elevation": 79,
-      "suffer_score": null
+      "suffer_score": 75.0
     },
     {
       "date": "2026-04-21",
@@ -4918,7 +4954,7 @@
       "hr_avg": 115,
       "hr_max": 159,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 16.0
     },
     {
       "date": "2026-04-20",
@@ -4932,7 +4968,7 @@
       "hr_avg": 164,
       "hr_max": 178,
       "elevation": 7,
-      "suffer_score": null
+      "suffer_score": 28.0
     },
     {
       "date": "2026-04-20",
@@ -4946,7 +4982,7 @@
       "hr_avg": 168,
       "hr_max": 180,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 56.0
     },
     {
       "date": "2026-04-20",
@@ -4960,7 +4996,7 @@
       "hr_avg": 154,
       "hr_max": 174,
       "elevation": 37,
-      "suffer_score": null
+      "suffer_score": 78.0
     },
     {
       "date": "2026-04-17",
@@ -4974,7 +5010,7 @@
       "hr_avg": 144,
       "hr_max": 156,
       "elevation": 317,
-      "suffer_score": null
+      "suffer_score": 81.0
     },
     {
       "date": "2026-04-15",
@@ -4988,7 +5024,7 @@
       "hr_avg": 164,
       "hr_max": 188,
       "elevation": 41,
-      "suffer_score": null
+      "suffer_score": 126.0
     },
     {
       "date": "2026-04-14",
@@ -5002,7 +5038,7 @@
       "hr_avg": 155,
       "hr_max": 181,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 44.0
     },
     {
       "date": "2026-04-14",
@@ -5016,7 +5052,7 @@
       "hr_avg": 140,
       "hr_max": 148,
       "elevation": 28,
-      "suffer_score": null
+      "suffer_score": 38.0
     },
     {
       "date": "2026-04-12",
@@ -5030,7 +5066,7 @@
       "hr_avg": 158,
       "hr_max": 183,
       "elevation": 113,
-      "suffer_score": null
+      "suffer_score": 291.0
     },
     {
       "date": "2026-04-07",
@@ -5044,7 +5080,7 @@
       "hr_avg": 152,
       "hr_max": 180,
       "elevation": 83,
-      "suffer_score": null
+      "suffer_score": 93.0
     },
     {
       "date": "2026-04-06",
@@ -5058,7 +5094,7 @@
       "hr_avg": 150,
       "hr_max": 173,
       "elevation": 37,
-      "suffer_score": null
+      "suffer_score": 75.0
     },
     {
       "date": "2026-04-05",
@@ -5072,7 +5108,7 @@
       "hr_avg": 161,
       "hr_max": 220,
       "elevation": 135,
-      "suffer_score": null
+      "suffer_score": 164.0
     },
     {
       "date": "2026-04-04",
@@ -5086,7 +5122,7 @@
       "hr_avg": 167,
       "hr_max": 220,
       "elevation": 151,
-      "suffer_score": null
+      "suffer_score": 265.0
     },
     {
       "date": "2026-04-02",
@@ -5100,7 +5136,7 @@
       "hr_avg": 169,
       "hr_max": 192,
       "elevation": 7,
-      "suffer_score": null
+      "suffer_score": 18.0
     },
     {
       "date": "2026-04-02",
@@ -5114,7 +5150,7 @@
       "hr_avg": 153,
       "hr_max": 182,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 29.0
     },
     {
       "date": "2026-04-02",
@@ -5128,7 +5164,7 @@
       "hr_avg": 160,
       "hr_max": 178,
       "elevation": 72,
-      "suffer_score": null
+      "suffer_score": 99.0
     },
     {
       "date": "2026-03-31",
@@ -5142,7 +5178,7 @@
       "hr_avg": 170,
       "hr_max": 180,
       "elevation": 6,
-      "suffer_score": null
+      "suffer_score": 17.0
     },
     {
       "date": "2026-03-31",
@@ -5156,7 +5192,7 @@
       "hr_avg": 153,
       "hr_max": 178,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 29.0
     },
     {
       "date": "2026-03-31",
@@ -5170,7 +5206,7 @@
       "hr_avg": 157,
       "hr_max": 175,
       "elevation": 72,
-      "suffer_score": null
+      "suffer_score": 84.0
     },
     {
       "date": "2026-03-30",
@@ -5184,7 +5220,7 @@
       "hr_avg": 172,
       "hr_max": 220,
       "elevation": 79,
-      "suffer_score": null
+      "suffer_score": 146.0
     },
     {
       "date": "2026-03-29",
@@ -5198,7 +5234,7 @@
       "hr_avg": 100,
       "hr_max": 142,
       "elevation": 891,
-      "suffer_score": null
+      "suffer_score": 24.0
     },
     {
       "date": "2026-03-27",
@@ -5212,7 +5248,7 @@
       "hr_avg": 152,
       "hr_max": 173,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 29.0
     },
     {
       "date": "2026-03-27",
@@ -5226,7 +5262,7 @@
       "hr_avg": 175,
       "hr_max": 197,
       "elevation": 77,
-      "suffer_score": null
+      "suffer_score": 163.0
     },
     {
       "date": "2026-03-25",
@@ -5240,7 +5276,7 @@
       "hr_avg": 103,
       "hr_max": 122,
       "elevation": 28,
-      "suffer_score": null
+      "suffer_score": 6.0
     },
     {
       "date": "2026-03-25",
@@ -5254,7 +5290,7 @@
       "hr_avg": 97,
       "hr_max": 129,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 1.0
     },
     {
       "date": "2026-03-25",
@@ -5268,7 +5304,7 @@
       "hr_avg": 148,
       "hr_max": 157,
       "elevation": 152,
-      "suffer_score": null
+      "suffer_score": 62.0
     },
     {
       "date": "2026-03-24",
@@ -5282,7 +5318,7 @@
       "hr_avg": 103,
       "hr_max": 125,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 12.0
     },
     {
       "date": "2026-03-23",
@@ -5296,7 +5332,7 @@
       "hr_avg": 149,
       "hr_max": 159,
       "elevation": 37,
-      "suffer_score": null
+      "suffer_score": 75.0
     },
     {
       "date": "2026-03-22",
@@ -5310,7 +5346,7 @@
       "hr_avg": 127,
       "hr_max": 163,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 9.0
     },
     {
       "date": "2026-03-22",
@@ -5324,7 +5360,7 @@
       "hr_avg": 141,
       "hr_max": 153,
       "elevation": 30,
-      "suffer_score": null
+      "suffer_score": 70.0
     },
     {
       "date": "2026-03-20",
@@ -5338,7 +5374,7 @@
       "hr_avg": 131,
       "hr_max": 170,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 36.0
     },
     {
       "date": "2026-03-20",
@@ -5352,7 +5388,7 @@
       "hr_avg": 156,
       "hr_max": 189,
       "elevation": 29,
-      "suffer_score": null
+      "suffer_score": 94.0
     },
     {
       "date": "2026-03-19",
@@ -5366,7 +5402,7 @@
       "hr_avg": 169,
       "hr_max": 214,
       "elevation": 36,
-      "suffer_score": null
+      "suffer_score": 148.0
     },
     {
       "date": "2026-03-17",
@@ -5380,7 +5416,7 @@
       "hr_avg": 166,
       "hr_max": 179,
       "elevation": 2,
-      "suffer_score": null
+      "suffer_score": 15.0
     },
     {
       "date": "2026-03-17",
@@ -5394,7 +5430,7 @@
       "hr_avg": 146,
       "hr_max": 174,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 14.0
     },
     {
       "date": "2026-03-17",
@@ -5408,7 +5444,7 @@
       "hr_avg": 158,
       "hr_max": 185,
       "elevation": 21,
-      "suffer_score": null
+      "suffer_score": 86.0
     },
     {
       "date": "2026-03-15",
@@ -5422,7 +5458,7 @@
       "hr_avg": 147,
       "hr_max": 169,
       "elevation": 3,
-      "suffer_score": null
+      "suffer_score": 145.0
     },
     {
       "date": "2026-03-14",
@@ -5436,7 +5472,7 @@
       "hr_avg": 160,
       "hr_max": 220,
       "elevation": 21,
-      "suffer_score": null
+      "suffer_score": 99.0
     },
     {
       "date": "2026-03-12",
@@ -5450,7 +5486,7 @@
       "hr_avg": 163,
       "hr_max": 201,
       "elevation": 21,
-      "suffer_score": null
+      "suffer_score": 105.0
     },
     {
       "date": "2026-03-11",
@@ -5464,7 +5500,7 @@
       "hr_avg": 127,
       "hr_max": 155,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2026-03-11",
@@ -5478,7 +5514,7 @@
       "hr_avg": 146,
       "hr_max": 159,
       "elevation": 2,
-      "suffer_score": null
+      "suffer_score": 55.0
     },
     {
       "date": "2026-03-10",
@@ -5492,7 +5528,7 @@
       "hr_avg": 165,
       "hr_max": 186,
       "elevation": 15,
-      "suffer_score": null
+      "suffer_score": 128.0
     },
     {
       "date": "2026-03-09",
@@ -5506,7 +5542,7 @@
       "hr_avg": 132,
       "hr_max": 164,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 11.0
     },
     {
       "date": "2026-03-09",
@@ -5520,7 +5556,7 @@
       "hr_avg": 150,
       "hr_max": 159,
       "elevation": 19,
-      "suffer_score": null
+      "suffer_score": 63.0
     },
     {
       "date": "2026-03-08",
@@ -5534,7 +5570,7 @@
       "hr_avg": 143,
       "hr_max": 180,
       "elevation": 28,
-      "suffer_score": null
+      "suffer_score": 90.0
     },
     {
       "date": "2026-03-07",
@@ -5548,7 +5584,7 @@
       "hr_avg": 156,
       "hr_max": 170,
       "elevation": 31,
-      "suffer_score": null
+      "suffer_score": 113.0
     },
     {
       "date": "2026-03-06",
@@ -5562,7 +5598,7 @@
       "hr_avg": 132,
       "hr_max": 167,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 18.0
     },
     {
       "date": "2026-03-06",
@@ -5576,7 +5612,7 @@
       "hr_avg": 144,
       "hr_max": 162,
       "elevation": 12,
-      "suffer_score": null
+      "suffer_score": 59.0
     },
     {
       "date": "2026-03-05",
@@ -5590,7 +5626,7 @@
       "hr_avg": 170,
       "hr_max": 214,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 187.0
     },
     {
       "date": "2026-03-03",
@@ -5604,7 +5640,7 @@
       "hr_avg": 168,
       "hr_max": 191,
       "elevation": 13,
-      "suffer_score": null
+      "suffer_score": 134.0
     },
     {
       "date": "2026-03-01",
@@ -5618,7 +5654,7 @@
       "hr_avg": 162,
       "hr_max": 211,
       "elevation": 26,
-      "suffer_score": null
+      "suffer_score": 162.0
     },
     {
       "date": "2026-02-26",
@@ -5632,7 +5668,7 @@
       "hr_avg": 94,
       "hr_max": 146,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 10.0
     },
     {
       "date": "2026-02-25",
@@ -5646,7 +5682,7 @@
       "hr_avg": 156,
       "hr_max": 175,
       "elevation": 93,
-      "suffer_score": null
+      "suffer_score": 111.0
     },
     {
       "date": "2026-02-25",
@@ -5660,7 +5696,7 @@
       "hr_avg": 107,
       "hr_max": 151,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 14.0
     },
     {
       "date": "2026-02-24",
@@ -5674,7 +5710,7 @@
       "hr_avg": 154,
       "hr_max": 184,
       "elevation": 78,
-      "suffer_score": null
+      "suffer_score": 69.0
     },
     {
       "date": "2026-02-24",
@@ -5688,7 +5724,7 @@
       "hr_avg": 122,
       "hr_max": 147,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 10.0
     },
     {
       "date": "2026-02-24",
@@ -5702,7 +5738,7 @@
       "hr_avg": 123,
       "hr_max": 142,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 3.0
     },
     {
       "date": "2026-02-24",
@@ -5716,7 +5752,7 @@
       "hr_avg": 126,
       "hr_max": 162,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 33.0
     },
     {
       "date": "2026-02-23",
@@ -5730,7 +5766,7 @@
       "hr_avg": 173,
       "hr_max": 220,
       "elevation": 31,
-      "suffer_score": null
+      "suffer_score": 113.0
     },
     {
       "date": "2026-02-23",
@@ -5744,7 +5780,7 @@
       "hr_avg": 145,
       "hr_max": 172,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 75.0
     },
     {
       "date": "2026-02-21",
@@ -5758,7 +5794,7 @@
       "hr_avg": 93,
       "hr_max": 150,
       "elevation": 132,
-      "suffer_score": null
+      "suffer_score": 6.0
     },
     {
       "date": "2026-02-18",
@@ -5772,7 +5808,7 @@
       "hr_avg": 100,
       "hr_max": 118,
       "elevation": 11,
-      "suffer_score": null
+      "suffer_score": 4.0
     },
     {
       "date": "2026-02-18",
@@ -5786,7 +5822,7 @@
       "hr_avg": 100,
       "hr_max": 153,
       "elevation": 276,
-      "suffer_score": null
+      "suffer_score": 16.0
     },
     {
       "date": "2026-02-17",
@@ -5800,7 +5836,7 @@
       "hr_avg": 114,
       "hr_max": 161,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 41.0
     },
     {
       "date": "2026-02-16",
@@ -5814,7 +5850,7 @@
       "hr_avg": 123,
       "hr_max": 164,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 56.0
     },
     {
       "date": "2026-02-16",
@@ -5828,7 +5864,7 @@
       "hr_avg": 128,
       "hr_max": 167,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 55.0
     },
     {
       "date": "2026-02-14",
@@ -5842,7 +5878,7 @@
       "hr_avg": 128,
       "hr_max": 167,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 40.0
     },
     {
       "date": "2026-02-14",
@@ -5856,7 +5892,7 @@
       "hr_avg": 104,
       "hr_max": 151,
       "elevation": 24,
-      "suffer_score": null
+      "suffer_score": 3.0
     },
     {
       "date": "2026-02-14",
@@ -5870,7 +5906,7 @@
       "hr_avg": 107,
       "hr_max": 151,
       "elevation": 2,
-      "suffer_score": null
+      "suffer_score": 0.0
     },
     {
       "date": "2026-02-12",
@@ -5884,7 +5920,7 @@
       "hr_avg": 159,
       "hr_max": 171,
       "elevation": 2,
-      "suffer_score": null
+      "suffer_score": 58.0
     },
     {
       "date": "2026-02-11",
@@ -5898,7 +5934,7 @@
       "hr_avg": 156,
       "hr_max": 212,
       "elevation": 19,
-      "suffer_score": null
+      "suffer_score": 84.0
     },
     {
       "date": "2026-02-11",
@@ -5912,7 +5948,7 @@
       "hr_avg": 138,
       "hr_max": 164,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 65.0
     },
     {
       "date": "2026-02-08",
@@ -5926,7 +5962,7 @@
       "hr_avg": 168,
       "hr_max": 220,
       "elevation": 26,
-      "suffer_score": null
+      "suffer_score": 210.0
     },
     {
       "date": "2026-02-08",
@@ -5940,7 +5976,7 @@
       "hr_avg": 129,
       "hr_max": 166,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 14.0
     },
     {
       "date": "2026-02-07",
@@ -5954,7 +5990,7 @@
       "hr_avg": 167,
       "hr_max": 186,
       "elevation": 21,
-      "suffer_score": null
+      "suffer_score": 162.0
     },
     {
       "date": "2026-02-05",
@@ -5968,7 +6004,7 @@
       "hr_avg": 173,
       "hr_max": 183,
       "elevation": 20,
-      "suffer_score": null
+      "suffer_score": 116.0
     },
     {
       "date": "2026-02-02",
@@ -5982,7 +6018,7 @@
       "hr_avg": 160,
       "hr_max": 194,
       "elevation": 7,
-      "suffer_score": null
+      "suffer_score": 116.0
     },
     {
       "date": "2026-02-01",
@@ -5996,7 +6032,7 @@
       "hr_avg": 107,
       "hr_max": 158,
       "elevation": 12,
-      "suffer_score": null
+      "suffer_score": 19.0
     },
     {
       "date": "2026-01-31",
@@ -6010,7 +6046,7 @@
       "hr_avg": 148,
       "hr_max": 166,
       "elevation": 25,
-      "suffer_score": null
+      "suffer_score": 76.0
     },
     {
       "date": "2026-01-30",
@@ -6024,7 +6060,7 @@
       "hr_avg": 167,
       "hr_max": 197,
       "elevation": 15,
-      "suffer_score": null
+      "suffer_score": 91.0
     },
     {
       "date": "2026-01-28",
@@ -6038,7 +6074,7 @@
       "hr_avg": 132,
       "hr_max": 170,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 33.0
     },
     {
       "date": "2026-01-26",
@@ -6052,7 +6088,7 @@
       "hr_avg": 176,
       "hr_max": 194,
       "elevation": 14,
-      "suffer_score": null
+      "suffer_score": 169.0
     },
     {
       "date": "2026-01-22",
@@ -6066,7 +6102,7 @@
       "hr_avg": 172,
       "hr_max": 220,
       "elevation": 21,
-      "suffer_score": null
+      "suffer_score": 180.0
     },
     {
       "date": "2026-01-21",
@@ -6080,7 +6116,7 @@
       "hr_avg": 154,
       "hr_max": 167,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 56.0
     },
     {
       "date": "2026-01-20",
@@ -6094,7 +6130,7 @@
       "hr_avg": 157,
       "hr_max": 167,
       "elevation": 11,
-      "suffer_score": null
+      "suffer_score": 94.0
     },
     {
       "date": "2026-01-16",
@@ -6108,7 +6144,7 @@
       "hr_avg": 142,
       "hr_max": 152,
       "elevation": 21,
-      "suffer_score": null
+      "suffer_score": 58.0
     },
     {
       "date": "2026-01-14",
@@ -6122,7 +6158,7 @@
       "hr_avg": 122,
       "hr_max": 156,
       "elevation": 7,
-      "suffer_score": null
+      "suffer_score": 12.0
     },
     {
       "date": "2026-01-12",
@@ -6136,7 +6172,7 @@
       "hr_avg": 157,
       "hr_max": 166,
       "elevation": 2,
-      "suffer_score": null
+      "suffer_score": 97.0
     },
     {
       "date": "2026-01-08",
@@ -6150,7 +6186,7 @@
       "hr_avg": 149,
       "hr_max": 157,
       "elevation": 13,
-      "suffer_score": null
+      "suffer_score": 69.0
     },
     {
       "date": "2026-01-06",
@@ -6164,7 +6200,7 @@
       "hr_avg": 148,
       "hr_max": 155,
       "elevation": 29,
-      "suffer_score": null
+      "suffer_score": 99.0
     },
     {
       "date": "2026-01-05",
@@ -6178,7 +6214,7 @@
       "hr_avg": 150,
       "hr_max": 159,
       "elevation": 14,
-      "suffer_score": null
+      "suffer_score": 76.0
     },
     {
       "date": "2026-01-03",
@@ -6192,7 +6228,7 @@
       "hr_avg": 138,
       "hr_max": 167,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 26.0
     },
     {
       "date": "2026-01-02",
@@ -6206,7 +6242,7 @@
       "hr_avg": 147,
       "hr_max": 155,
       "elevation": 31,
-      "suffer_score": null
+      "suffer_score": 83.0
     },
     {
       "date": "2026-01-01",
@@ -6220,7 +6256,7 @@
       "hr_avg": 105,
       "hr_max": 124,
       "elevation": 149,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2025-12-30",
@@ -6234,7 +6270,7 @@
       "hr_avg": 154,
       "hr_max": 163,
       "elevation": 11,
-      "suffer_score": null
+      "suffer_score": 109.0
     },
     {
       "date": "2025-12-29",
@@ -6248,7 +6284,7 @@
       "hr_avg": 136,
       "hr_max": 169,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 53.0
     },
     {
       "date": "2025-12-28",
@@ -6276,7 +6312,7 @@
       "hr_avg": 137,
       "hr_max": 167,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 46.0
     },
     {
       "date": "2025-12-26",
@@ -6290,7 +6326,7 @@
       "hr_avg": 145,
       "hr_max": 155,
       "elevation": 11,
-      "suffer_score": null
+      "suffer_score": 81.0
     },
     {
       "date": "2025-12-25",
@@ -6304,7 +6340,7 @@
       "hr_avg": 142,
       "hr_max": 174,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 43.0
     },
     {
       "date": "2025-12-21",
@@ -6318,7 +6354,7 @@
       "hr_avg": 153,
       "hr_max": 162,
       "elevation": 28,
-      "suffer_score": null
+      "suffer_score": 108.0
     },
     {
       "date": "2025-12-20",
@@ -6332,7 +6368,7 @@
       "hr_avg": 147,
       "hr_max": 154,
       "elevation": 28,
-      "suffer_score": null
+      "suffer_score": 92.0
     },
     {
       "date": "2025-12-17",
@@ -6346,7 +6382,7 @@
       "hr_avg": 158,
       "hr_max": 164,
       "elevation": 12,
-      "suffer_score": null
+      "suffer_score": 84.0
     },
     {
       "date": "2025-12-15",
@@ -6360,7 +6396,7 @@
       "hr_avg": 87,
       "hr_max": 138,
       "elevation": 2041,
-      "suffer_score": null
+      "suffer_score": 11.0
     },
     {
       "date": "2025-12-15",
@@ -6374,7 +6410,7 @@
       "hr_avg": 96,
       "hr_max": 148,
       "elevation": 1141,
-      "suffer_score": null
+      "suffer_score": 8.0
     },
     {
       "date": "2025-12-14",
@@ -6388,7 +6424,7 @@
       "hr_avg": 91,
       "hr_max": 146,
       "elevation": 7068,
-      "suffer_score": null
+      "suffer_score": 35.0
     },
     {
       "date": "2025-12-13",
@@ -6402,7 +6438,7 @@
       "hr_avg": 95,
       "hr_max": 153,
       "elevation": 4515,
-      "suffer_score": null
+      "suffer_score": 38.0
     },
     {
       "date": "2025-12-12",
@@ -6416,7 +6452,7 @@
       "hr_avg": 149,
       "hr_max": 160,
       "elevation": 14,
-      "suffer_score": null
+      "suffer_score": 63.0
     },
     {
       "date": "2025-12-09",
@@ -6430,7 +6466,7 @@
       "hr_avg": 119,
       "hr_max": 148,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 4.0
     },
     {
       "date": "2025-12-09",
@@ -6444,7 +6480,7 @@
       "hr_avg": 155,
       "hr_max": 164,
       "elevation": 17,
-      "suffer_score": null
+      "suffer_score": 79.0
     },
     {
       "date": "2025-12-04",
@@ -6458,7 +6494,7 @@
       "hr_avg": 150,
       "hr_max": 158,
       "elevation": 48,
-      "suffer_score": null
+      "suffer_score": 83.0
     },
     {
       "date": "2025-12-03",
@@ -6472,7 +6508,7 @@
       "hr_avg": 146,
       "hr_max": 156,
       "elevation": 18,
-      "suffer_score": null
+      "suffer_score": 62.0
     },
     {
       "date": "2025-12-02",
@@ -6486,7 +6522,7 @@
       "hr_avg": 154,
       "hr_max": 168,
       "elevation": 16,
-      "suffer_score": null
+      "suffer_score": 77.0
     },
     {
       "date": "2025-11-28",
@@ -6500,7 +6536,7 @@
       "hr_avg": 162,
       "hr_max": 167,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 143.0
     },
     {
       "date": "2025-11-26",
@@ -6514,7 +6550,7 @@
       "hr_avg": 140,
       "hr_max": 150,
       "elevation": 3,
-      "suffer_score": null
+      "suffer_score": 23.0
     },
     {
       "date": "2025-11-26",
@@ -6528,7 +6564,7 @@
       "hr_avg": 129,
       "hr_max": 153,
       "elevation": 8,
-      "suffer_score": null
+      "suffer_score": 9.0
     },
     {
       "date": "2025-11-26",
@@ -6542,7 +6578,7 @@
       "hr_avg": 146,
       "hr_max": 154,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 14.0
     },
     {
       "date": "2025-11-25",
@@ -6556,7 +6592,7 @@
       "hr_avg": 115,
       "hr_max": 160,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 4.0
     },
     {
       "date": "2025-11-25",
@@ -6570,7 +6606,7 @@
       "hr_avg": 154,
       "hr_max": 162,
       "elevation": 16,
-      "suffer_score": null
+      "suffer_score": 92.0
     },
     {
       "date": "2025-11-24",
@@ -6584,7 +6620,7 @@
       "hr_avg": 151,
       "hr_max": 165,
       "elevation": 67,
-      "suffer_score": null
+      "suffer_score": 94.0
     },
     {
       "date": "2025-11-21",
@@ -6598,7 +6634,7 @@
       "hr_avg": 146,
       "hr_max": 153,
       "elevation": 15,
-      "suffer_score": null
+      "suffer_score": 70.0
     },
     {
       "date": "2025-11-20",
@@ -6612,7 +6648,7 @@
       "hr_avg": 151,
       "hr_max": 160,
       "elevation": 5,
-      "suffer_score": null
+      "suffer_score": 53.0
     },
     {
       "date": "2025-11-19",
@@ -6626,7 +6662,7 @@
       "hr_avg": 155,
       "hr_max": 166,
       "elevation": 74,
-      "suffer_score": null
+      "suffer_score": 103.0
     },
     {
       "date": "2025-11-17",
@@ -6640,7 +6676,7 @@
       "hr_avg": 133,
       "hr_max": 145,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 4.0
     },
     {
       "date": "2025-11-17",
@@ -6654,7 +6690,7 @@
       "hr_avg": 154,
       "hr_max": 162,
       "elevation": 9,
-      "suffer_score": null
+      "suffer_score": 72.0
     },
     {
       "date": "2025-11-16",
@@ -6668,7 +6704,7 @@
       "hr_avg": 156,
       "hr_max": 169,
       "elevation": 37,
-      "suffer_score": null
+      "suffer_score": 172.0
     },
     {
       "date": "2025-11-09",
@@ -6682,7 +6718,7 @@
       "hr_avg": 146,
       "hr_max": 154,
       "elevation": 22,
-      "suffer_score": null
+      "suffer_score": 78.0
     },
     {
       "date": "2025-11-07",
@@ -6696,7 +6732,7 @@
       "hr_avg": 156,
       "hr_max": 160,
       "elevation": 7,
-      "suffer_score": null
+      "suffer_score": 73.0
     },
     {
       "date": "2025-11-06",
@@ -6710,7 +6746,7 @@
       "hr_avg": 86,
       "hr_max": 134,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 23.0
     },
     {
       "date": "2025-11-06",
@@ -6724,7 +6760,7 @@
       "hr_avg": 152,
       "hr_max": 163,
       "elevation": 15,
-      "suffer_score": null
+      "suffer_score": 69.0
     },
     {
       "date": "2025-11-05",
@@ -6738,7 +6774,7 @@
       "hr_avg": 148,
       "hr_max": 175,
       "elevation": 0,
-      "suffer_score": null
+      "suffer_score": 42.0
     },
     {
       "date": "2025-11-03",
@@ -6752,7 +6788,7 @@
       "hr_avg": 144,
       "hr_max": 153,
       "elevation": 16,
-      "suffer_score": null
+      "suffer_score": 60.0
     },
     {
       "date": "2025-10-31",
@@ -6766,49 +6802,7 @@
       "hr_avg": 142,
       "hr_max": 158,
       "elevation": 14,
-      "suffer_score": null
-    },
-    {
-      "date": "2025-10-29",
-      "datetime": "2025-10-29T19:51",
-      "type": "Workout",
-      "name": "Evening Workout",
-      "distance_km": 0.0,
-      "duration_sec": 2300,
-      "pace": null,
-      "pace_sec": null,
-      "hr_avg": 137,
-      "hr_max": 165,
-      "elevation": 0,
-      "suffer_score": null
-    },
-    {
-      "date": "2025-10-27",
-      "datetime": "2025-10-27T19:39",
-      "type": "WeightTraining",
-      "name": "Lunedi",
-      "distance_km": 0.0,
-      "duration_sec": 3583,
-      "pace": null,
-      "pace_sec": null,
-      "hr_avg": 157,
-      "hr_max": 185,
-      "elevation": 0,
-      "suffer_score": null
-    },
-    {
-      "date": "2025-10-25",
-      "datetime": "2025-10-25T12:29",
-      "type": "Run",
-      "name": "Allenamento combinato",
-      "distance_km": 4.04,
-      "duration_sec": 1368,
-      "pace": "5:39/km",
-      "pace_sec": 339,
-      "hr_avg": 148,
-      "hr_max": 159,
-      "elevation": 7,
-      "suffer_score": null
+      "suffer_score": 52.0
     }
   ],
   "current_week": [
@@ -6843,11 +6837,26 @@
       "day": "Mar",
       "day_num": 30,
       "month": "Giu",
-      "is_today": true,
-      "is_past": false,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
+      "is_today": false,
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-06-30",
+          "datetime": "2026-06-30T10:05",
+          "type": "Swim",
+          "name": "Nuotata mattutina",
+          "distance_km": 0.35,
+          "duration_sec": 2100,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": null,
+          "hr_max": null,
+          "elevation": 0,
+          "suffer_score": null
+        }
+      ],
+      "total_km": 0.3,
+      "session_count": 1
     },
     {
       "date": "2026-07-01",
@@ -6855,10 +6864,25 @@
       "day_num": 1,
       "month": "Lug",
       "is_today": false,
-      "is_past": false,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-07-01",
+          "datetime": "2026-07-01T08:45",
+          "type": "Run",
+          "name": "Corsa mattutina",
+          "distance_km": 14.67,
+          "duration_sec": 5998,
+          "pace": "6:49/km",
+          "pace_sec": 409,
+          "hr_avg": 144,
+          "hr_max": 218,
+          "elevation": 246,
+          "suffer_score": 119.0
+        }
+      ],
+      "total_km": 14.7,
+      "session_count": 1
     },
     {
       "date": "2026-07-02",
@@ -6866,7 +6890,7 @@
       "day_num": 2,
       "month": "Lug",
       "is_today": false,
-      "is_past": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -6876,11 +6900,26 @@
       "day": "Ven",
       "day_num": 3,
       "month": "Lug",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
+      "activities": [
+        {
+          "date": "2026-07-03",
+          "datetime": "2026-07-03T10:37",
+          "type": "Run",
+          "name": "Corsa mattutina",
+          "distance_km": 9.02,
+          "duration_sec": 3235,
+          "pace": "5:59/km",
+          "pace_sec": 359,
+          "hr_avg": null,
+          "hr_max": null,
+          "elevation": 116,
+          "suffer_score": null
+        }
+      ],
+      "total_km": 9.0,
+      "session_count": 1
     },
     {
       "date": "2026-07-04",
