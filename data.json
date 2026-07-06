@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-07-05 08:52",
+  "last_sync": "2026-07-06 10:22",
   "stats": {
     "7d": {
       "total_km": 23.7,
@@ -47,12 +47,12 @@
       "days": 30
     },
     "90d": {
-      "total_km": 378.5,
-      "run_sessions": 46,
-      "all_sessions": 78,
+      "total_km": 371.2,
+      "run_sessions": 45,
+      "all_sessions": 77,
       "avg_pace": 380,
       "avg_hr": 145,
-      "total_elevation": 3937,
+      "total_elevation": 3900,
       "best_pace": 326,
       "longest_run": 21.1,
       "days": 90
@@ -648,12 +648,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-04-06",
-        "pace_sec": 357,
-        "hr": 150,
-        "km": 7.3
-      },
       {
         "date": "2026-04-07",
         "pace_sec": 407,
@@ -3800,10 +3794,10 @@
     },
     "90d": {
       "Run": {
-        "sessions": 46,
-        "total_km": 378.5,
-        "total_time_min": 2395,
-        "total_elevation": 3828
+        "sessions": 45,
+        "total_km": 371.2,
+        "total_time_min": 2351,
+        "total_elevation": 3791
       },
       "Workout": {
         "sessions": 21,
@@ -6771,137 +6765,77 @@
   ],
   "current_week": [
     {
-      "date": "2026-06-29",
+      "date": "2026-07-06",
       "day": "Lun",
-      "day_num": 29,
-      "month": "Giu",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-06-29",
-          "datetime": "2026-06-29T16:20",
-          "type": "Swim",
-          "name": "Nuotata al pome",
-          "distance_km": 0.8,
-          "duration_sec": 2340,
-          "pace": null,
-          "pace_sec": null,
-          "hr_avg": null,
-          "hr_max": null,
-          "elevation": 0,
-          "suffer_score": null
-        }
-      ],
-      "total_km": 0.8,
-      "session_count": 1
-    },
-    {
-      "date": "2026-06-30",
-      "day": "Mar",
-      "day_num": 30,
-      "month": "Giu",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-06-30",
-          "datetime": "2026-06-30T10:05",
-          "type": "Swim",
-          "name": "Nuotata mattutina",
-          "distance_km": 0.35,
-          "duration_sec": 2100,
-          "pace": null,
-          "pace_sec": null,
-          "hr_avg": null,
-          "hr_max": null,
-          "elevation": 0,
-          "suffer_score": null
-        }
-      ],
-      "total_km": 0.3,
-      "session_count": 1
-    },
-    {
-      "date": "2026-07-01",
-      "day": "Mer",
-      "day_num": 1,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-07-01",
-          "datetime": "2026-07-01T08:45",
-          "type": "Run",
-          "name": "Corsa mattutina",
-          "distance_km": 14.67,
-          "duration_sec": 5998,
-          "pace": "6:49/km",
-          "pace_sec": 409,
-          "hr_avg": 144,
-          "hr_max": 218,
-          "elevation": 246,
-          "suffer_score": 119.0
-        }
-      ],
-      "total_km": 14.7,
-      "session_count": 1
-    },
-    {
-      "date": "2026-07-02",
-      "day": "Gio",
-      "day_num": 2,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-07-03",
-      "day": "Ven",
-      "day_num": 3,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-07-03",
-          "datetime": "2026-07-03T10:37",
-          "type": "Run",
-          "name": "Corsa mattutina",
-          "distance_km": 9.02,
-          "duration_sec": 3235,
-          "pace": "5:59/km",
-          "pace_sec": 359,
-          "hr_avg": null,
-          "hr_max": null,
-          "elevation": 116,
-          "suffer_score": null
-        }
-      ],
-      "total_km": 9.0,
-      "session_count": 1
-    },
-    {
-      "date": "2026-07-04",
-      "day": "Sab",
-      "day_num": 4,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-07-05",
-      "day": "Dom",
-      "day_num": 5,
+      "day_num": 6,
       "month": "Lug",
       "is_today": true,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-07-07",
+      "day": "Mar",
+      "day_num": 7,
+      "month": "Lug",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-07-08",
+      "day": "Mer",
+      "day_num": 8,
+      "month": "Lug",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-07-09",
+      "day": "Gio",
+      "day_num": 9,
+      "month": "Lug",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-07-10",
+      "day": "Ven",
+      "day_num": 10,
+      "month": "Lug",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-07-11",
+      "day": "Sab",
+      "day_num": 11,
+      "month": "Lug",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-07-12",
+      "day": "Dom",
+      "day_num": 12,
+      "month": "Lug",
+      "is_today": false,
       "is_past": false,
       "activities": [],
       "total_km": 0,
