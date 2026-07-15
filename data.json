@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 477
+    "total_activities": 478
   },
   "goals": [
     {
@@ -22,14 +22,14 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-07-14 08:05",
+  "last_sync": "2026-07-15 08:10",
   "stats": {
     "7d": {
       "total_km": 47.8,
       "run_sessions": 4,
       "all_sessions": 7,
       "avg_pace": 370,
-      "avg_hr": 142,
+      "avg_hr": 140,
       "total_elevation": 506,
       "best_pace": 347,
       "longest_run": 17.0,
@@ -38,32 +38,32 @@
     "30d": {
       "total_km": 169.8,
       "run_sessions": 16,
-      "all_sessions": 28,
+      "all_sessions": 29,
       "avg_pace": 380,
-      "avg_hr": 145,
+      "avg_hr": 143,
       "total_elevation": 2946,
       "best_pace": 342,
       "longest_run": 17.0,
       "days": 30
     },
     "90d": {
-      "total_km": 396.5,
-      "run_sessions": 47,
+      "total_km": 388.5,
+      "run_sessions": 46,
       "all_sessions": 82,
-      "avg_pace": 378,
-      "avg_hr": 145,
-      "total_elevation": 5520,
+      "avg_pace": 379,
+      "avg_hr": 144,
+      "total_elevation": 5479,
       "best_pace": 326,
       "longest_run": 17.0,
       "days": 90
     },
     "365d": {
-      "total_km": 1376.5,
-      "run_sessions": 173,
+      "total_km": 1368.5,
+      "run_sessions": 172,
       "all_sessions": 286,
       "avg_pace": 353,
       "avg_hr": 143,
-      "total_elevation": 25676,
+      "total_elevation": 25634,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -71,13 +71,13 @@
     "all": {
       "total_km": 2157.8,
       "run_sessions": 299,
-      "all_sessions": 477,
+      "all_sessions": 478,
       "avg_pace": 358,
       "avg_hr": 143,
       "total_elevation": 30136,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 477
+      "days": 478
     }
   },
   "weekly_volume": [
@@ -667,12 +667,6 @@
     ],
     "90d": [
       {
-        "date": "2026-04-15",
-        "pace_sec": 342,
-        "hr": 164,
-        "km": 8.0
-      },
-      {
         "date": "2026-04-17",
         "pace_sec": 424,
         "hr": 144,
@@ -950,12 +944,6 @@
       }
     ],
     "365d": [
-      {
-        "date": "2025-07-14",
-        "pace_sec": 320,
-        "hr": 157,
-        "km": 8.0
-      },
       {
         "date": "2025-07-15",
         "pace_sec": 330,
@@ -3804,8 +3792,8 @@
     "90d": {
       "z1": 2,
       "z2": 16,
-      "z3": 67,
-      "z4": 13,
+      "z3": 68,
+      "z4": 11,
       "z5": 2
     },
     "365d": {
@@ -3834,7 +3822,7 @@
       "Workout": {
         "sessions": 2,
         "total_km": 0.0,
-        "total_time_min": 40,
+        "total_time_min": 81,
         "total_elevation": 0
       },
       "StandUpPaddling": {
@@ -3852,9 +3840,9 @@
         "total_elevation": 1880
       },
       "Workout": {
-        "sessions": 5,
+        "sessions": 6,
         "total_km": 0.0,
-        "total_time_min": 76,
+        "total_time_min": 149,
         "total_elevation": 0
       },
       "Ride": {
@@ -3884,15 +3872,15 @@
     },
     "90d": {
       "Run": {
-        "sessions": 47,
-        "total_km": 396.5,
-        "total_time_min": 2501,
-        "total_elevation": 4353
+        "sessions": 46,
+        "total_km": 388.5,
+        "total_time_min": 2455,
+        "total_elevation": 4312
       },
       "Workout": {
-        "sessions": 22,
+        "sessions": 23,
         "total_km": 0.0,
-        "total_time_min": 576,
+        "total_time_min": 650,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3934,15 +3922,15 @@
     },
     "365d": {
       "Run": {
-        "sessions": 173,
-        "total_km": 1376.5,
-        "total_time_min": 8091,
-        "total_elevation": 8053
+        "sessions": 172,
+        "total_km": 1368.5,
+        "total_time_min": 8048,
+        "total_elevation": 8011
       },
       "Workout": {
-        "sessions": 62,
+        "sessions": 63,
         "total_km": 0.0,
-        "total_time_min": 2114,
+        "total_time_min": 2187,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -4002,9 +3990,9 @@
         "total_elevation": 10493
       },
       "Workout": {
-        "sessions": 77,
+        "sessions": 78,
         "total_km": 0.0,
-        "total_time_min": 2464,
+        "total_time_min": 2537,
         "total_elevation": 0
       },
       "Walk": {
@@ -4058,6 +4046,20 @@
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-07-14",
+      "datetime": "2026-07-14T18:26",
+      "type": "Workout",
+      "name": "Allenamento serale",
+      "distance_km": 0.0,
+      "duration_sec": 4395,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": 108,
+      "hr_max": 150,
+      "elevation": 0,
+      "suffer_score": 17.0
+    },
     {
       "date": "2026-07-13",
       "datetime": "2026-07-13T13:09",
@@ -6843,20 +6845,6 @@
       "hr_max": 166,
       "elevation": 74,
       "suffer_score": 103.0
-    },
-    {
-      "date": "2025-11-17",
-      "datetime": "2025-11-17T18:27",
-      "type": "Workout",
-      "name": "Evening Workout",
-      "distance_km": 0.0,
-      "duration_sec": 581,
-      "pace": null,
-      "pace_sec": null,
-      "hr_avg": 133,
-      "hr_max": 145,
-      "elevation": 0,
-      "suffer_score": 4.0
     }
   ],
   "current_week": [
@@ -6891,18 +6879,33 @@
       "day": "Mar",
       "day_num": 14,
       "month": "Lug",
-      "is_today": true,
-      "is_past": false,
-      "activities": [],
+      "is_today": false,
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-07-14",
+          "datetime": "2026-07-14T18:26",
+          "type": "Workout",
+          "name": "Allenamento serale",
+          "distance_km": 0.0,
+          "duration_sec": 4395,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": 108,
+          "hr_max": 150,
+          "elevation": 0,
+          "suffer_score": 17.0
+        }
+      ],
       "total_km": 0,
-      "session_count": 0
+      "session_count": 1
     },
     {
       "date": "2026-07-15",
       "day": "Mer",
       "day_num": 15,
       "month": "Lug",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
