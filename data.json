@@ -22,16 +22,16 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-07-20 08:58",
+  "last_sync": "2026-07-21 08:28",
   "stats": {
     "7d": {
-      "total_km": 42.7,
-      "run_sessions": 4,
-      "all_sessions": 6,
-      "avg_pace": 377,
-      "avg_hr": 143,
-      "total_elevation": 460,
-      "best_pace": 366,
+      "total_km": 32.5,
+      "run_sessions": 3,
+      "all_sessions": 5,
+      "avg_pace": 381,
+      "avg_hr": 142,
+      "total_elevation": 331,
+      "best_pace": 373,
       "longest_run": 14.0,
       "days": 7
     },
@@ -49,7 +49,7 @@
     "90d": {
       "total_km": 403.6,
       "run_sessions": 46,
-      "all_sessions": 82,
+      "all_sessions": 81,
       "avg_pace": 378,
       "avg_hr": 144,
       "total_elevation": 5449,
@@ -58,12 +58,12 @@
       "days": 90
     },
     "365d": {
-      "total_km": 1377.6,
-      "run_sessions": 172,
-      "all_sessions": 287,
+      "total_km": 1369.5,
+      "run_sessions": 171,
+      "all_sessions": 286,
       "avg_pace": 354,
       "avg_hr": 143,
-      "total_elevation": 25797,
+      "total_elevation": 25731,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -543,12 +543,6 @@
   "pace_trend": {
     "7d": [
       {
-        "date": "2026-07-13",
-        "pace_sec": 366,
-        "hr": 148,
-        "km": 10.2
-      },
-      {
         "date": "2026-07-16",
         "pace_sec": 384,
         "hr": 146,
@@ -938,12 +932,6 @@
       }
     ],
     "365d": [
-      {
-        "date": "2025-07-20",
-        "pace_sec": 343,
-        "hr": 150,
-        "km": 8.1
-      },
       {
         "date": "2025-07-22",
         "pace_sec": 364,
@@ -3790,8 +3778,8 @@
     "7d": {
       "z1": 0,
       "z2": 0,
-      "z3": 75,
-      "z4": 25,
+      "z3": 67,
+      "z4": 33,
       "z5": 0
     },
     "30d": {
@@ -3811,7 +3799,7 @@
     "365d": {
       "z1": 1,
       "z2": 12,
-      "z3": 69,
+      "z3": 68,
       "z4": 17,
       "z5": 1
     },
@@ -3826,10 +3814,10 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 4,
-        "total_km": 42.7,
-        "total_time_min": 268,
-        "total_elevation": 460
+        "sessions": 3,
+        "total_km": 32.5,
+        "total_time_min": 206,
+        "total_elevation": 331
       },
       "Workout": {
         "sessions": 2,
@@ -3890,9 +3878,9 @@
         "total_elevation": 0
       },
       "WeightTraining": {
-        "sessions": 4,
+        "sessions": 3,
         "total_km": 0.0,
-        "total_time_min": 123,
+        "total_time_min": 58,
         "total_elevation": 0
       },
       "Walk": {
@@ -3928,10 +3916,10 @@
     },
     "365d": {
       "Run": {
-        "sessions": 172,
-        "total_km": 1377.6,
-        "total_time_min": 8123,
-        "total_elevation": 8176
+        "sessions": 171,
+        "total_km": 1369.5,
+        "total_time_min": 8077,
+        "total_elevation": 8110
       },
       "Workout": {
         "sessions": 64,
@@ -6859,8 +6847,8 @@
       "day": "Lun",
       "day_num": 20,
       "month": "Lug",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -6870,7 +6858,7 @@
       "day": "Mar",
       "day_num": 21,
       "month": "Lug",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
