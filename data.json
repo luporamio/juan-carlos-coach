@@ -22,26 +22,26 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-08-02 08:23",
+  "last_sync": "2026-08-03 09:44",
   "stats": {
     "7d": {
-      "total_km": 41.1,
-      "run_sessions": 4,
-      "all_sessions": 8,
-      "avg_pace": 406,
-      "avg_hr": 140,
-      "total_elevation": 534,
+      "total_km": 37.1,
+      "run_sessions": 3,
+      "all_sessions": 6,
+      "avg_pace": 375,
+      "avg_hr": 143,
+      "total_elevation": 468,
       "best_pace": 369,
       "longest_run": 15.0,
       "days": 7
     },
     "30d": {
-      "total_km": 182.4,
-      "run_sessions": 16,
-      "all_sessions": 27,
-      "avg_pace": 375,
+      "total_km": 173.4,
+      "run_sessions": 15,
+      "all_sessions": 26,
+      "avg_pace": 376,
       "avg_hr": 141,
-      "total_elevation": 3145,
+      "total_elevation": 3029,
       "best_pace": 326,
       "longest_run": 18.1,
       "days": 30
@@ -60,10 +60,10 @@
     "365d": {
       "total_km": 1375.5,
       "run_sessions": 169,
-      "all_sessions": 286,
+      "all_sessions": 284,
       "avg_pace": 355,
       "avg_hr": 142,
-      "total_elevation": 26030,
+      "total_elevation": 26008,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -543,12 +543,6 @@
   "pace_trend": {
     "7d": [
       {
-        "date": "2026-07-26",
-        "pace_sec": 502,
-        "hr": 125,
-        "km": 4.0
-      },
-      {
         "date": "2026-07-29",
         "pace_sec": 379,
         "hr": 168,
@@ -568,12 +562,6 @@
       }
     ],
     "30d": [
-      {
-        "date": "2026-07-03",
-        "pace_sec": 359,
-        "hr": null,
-        "km": 9.0
-      },
       {
         "date": "2026-07-06",
         "pace_sec": 379,
@@ -3819,9 +3807,9 @@
   "hr_zones": {
     "7d": {
       "z1": 0,
-      "z2": 25,
-      "z3": 50,
-      "z4": 25,
+      "z2": 0,
+      "z3": 67,
+      "z4": 33,
       "z5": 0
     },
     "30d": {
@@ -3856,15 +3844,15 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 4,
-        "total_km": 41.1,
-        "total_time_min": 266,
-        "total_elevation": 472
+        "sessions": 3,
+        "total_km": 37.1,
+        "total_time_min": 232,
+        "total_elevation": 406
       },
       "Workout": {
-        "sessions": 3,
+        "sessions": 2,
         "total_km": 0.0,
-        "total_time_min": 83,
+        "total_time_min": 52,
         "total_elevation": 0
       },
       "Ride": {
@@ -3876,10 +3864,10 @@
     },
     "30d": {
       "Run": {
-        "sessions": 16,
-        "total_km": 182.4,
-        "total_time_min": 1122,
-        "total_elevation": 2016
+        "sessions": 15,
+        "total_km": 173.4,
+        "total_time_min": 1068,
+        "total_elevation": 1900
       },
       "Workout": {
         "sessions": 7,
@@ -3958,9 +3946,9 @@
         "total_elevation": 8343
       },
       "Workout": {
-        "sessions": 64,
+        "sessions": 63,
         "total_km": 0.0,
-        "total_time_min": 2261,
+        "total_time_min": 2198,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -3976,10 +3964,10 @@
         "total_elevation": 24
       },
       "Walk": {
-        "sessions": 7,
-        "total_km": 24.5,
-        "total_time_min": 253,
-        "total_elevation": 301
+        "sessions": 6,
+        "total_km": 17.9,
+        "total_time_min": 216,
+        "total_elevation": 280
       },
       "Ride": {
         "sessions": 5,
@@ -6879,166 +6867,77 @@
   ],
   "current_week": [
     {
-      "date": "2026-07-27",
+      "date": "2026-08-03",
       "day": "Lun",
-      "day_num": 27,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-07-27",
-          "datetime": "2026-07-27T18:20",
-          "type": "Workout",
-          "name": "Allenamento serale",
-          "distance_km": 0.0,
-          "duration_sec": 2459,
-          "pace": null,
-          "pace_sec": null,
-          "hr_avg": 112,
-          "hr_max": 147,
-          "elevation": 0,
-          "suffer_score": 9.0
-        }
-      ],
-      "total_km": 0,
-      "session_count": 1
-    },
-    {
-      "date": "2026-07-28",
-      "day": "Mar",
-      "day_num": 28,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-07-28",
-          "datetime": "2026-07-28T13:25",
-          "type": "Ride",
-          "name": "Pedalata pomeridiana",
-          "distance_km": 7.73,
-          "duration_sec": 2178,
-          "pace": null,
-          "pace_sec": null,
-          "hr_avg": 113,
-          "hr_max": 143,
-          "elevation": 62,
-          "suffer_score": 8.0
-        }
-      ],
-      "total_km": 7.7,
-      "session_count": 1
-    },
-    {
-      "date": "2026-07-29",
-      "day": "Mer",
-      "day_num": 29,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-07-29",
-          "datetime": "2026-07-29T13:25",
-          "type": "Run",
-          "name": "Corsa pomeridiana",
-          "distance_km": 11.02,
-          "duration_sec": 4174,
-          "pace": "6:19/km",
-          "pace_sec": 379,
-          "hr_avg": 168,
-          "hr_max": 186,
-          "elevation": 126,
-          "suffer_score": 226.0
-        }
-      ],
-      "total_km": 11.0,
-      "session_count": 1
-    },
-    {
-      "date": "2026-07-30",
-      "day": "Gio",
-      "day_num": 30,
-      "month": "Lug",
-      "is_today": false,
-      "is_past": true,
+      "day_num": 3,
+      "month": "Ago",
+      "is_today": true,
+      "is_past": false,
       "activities": [],
       "total_km": 0,
       "session_count": 0
     },
     {
-      "date": "2026-07-31",
+      "date": "2026-08-04",
+      "day": "Mar",
+      "day_num": 4,
+      "month": "Ago",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-08-05",
+      "day": "Mer",
+      "day_num": 5,
+      "month": "Ago",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-08-06",
+      "day": "Gio",
+      "day_num": 6,
+      "month": "Ago",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-08-07",
       "day": "Ven",
-      "day_num": 31,
-      "month": "Lug",
+      "day_num": 7,
+      "month": "Ago",
       "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-07-31",
-          "datetime": "2026-07-31T08:23",
-          "type": "Run",
-          "name": "Corsa mattutina",
-          "distance_km": 11.05,
-          "duration_sec": 4081,
-          "pace": "6:09/km",
-          "pace_sec": 369,
-          "hr_avg": 159,
-          "hr_max": 189,
-          "elevation": 143,
-          "suffer_score": 163.0
-        },
-        {
-          "date": "2026-07-31",
-          "datetime": "2026-07-31T09:43",
-          "type": "Workout",
-          "name": "Allenamento mattutino",
-          "distance_km": 0.0,
-          "duration_sec": 687,
-          "pace": null,
-          "pace_sec": null,
-          "hr_avg": 149,
-          "hr_max": 170,
-          "elevation": 0,
-          "suffer_score": 17.0
-        }
-      ],
-      "total_km": 11.1,
-      "session_count": 2
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
     },
     {
-      "date": "2026-08-01",
+      "date": "2026-08-08",
       "day": "Sab",
-      "day_num": 1,
+      "day_num": 8,
       "month": "Ago",
       "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-08-01",
-          "datetime": "2026-08-01T09:41",
-          "type": "Run",
-          "name": "Corsa mattutina",
-          "distance_km": 15.04,
-          "duration_sec": 5659,
-          "pace": "6:16/km",
-          "pace_sec": 376,
-          "hr_avg": 155,
-          "hr_max": 172,
-          "elevation": 137,
-          "suffer_score": 192.0
-        }
-      ],
-      "total_km": 15.0,
-      "session_count": 1
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
     },
     {
-      "date": "2026-08-02",
+      "date": "2026-08-09",
       "day": "Dom",
-      "day_num": 2,
+      "day_num": 9,
       "month": "Ago",
-      "is_today": true,
+      "is_today": false,
       "is_past": false,
       "activities": [],
       "total_km": 0,
