@@ -62,6 +62,20 @@
     .ti.o{color:#FF6B35}
     @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
+    /* ── SPONSOR MARQUEE ── */
+    .sp-logo{display:flex;align-items:center;opacity:.5;filter:grayscale(1) brightness(1.3);transition:opacity .25s ease,filter .25s ease}
+    .sp-logo:hover{opacity:1;filter:grayscale(0) brightness(1)}
+    .sp-track{display:flex;width:max-content;align-items:center;animation:sptick 22s linear infinite}
+    @keyframes sptick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* Wordmark Polar ricostruito in CSS: nessun asset esterno, si aggiorna col tema */
+    .polar-logo{display:inline-flex;align-items:baseline;font-family:'Space Grotesk',sans-serif;font-weight:800;font-style:italic;letter-spacing:-.03em;color:#fff;line-height:1}
+    .polar-logo .o-mark{width:.6em;height:.6em;border-radius:50%;background:linear-gradient(#ED1C24 0 40%,#fff 40% 60%,#ED1C24 60% 100%);display:inline-block;margin:0 .02em;align-self:center;flex-shrink:0}
+    .polar-logo sup{font-size:.32em;font-weight:700;font-style:normal;margin-left:1px;opacity:.7}
+
+    /* ── LIVE STATS ── */
+    .ls-dot{width:6px;height:6px;background:#10B981;border-radius:50%;display:inline-block;animation:pd 2s infinite;margin-right:8px}
+
     /* ── TIMELINE ── */
     .tl-wrap{overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
     .tl-wrap::-webkit-scrollbar{display:none}
@@ -134,6 +148,7 @@
   </div>
   <div id="anchor-bar">
     <a class="anc active" href="#hero">Progetto</a>
+    <a class="anc" href="#live-stats">Live</a>
     <a class="anc" href="#chi-siamo">Chi siamo</a>
     <a class="anc" href="#rilevanza">Rilevanza</a>
     <a class="anc" href="#obiettivo">Obiettivo</a>
@@ -178,6 +193,80 @@
     <span class="ti o">AI-ROX</span><span class="ti">HYROX Mixed Doubles</span><span class="ti">Ferrara</span><span class="ti o">1:19:57 → sub 1:10:00</span><span class="ti">Catania</span><span class="ti">Juan Carlos AI</span><span class="ti o">Milano · Dic 2026</span><span class="ti">Strava · Amazfit · Zepp</span><span class="ti">Hugo AI</span><span class="ti">@luporamio</span><span class="ti">@vittoria.vec</span>
   </div>
 </div>
+
+<!-- ══ LIVE: PROGRESSI IN TEMPO REALE ══ -->
+<section id="live-stats" class="section pad-sm">
+  <div class="wrap">
+    <div class="rv" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:22px">
+      <div style="display:flex;align-items:center">
+        <span class="ls-dot"></span>
+        <p class="ey" style="margin:0">Progressi in tempo reale</p>
+      </div>
+      <p class="sm" id="ls-updated" style="margin:0">sync in corso…</p>
+    </div>
+
+    <div class="rv g4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;margin-bottom:1px">
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <p class="sm" style="margin-bottom:8px">Ultimo allenamento</p>
+        <p class="d1" id="ls-last-val" style="font-size:clamp(1.5rem,2.5vw,2.1rem);color:#FF6B35;margin-bottom:6px">···</p>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.42)" id="ls-last-note">caricamento dati…</p>
+      </div>
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <p class="sm" style="margin-bottom:8px">Passo medio · 30gg</p>
+        <p class="d1" id="ls-pace-val" style="font-size:clamp(1.5rem,2.5vw,2.1rem);margin-bottom:6px">···</p>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.42)" id="ls-pace-note">—</p>
+      </div>
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <p class="sm" style="margin-bottom:8px">Miglioramento volume</p>
+        <p class="d1" id="ls-imp-val" style="font-size:clamp(1.5rem,2.5vw,2.1rem);color:#10B981;margin-bottom:6px">···</p>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.42)" id="ls-imp-note">—</p>
+      </div>
+      <div style="background:#0a0a0a;padding:24px 20px">
+        <p class="sm" style="margin-bottom:8px">Allenamenti · 30gg</p>
+        <p class="d1" id="ls-count-val" style="font-size:clamp(1.5rem,2.5vw,2.1rem);margin-bottom:6px">···</p>
+        <p style="font-size:.72rem;color:rgba(255,255,255,.42)" id="ls-count-note">—</p>
+      </div>
+    </div>
+
+    <div class="rv" style="background:#0a0a0a;border:1px solid rgba(255,107,53,.12);border-radius:14px;padding:20px 22px;display:flex;gap:14px;align-items:flex-start">
+      <div style="width:32px;height:32px;border-radius:50%;background:rgba(255,107,53,.1);border:1px solid rgba(255,107,53,.22);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0">🤖</div>
+      <div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.78rem;margin-bottom:6px" id="ls-comment-author">Juan Carlos</p>
+        <p style="font-size:.86rem;color:rgba(255,255,255,.62);line-height:1.6" id="ls-comment-text">Sto leggendo gli ultimi dati di allenamento…</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CHI CI STA SUPPORTANDO ══ -->
+<section id="sponsor-strip" class="section pad-sm" style="border-top:1px solid rgba(255,255,255,.04)">
+  <div class="wrap">
+    <p class="ey rv" style="text-align:center;margin-bottom:26px">Chi ci sta supportando</p>
+  </div>
+  <div class="rv" style="overflow:hidden">
+    <div class="sp-track">
+      <a href="https://www.polar.com" target="_blank" rel="noopener" class="sp-logo" style="text-decoration:none;padding:0 40px">
+        <span class="polar-logo" style="font-size:1.9rem"><span>P</span><span class="o-mark"></span><span>LAR</span><sup>®</sup></span>
+      </a>
+      <a href="https://www.polar.com" target="_blank" rel="noopener" class="sp-logo" style="text-decoration:none;padding:0 40px">
+        <span class="polar-logo" style="font-size:1.9rem"><span>P</span><span class="o-mark"></span><span>LAR</span><sup>®</sup></span>
+      </a>
+      <a href="https://www.polar.com" target="_blank" rel="noopener" class="sp-logo" style="text-decoration:none;padding:0 40px">
+        <span class="polar-logo" style="font-size:1.9rem"><span>P</span><span class="o-mark"></span><span>LAR</span><sup>®</sup></span>
+      </a>
+      <!-- set duplicato per loop continuo -->
+      <a href="https://www.polar.com" target="_blank" rel="noopener" class="sp-logo" style="text-decoration:none;padding:0 40px" aria-hidden="true">
+        <span class="polar-logo" style="font-size:1.9rem"><span>P</span><span class="o-mark"></span><span>LAR</span><sup>®</sup></span>
+      </a>
+      <a href="https://www.polar.com" target="_blank" rel="noopener" class="sp-logo" style="text-decoration:none;padding:0 40px" aria-hidden="true">
+        <span class="polar-logo" style="font-size:1.9rem"><span>P</span><span class="o-mark"></span><span>LAR</span><sup>®</sup></span>
+      </a>
+      <a href="https://www.polar.com" target="_blank" rel="noopener" class="sp-logo" style="text-decoration:none;padding:0 40px" aria-hidden="true">
+        <span class="polar-logo" style="font-size:1.9rem"><span>P</span><span class="o-mark"></span><span>LAR</span><sup>®</sup></span>
+      </a>
+    </div>
+  </div>
+</section>
 
 <!-- ══ 2. CHI SIAMO ══ -->
 <section id="chi-siamo" class="section pad" style="border-top:1px solid rgba(255,255,255,.04)">
@@ -899,8 +988,78 @@
     document.getElementById('prog-pct').textContent=p+'%';
   }});
 
+  /* Live stats: dati reali da data.json, aggiornati ogni giorno dal sync automatico */
+  (function(){
+    const MESI=['Gen','Feb','Mar','Apr','Mag','Giu','Lug','Ago','Set','Ott','Nov','Dic'];
+    function fmtDateShort(d){ if(!d) return '—'; const p=d.split('-').map(Number); return p[2]+' '+MESI[p[1]-1]; }
+    function fmtKm(km){ return (Math.round(km*10)/10)+' km'; }
+    function setTxt(id,txt){ const el=document.getElementById(id); if(el) el.textContent=txt; }
+
+    Promise.all([
+      fetch('../data.json').then(r=>r.ok?r.json():null).catch(()=>null),
+      fetch('../coaching.json').then(r=>r.ok?r.json():null).catch(()=>null)
+    ]).then(([data,coaching])=>{
+      if(!data) return;
+      const s30 = data.stats && data.stats['30d'];
+      const acts = data.recent_activities || [];
+      // preferisci l'ultima sessione con distanza (racconta di piu': passo, km) rispetto a un "allenamento" generico senza dati
+      const last = acts.find(a=>a.distance_km>0) || acts[0];
+      const mv = data.monthly_volume || [];
+
+      if(data.last_sync){
+        setTxt('ls-updated', 'ultimo sync ' + data.last_sync.slice(0,10).split('-').reverse().join('/'));
+      }
+
+      if(last){
+        const typeLabel = last.type==='Run' ? 'Corsa' : (last.type==='Workout' ? 'Allenamento' : last.type);
+        setTxt('ls-last-val', last.distance_km>0 ? fmtKm(last.distance_km) : typeLabel);
+        setTxt('ls-last-note', typeLabel + ' · ' + fmtDateShort(last.date) + (last.pace ? ' · '+last.pace : ''));
+      }
+
+      if(s30){
+        const m=Math.floor(s30.avg_pace/60), s=Math.round(s30.avg_pace%60);
+        setTxt('ls-pace-val', m+':'+String(s).padStart(2,'0')+'/km');
+        setTxt('ls-pace-note', s30.run_sessions+' corse su '+fmtKm(s30.total_km));
+      }
+
+      const now=new Date();
+      const curKey=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0');
+      const completed=mv.filter(x=>x.month!==curKey);
+      let trendUp=null;
+      if(completed.length>=2){
+        const lastM=completed[completed.length-1], prevM=completed[completed.length-2];
+        const deltaPct = prevM.km>0 ? Math.round((lastM.km-prevM.km)/prevM.km*100) : 0;
+        trendUp = deltaPct>=0;
+        setTxt('ls-imp-val', (deltaPct>=0?'+':'')+deltaPct+'%');
+        setTxt('ls-imp-note', lastM.label+': '+Math.round(lastM.km)+'km vs '+prevM.label+': '+Math.round(prevM.km)+'km');
+        const impEl=document.getElementById('ls-imp-val');
+        if(impEl) impEl.style.color = trendUp ? '#10B981' : '#F87171';
+      }
+
+      if(s30){
+        setTxt('ls-count-val', s30.all_sessions);
+        setTxt('ls-count-note', s30.run_sessions+' corse · '+(s30.all_sessions-s30.run_sessions)+' altro');
+      }
+
+      let commentText=null;
+      if(coaching && coaching.session_comments && last){
+        const match=coaching.session_comments.find(c=>c.date===last.date);
+        if(match) commentText = match.juan_comment || match.comment;
+      }
+      if(!commentText && s30 && last){
+        commentText = trendUp
+          ? 'Ultima uscita: '+(last.pace?('passo '+last.pace+' '):'')+'il '+fmtDateShort(last.date)+'. Volume in salita rispetto al mese scorso, '+s30.all_sessions+' sessioni negli ultimi 30 giorni: si continua a costruire senza saltare settimane.'
+          : 'Ultima uscita: '+(last.pace?('passo '+last.pace+' '):'')+'il '+fmtDateShort(last.date)+'. '+s30.all_sessions+' sessioni negli ultimi 30 giorni, '+fmtKm(s30.total_km)+' di volume totale: si tiene la costanza.';
+      }
+      if(commentText){
+        setTxt('ls-comment-text', commentText);
+        setTxt('ls-comment-author', 'Juan Carlos · aggiornato ogni giorno');
+      }
+    });
+  })();
+
   /* Active anchor on scroll */
-  const sections = ['hero','chi-siamo','rilevanza','obiettivo','percorso','come','juan-carlos','supportaci','seguici'];
+  const sections = ['hero','live-stats','chi-siamo','rilevanza','obiettivo','percorso','come','juan-carlos','supportaci','seguici'];
   const ancs = document.querySelectorAll('.anc');
   window.addEventListener('scroll',()=>{
     let cur='hero';
