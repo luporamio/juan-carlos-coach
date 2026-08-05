@@ -88,6 +88,9 @@ def fetch_all(access_token, after_ts):
             headers={"Authorization": f"Bearer {access_token}"},
             params={"after": after_ts, "per_page": 50, "page": page}
         )
+        if resp.status_code == 500:
+            print(f"[strava] 500 server error a pagina {page}, stop fetch (attività recuperate: {len(all_acts)})")
+            break
         resp.raise_for_status()
         batch = resp.json()
         if not batch:
