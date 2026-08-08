@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-08-07 10:07",
+  "last_sync": "2026-08-08 06:52",
   "stats": {
     "7d": {
       "total_km": 43.1,
@@ -36,23 +36,23 @@
       "days": 7
     },
     "30d": {
-      "total_km": 189.1,
-      "run_sessions": 17,
-      "all_sessions": 29,
-      "avg_pace": 373,
-      "avg_hr": 141,
-      "total_elevation": 1994,
+      "total_km": 178.1,
+      "run_sessions": 16,
+      "all_sessions": 28,
+      "avg_pace": 372,
+      "avg_hr": 140,
+      "total_elevation": 1871,
       "best_pace": 326,
       "longest_run": 18.1,
       "days": 30
     },
     "90d": {
-      "total_km": 443.4,
-      "run_sessions": 47,
-      "all_sessions": 85,
+      "total_km": 433.0,
+      "run_sessions": 45,
+      "all_sessions": 82,
       "avg_pace": 373,
       "avg_hr": 143,
-      "total_elevation": 5971,
+      "total_elevation": 5893,
       "best_pace": 326,
       "longest_run": 18.1,
       "days": 90
@@ -569,12 +569,6 @@
     ],
     "30d": [
       {
-        "date": "2026-07-08",
-        "pace_sec": 392,
-        "hr": 168,
-        "km": 11.0
-      },
-      {
         "date": "2026-07-10",
         "pace_sec": 347,
         "hr": 158,
@@ -672,18 +666,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-05-09",
-        "pace_sec": 376,
-        "hr": 152,
-        "km": 5.3
-      },
-      {
-        "date": "2026-05-09",
-        "pace_sec": 383,
-        "hr": 148,
-        "km": 5.0
-      },
       {
         "date": "2026-05-12",
         "pace_sec": 285,
@@ -3862,16 +3844,16 @@
     },
     "30d": {
       "z1": 0,
-      "z2": 18,
-      "z3": 59,
-      "z4": 24,
+      "z2": 19,
+      "z3": 62,
+      "z4": 19,
       "z5": 0
     },
     "90d": {
       "z1": 2,
-      "z2": 18,
-      "z3": 64,
-      "z4": 13,
+      "z2": 19,
+      "z3": 63,
+      "z4": 14,
       "z5": 2
     },
     "365d": {
@@ -3912,10 +3894,10 @@
     },
     "30d": {
       "Run": {
-        "sessions": 17,
-        "total_km": 189.1,
-        "total_time_min": 1159,
-        "total_elevation": 1904
+        "sessions": 16,
+        "total_km": 178.1,
+        "total_time_min": 1086,
+        "total_elevation": 1781
       },
       "Workout": {
         "sessions": 8,
@@ -3944,10 +3926,10 @@
     },
     "90d": {
       "Run": {
-        "sessions": 47,
-        "total_km": 443.4,
-        "total_time_min": 2742,
-        "total_elevation": 4714
+        "sessions": 45,
+        "total_km": 433.0,
+        "total_time_min": 2676,
+        "total_elevation": 4636
       },
       "Workout": {
         "sessions": 24,
@@ -3961,17 +3943,17 @@
         "total_time_min": 109,
         "total_elevation": 120
       },
-      "WeightTraining": {
-        "sessions": 3,
-        "total_km": 0.0,
-        "total_time_min": 58,
-        "total_elevation": 0
-      },
       "Ride": {
         "sessions": 3,
         "total_km": 44.7,
         "total_time_min": 156,
         "total_elevation": 1128
+      },
+      "WeightTraining": {
+        "sessions": 2,
+        "total_km": 0.0,
+        "total_time_min": 38,
+        "total_elevation": 0
       },
       "Swim": {
         "sessions": 2,
@@ -7050,8 +7032,8 @@
       "day": "Ven",
       "day_num": 7,
       "month": "Ago",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -7061,7 +7043,7 @@
       "day": "Sab",
       "day_num": 8,
       "month": "Ago",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7079,39 +7061,27 @@
       "session_count": 0
     }
   ],
-  "health": {
-    "today": {},
-    "daily": [],
-    "summary_7d": {
-      "resting_hr_avg": null,
-      "resting_hr_min": null,
-      "sleep_avg_h": null,
-      "spo2_avg": null,
-      "weight_latest_kg": null,
-      "vo2max_latest": null
-    },
-    "recovery_score": 100
-  },
+  "health": {},
   "hyrox_predictor": {
-    "estimated_time_sec": 4925,
-    "estimated_time": "1:22:05",
+    "estimated_time_sec": 4939,
+    "estimated_time": "1:22:19",
     "target_time": "1:10:00",
     "target_time_sec": 4200,
-    "gap_sec": 725,
-    "gap_formatted": "12:05",
+    "gap_sec": 739,
+    "gap_formatted": "12:19",
     "gap_sign": "+",
-    "progress_to_target_pct": 19,
+    "progress_to_target_pct": 18,
     "inputs": {
       "vo2max": 45,
-      "avg_pace_sec": 373,
-      "avg_pace": "6:13/km",
-      "race_pace": "5:43/km",
-      "avg_hr": 153,
-      "weekly_km": 44.5,
-      "run_component_sec": 2745,
-      "run_component": "45:45",
-      "station_component_sec": 1880,
-      "station_component": "31:20"
+      "avg_pace_sec": 372,
+      "avg_pace": "6:12/km",
+      "race_pace": "5:42/km",
+      "avg_hr": 152,
+      "weekly_km": 42.1,
+      "run_component_sec": 2738,
+      "run_component": "45:38",
+      "station_component_sec": 1901,
+      "station_component": "31:41"
     },
     "levers": [
       {
@@ -7124,7 +7094,7 @@
       },
       {
         "name": "Volume settimanale",
-        "current": 44.5,
+        "current": 42.1,
         "target": 40,
         "unit": "km/sett",
         "impact": "ogni +5km = -45\" sulle stazioni",
@@ -7132,23 +7102,23 @@
       },
       {
         "name": "Passo medio",
-        "current": "6:13/km",
+        "current": "6:12/km",
         "target": "5:10/km",
         "unit": "min/km",
         "impact": "-10\" passo = -1:20 sul running totale",
-        "pct": 43
+        "pct": 44
       }
     ],
     "november_projection": {
-      "estimated_time_sec": 4445,
-      "estimated_time": "1:14:05",
+      "estimated_time_sec": 4438,
+      "estimated_time": "1:13:58",
       "vo2max": 49.0,
       "weekly_km": 40.0,
-      "gap_to_target_sec": 245,
-      "gap_to_target": "4:05",
+      "gap_to_target_sec": 238,
+      "gap_to_target": "3:58",
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-08-07"
+    "last_updated": "2026-08-08"
   }
 }
