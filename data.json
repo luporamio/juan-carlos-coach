@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-08-11 07:07",
+  "last_sync": "2026-08-11 11:25",
   "stats": {
     "7d": {
       "total_km": 58.4,
@@ -36,12 +36,12 @@
       "days": 7
     },
     "30d": {
-      "total_km": 205.9,
-      "run_sessions": 18,
-      "all_sessions": 30,
+      "total_km": 188.8,
+      "run_sessions": 17,
+      "all_sessions": 29,
       "avg_pace": 372,
       "avg_hr": 141,
-      "total_elevation": 2099,
+      "total_elevation": 1961,
       "best_pace": 326,
       "longest_run": 18.1,
       "days": 30
@@ -574,12 +574,6 @@
       }
     ],
     "30d": [
-      {
-        "date": "2026-07-12",
-        "pace_sec": 375,
-        "hr": 142,
-        "km": 17.0
-      },
       {
         "date": "2026-07-13",
         "pace_sec": 366,
@@ -3898,9 +3892,9 @@
     },
     "30d": {
       "z1": 0,
-      "z2": 17,
-      "z3": 67,
-      "z4": 17,
+      "z2": 12,
+      "z3": 71,
+      "z4": 18,
       "z5": 0
     },
     "90d": {
@@ -3954,10 +3948,10 @@
     },
     "30d": {
       "Run": {
-        "sessions": 18,
-        "total_km": 205.9,
-        "total_time_min": 1259,
-        "total_elevation": 1928
+        "sessions": 17,
+        "total_km": 188.8,
+        "total_time_min": 1152,
+        "total_elevation": 1790
       },
       "Workout": {
         "sessions": 7,
@@ -7078,7 +7072,19 @@
       "session_count": 0
     }
   ],
-  "health": {},
+  "health": {
+    "today": {},
+    "daily": [],
+    "summary_7d": {
+      "resting_hr_avg": null,
+      "resting_hr_min": null,
+      "sleep_avg_h": null,
+      "spo2_avg": null,
+      "weight_latest_kg": null,
+      "vo2max_latest": null
+    },
+    "recovery_score": 100
+  },
   "hyrox_predictor": {
     "estimated_time_sec": 4916,
     "estimated_time": "1:21:56",
@@ -7093,7 +7099,7 @@
       "avg_pace_sec": 372,
       "avg_pace": "6:12/km",
       "race_pace": "5:42/km",
-      "avg_hr": 151,
+      "avg_hr": 152,
       "weekly_km": 44.7,
       "run_component_sec": 2738,
       "run_component": "45:38",
