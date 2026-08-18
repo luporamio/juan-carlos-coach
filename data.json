@@ -22,15 +22,15 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-08-17 18:58",
+  "last_sync": "2026-08-18 06:41",
   "stats": {
     "7d": {
-      "total_km": 42.8,
-      "run_sessions": 4,
-      "all_sessions": 13,
-      "avg_pace": 364,
-      "avg_hr": 129,
-      "total_elevation": 514,
+      "total_km": 36.7,
+      "run_sessions": 3,
+      "all_sessions": 12,
+      "avg_pace": 365,
+      "avg_hr": 128,
+      "total_elevation": 455,
       "best_pace": 343,
       "longest_run": 15.2,
       "days": 7
@@ -542,12 +542,6 @@
   ],
   "pace_trend": {
     "7d": [
-      {
-        "date": "2026-08-10",
-        "pace_sec": 360,
-        "hr": 149,
-        "km": 6.1
-      },
       {
         "date": "2026-08-11",
         "pace_sec": 375,
@@ -3856,8 +3850,8 @@
     "7d": {
       "z1": 0,
       "z2": 0,
-      "z3": 75,
-      "z4": 25,
+      "z3": 67,
+      "z4": 33,
       "z5": 0
     },
     "30d": {
@@ -3891,12 +3885,6 @@
   },
   "stats_by_type": {
     "7d": {
-      "Run": {
-        "sessions": 4,
-        "total_km": 42.8,
-        "total_time_min": 261,
-        "total_elevation": 389
-      },
       "Swim": {
         "sessions": 4,
         "total_km": 0.0,
@@ -3908,6 +3896,12 @@
         "total_km": 0.0,
         "total_time_min": 128,
         "total_elevation": 0
+      },
+      "Run": {
+        "sessions": 3,
+        "total_km": 36.7,
+        "total_time_min": 224,
+        "total_elevation": 330
       },
       "Walk": {
         "sessions": 1,
@@ -6931,8 +6925,8 @@
       "day": "Lun",
       "day_num": 17,
       "month": "Ago",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [
         {
           "date": "2026-08-17",
@@ -6985,7 +6979,7 @@
       "day": "Mar",
       "day_num": 18,
       "month": "Ago",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7047,19 +7041,7 @@
       "session_count": 0
     }
   ],
-  "health": {
-    "today": {},
-    "daily": [],
-    "summary_7d": {
-      "resting_hr_avg": null,
-      "resting_hr_min": null,
-      "sleep_avg_h": null,
-      "spo2_avg": null,
-      "weight_latest_kg": null,
-      "vo2max_latest": null
-    },
-    "recovery_score": 100
-  },
+  "health": {},
   "hyrox_predictor": {
     "estimated_time_sec": 4919,
     "estimated_time": "1:21:59",
@@ -7117,6 +7099,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-08-17"
+    "last_updated": "2026-08-18"
   }
 }
