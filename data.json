@@ -22,26 +22,26 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-08-24 06:57",
+  "last_sync": "2026-08-25 06:46",
   "stats": {
     "7d": {
-      "total_km": 37.8,
-      "run_sessions": 3,
-      "all_sessions": 6,
-      "avg_pace": 360,
-      "avg_hr": 148,
-      "total_elevation": 440,
-      "best_pace": 343,
+      "total_km": 27.3,
+      "run_sessions": 2,
+      "all_sessions": 3,
+      "avg_pace": 368,
+      "avg_hr": 144,
+      "total_elevation": 321,
+      "best_pace": 347,
       "longest_run": 15.3,
       "days": 7
     },
     "30d": {
       "total_km": 155.4,
       "run_sessions": 14,
-      "all_sessions": 33,
+      "all_sessions": 32,
       "avg_pace": 376,
-      "avg_hr": 135,
-      "total_elevation": 1834,
+      "avg_hr": 136,
+      "total_elevation": 1825,
       "best_pace": 343,
       "longest_run": 16.1,
       "days": 30
@@ -58,12 +58,12 @@
       "days": 90
     },
     "365d": {
-      "total_km": 1435.0,
-      "run_sessions": 172,
-      "all_sessions": 294,
+      "total_km": 1426.3,
+      "run_sessions": 171,
+      "all_sessions": 293,
       "avg_pace": 356,
-      "avg_hr": 142,
-      "total_elevation": 27072,
+      "avg_hr": 141,
+      "total_elevation": 27053,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -543,12 +543,6 @@
   "pace_trend": {
     "7d": [
       {
-        "date": "2026-08-17",
-        "pace_sec": 343,
-        "hr": 161,
-        "km": 10.5
-      },
-      {
         "date": "2026-08-18",
         "pace_sec": 390,
         "hr": 149,
@@ -920,12 +914,6 @@
       }
     ],
     "365d": [
-      {
-        "date": "2025-08-24",
-        "pace_sec": 346,
-        "hr": 158,
-        "km": 8.7
-      },
       {
         "date": "2025-08-25",
         "pace_sec": 355,
@@ -3874,8 +3862,8 @@
     "7d": {
       "z1": 0,
       "z2": 0,
-      "z3": 33,
-      "z4": 67,
+      "z3": 50,
+      "z4": 50,
       "z5": 0
     },
     "30d": {
@@ -3895,7 +3883,7 @@
     "365d": {
       "z1": 1,
       "z2": 13,
-      "z3": 66,
+      "z3": 65,
       "z4": 19,
       "z5": 1
     },
@@ -3910,16 +3898,10 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 3,
-        "total_km": 37.8,
-        "total_time_min": 229,
-        "total_elevation": 373
-      },
-      "Workout": {
         "sessions": 2,
-        "total_km": 0.0,
-        "total_time_min": 25,
-        "total_elevation": 0
+        "total_km": 27.3,
+        "total_time_min": 169,
+        "total_elevation": 254
       },
       "Walk": {
         "sessions": 1,
@@ -3953,17 +3935,17 @@
         "total_time_min": 106,
         "total_elevation": 211
       },
-      "StandUpPaddling": {
-        "sessions": 2,
-        "total_km": 3.7,
-        "total_time_min": 60,
-        "total_elevation": 90
-      },
       "Ride": {
         "sessions": 1,
         "total_km": 7.7,
         "total_time_min": 36,
         "total_elevation": 62
+      },
+      "StandUpPaddling": {
+        "sessions": 1,
+        "total_km": 3.1,
+        "total_time_min": 41,
+        "total_elevation": 81
       }
     },
     "90d": {
@@ -4012,10 +3994,10 @@
     },
     "365d": {
       "Run": {
-        "sessions": 172,
-        "total_km": 1435.0,
-        "total_time_min": 8510,
-        "total_elevation": 9209
+        "sessions": 171,
+        "total_km": 1426.3,
+        "total_time_min": 8460,
+        "total_elevation": 9190
       },
       "Workout": {
         "sessions": 66,
@@ -6943,8 +6925,8 @@
       "day": "Lun",
       "day_num": 24,
       "month": "Ago",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -6954,7 +6936,7 @@
       "day": "Mar",
       "day_num": 25,
       "month": "Ago",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7074,6 +7056,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-08-24"
+    "last_updated": "2026-08-25"
   }
 }
