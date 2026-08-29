@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-08-28 18:15",
+  "last_sync": "2026-08-29 12:24",
   "stats": {
     "7d": {
       "total_km": 30.1,
@@ -47,12 +47,12 @@
       "days": 30
     },
     "90d": {
-      "total_km": 494.6,
-      "run_sessions": 46,
-      "all_sessions": 86,
-      "avg_pace": 377,
+      "total_km": 486.0,
+      "run_sessions": 45,
+      "all_sessions": 85,
+      "avg_pace": 374,
       "avg_hr": 141,
-      "total_elevation": 6456,
+      "total_elevation": 6335,
       "best_pace": 326,
       "longest_run": 18.1,
       "days": 90
@@ -654,12 +654,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-05-31",
-        "pace_sec": 513,
-        "hr": 114,
-        "km": 8.5
-      },
       {
         "date": "2026-06-02",
         "pace_sec": 346,
@@ -3916,9 +3910,9 @@
       "z5": 0
     },
     "90d": {
-      "z1": 2,
-      "z2": 13,
-      "z3": 64,
+      "z1": 0,
+      "z2": 14,
+      "z3": 66,
       "z4": 20,
       "z5": 0
     },
@@ -3986,10 +3980,10 @@
     },
     "90d": {
       "Run": {
-        "sessions": 46,
-        "total_km": 494.6,
-        "total_time_min": 3072,
-        "total_elevation": 5008
+        "sessions": 45,
+        "total_km": 486.0,
+        "total_time_min": 2999,
+        "total_elevation": 4887
       },
       "Workout": {
         "sessions": 22,
@@ -7035,8 +7029,8 @@
       "day": "Ven",
       "day_num": 28,
       "month": "Ago",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [
         {
           "date": "2026-08-28",
@@ -7075,7 +7069,7 @@
       "day": "Sab",
       "day_num": 29,
       "month": "Ago",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7095,25 +7089,25 @@
   ],
   "health": {},
   "hyrox_predictor": {
-    "estimated_time_sec": 4944,
-    "estimated_time": "1:22:24",
+    "estimated_time_sec": 4978,
+    "estimated_time": "1:22:58",
     "target_time": "1:10:00",
     "target_time_sec": 4200,
-    "gap_sec": 744,
-    "gap_formatted": "12:24",
+    "gap_sec": 778,
+    "gap_formatted": "12:58",
     "gap_sign": "+",
-    "progress_to_target_pct": 17,
+    "progress_to_target_pct": 14,
     "inputs": {
       "vo2max": 45,
       "avg_pace_sec": 370,
       "avg_pace": "6:10/km",
       "race_pace": "5:40/km",
       "avg_hr": 156,
-      "weekly_km": 39.9,
+      "weekly_km": 36.1,
       "run_component_sec": 2723,
       "run_component": "45:23",
-      "station_component_sec": 1921,
-      "station_component": "32:01"
+      "station_component_sec": 1955,
+      "station_component": "32:35"
     },
     "levers": [
       {
@@ -7126,11 +7120,11 @@
       },
       {
         "name": "Volume settimanale",
-        "current": 39.9,
+        "current": 36.1,
         "target": 40,
         "unit": "km/sett",
         "impact": "ogni +5km = -45\" sulle stazioni",
-        "pct": 100
+        "pct": 87
       },
       {
         "name": "Passo medio",
@@ -7151,6 +7145,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-08-28"
+    "last_updated": "2026-08-29"
   }
 }
