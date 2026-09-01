@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-09-01 08:49",
+  "last_sync": "2026-09-01 11:12",
   "stats": {
     "7d": {
       "total_km": 37.4,
@@ -7081,19 +7081,7 @@
       "session_count": 0
     }
   ],
-  "health": {
-    "today": {},
-    "daily": [],
-    "summary_7d": {
-      "resting_hr_avg": null,
-      "resting_hr_min": null,
-      "sleep_avg_h": null,
-      "spo2_avg": null,
-      "weight_latest_kg": null,
-      "vo2max_latest": null
-    },
-    "recovery_score": 100
-  },
+  "health": {},
   "hyrox_predictor": {
     "estimated_time_sec": 4948,
     "estimated_time": "1:22:28",
