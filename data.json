@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 530
+    "total_activities": 531
   },
   "goals": [
     {
@@ -22,15 +22,15 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-09-08 10:42",
+  "last_sync": "2026-09-09 10:51",
   "stats": {
     "7d": {
-      "total_km": 35.6,
-      "run_sessions": 3,
-      "all_sessions": 5,
-      "avg_pace": 350,
-      "avg_hr": 136,
-      "total_elevation": 259,
+      "total_km": 23.5,
+      "run_sessions": 2,
+      "all_sessions": 3,
+      "avg_pace": 346,
+      "avg_hr": 139,
+      "total_elevation": 108,
       "best_pace": 330,
       "longest_run": 12.0,
       "days": 7
@@ -40,8 +40,8 @@
       "run_sessions": 13,
       "all_sessions": 29,
       "avg_pace": 364,
-      "avg_hr": 137,
-      "total_elevation": 1540,
+      "avg_hr": 136,
+      "total_elevation": 1459,
       "best_pace": 327,
       "longest_run": 15.3,
       "days": 30
@@ -49,9 +49,9 @@
     "90d": {
       "total_km": 492.2,
       "run_sessions": 45,
-      "all_sessions": 85,
+      "all_sessions": 84,
       "avg_pace": 372,
-      "avg_hr": 141,
+      "avg_hr": 140,
       "total_elevation": 6150,
       "best_pace": 326,
       "longest_run": 18.1,
@@ -60,7 +60,7 @@
     "365d": {
       "total_km": 1442.8,
       "run_sessions": 170,
-      "all_sessions": 295,
+      "all_sessions": 296,
       "avg_pace": 357,
       "avg_hr": 141,
       "total_elevation": 27534,
@@ -71,13 +71,13 @@
     "all": {
       "total_km": 2458.3,
       "run_sessions": 326,
-      "all_sessions": 530,
+      "all_sessions": 531,
       "avg_pace": 359,
       "avg_hr": 143,
       "total_elevation": 33236,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 530
+      "days": 531
     }
   },
   "weekly_volume": [
@@ -542,12 +542,6 @@
   ],
   "pace_trend": {
     "7d": [
-      {
-        "date": "2026-09-01",
-        "pace_sec": 358,
-        "hr": 153,
-        "km": 12.0
-      },
       {
         "date": "2026-09-03",
         "pace_sec": 330,
@@ -3934,22 +3928,16 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 3,
-        "total_km": 35.6,
-        "total_time_min": 207,
-        "total_elevation": 228
+        "sessions": 2,
+        "total_km": 23.5,
+        "total_time_min": 136,
+        "total_elevation": 108
       },
       "Workout": {
         "sessions": 1,
-        "total_km": 0.3,
-        "total_time_min": 7,
+        "total_km": 0.0,
+        "total_time_min": 20,
         "total_elevation": 0
-      },
-      "Walk": {
-        "sessions": 1,
-        "total_km": 2.8,
-        "total_time_min": 43,
-        "total_elevation": 31
       }
     },
     "30d": {
@@ -3960,9 +3948,9 @@
         "total_elevation": 1178
       },
       "Workout": {
-        "sessions": 7,
+        "sessions": 8,
         "total_km": 0.3,
-        "total_time_min": 176,
+        "total_time_min": 196,
         "total_elevation": 0
       },
       "Swim": {
@@ -3976,12 +3964,6 @@
         "total_km": 9.1,
         "total_time_min": 126,
         "total_elevation": 223
-      },
-      "StandUpPaddling": {
-        "sessions": 1,
-        "total_km": 3.1,
-        "total_time_min": 41,
-        "total_elevation": 81
       },
       "Hike": {
         "sessions": 1,
@@ -3998,9 +3980,9 @@
         "total_elevation": 4632
       },
       "Workout": {
-        "sessions": 21,
+        "sessions": 20,
         "total_km": 0.3,
-        "total_time_min": 556,
+        "total_time_min": 514,
         "total_elevation": 0
       },
       "Swim": {
@@ -4048,9 +4030,9 @@
         "total_elevation": 9587
       },
       "Workout": {
-        "sessions": 68,
+        "sessions": 69,
         "total_km": 0.3,
-        "total_time_min": 2245,
+        "total_time_min": 2265,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -4110,9 +4092,9 @@
         "total_elevation": 13141
       },
       "Workout": {
-        "sessions": 91,
+        "sessions": 92,
         "total_km": 0.3,
-        "total_time_min": 2881,
+        "total_time_min": 2901,
         "total_elevation": 0
       },
       "Walk": {
@@ -4166,6 +4148,20 @@
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-09-08",
+      "datetime": "2026-09-08T20:11",
+      "type": "Workout",
+      "name": "Allenamento serale",
+      "distance_km": 0.0,
+      "duration_sec": 1202,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": 105,
+      "hr_max": 131,
+      "elevation": 0,
+      "suffer_score": 3.0
+    },
     {
       "date": "2026-09-04",
       "datetime": "2026-09-04T18:53",
@@ -6951,20 +6947,6 @@
       "hr_max": 171,
       "elevation": 2,
       "suffer_score": 58.0
-    },
-    {
-      "date": "2026-02-11",
-      "datetime": "2026-02-11T17:33",
-      "type": "Run",
-      "name": "Esplorazione run",
-      "distance_km": 6.5,
-      "duration_sec": 2489,
-      "pace": "6:23/km",
-      "pace_sec": 383,
-      "hr_avg": 156,
-      "hr_max": 212,
-      "elevation": 19,
-      "suffer_score": 84.0
     }
   ],
   "current_week": [
@@ -6984,18 +6966,33 @@
       "day": "Mar",
       "day_num": 8,
       "month": "Set",
-      "is_today": true,
-      "is_past": false,
-      "activities": [],
+      "is_today": false,
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-09-08",
+          "datetime": "2026-09-08T20:11",
+          "type": "Workout",
+          "name": "Allenamento serale",
+          "distance_km": 0.0,
+          "duration_sec": 1202,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": 105,
+          "hr_max": 131,
+          "elevation": 0,
+          "suffer_score": 3.0
+        }
+      ],
       "total_km": 0,
-      "session_count": 0
+      "session_count": 1
     },
     {
       "date": "2026-09-09",
       "day": "Mer",
       "day_num": 9,
       "month": "Set",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7104,6 +7101,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-09-08"
+    "last_updated": "2026-09-09"
   }
 }
