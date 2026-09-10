@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 531
+    "total_activities": 532
   },
   "goals": [
     {
@@ -22,71 +22,65 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-09-09 10:51",
+  "last_sync": "2026-09-10 10:45",
   "stats": {
     "7d": {
-      "total_km": 23.5,
-      "run_sessions": 2,
-      "all_sessions": 3,
-      "avg_pace": 346,
-      "avg_hr": 139,
-      "total_elevation": 108,
+      "total_km": 29.5,
+      "run_sessions": 3,
+      "all_sessions": 4,
+      "avg_pace": 358,
+      "avg_hr": 140,
+      "total_elevation": 125,
       "best_pace": 330,
       "longest_run": 12.0,
       "days": 7
     },
     "30d": {
-      "total_km": 143.1,
-      "run_sessions": 13,
-      "all_sessions": 29,
-      "avg_pace": 364,
-      "avg_hr": 136,
-      "total_elevation": 1459,
+      "total_km": 127.8,
+      "run_sessions": 12,
+      "all_sessions": 28,
+      "avg_pace": 365,
+      "avg_hr": 135,
+      "total_elevation": 1285,
       "best_pace": 327,
       "longest_run": 15.3,
       "days": 30
     },
     "90d": {
-      "total_km": 492.2,
-      "run_sessions": 45,
-      "all_sessions": 84,
-      "avg_pace": 372,
+      "total_km": 498.2,
+      "run_sessions": 46,
+      "all_sessions": 85,
+      "avg_pace": 373,
       "avg_hr": 140,
-      "total_elevation": 6150,
+      "total_elevation": 6167,
       "best_pace": 326,
       "longest_run": 18.1,
       "days": 90
     },
     "365d": {
-      "total_km": 1442.8,
-      "run_sessions": 170,
+      "total_km": 1448.7,
+      "run_sessions": 171,
       "all_sessions": 296,
       "avg_pace": 357,
       "avg_hr": 141,
-      "total_elevation": 27534,
+      "total_elevation": 27551,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
     },
     "all": {
-      "total_km": 2458.3,
-      "run_sessions": 326,
-      "all_sessions": 531,
+      "total_km": 2464.2,
+      "run_sessions": 327,
+      "all_sessions": 532,
       "avg_pace": 359,
       "avg_hr": 143,
-      "total_elevation": 33236,
+      "total_elevation": 33253,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 531
+      "days": 532
     }
   },
   "weekly_volume": [
-    {
-      "week": "2025-W36",
-      "label": "1 Set",
-      "km": 34.5,
-      "sessions": 5
-    },
     {
       "week": "2025-W37",
       "label": "8 Set",
@@ -392,6 +386,12 @@
       "label": "31 Ago",
       "km": 42.8,
       "sessions": 4
+    },
+    {
+      "week": "2026-W37",
+      "label": "7 Set",
+      "km": 6.0,
+      "sessions": 1
     }
   ],
   "monthly_volume": [
@@ -536,8 +536,8 @@
     {
       "month": "2026-09",
       "label": "Set '26",
-      "km": 35.6,
-      "sessions": 3
+      "km": 41.5,
+      "sessions": 4
     }
   ],
   "pace_trend": {
@@ -553,21 +553,15 @@
         "pace_sec": 361,
         "hr": 153,
         "km": 12.0
+      },
+      {
+        "date": "2026-09-09",
+        "pace_sec": 384,
+        "hr": 140,
+        "km": 6.0
       }
     ],
     "30d": [
-      {
-        "date": "2026-08-10",
-        "pace_sec": 360,
-        "hr": 149,
-        "km": 6.1
-      },
-      {
-        "date": "2026-08-11",
-        "pace_sec": 375,
-        "hr": 151,
-        "km": 15.2
-      },
       {
         "date": "2026-08-12",
         "pace_sec": 378,
@@ -633,6 +627,12 @@
         "pace_sec": 361,
         "hr": 153,
         "km": 12.0
+      },
+      {
+        "date": "2026-09-09",
+        "pace_sec": 384,
+        "hr": 140,
+        "km": 6.0
       }
     ],
     "90d": [
@@ -905,6 +905,12 @@
         "pace_sec": 361,
         "hr": 153,
         "km": 12.0
+      },
+      {
+        "date": "2026-09-09",
+        "pace_sec": 384,
+        "hr": 140,
+        "km": 6.0
       }
     ],
     "365d": [
@@ -1927,6 +1933,12 @@
         "pace_sec": 361,
         "hr": 153,
         "km": 12.0
+      },
+      {
+        "date": "2026-09-09",
+        "pace_sec": 384,
+        "hr": 140,
+        "km": 6.0
       }
     ],
     "all": [
@@ -3885,42 +3897,48 @@
         "pace_sec": 361,
         "hr": 153,
         "km": 12.0
+      },
+      {
+        "date": "2026-09-09",
+        "pace_sec": 384,
+        "hr": 140,
+        "km": 6.0
       }
     ]
   },
   "hr_zones": {
     "7d": {
       "z1": 0,
-      "z2": 0,
-      "z3": 100,
+      "z2": 33,
+      "z3": 67,
       "z4": 0,
       "z5": 0
     },
     "30d": {
       "z1": 0,
-      "z2": 0,
-      "z3": 69,
-      "z4": 31,
+      "z2": 8,
+      "z3": 58,
+      "z4": 33,
       "z5": 0
     },
     "90d": {
       "z1": 0,
-      "z2": 14,
-      "z3": 64,
-      "z4": 23,
+      "z2": 16,
+      "z3": 62,
+      "z4": 22,
       "z5": 0
     },
     "365d": {
       "z1": 1,
       "z2": 13,
-      "z3": 65,
+      "z3": 64,
       "z4": 20,
       "z5": 1
     },
     "all": {
       "z1": 1,
-      "z2": 10,
-      "z3": 71,
+      "z2": 11,
+      "z3": 70,
       "z4": 17,
       "z5": 1
     }
@@ -3928,10 +3946,10 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 2,
-        "total_km": 23.5,
-        "total_time_min": 136,
-        "total_elevation": 108
+        "sessions": 3,
+        "total_km": 29.5,
+        "total_time_min": 174,
+        "total_elevation": 125
       },
       "Workout": {
         "sessions": 1,
@@ -3942,10 +3960,10 @@
     },
     "30d": {
       "Run": {
-        "sessions": 13,
-        "total_km": 143.1,
-        "total_time_min": 874,
-        "total_elevation": 1178
+        "sessions": 12,
+        "total_km": 127.8,
+        "total_time_min": 781,
+        "total_elevation": 1004
       },
       "Workout": {
         "sessions": 8,
@@ -3974,10 +3992,10 @@
     },
     "90d": {
       "Run": {
-        "sessions": 45,
-        "total_km": 492.2,
-        "total_time_min": 3029,
-        "total_elevation": 4632
+        "sessions": 46,
+        "total_km": 498.2,
+        "total_time_min": 3067,
+        "total_elevation": 4649
       },
       "Workout": {
         "sessions": 20,
@@ -4024,15 +4042,15 @@
     },
     "365d": {
       "Run": {
-        "sessions": 170,
-        "total_km": 1442.8,
-        "total_time_min": 8581,
-        "total_elevation": 9587
+        "sessions": 171,
+        "total_km": 1448.7,
+        "total_time_min": 8619,
+        "total_elevation": 9604
       },
       "Workout": {
-        "sessions": 69,
+        "sessions": 68,
         "total_km": 0.3,
-        "total_time_min": 2265,
+        "total_time_min": 2251,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -4086,10 +4104,10 @@
     },
     "all": {
       "Run": {
-        "sessions": 326,
-        "total_km": 2458.3,
-        "total_time_min": 14703,
-        "total_elevation": 13141
+        "sessions": 327,
+        "total_km": 2464.2,
+        "total_time_min": 14741,
+        "total_elevation": 13158
       },
       "Workout": {
         "sessions": 92,
@@ -4148,6 +4166,20 @@
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-09-09",
+      "datetime": "2026-09-09T19:25",
+      "type": "Run",
+      "name": "Corsa serale",
+      "distance_km": 5.97,
+      "duration_sec": 2290,
+      "pace": "6:24/km",
+      "pace_sec": 384,
+      "hr_avg": 140,
+      "hr_max": 150,
+      "elevation": 17,
+      "suffer_score": 40.0
+    },
     {
       "date": "2026-09-08",
       "datetime": "2026-09-08T20:11",
@@ -6933,20 +6965,6 @@
       "hr_max": 151,
       "elevation": 2,
       "suffer_score": 0.0
-    },
-    {
-      "date": "2026-02-12",
-      "datetime": "2026-02-12T18:19",
-      "type": "Run",
-      "name": "Evening Run",
-      "distance_km": 4.05,
-      "duration_sec": 1479,
-      "pace": "6:05/km",
-      "pace_sec": 365,
-      "hr_avg": 159,
-      "hr_max": 171,
-      "elevation": 2,
-      "suffer_score": 58.0
     }
   ],
   "current_week": [
@@ -6992,18 +7010,33 @@
       "day": "Mer",
       "day_num": 9,
       "month": "Set",
-      "is_today": true,
-      "is_past": false,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
+      "is_today": false,
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-09-09",
+          "datetime": "2026-09-09T19:25",
+          "type": "Run",
+          "name": "Corsa serale",
+          "distance_km": 5.97,
+          "duration_sec": 2290,
+          "pace": "6:24/km",
+          "pace_sec": 384,
+          "hr_avg": 140,
+          "hr_max": 150,
+          "elevation": 17,
+          "suffer_score": 40.0
+        }
+      ],
+      "total_km": 6.0,
+      "session_count": 1
     },
     {
       "date": "2026-09-10",
       "day": "Gio",
       "day_num": 10,
       "month": "Set",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7045,25 +7078,25 @@
   ],
   "health": {},
   "hyrox_predictor": {
-    "estimated_time_sec": 4985,
-    "estimated_time": "1:23:05",
+    "estimated_time_sec": 5004,
+    "estimated_time": "1:23:24",
     "target_time": "1:10:00",
     "target_time_sec": 4200,
-    "gap_sec": 785,
-    "gap_formatted": "13:05",
+    "gap_sec": 804,
+    "gap_formatted": "13:24",
     "gap_sign": "+",
-    "progress_to_target_pct": 13,
+    "progress_to_target_pct": 11,
     "inputs": {
       "vo2max": 45,
-      "avg_pace_sec": 364,
-      "avg_pace": "6:04/km",
-      "race_pace": "5:34/km",
+      "avg_pace_sec": 365,
+      "avg_pace": "6:05/km",
+      "race_pace": "5:35/km",
       "avg_hr": 156,
-      "weekly_km": 30.5,
-      "run_component_sec": 2679,
-      "run_component": "44:39",
-      "station_component_sec": 2006,
-      "station_component": "33:26"
+      "weekly_km": 29.2,
+      "run_component_sec": 2686,
+      "run_component": "44:46",
+      "station_component_sec": 2017,
+      "station_component": "33:37"
     },
     "levers": [
       {
@@ -7076,31 +7109,31 @@
       },
       {
         "name": "Volume settimanale",
-        "current": 30.5,
+        "current": 29.2,
         "target": 40,
         "unit": "km/sett",
         "impact": "ogni +5km = -45\" sulle stazioni",
-        "pct": 68
+        "pct": 64
       },
       {
         "name": "Passo medio",
-        "current": "6:04/km",
+        "current": "6:05/km",
         "target": "5:10/km",
         "unit": "min/km",
         "impact": "-10\" passo = -1:20 sul running totale",
-        "pct": 51
+        "pct": 50
       }
     ],
     "november_projection": {
-      "estimated_time_sec": 4379,
-      "estimated_time": "1:12:59",
+      "estimated_time_sec": 4386,
+      "estimated_time": "1:13:06",
       "vo2max": 49.0,
       "weekly_km": 40.0,
-      "gap_to_target_sec": 179,
-      "gap_to_target": "2:59",
+      "gap_to_target_sec": 186,
+      "gap_to_target": "3:06",
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-09-09"
+    "last_updated": "2026-09-10"
   }
 }
