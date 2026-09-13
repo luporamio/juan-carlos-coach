@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-09-12 10:12",
+  "last_sync": "2026-09-13 11:11",
   "stats": {
     "7d": {
       "total_km": 6.0,
@@ -38,9 +38,9 @@
     "30d": {
       "total_km": 116.8,
       "run_sessions": 11,
-      "all_sessions": 24,
+      "all_sessions": 23,
       "avg_pace": 364,
-      "avg_hr": 138,
+      "avg_hr": 139,
       "total_elevation": 1081,
       "best_pace": 327,
       "longest_run": 15.3,
@@ -3935,17 +3935,17 @@
         "total_time_min": 196,
         "total_elevation": 0
       },
-      "Swim": {
-        "sessions": 2,
-        "total_km": 0.0,
-        "total_time_min": 26,
-        "total_elevation": 0
-      },
       "Walk": {
         "sessions": 2,
         "total_km": 6.5,
         "total_time_min": 83,
         "total_elevation": 98
+      },
+      "Swim": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 10,
+        "total_elevation": 0
       },
       "Hike": {
         "sessions": 1,
@@ -7022,8 +7022,8 @@
       "day": "Sab",
       "day_num": 12,
       "month": "Set",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -7033,7 +7033,7 @@
       "day": "Dom",
       "day_num": 13,
       "month": "Set",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7098,6 +7098,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-09-12"
+    "last_updated": "2026-09-13"
   }
 }
