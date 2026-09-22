@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-09-21 12:09",
+  "last_sync": "2026-09-22 11:03",
   "stats": {
     "7d": {
       "total_km": 18.0,
@@ -47,12 +47,12 @@
       "days": 30
     },
     "90d": {
-      "total_km": 449.1,
-      "run_sessions": 41,
-      "all_sessions": 75,
-      "avg_pace": 368,
+      "total_km": 439.5,
+      "run_sessions": 40,
+      "all_sessions": 74,
+      "avg_pace": 369,
       "avg_hr": 140,
-      "total_elevation": 5718,
+      "total_elevation": 5678,
       "best_pace": 324,
       "longest_run": 18.1,
       "days": 90
@@ -618,12 +618,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-06-23",
-        "pace_sec": 342,
-        "hr": 150,
-        "km": 9.5
-      },
       {
         "date": "2026-06-24",
         "pace_sec": 350,
@@ -3875,9 +3869,9 @@
     },
     "90d": {
       "z1": 0,
-      "z2": 12,
+      "z2": 13,
       "z3": 62,
-      "z4": 25,
+      "z4": 26,
       "z5": 0
     },
     "365d": {
@@ -3932,10 +3926,10 @@
     },
     "90d": {
       "Run": {
-        "sessions": 41,
-        "total_km": 449.1,
-        "total_time_min": 2752,
-        "total_elevation": 4208
+        "sessions": 40,
+        "total_km": 439.5,
+        "total_time_min": 2697,
+        "total_elevation": 4168
       },
       "Workout": {
         "sessions": 17,
@@ -6913,8 +6907,8 @@
       "day": "Lun",
       "day_num": 21,
       "month": "Set",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -6924,7 +6918,7 @@
       "day": "Mar",
       "day_num": 22,
       "month": "Set",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7044,6 +7038,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-09-21"
+    "last_updated": "2026-09-22"
   }
 }
