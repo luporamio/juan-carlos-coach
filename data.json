@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-09-27 11:31",
+  "last_sync": "2026-09-28 13:04",
   "stats": {
     "7d": {
       "total_km": 29.7,
@@ -38,10 +38,10 @@
     "30d": {
       "total_km": 96.5,
       "run_sessions": 11,
-      "all_sessions": 17,
+      "all_sessions": 16,
       "avg_pace": 353,
-      "avg_hr": 144,
-      "total_elevation": 749,
+      "avg_hr": 146,
+      "total_elevation": 691,
       "best_pace": 324,
       "longest_run": 12.0,
       "days": 30
@@ -49,7 +49,7 @@
     "90d": {
       "total_km": 437.9,
       "run_sessions": 41,
-      "all_sessions": 75,
+      "all_sessions": 73,
       "avg_pace": 368,
       "avg_hr": 140,
       "total_elevation": 5707,
@@ -58,12 +58,12 @@
       "days": 90
     },
     "365d": {
-      "total_km": 1452.8,
-      "run_sessions": 171,
-      "all_sessions": 291,
+      "total_km": 1445.8,
+      "run_sessions": 170,
+      "all_sessions": 289,
       "avg_pace": 358,
       "avg_hr": 142,
-      "total_elevation": 27846,
+      "total_elevation": 27828,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -884,12 +884,6 @@
       }
     ],
     "365d": [
-      {
-        "date": "2025-09-27",
-        "pace_sec": 330,
-        "hr": 156,
-        "km": 7.0
-      },
       {
         "date": "2025-09-30",
         "pace_sec": 315,
@@ -3938,7 +3932,7 @@
       "z1": 1,
       "z2": 13,
       "z3": 63,
-      "z4": 21,
+      "z4": 22,
       "z5": 1
     },
     "all": {
@@ -3977,12 +3971,6 @@
         "total_time_min": 97,
         "total_elevation": 0
       },
-      "Hike": {
-        "sessions": 1,
-        "total_km": 0.6,
-        "total_time_min": 19,
-        "total_elevation": 58
-      },
       "Walk": {
         "sessions": 1,
         "total_km": 2.8,
@@ -4003,17 +3991,17 @@
         "total_time_min": 511,
         "total_elevation": 0
       },
-      "Swim": {
-        "sessions": 6,
-        "total_km": 1.1,
-        "total_time_min": 130,
-        "total_elevation": 0
-      },
       "Walk": {
         "sessions": 4,
         "total_km": 10.5,
         "total_time_min": 149,
         "total_elevation": 242
+      },
+      "Swim": {
+        "sessions": 4,
+        "total_km": 0.0,
+        "total_time_min": 56,
+        "total_elevation": 0
       },
       "StandUpPaddling": {
         "sessions": 3,
@@ -4036,15 +4024,15 @@
     },
     "365d": {
       "Run": {
-        "sessions": 171,
-        "total_km": 1452.8,
-        "total_time_min": 8658,
-        "total_elevation": 9901
+        "sessions": 170,
+        "total_km": 1445.8,
+        "total_time_min": 8620,
+        "total_elevation": 9883
       },
       "Workout": {
-        "sessions": 63,
+        "sessions": 62,
         "total_km": 0.3,
-        "total_time_min": 1851,
+        "total_time_min": 1840,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -6963,151 +6951,77 @@
   ],
   "current_week": [
     {
-      "date": "2026-09-21",
+      "date": "2026-09-28",
       "day": "Lun",
-      "day_num": 21,
-      "month": "Set",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-09-22",
-      "day": "Mar",
-      "day_num": 22,
-      "month": "Set",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-09-22",
-          "datetime": "2026-09-22T12:49",
-          "type": "Run",
-          "name": "Corsa dell'ora di pranzo",
-          "distance_km": 10.86,
-          "duration_sec": 3800,
-          "pace": "5:50/km",
-          "pace_sec": 350,
-          "hr_avg": 159,
-          "hr_max": 185,
-          "elevation": 128,
-          "suffer_score": 156.0
-        }
-      ],
-      "total_km": 10.9,
-      "session_count": 1
-    },
-    {
-      "date": "2026-09-23",
-      "day": "Mer",
-      "day_num": 23,
-      "month": "Set",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-09-23",
-          "datetime": "2026-09-23T20:09",
-          "type": "Workout",
-          "name": "Allenamento serale",
-          "distance_km": 0.0,
-          "duration_sec": 2015,
-          "pace": null,
-          "pace_sec": null,
-          "hr_avg": 138,
-          "hr_max": 168,
-          "elevation": 0,
-          "suffer_score": 32.0
-        }
-      ],
-      "total_km": 0,
-      "session_count": 1
-    },
-    {
-      "date": "2026-09-24",
-      "day": "Gio",
-      "day_num": 24,
-      "month": "Set",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-09-24",
-          "datetime": "2026-09-24T13:23",
-          "type": "Run",
-          "name": "Pt. 1/2",
-          "distance_km": 4.44,
-          "duration_sec": 1611,
-          "pace": "6:03/km",
-          "pace_sec": 363,
-          "hr_avg": 155,
-          "hr_max": 168,
-          "elevation": 18,
-          "suffer_score": 54.0
-        },
-        {
-          "date": "2026-09-24",
-          "datetime": "2026-09-24T13:50",
-          "type": "Run",
-          "name": "Pt 2/2",
-          "distance_km": 6.37,
-          "duration_sec": 2381,
-          "pace": "6:14/km",
-          "pace_sec": 374,
-          "hr_avg": 159,
-          "hr_max": 166,
-          "elevation": 90,
-          "suffer_score": 93.0
-        }
-      ],
-      "total_km": 10.8,
-      "session_count": 2
-    },
-    {
-      "date": "2026-09-25",
-      "day": "Ven",
-      "day_num": 25,
-      "month": "Set",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-09-25",
-          "datetime": "2026-09-25T13:50",
-          "type": "Run",
-          "name": "Corsa pomeridiana",
-          "distance_km": 8.0,
-          "duration_sec": 2715,
-          "pace": "5:39/km",
-          "pace_sec": 339,
-          "hr_avg": 161,
-          "hr_max": 179,
-          "elevation": 77,
-          "suffer_score": 122.0
-        }
-      ],
-      "total_km": 8.0,
-      "session_count": 1
-    },
-    {
-      "date": "2026-09-26",
-      "day": "Sab",
-      "day_num": 26,
-      "month": "Set",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-09-27",
-      "day": "Dom",
-      "day_num": 27,
+      "day_num": 28,
       "month": "Set",
       "is_today": true,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-09-29",
+      "day": "Mar",
+      "day_num": 29,
+      "month": "Set",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-09-30",
+      "day": "Mer",
+      "day_num": 30,
+      "month": "Set",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-01",
+      "day": "Gio",
+      "day_num": 1,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-02",
+      "day": "Ven",
+      "day_num": 2,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-03",
+      "day": "Sab",
+      "day_num": 3,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-04",
+      "day": "Dom",
+      "day_num": 4,
+      "month": "Ott",
+      "is_today": false,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7172,6 +7086,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-09-27"
+    "last_updated": "2026-09-28"
   }
 }
