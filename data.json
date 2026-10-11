@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-10-10 12:00",
+  "last_sync": "2026-10-11 12:12",
   "stats": {
     "7d": {
       "total_km": 35.7,
@@ -49,7 +49,7 @@
     "90d": {
       "total_km": 420.1,
       "run_sessions": 41,
-      "all_sessions": 72,
+      "all_sessions": 71,
       "avg_pace": 364,
       "avg_hr": 141,
       "total_elevation": 4005,
@@ -58,12 +58,12 @@
       "days": 90
     },
     "365d": {
-      "total_km": 1494.6,
-      "run_sessions": 175,
-      "all_sessions": 293,
+      "total_km": 1487.6,
+      "run_sessions": 174,
+      "all_sessions": 292,
       "avg_pace": 358,
       "avg_hr": 142,
-      "total_elevation": 28186,
+      "total_elevation": 28174,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -890,12 +890,6 @@
       }
     ],
     "365d": [
-      {
-        "date": "2025-10-10",
-        "pace_sec": 335,
-        "hr": 151,
-        "km": 7.0
-      },
       {
         "date": "2025-10-11",
         "pace_sec": 324,
@@ -4070,9 +4064,9 @@
         "total_elevation": 0
       },
       "StandUpPaddling": {
-        "sessions": 3,
-        "total_km": 4.9,
-        "total_time_min": 83,
+        "sessions": 2,
+        "total_km": 3.7,
+        "total_time_min": 60,
         "total_elevation": 90
       },
       "Ride": {
@@ -4090,10 +4084,10 @@
     },
     "365d": {
       "Run": {
-        "sessions": 175,
-        "total_km": 1494.6,
-        "total_time_min": 8911,
-        "total_elevation": 10242
+        "sessions": 174,
+        "total_km": 1487.6,
+        "total_time_min": 8872,
+        "total_elevation": 10231
       },
       "Workout": {
         "sessions": 63,
@@ -7150,8 +7144,8 @@
       "day": "Sab",
       "day_num": 10,
       "month": "Ott",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -7161,7 +7155,7 @@
       "day": "Dom",
       "day_num": 11,
       "month": "Ott",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7226,6 +7220,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-10-10"
+    "last_updated": "2026-10-11"
   }
 }
