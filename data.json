@@ -22,17 +22,17 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-10-16 10:49",
+  "last_sync": "2026-10-17 10:14",
   "stats": {
     "7d": {
-      "total_km": 23.1,
-      "run_sessions": 3,
-      "all_sessions": 4,
-      "avg_pace": 340,
-      "avg_hr": 154,
-      "total_elevation": 117,
+      "total_km": 11.1,
+      "run_sessions": 2,
+      "all_sessions": 3,
+      "avg_pace": 336,
+      "avg_hr": 152,
+      "total_elevation": 52,
       "best_pace": 335,
-      "longest_run": 12.0,
+      "longest_run": 6.0,
       "days": 7
     },
     "30d": {
@@ -542,12 +542,6 @@
   ],
   "pace_trend": {
     "7d": [
-      {
-        "date": "2026-10-09",
-        "pace_sec": 347,
-        "hr": 162,
-        "km": 12.0
-      },
       {
         "date": "2026-10-11",
         "pace_sec": 335,
@@ -3970,8 +3964,8 @@
     "7d": {
       "z1": 0,
       "z2": 0,
-      "z3": 33,
-      "z4": 67,
+      "z3": 50,
+      "z4": 50,
       "z5": 0
     },
     "30d": {
@@ -4006,10 +4000,10 @@
   "stats_by_type": {
     "7d": {
       "Run": {
-        "sessions": 3,
-        "total_km": 23.1,
-        "total_time_min": 132,
-        "total_elevation": 117
+        "sessions": 2,
+        "total_km": 11.1,
+        "total_time_min": 62,
+        "total_elevation": 52
       },
       "Workout": {
         "sessions": 1,
@@ -7083,8 +7077,8 @@
       "day": "Ven",
       "day_num": 16,
       "month": "Ott",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -7094,7 +7088,7 @@
       "day": "Sab",
       "day_num": 17,
       "month": "Ott",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7170,6 +7164,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-10-16"
+    "last_updated": "2026-10-17"
   }
 }
