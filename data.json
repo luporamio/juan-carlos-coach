@@ -22,16 +22,16 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-10-18 10:29",
+  "last_sync": "2026-10-19 12:18",
   "stats": {
     "7d": {
-      "total_km": 11.1,
-      "run_sessions": 2,
-      "all_sessions": 3,
-      "avg_pace": 336,
-      "avg_hr": 152,
-      "total_elevation": 52,
-      "best_pace": 335,
+      "total_km": 6.0,
+      "run_sessions": 1,
+      "all_sessions": 2,
+      "avg_pace": 338,
+      "avg_hr": 148,
+      "total_elevation": 35,
+      "best_pace": 338,
       "longest_run": 6.0,
       "days": 7
     },
@@ -542,12 +542,6 @@
   ],
   "pace_trend": {
     "7d": [
-      {
-        "date": "2026-10-11",
-        "pace_sec": 335,
-        "hr": 160,
-        "km": 5.1
-      },
       {
         "date": "2026-10-13",
         "pace_sec": 338,
@@ -3958,8 +3952,8 @@
     "7d": {
       "z1": 0,
       "z2": 0,
-      "z3": 50,
-      "z4": 50,
+      "z3": 100,
+      "z4": 0,
       "z5": 0
     },
     "30d": {
@@ -3993,17 +3987,17 @@
   },
   "stats_by_type": {
     "7d": {
-      "Run": {
-        "sessions": 2,
-        "total_km": 11.1,
-        "total_time_min": 62,
-        "total_elevation": 52
-      },
       "Workout": {
         "sessions": 1,
         "total_km": 0.0,
         "total_time_min": 32,
         "total_elevation": 0
+      },
+      "Run": {
+        "sessions": 1,
+        "total_km": 6.0,
+        "total_time_min": 34,
+        "total_elevation": 35
       }
     },
     "30d": {
@@ -6993,107 +6987,77 @@
   ],
   "current_week": [
     {
-      "date": "2026-10-12",
+      "date": "2026-10-19",
       "day": "Lun",
-      "day_num": 12,
-      "month": "Ott",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-10-12",
-          "datetime": "2026-10-12T20:15",
-          "type": "Workout",
-          "name": "Allenamento serale",
-          "distance_km": 0.0,
-          "duration_sec": 1921,
-          "pace": null,
-          "pace_sec": null,
-          "hr_avg": 139,
-          "hr_max": 169,
-          "elevation": 0,
-          "suffer_score": 34.0
-        }
-      ],
-      "total_km": 0,
-      "session_count": 1
-    },
-    {
-      "date": "2026-10-13",
-      "day": "Mar",
-      "day_num": 13,
-      "month": "Ott",
-      "is_today": false,
-      "is_past": true,
-      "activities": [
-        {
-          "date": "2026-10-13",
-          "datetime": "2026-10-13T12:53",
-          "type": "Run",
-          "name": "Corsa dell'ora di pranzo",
-          "distance_km": 6.02,
-          "duration_sec": 2037,
-          "pace": "5:38/km",
-          "pace_sec": 338,
-          "hr_avg": 156,
-          "hr_max": 179,
-          "elevation": 35,
-          "suffer_score": 76.0
-        }
-      ],
-      "total_km": 6.0,
-      "session_count": 1
-    },
-    {
-      "date": "2026-10-14",
-      "day": "Mer",
-      "day_num": 14,
-      "month": "Ott",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-10-15",
-      "day": "Gio",
-      "day_num": 15,
-      "month": "Ott",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-10-16",
-      "day": "Ven",
-      "day_num": 16,
-      "month": "Ott",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-10-17",
-      "day": "Sab",
-      "day_num": 17,
-      "month": "Ott",
-      "is_today": false,
-      "is_past": true,
-      "activities": [],
-      "total_km": 0,
-      "session_count": 0
-    },
-    {
-      "date": "2026-10-18",
-      "day": "Dom",
-      "day_num": 18,
+      "day_num": 19,
       "month": "Ott",
       "is_today": true,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-20",
+      "day": "Mar",
+      "day_num": 20,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-21",
+      "day": "Mer",
+      "day_num": 21,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-22",
+      "day": "Gio",
+      "day_num": 22,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-23",
+      "day": "Ven",
+      "day_num": 23,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-24",
+      "day": "Sab",
+      "day_num": 24,
+      "month": "Ott",
+      "is_today": false,
+      "is_past": false,
+      "activities": [],
+      "total_km": 0,
+      "session_count": 0
+    },
+    {
+      "date": "2026-10-25",
+      "day": "Dom",
+      "day_num": 25,
+      "month": "Ott",
+      "is_today": false,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7158,6 +7122,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-10-18"
+    "last_updated": "2026-10-19"
   }
 }
