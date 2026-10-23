@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-10-23 11:06",
+  "last_sync": "2026-10-23 15:00",
   "stats": {
     "7d": {
       "total_km": 9.0,
@@ -7067,27 +7067,39 @@
       "session_count": 0
     }
   ],
-  "health": {},
+  "health": {
+    "today": {},
+    "daily": [],
+    "summary_7d": {
+      "resting_hr_avg": null,
+      "resting_hr_min": null,
+      "sleep_avg_h": null,
+      "spo2_avg": null,
+      "weight_latest_kg": null,
+      "vo2max_latest": null
+    },
+    "recovery_score": 100
+  },
   "hyrox_predictor": {
-    "estimated_time_sec": 4996,
-    "estimated_time": "1:23:16",
+    "estimated_time_sec": 5005,
+    "estimated_time": "1:23:25",
     "target_time": "1:10:00",
     "target_time_sec": 4200,
-    "gap_sec": 796,
-    "gap_formatted": "13:16",
+    "gap_sec": 805,
+    "gap_formatted": "13:25",
     "gap_sign": "+",
-    "progress_to_target_pct": 12,
+    "progress_to_target_pct": 11,
     "inputs": {
       "vo2max": 45,
       "avg_pace_sec": 354,
       "avg_pace": "5:54/km",
       "race_pace": "5:25/km",
       "avg_hr": 158,
-      "weekly_km": 21.0,
+      "weekly_km": 19.0,
       "run_component_sec": 2605,
       "run_component": "43:25",
-      "station_component_sec": 2091,
-      "station_component": "34:51"
+      "station_component_sec": 2100,
+      "station_component": "35:00"
     },
     "levers": [
       {
@@ -7100,11 +7112,11 @@
       },
       {
         "name": "Volume settimanale",
-        "current": 21.0,
+        "current": 19.0,
         "target": 40,
         "unit": "km/sett",
         "impact": "ogni +5km = -45\" sulle stazioni",
-        "pct": 37
+        "pct": 30
       },
       {
         "name": "Passo medio",
