@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-10-25 10:51",
+  "last_sync": "2026-10-25 15:00",
   "stats": {
     "7d": {
       "total_km": 9.0,
@@ -36,12 +36,12 @@
       "days": 7
     },
     "30d": {
-      "total_km": 84.0,
-      "run_sessions": 10,
-      "all_sessions": 13,
-      "avg_pace": 351,
-      "avg_hr": 152,
-      "total_elevation": 631,
+      "total_km": 76.0,
+      "run_sessions": 9,
+      "all_sessions": 12,
+      "avg_pace": 352,
+      "avg_hr": 151,
+      "total_elevation": 554,
       "best_pace": 334,
       "longest_run": 12.0,
       "days": 30
@@ -58,12 +58,12 @@
       "days": 90
     },
     "365d": {
-      "total_km": 1468.6,
-      "run_sessions": 172,
-      "all_sessions": 288,
+      "total_km": 1460.5,
+      "run_sessions": 170,
+      "all_sessions": 285,
       "avg_pace": 359,
       "avg_hr": 143,
-      "total_elevation": 28286,
+      "total_elevation": 28275,
       "best_pace": 308,
       "longest_run": 21.1,
       "days": 365
@@ -551,12 +551,6 @@
     ],
     "30d": [
       {
-        "date": "2026-09-25",
-        "pace_sec": 339,
-        "hr": 161,
-        "km": 8.0
-      },
-      {
         "date": "2026-09-29",
         "pace_sec": 374,
         "hr": 158,
@@ -830,18 +824,6 @@
       }
     ],
     "365d": [
-      {
-        "date": "2025-10-25",
-        "pace_sec": 310,
-        "hr": 130,
-        "km": 4.0
-      },
-      {
-        "date": "2025-10-25",
-        "pace_sec": 339,
-        "hr": 148,
-        "km": 4.0
-      },
       {
         "date": "2025-10-31",
         "pace_sec": 327,
@@ -3929,8 +3911,8 @@
     "30d": {
       "z1": 0,
       "z2": 0,
-      "z3": 60,
-      "z4": 40,
+      "z3": 67,
+      "z4": 33,
       "z5": 0
     },
     "90d": {
@@ -3944,7 +3926,7 @@
       "z1": 1,
       "z2": 12,
       "z3": 63,
-      "z4": 22,
+      "z4": 23,
       "z5": 1
     },
     "all": {
@@ -3966,10 +3948,10 @@
     },
     "30d": {
       "Run": {
-        "sessions": 10,
-        "total_km": 84.0,
-        "total_time_min": 493,
-        "total_elevation": 631
+        "sessions": 9,
+        "total_km": 76.0,
+        "total_time_min": 448,
+        "total_elevation": 554
       },
       "Workout": {
         "sessions": 3,
@@ -4024,10 +4006,10 @@
     },
     "365d": {
       "Run": {
-        "sessions": 172,
-        "total_km": 1468.6,
-        "total_time_min": 8775,
-        "total_elevation": 10347
+        "sessions": 170,
+        "total_km": 1460.5,
+        "total_time_min": 8732,
+        "total_elevation": 10338
       },
       "Workout": {
         "sessions": 62,
@@ -4036,9 +4018,9 @@
         "total_elevation": 0
       },
       "WeightTraining": {
-        "sessions": 15,
+        "sessions": 14,
         "total_km": 0.0,
-        "total_time_min": 933,
+        "total_time_min": 880,
         "total_elevation": 0
       },
       "Walk": {
@@ -7043,25 +7025,37 @@
       "session_count": 0
     }
   ],
-  "health": {},
+  "health": {
+    "today": {},
+    "daily": [],
+    "summary_7d": {
+      "resting_hr_avg": null,
+      "resting_hr_min": null,
+      "sleep_avg_h": null,
+      "spo2_avg": null,
+      "weight_latest_kg": null,
+      "vo2max_latest": null
+    },
+    "recovery_score": 100
+  },
   "hyrox_predictor": {
-    "estimated_time_sec": 4983,
-    "estimated_time": "1:23:03",
+    "estimated_time_sec": 4991,
+    "estimated_time": "1:23:11",
     "target_time": "1:10:00",
     "target_time_sec": 4200,
-    "gap_sec": 783,
-    "gap_formatted": "13:03",
+    "gap_sec": 791,
+    "gap_formatted": "13:11",
     "gap_sign": "+",
-    "progress_to_target_pct": 13,
+    "progress_to_target_pct": 12,
     "inputs": {
       "vo2max": 45,
-      "avg_pace_sec": 351,
-      "avg_pace": "5:51/km",
-      "race_pace": "5:22/km",
-      "avg_hr": 158,
+      "avg_pace_sec": 352,
+      "avg_pace": "5:52/km",
+      "race_pace": "5:23/km",
+      "avg_hr": 157,
       "weekly_km": 19.0,
-      "run_component_sec": 2583,
-      "run_component": "43:03",
+      "run_component_sec": 2591,
+      "run_component": "43:11",
       "station_component_sec": 2100,
       "station_component": "35:00"
     },
@@ -7084,11 +7078,11 @@
       },
       {
         "name": "Passo medio",
-        "current": "5:51/km",
+        "current": "5:52/km",
         "target": "5:10/km",
         "unit": "min/km",
         "impact": "-10\" passo = -1:20 sul running totale",
-        "pct": 63
+        "pct": 62
       }
     ],
     "november_projection": {
