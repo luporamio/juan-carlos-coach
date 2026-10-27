@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 552
+    "total_activities": 553
   },
   "goals": [
     {
@@ -22,12 +22,12 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-10-26 15:14",
+  "last_sync": "2026-10-27 11:41",
   "stats": {
     "7d": {
       "total_km": 21.1,
       "run_sessions": 2,
-      "all_sessions": 2,
+      "all_sessions": 3,
       "avg_pace": 372,
       "avg_hr": 154,
       "total_elevation": 145,
@@ -38,7 +38,7 @@
     "30d": {
       "total_km": 88.1,
       "run_sessions": 10,
-      "all_sessions": 13,
+      "all_sessions": 14,
       "avg_pace": 353,
       "avg_hr": 151,
       "total_elevation": 572,
@@ -49,7 +49,7 @@
     "90d": {
       "total_km": 366.1,
       "run_sessions": 37,
-      "all_sessions": 62,
+      "all_sessions": 63,
       "avg_pace": 360,
       "avg_hr": 143,
       "total_elevation": 3294,
@@ -60,7 +60,7 @@
     "365d": {
       "total_km": 1472.6,
       "run_sessions": 171,
-      "all_sessions": 286,
+      "all_sessions": 287,
       "avg_pace": 359,
       "avg_hr": 143,
       "total_elevation": 28294,
@@ -71,13 +71,13 @@
     "all": {
       "total_km": 2600.0,
       "run_sessions": 343,
-      "all_sessions": 552,
+      "all_sessions": 553,
       "avg_pace": 358,
       "avg_hr": 143,
       "total_elevation": 34209,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 552
+      "days": 553
     }
   },
   "weekly_volume": [
@@ -3974,6 +3974,12 @@
         "total_km": 21.1,
         "total_time_min": 130,
         "total_elevation": 145
+      },
+      "Yoga": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 25,
+        "total_elevation": 0
       }
     },
     "30d": {
@@ -3987,6 +3993,12 @@
         "sessions": 3,
         "total_km": 0.0,
         "total_time_min": 70,
+        "total_elevation": 0
+      },
+      "Yoga": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 25,
         "total_elevation": 0
       }
     },
@@ -4026,6 +4038,12 @@
         "total_km": 0.6,
         "total_time_min": 19,
         "total_elevation": 58
+      },
+      "Yoga": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 25,
+        "total_elevation": 0
       }
     },
     "365d": {
@@ -4088,6 +4106,12 @@
         "total_km": 4.9,
         "total_time_min": 83,
         "total_elevation": 90
+      },
+      "Yoga": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 25,
+        "total_elevation": 0
       }
     },
     "all": {
@@ -4150,10 +4174,30 @@
         "total_km": 169.3,
         "total_time_min": 620,
         "total_elevation": 14765
+      },
+      "Yoga": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 25,
+        "total_elevation": 0
       }
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-10-26",
+      "datetime": "2026-10-26T19:30",
+      "type": "Yoga",
+      "name": "Tortura Yoga",
+      "distance_km": 0.0,
+      "duration_sec": 1481,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": null,
+      "hr_max": null,
+      "elevation": 0,
+      "suffer_score": null
+    },
     {
       "date": "2026-10-26",
       "datetime": "2026-10-26T12:34",
@@ -6939,20 +6983,6 @@
       "hr_max": 162,
       "elevation": 12,
       "suffer_score": 59.0
-    },
-    {
-      "date": "2026-03-05",
-      "datetime": "2026-03-05T13:00",
-      "type": "Workout",
-      "name": "Afternoon HIIT",
-      "distance_km": 0.0,
-      "duration_sec": 3302,
-      "pace": null,
-      "pace_sec": null,
-      "hr_avg": 170,
-      "hr_max": 214,
-      "elevation": 0,
-      "suffer_score": 187.0
     }
   ],
   "current_week": [
@@ -6961,8 +6991,8 @@
       "day": "Lun",
       "day_num": 26,
       "month": "Ott",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [
         {
           "date": "2026-10-26",
@@ -6977,17 +7007,31 @@
           "hr_max": null,
           "elevation": 18,
           "suffer_score": null
+        },
+        {
+          "date": "2026-10-26",
+          "datetime": "2026-10-26T19:30",
+          "type": "Yoga",
+          "name": "Tortura Yoga",
+          "distance_km": 0.0,
+          "duration_sec": 1481,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": null,
+          "hr_max": null,
+          "elevation": 0,
+          "suffer_score": null
         }
       ],
       "total_km": 12.1,
-      "session_count": 1
+      "session_count": 2
     },
     {
       "date": "2026-10-27",
       "day": "Mar",
       "day_num": 27,
       "month": "Ott",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7049,19 +7093,7 @@
       "session_count": 0
     }
   ],
-  "health": {
-    "today": {},
-    "daily": [],
-    "summary_7d": {
-      "resting_hr_avg": null,
-      "resting_hr_min": null,
-      "sleep_avg_h": null,
-      "spo2_avg": null,
-      "weight_latest_kg": null,
-      "vo2max_latest": null
-    },
-    "recovery_score": 100
-  },
+  "health": {},
   "hyrox_predictor": {
     "estimated_time_sec": 4980,
     "estimated_time": "1:23:00",
@@ -7119,6 +7151,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-10-26"
+    "last_updated": "2026-10-27"
   }
 }
