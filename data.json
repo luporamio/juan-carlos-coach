@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-11-04 15:00",
+  "last_sync": "2026-11-04 23:53",
   "stats": {
     "7d": {
       "total_km": 45.7,
@@ -47,12 +47,12 @@
       "days": 30
     },
     "90d": {
-      "total_km": 362.7,
-      "run_sessions": 38,
-      "all_sessions": 63,
+      "total_km": 351.7,
+      "run_sessions": 37,
+      "all_sessions": 62,
       "avg_pace": 358,
-      "avg_hr": 144,
-      "total_elevation": 2948,
+      "avg_hr": 143,
+      "total_elevation": 2821,
       "best_pace": 319,
       "longest_run": 16.1,
       "days": 90
@@ -654,12 +654,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-08-06",
-        "pace_sec": 354,
-        "hr": 161,
-        "km": 11.0
-      },
       {
         "date": "2026-08-08",
         "pace_sec": 359,
@@ -4050,8 +4044,8 @@
     "90d": {
       "z1": 0,
       "z2": 6,
-      "z3": 66,
-      "z4": 29,
+      "z3": 68,
+      "z4": 26,
       "z5": 0
     },
     "365d": {
@@ -4106,10 +4100,10 @@
     },
     "90d": {
       "Run": {
-        "sessions": 38,
-        "total_km": 362.7,
-        "total_time_min": 2171,
-        "total_elevation": 2585
+        "sessions": 37,
+        "total_km": 351.7,
+        "total_time_min": 2106,
+        "total_elevation": 2458
       },
       "Workout": {
         "sessions": 15,
