@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-11-04 23:53",
+  "last_sync": "2026-11-05 14:05",
   "stats": {
     "7d": {
       "total_km": 45.7,
@@ -7153,8 +7153,8 @@
       "day": "Mer",
       "day_num": 4,
       "month": "Nov",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [
         {
           "date": "2026-11-04",
@@ -7179,7 +7179,7 @@
       "day": "Gio",
       "day_num": 5,
       "month": "Nov",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7219,19 +7219,7 @@
       "session_count": 0
     }
   ],
-  "health": {
-    "today": {},
-    "daily": [],
-    "summary_7d": {
-      "resting_hr_avg": null,
-      "resting_hr_min": null,
-      "sleep_avg_h": null,
-      "spo2_avg": null,
-      "weight_latest_kg": null,
-      "vo2max_latest": null
-    },
-    "recovery_score": 100
-  },
+  "health": {},
   "hyrox_predictor": {
     "estimated_time_sec": 4957,
     "estimated_time": "1:22:37",
@@ -7289,6 +7277,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-11-04"
+    "last_updated": "2026-11-05"
   }
 }
