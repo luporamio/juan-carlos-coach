@@ -1,7 +1,7 @@
 {
   "athlete": {
     "name": "Mattia Bonetti",
-    "total_activities": 563
+    "total_activities": 565
   },
   "goals": [
     {
@@ -22,14 +22,14 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-11-12 14:43",
+  "last_sync": "2026-11-13 14:00",
   "stats": {
     "7d": {
       "total_km": 0.0,
       "run_sessions": 0,
-      "all_sessions": 1,
+      "all_sessions": 3,
       "avg_pace": null,
-      "avg_hr": 146,
+      "avg_hr": 151,
       "total_elevation": 0,
       "best_pace": null,
       "longest_run": 0.0,
@@ -38,9 +38,9 @@
     "30d": {
       "total_km": 72.0,
       "run_sessions": 8,
-      "all_sessions": 13,
+      "all_sessions": 15,
       "avg_pace": 358,
-      "avg_hr": 148,
+      "avg_hr": 149,
       "total_elevation": 381,
       "best_pace": 319,
       "longest_run": 14.1,
@@ -51,7 +51,7 @@
       "run_sessions": 33,
       "all_sessions": 54,
       "avg_pace": 357,
-      "avg_hr": 146,
+      "avg_hr": 147,
       "total_elevation": 2273,
       "best_pace": 319,
       "longest_run": 15.3,
@@ -60,7 +60,7 @@
     "365d": {
       "total_km": 1483.1,
       "run_sessions": 172,
-      "all_sessions": 288,
+      "all_sessions": 290,
       "avg_pace": 360,
       "avg_hr": 143,
       "total_elevation": 28453,
@@ -71,13 +71,13 @@
     "all": {
       "total_km": 2650.8,
       "run_sessions": 349,
-      "all_sessions": 563,
+      "all_sessions": 565,
       "avg_pace": 358,
       "avg_hr": 143,
       "total_elevation": 34446,
       "best_pace": 291,
       "longest_run": 21.1,
-      "days": 563
+      "days": 565
     }
   },
   "weekly_volume": [
@@ -3963,9 +3963,15 @@
   "stats_by_type": {
     "7d": {
       "WeightTraining": {
+        "sessions": 2,
+        "total_km": 0.0,
+        "total_time_min": 100,
+        "total_elevation": 0
+      },
+      "Rowing": {
         "sessions": 1,
         "total_km": 0.0,
-        "total_time_min": 82,
+        "total_time_min": 46,
         "total_elevation": 0
       }
     },
@@ -3982,16 +3988,22 @@
         "total_time_min": 35,
         "total_elevation": 0
       },
+      "WeightTraining": {
+        "sessions": 2,
+        "total_km": 0.0,
+        "total_time_min": 100,
+        "total_elevation": 0
+      },
       "Yoga": {
         "sessions": 1,
         "total_km": 0.0,
         "total_time_min": 25,
         "total_elevation": 0
       },
-      "WeightTraining": {
+      "Rowing": {
         "sessions": 1,
         "total_km": 0.0,
-        "total_time_min": 82,
+        "total_time_min": 46,
         "total_elevation": 0
       }
     },
@@ -4003,9 +4015,9 @@
         "total_elevation": 2116
       },
       "Workout": {
-        "sessions": 15,
+        "sessions": 14,
         "total_km": 0.5,
-        "total_time_min": 334,
+        "total_time_min": 264,
         "total_elevation": 0
       },
       "Walk": {
@@ -4014,10 +4026,10 @@
         "total_time_min": 83,
         "total_elevation": 98
       },
-      "Swim": {
-        "sessions": 1,
+      "WeightTraining": {
+        "sessions": 2,
         "total_km": 0.0,
-        "total_time_min": 10,
+        "total_time_min": 100,
         "total_elevation": 0
       },
       "Hike": {
@@ -4032,10 +4044,10 @@
         "total_time_min": 25,
         "total_elevation": 0
       },
-      "WeightTraining": {
+      "Rowing": {
         "sessions": 1,
         "total_km": 0.0,
-        "total_time_min": 82,
+        "total_time_min": 46,
         "total_elevation": 0
       }
     },
@@ -4053,9 +4065,9 @@
         "total_elevation": 0
       },
       "WeightTraining": {
-        "sessions": 13,
+        "sessions": 14,
         "total_km": 0.0,
-        "total_time_min": 706,
+        "total_time_min": 724,
         "total_elevation": 0
       },
       "Walk": {
@@ -4105,6 +4117,12 @@
         "total_km": 0.0,
         "total_time_min": 25,
         "total_elevation": 0
+      },
+      "Rowing": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 46,
+        "total_elevation": 0
       }
     },
     "all": {
@@ -4127,9 +4145,9 @@
         "total_elevation": 1327
       },
       "WeightTraining": {
-        "sessions": 21,
+        "sessions": 22,
         "total_km": 0.0,
-        "total_time_min": 1296,
+        "total_time_min": 1314,
         "total_elevation": 0
       },
       "Ride": {
@@ -4173,10 +4191,44 @@
         "total_km": 0.0,
         "total_time_min": 25,
         "total_elevation": 0
+      },
+      "Rowing": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 46,
+        "total_elevation": 0
       }
     }
   },
   "recent_activities": [
+    {
+      "date": "2026-11-12",
+      "datetime": "2026-11-12T20:15",
+      "type": "WeightTraining",
+      "name": "Allenamento con i pesi serale",
+      "distance_km": 0.0,
+      "duration_sec": 1063,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": 143,
+      "hr_max": 179,
+      "elevation": 0,
+      "suffer_score": 24.0
+    },
+    {
+      "date": "2026-11-12",
+      "datetime": "2026-11-12T19:23",
+      "type": "Rowing",
+      "name": "Sessione di canottaggio serale",
+      "distance_km": 0.0,
+      "duration_sec": 2769,
+      "pace": null,
+      "pace_sec": null,
+      "hr_avg": 165,
+      "hr_max": 191,
+      "elevation": 0,
+      "suffer_score": 144.0
+    },
     {
       "date": "2026-11-11",
       "datetime": "2026-11-11T13:02",
@@ -6948,34 +7000,6 @@
       "hr_max": 185,
       "elevation": 21,
       "suffer_score": 86.0
-    },
-    {
-      "date": "2026-03-15",
-      "datetime": "2026-03-15T10:13",
-      "type": "Run",
-      "name": "Lungo lento like the pro",
-      "distance_km": 15.02,
-      "duration_sec": 5586,
-      "pace": "6:12/km",
-      "pace_sec": 372,
-      "hr_avg": 147,
-      "hr_max": 169,
-      "elevation": 3,
-      "suffer_score": 145.0
-    },
-    {
-      "date": "2026-03-14",
-      "datetime": "2026-03-14T16:54",
-      "type": "Run",
-      "name": "Afternoon Run",
-      "distance_km": 7.6,
-      "duration_sec": 2689,
-      "pace": "5:54/km",
-      "pace_sec": 354,
-      "hr_avg": 160,
-      "hr_max": 220,
-      "elevation": 21,
-      "suffer_score": 99.0
     }
   ],
   "current_week": [
@@ -7032,18 +7056,47 @@
       "day": "Gio",
       "day_num": 12,
       "month": "Nov",
-      "is_today": true,
-      "is_past": false,
-      "activities": [],
+      "is_today": false,
+      "is_past": true,
+      "activities": [
+        {
+          "date": "2026-11-12",
+          "datetime": "2026-11-12T19:23",
+          "type": "Rowing",
+          "name": "Sessione di canottaggio serale",
+          "distance_km": 0.0,
+          "duration_sec": 2769,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": 165,
+          "hr_max": 191,
+          "elevation": 0,
+          "suffer_score": 144.0
+        },
+        {
+          "date": "2026-11-12",
+          "datetime": "2026-11-12T20:15",
+          "type": "WeightTraining",
+          "name": "Allenamento con i pesi serale",
+          "distance_km": 0.0,
+          "duration_sec": 1063,
+          "pace": null,
+          "pace_sec": null,
+          "hr_avg": 143,
+          "hr_max": 179,
+          "elevation": 0,
+          "suffer_score": 24.0
+        }
+      ],
       "total_km": 0,
-      "session_count": 0
+      "session_count": 2
     },
     {
       "date": "2026-11-13",
       "day": "Ven",
       "day_num": 13,
       "month": "Nov",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7130,6 +7183,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-11-12"
+    "last_updated": "2026-11-13"
   }
 }
