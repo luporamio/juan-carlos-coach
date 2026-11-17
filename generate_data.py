@@ -140,7 +140,8 @@ def clean_activity(a):
         "pace": format_pace(a.get("average_speed", 0)) if a.get("type") in RUN_TYPES else None,
         "pace_sec": pace_sec(a.get("average_speed", 0)) if a.get("type") in RUN_TYPES else None,
         "hr_avg": round(a["average_heartrate"]) if a.get("average_heartrate") else None,
-        "hr_max": round(a["max_heartrate"]) if a.get("max_heartrate") else None,
+        # Oltre 200 bpm è un picco del sensore: meglio nessun dato che un dato falso
+        "hr_max": round(a["max_heartrate"]) if a.get("max_heartrate") and a["max_heartrate"] <= 200 else None,
         "elevation": int(a.get("total_elevation_gain", 0)),
         "suffer_score": a.get("suffer_score"),
     }

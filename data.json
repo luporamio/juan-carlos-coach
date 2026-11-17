@@ -22,7 +22,7 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-11-17 09:43",
+  "last_sync": "2026-11-17 09:58",
   "stats": {
     "7d": {
       "total_km": 25.4,
@@ -4584,7 +4584,7 @@
       "pace": "5:35/km",
       "pace_sec": 335,
       "hr_avg": 160,
-      "hr_max": 202,
+      "hr_max": null,
       "elevation": 17,
       "suffer_score": 71.0
     },
@@ -5718,7 +5718,7 @@
       "pace": "6:49/km",
       "pace_sec": 409,
       "hr_avg": 144,
-      "hr_max": 218,
+      "hr_max": null,
       "elevation": 246,
       "suffer_score": 119.0
     },
@@ -6054,7 +6054,7 @@
       "pace": "5:29/km",
       "pace_sec": 329,
       "hr_avg": 155,
-      "hr_max": 220,
+      "hr_max": null,
       "elevation": 165,
       "suffer_score": 119.0
     },
@@ -6250,7 +6250,7 @@
       "pace": "5:57/km",
       "pace_sec": 357,
       "hr_avg": 158,
-      "hr_max": 216,
+      "hr_max": null,
       "elevation": 85,
       "suffer_score": 90.0
     },
@@ -6306,7 +6306,7 @@
       "pace": null,
       "pace_sec": null,
       "hr_avg": 162,
-      "hr_max": 220,
+      "hr_max": null,
       "elevation": 0,
       "suffer_score": 189.0
     },
@@ -6390,7 +6390,7 @@
       "pace": "4:45/km",
       "pace_sec": 285,
       "hr_avg": 177,
-      "hr_max": 220,
+      "hr_max": null,
       "elevation": 2,
       "suffer_score": 8.0
     },
@@ -6796,7 +6796,7 @@
       "pace": "6:50/km",
       "pace_sec": 410,
       "hr_avg": 161,
-      "hr_max": 220,
+      "hr_max": null,
       "elevation": 135,
       "suffer_score": 164.0
     },
@@ -6810,7 +6810,7 @@
       "pace": "5:47/km",
       "pace_sec": 347,
       "hr_avg": 167,
-      "hr_max": 220,
+      "hr_max": null,
       "elevation": 151,
       "suffer_score": 265.0
     },
@@ -6908,7 +6908,7 @@
       "pace": "5:18/km",
       "pace_sec": 318,
       "hr_avg": 172,
-      "hr_max": 220,
+      "hr_max": null,
       "elevation": 79,
       "suffer_score": 146.0
     },
