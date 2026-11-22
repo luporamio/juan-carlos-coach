@@ -22,17 +22,17 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-11-21 14:17",
+  "last_sync": "2026-11-22 14:09",
   "stats": {
     "7d": {
-      "total_km": 25.4,
-      "run_sessions": 3,
-      "all_sessions": 9,
-      "avg_pace": 361,
-      "avg_hr": 126,
-      "total_elevation": 163,
-      "best_pace": 355,
-      "longest_run": 10.0,
+      "total_km": 7.4,
+      "run_sessions": 1,
+      "all_sessions": 7,
+      "avg_pace": 374,
+      "avg_hr": 118,
+      "total_elevation": 92,
+      "best_pace": 374,
+      "longest_run": 7.4,
       "days": 7
     },
     "30d": {
@@ -542,18 +542,6 @@
   ],
   "pace_trend": {
     "7d": [
-      {
-        "date": "2026-11-14",
-        "pace_sec": 355,
-        "hr": 156,
-        "km": 8.0
-      },
-      {
-        "date": "2026-11-15",
-        "pace_sec": 355,
-        "hr": 158,
-        "km": 10.0
-      },
       {
         "date": "2026-11-16",
         "pace_sec": 374,
@@ -3999,17 +3987,17 @@
   },
   "stats_by_type": {
     "7d": {
-      "Run": {
-        "sessions": 3,
-        "total_km": 25.4,
-        "total_time_min": 153,
-        "total_elevation": 116
-      },
       "WeightTraining": {
         "sessions": 3,
         "total_km": 0.0,
         "total_time_min": 166,
         "total_elevation": 0
+      },
+      "Run": {
+        "sessions": 1,
+        "total_km": 7.4,
+        "total_time_min": 46,
+        "total_elevation": 45
       },
       "Yoga": {
         "sessions": 1,
@@ -7226,8 +7214,8 @@
       "day": "Sab",
       "day_num": 21,
       "month": "Nov",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -7237,7 +7225,7 @@
       "day": "Dom",
       "day_num": 22,
       "month": "Nov",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7302,6 +7290,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-11-21"
+    "last_updated": "2026-11-22"
   }
 }
