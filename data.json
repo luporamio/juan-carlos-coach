@@ -22,14 +22,14 @@
       "partner": "Vittoria"
     }
   ],
-  "last_sync": "2026-11-25 16:52",
+  "last_sync": "2026-11-26 16:29",
   "stats": {
     "7d": {
       "total_km": 8.0,
       "run_sessions": 2,
-      "all_sessions": 7,
+      "all_sessions": 5,
       "avg_pace": 218,
-      "avg_hr": 117,
+      "avg_hr": 116,
       "total_elevation": 43,
       "best_pace": 386,
       "longest_run": 8.0,
@@ -38,7 +38,7 @@
     "30d": {
       "total_km": 84.3,
       "run_sessions": 11,
-      "all_sessions": 26,
+      "all_sessions": 25,
       "avg_pace": 331,
       "avg_hr": 134,
       "total_elevation": 442,
@@ -47,12 +47,12 @@
       "days": 30
     },
     "90d": {
-      "total_km": 277.3,
-      "run_sessions": 33,
-      "all_sessions": 58,
-      "avg_pace": 346,
-      "avg_hr": 142,
-      "total_elevation": 1880,
+      "total_km": 268.9,
+      "run_sessions": 32,
+      "all_sessions": 56,
+      "avg_pace": 345,
+      "avg_hr": 141,
+      "total_elevation": 1763,
       "best_pace": 319,
       "longest_run": 14.1,
       "days": 90
@@ -624,12 +624,6 @@
       }
     ],
     "90d": [
-      {
-        "date": "2026-08-28",
-        "pace_sec": 374,
-        "hr": 148,
-        "km": 8.4
-      },
       {
         "date": "2026-08-31",
         "pace_sec": 327,
@@ -3990,8 +3984,8 @@
     "90d": {
       "z1": 3,
       "z2": 7,
-      "z3": 70,
-      "z4": 20,
+      "z3": 69,
+      "z4": 21,
       "z5": 0
     },
     "365d": {
@@ -4012,15 +4006,9 @@
   "stats_by_type": {
     "7d": {
       "WeightTraining": {
-        "sessions": 3,
-        "total_km": 0.0,
-        "total_time_min": 166,
-        "total_elevation": 0
-      },
-      "Workout": {
         "sessions": 2,
         "total_km": 0.0,
-        "total_time_min": 149,
+        "total_time_min": 88,
         "total_elevation": 0
       },
       "Run": {
@@ -4028,6 +4016,12 @@
         "total_km": 8.0,
         "total_time_min": 52,
         "total_elevation": 43
+      },
+      "Workout": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 138,
+        "total_elevation": 0
       }
     },
     "30d": {
@@ -4049,16 +4043,16 @@
         "total_time_min": 184,
         "total_elevation": 0
       },
-      "Yoga": {
-        "sessions": 2,
-        "total_km": 0.0,
-        "total_time_min": 44,
-        "total_elevation": 0
-      },
       "Rowing": {
         "sessions": 1,
         "total_km": 0.0,
         "total_time_min": 46,
+        "total_elevation": 0
+      },
+      "Yoga": {
+        "sessions": 1,
+        "total_km": 0.0,
+        "total_time_min": 19,
         "total_elevation": 0
       },
       "Walk": {
@@ -4070,15 +4064,15 @@
     },
     "90d": {
       "Run": {
-        "sessions": 33,
-        "total_km": 277.3,
-        "total_time_min": 1640,
-        "total_elevation": 1743
+        "sessions": 32,
+        "total_km": 268.9,
+        "total_time_min": 1587,
+        "total_elevation": 1626
       },
       "Workout": {
-        "sessions": 13,
+        "sessions": 12,
         "total_km": 0.5,
-        "total_time_min": 355,
+        "total_time_min": 350,
         "total_elevation": 0
       },
       "WeightTraining": {
@@ -7120,8 +7114,8 @@
       "day": "Mer",
       "day_num": 25,
       "month": "Nov",
-      "is_today": true,
-      "is_past": false,
+      "is_today": false,
+      "is_past": true,
       "activities": [],
       "total_km": 0,
       "session_count": 0
@@ -7131,7 +7125,7 @@
       "day": "Gio",
       "day_num": 26,
       "month": "Nov",
-      "is_today": false,
+      "is_today": true,
       "is_past": false,
       "activities": [],
       "total_km": 0,
@@ -7229,6 +7223,6 @@
       "note": "Con piano Z2 costante + 40km/sett entro agosto + training stazioni da settembre"
     },
     "estimated_weeks_to_target": 32,
-    "last_updated": "2026-11-25"
+    "last_updated": "2026-11-26"
   }
 }
